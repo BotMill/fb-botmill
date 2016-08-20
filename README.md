@@ -38,8 +38,8 @@ To complete your first bot, all you have to do is write the definition class. Th
 
       // Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
 	  	FaceBot bot = new FaceBot();
-		  bot.addEventCallbackHandler(new MessageEventAutoReply("Hi",
-				  new MessageAutoReply("Hello World!")));
+		  bot.addActionFrame(new MessageEvent("Hi"),
+				  new MessageAutoReply("Hello World!"));
       }
     }
 

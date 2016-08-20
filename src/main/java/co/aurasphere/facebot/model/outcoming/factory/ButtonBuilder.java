@@ -19,9 +19,12 @@ public abstract class ButtonBuilder extends FaceBotBean {
 		this.buttons.add(button);
 	}
 
-	private Button phoneNumberButton() {
-		// TODO
-		return null;
+	protected void addPhoneNumberButtonInternal(String title, String phoneNumber) {
+		if (this.buttons == null) {
+			this.buttons = new ArrayList<Button>();
+		}
+		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
+		this.buttons.add(button);
 	}
 
 	protected void addPostbackButtonInternal(String title, String payload) {

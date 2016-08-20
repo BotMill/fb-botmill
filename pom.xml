@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere</groupId>
 	<artifactId>facebot</artifactId>
-	<version>0.0.1</version>
+	<version>1.0.0</version>
 	<name>FaceBot</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
 
@@ -43,14 +43,6 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.0.13</version>
 		</dependency>
-		
-		<!-- Utilities -->
-		<dependency>
-			<groupId>co.aurasphere</groupId>
-			<artifactId>viral</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		
 
 	</dependencies>
 </project>

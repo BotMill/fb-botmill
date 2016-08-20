@@ -1,15 +1,15 @@
-package co.aurasphere.facebot.event.reply;
+package co.aurasphere.facebot.autoreply;
 
 import org.apache.http.entity.StringEntity;
 
 import co.aurasphere.facebot.bean.FaceBotNetworkAwareBean;
-import co.aurasphere.facebot.event.EventCallbackHandler;
+import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 
 /**
  * An interface that represents an automatic reply to an event. AutoReply are
- * used in conjuction with {@link EventCallbackHandler} in order to handle an
+ * used in conjuction with {@link FaceBotEvent} in order to handle an
  * Facebook's Messenger Platform callback automatically, using the delegation
  * design pattern.
  * 

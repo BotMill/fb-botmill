@@ -46,9 +46,9 @@ public class GenericTemplateElementBuilder extends ButtonBuilder {
 		return this;
 	}
 
-	public GenericTemplateElementBuilder addPhoneNumberButton() {
-		// TODO
-		return null;
+	public GenericTemplateElementBuilder addPhoneNumberButton(String title, String phoneNumber) {
+		addPhoneNumberButtonInternal(title, phoneNumber);
+		return this;
 	}
 
 	public GenericTemplateElementBuilder addPostbackButton(String title, String payload) {

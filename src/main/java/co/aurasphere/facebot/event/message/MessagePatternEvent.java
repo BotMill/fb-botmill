@@ -2,19 +2,19 @@ package co.aurasphere.facebot.event.message;
 
 import java.util.regex.Pattern;
 
-import co.aurasphere.facebot.event.EventCallbackHandler;
+import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.event.base.BasePatternEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 
 /**
- * An {@link EventCallbackHandler} that processes all the incoming callbacks
+ * An {@link FaceBotEvent} that processes all the incoming callbacks
  * that contains a text message which matches against a defined pattern from
  * Facebook's Messenger Platform.
  * 
  * @author Donato
  * @date 31/lug/2016
  */
-public abstract class MessagePatternEvent extends BasePatternEvent {
+public class MessagePatternEvent extends BasePatternEvent {
 
 	/**
 	 * @see BasePatternEvent#BasePatternEvent(Pattern)

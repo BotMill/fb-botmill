@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.exception;
+package co.aurasphere.facebot.validator;
 
 /**
  * Exception used to handle an invalid response from a FaceBot.

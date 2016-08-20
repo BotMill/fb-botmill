@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.event.reply;
+package co.aurasphere.facebot.autoreply;
 
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;

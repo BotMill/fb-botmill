@@ -1,14 +1,14 @@
-package co.aurasphere.facebot.event.reply;
+package co.aurasphere.facebot.autoreply;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.exception.FaceBotIllegalAttachmentException;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
+import co.aurasphere.facebot.validator.FaceBotIllegalAttachmentException;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**

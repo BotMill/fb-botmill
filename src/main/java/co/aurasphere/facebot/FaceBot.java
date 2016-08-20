@@ -3,13 +3,15 @@ package co.aurasphere.facebot;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.facebot.event.EventCallbackHandler;
+import co.aurasphere.facebot.actionframe.ActionFrame;
+import co.aurasphere.facebot.autoreply.AutoReply;
+import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * Class that represents a FaceBot. Each FaceBot has a list of
- * {@link EventCallbackHandler}. An event is a callback from Facebook Messenger
+ * {@link FaceBotEvent}. An event is a callback from Facebook Messenger
  * Platform. There may be different events, according to what your app has
  * registered for (for more info check the link below). At each callback
  * received from Facebook, all registered FaceBots callbacks handler are
@@ -26,10 +28,9 @@ import co.aurasphere.facebot.validator.FaceBotValidator;
 public class FaceBot {
 
 	/**
-	 * A list of registered {@link EventCallbackHandler} for the current
-	 * FaceBot.
+	 * A list of registered {@link FaceBotEvent} for the current FaceBot.
 	 */
-	private List<EventCallbackHandler> callbackHandlerList;
+	private List<ActionFrame> actionFrameList;
 
 	/**
 	 * The policy this bot follows when processing the callback handler list.
@@ -54,44 +55,53 @@ public class FaceBot {
 	 *            chain.
 	 */
 	public FaceBot(FaceBotPolicy policy) {
-		FaceBotValidator.notNull(policy, "FaceBotPolicy for FaceBot");
+		FaceBotValidator.notNull(policy, "FaceBotPolicy");
 		this.policy = policy;
-		this.callbackHandlerList = new ArrayList<EventCallbackHandler>();
+		this.actionFrameList = new ArrayList<ActionFrame>();
 		FaceBotContext.getInstance().register(this);
 	}
 
 	/**
-	 * Adds an {@link EventCallbackHandler} to this FaceBot.
+	 * Adds an {@link ActionFrame} to this FaceBot.
 	 * 
-	 * @param eventCallbackHandler
-	 *            the eventCallbackHandler to add.
+	 * @param actionFrame
+	 *            the actionFrame to add.
 	 */
-	public void addEventCallbackHandler(
-			EventCallbackHandler eventCallbackHandler) {
-		callbackHandlerList.add(eventCallbackHandler);
+	public void addActionFrame(ActionFrame actionFrame) {
+		actionFrameList.add(actionFrame);
 	}
 
 	/**
-	 * Checks if there's any registered {@link EventCallbackHandler} for the
-	 * incoming callback. If there's any, then the callback is handled. The
-	 * chain will be processed according to the {@link FaceBotPolicy} followed
-	 * by this FaceBot. If the policy is {@link FaceBotPolicy#FIRST_ONLY}, the
-	 * chain will be processed until the first callback matches. Otherwise, if
-	 * the policy is {@link FaceBotPolicy#PROCESS_ALL}, all the chain will
-	 * always be processed.
+	 * Adds an {@link ActionFrame} to this FaceBot.
+	 * 
+	 * @param event
+	 *            the {@link FaceBotEvent} to handle.
+	 * @param reply
+	 *            the {@link AutoReply} which should handle the event.
+	 */
+	public void addActionFrame(FaceBotEvent event, AutoReply reply) {
+		ActionFrame frame = new ActionFrame(event, reply);
+		actionFrameList.add(frame);
+	}
+
+	/**
+	 * Checks if there's any registered {@link FaceBotEvent} for the incoming
+	 * callback. If there's any, then the callback is handled. The chain will be
+	 * processed according to the {@link FaceBotPolicy} followed by this
+	 * FaceBot. If the policy is {@link FaceBotPolicy#FIRST_ONLY}, the chain
+	 * will be processed until the first callback matches. Otherwise, if the
+	 * policy is {@link FaceBotPolicy#PROCESS_ALL}, all the chain will always be
+	 * processed.
 	 * 
 	 * @param envelope
 	 *            the incoming message.
 	 */
 	public void processMessage(MessageEnvelope envelope) {
-		for (EventCallbackHandler c : callbackHandlerList) {
-			if (c.verifyEventCondition(envelope)) {
-				c.handleCallback(envelope);
-
-				// If the policy is FIRST_ONLY stop processing the chain.
-				if (policy.equals(FaceBotPolicy.FIRST_ONLY)) {
-					break;
-				}
+		for (ActionFrame f : actionFrameList) {
+			// If the policy is FIRST_ONLY stop processing the chain at the
+			// first trigger.
+			if (f.process(envelope) && policy.equals(FaceBotPolicy.FIRST_ONLY)) {
+				break;
 			}
 		}
 	}

@@ -11,7 +11,6 @@ public class PostbackButton extends Button{
 		this.title = title;
 		this.type = type;
 		this.payload = payload;
-		// TODO: if payload is phone number then should match {'+' + country-code, area-code, local-number}
 	}
 
 	public String getPayload() {

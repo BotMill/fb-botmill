@@ -22,8 +22,7 @@ import co.aurasphere.facebot.model.incoming.MessengerCallback;
 import co.aurasphere.facebot.model.incoming.MessengerCallbackEntry;
 import co.aurasphere.facebot.util.FaceBotConstants;
 import co.aurasphere.facebot.util.JsonUtils;
-import co.aurasphere.viral.string.StringConversions;
-import co.aurasphere.viral.web.servlet.ServletUtils;
+import co.aurasphere.facebot.util.StringUtils;
 
 /**
  * Main Servlet for FaceBot framework. This servlet requires an init-param
@@ -133,9 +132,11 @@ public class FaceBotServlet extends HttpServlet {
 		String validationToken = FaceBotContext.getInstance()
 				.getValidationToken();
 		Map<String, String[]> parameters = req.getParameterMap();
-		String hubMode = ServletUtils.safeUnwrapGetParameters(parameters.get(HUB_MODE_PARAMETER));
-		String hubToken = ServletUtils.safeUnwrapGetParameters(parameters.get(HUB_VERIFY_TOKEN_PARAMETER));
-		String hubChallenge = ServletUtils.safeUnwrapGetParameters(parameters
+		String hubMode = safeUnwrapGetParameters(parameters
+				.get(HUB_MODE_PARAMETER));
+		String hubToken = safeUnwrapGetParameters(parameters
+				.get(HUB_VERIFY_TOKEN_PARAMETER));
+		String hubChallenge = safeUnwrapGetParameters(parameters
 				.get(HUB_CHALLENGE_PARAMETER));
 
 		// Checks parameters and responds according to that.
@@ -166,7 +167,7 @@ public class FaceBotServlet extends HttpServlet {
 		MessengerCallback callback = null;
 
 		// Extrapolates and logs the JSON for debugging.
-		String json = StringConversions.readerToString(req.getReader());
+		String json = StringUtils.readerToString(req.getReader());
 		logger.debug("JSON input: " + json);
 
 		// Parses the request as a MessengerCallback.
@@ -195,4 +196,23 @@ public class FaceBotServlet extends HttpServlet {
 			}
 		}
 	}
+
+	/**
+	 * Method which returns the first String in a String array if present or the
+	 * empty String otherwise. Used to unwrap the GET arguments from an
+	 * {@link HttpServletRequest#getParameterMap()} which returns a String array
+	 * for each GET parameter.
+	 * 
+	 * @param parameter
+	 *            the String array to unwrap.
+	 * @return the first String of the array if found or the empty String
+	 *         otherwise.
+	 */
+	private static String safeUnwrapGetParameters(String[] parameter) {
+		if (parameter == null || parameter[0] == null) {
+			return "";
+		}
+		return parameter[0];
+	}
+
 }

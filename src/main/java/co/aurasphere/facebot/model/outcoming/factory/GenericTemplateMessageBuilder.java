@@ -6,7 +6,7 @@ import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.template.generic.GenericTemplateElement;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
-public class GenericTemplateMessageBuilder extends PayloadDelegatorBuilder implements FaceBotResponseBuilder{
+public class GenericTemplateMessageBuilder extends PayloadDelegatorBuilder {
 	
 	private GenericTemplateBuilder<GenericTemplateMessageBuilder> builder;
 	

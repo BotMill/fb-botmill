@@ -1,9 +1,8 @@
 package co.aurasphere.facebot.model.outcoming.factory;
 
-import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.model.outcoming.payload.Payload;
 
-public abstract class PayloadDelegatorBuilder extends FaceBotBean implements FaceBotResponseBuilder{
+public abstract class PayloadDelegatorBuilder extends FaceBotMockableBuilder{
 
 	protected Payload payload;
 	

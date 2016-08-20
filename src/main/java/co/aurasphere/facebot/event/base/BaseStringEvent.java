@@ -1,7 +1,7 @@
 package co.aurasphere.facebot.event.base;
 
 import co.aurasphere.facebot.bean.FaceBotBean;
-import co.aurasphere.facebot.event.EventCallbackHandler;
+import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
@@ -11,7 +11,7 @@ import co.aurasphere.facebot.validator.FaceBotValidator;
  * @date 08/ago/2016
  */
 public abstract class BaseStringEvent extends FaceBotBean implements
-		EventCallbackHandler {
+		FaceBotEvent {
 
 	/**
 	 * The expected string from the Facebook Messenger Platform callback in
@@ -38,6 +38,12 @@ public abstract class BaseStringEvent extends FaceBotBean implements
 		FaceBotValidator.notEmpty(expectedString, "Expected string for Event");
 		this.expectedString = expectedString;
 		this.caseSensitive = caseSensitive;
+	}
+	
+	public BaseStringEvent(String expectedString) {
+		FaceBotValidator.notEmpty(expectedString, "Expected string for Event");
+		this.expectedString = expectedString;
+		this.caseSensitive = true;
 	}
 
 }

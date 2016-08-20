@@ -9,7 +9,6 @@ public class TextMessage extends Message {
 
 	public TextMessage(String message) {
 		this.text = message;
-		// TODO: text UTF-8, 320 max
 	}
 
 	public String getText() {

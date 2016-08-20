@@ -16,8 +16,7 @@ import co.aurasphere.facebot.util.FaceBotConstants;
  * @author Donato
  * @date 08/ago/2016
  */
-public class ButtonTemplateMessageBuilder extends PayloadDelegatorBuilder
-		implements FaceBotResponseBuilder {
+public class ButtonTemplateMessageBuilder extends PayloadDelegatorBuilder {
 
 	private ButtonTemplateBuilder<ButtonTemplateMessageBuilder> builder;
 
@@ -42,11 +41,11 @@ public class ButtonTemplateMessageBuilder extends PayloadDelegatorBuilder
 		return this;
 	}
 
-	//
-	// public ButtonTemplateMessageBuilder addPhoneNumberButton() {
-	// // TODO
-	// return null;
-	// }
+	public ButtonTemplateMessageBuilder addPhoneNumberButton(String title,
+			String phoneNumber) {
+		builder.addPhoneNumberButtonInternal(title, phoneNumber);
+		return this;
+	}
 
 	public ButtonTemplateMessageBuilder addPostbackButton(String title,
 			String payload) {

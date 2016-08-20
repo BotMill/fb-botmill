@@ -3,7 +3,7 @@ package co.aurasphere.facebot.event.base;
 import java.util.regex.Pattern;
 
 import co.aurasphere.facebot.bean.FaceBotBean;
-import co.aurasphere.facebot.event.EventCallbackHandler;
+import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
@@ -13,7 +13,7 @@ import co.aurasphere.facebot.validator.FaceBotValidator;
  * @date 08/ago/2016
  */
 public abstract class BasePatternEvent extends FaceBotBean implements
-		EventCallbackHandler {
+		FaceBotEvent {
 
 	/**
 	 * The pattern to match against the incoming text message.

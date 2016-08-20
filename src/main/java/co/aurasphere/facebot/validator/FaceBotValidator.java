@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.exception.FaceBotValidationException;
 
 /**
  * Utility class that performs argument validation. If a validation fails, an
@@ -34,13 +33,13 @@ public class FaceBotValidator {
 	 * @return true if the object is not null.
 	 */
 	public static boolean notNull(Object object, String variableName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		if (object == null) {
 			String callerName = getCallerName();
-			String message = variableName + " for "
-					+ callerName + " can't be null!";
+			String message = variableName + " for " + callerName
+					+ " can't be null!";
 			logAndThrow(message);
 		}
 		return true;
@@ -59,13 +58,13 @@ public class FaceBotValidator {
 	 * @return true if the String is not null and not empty.
 	 */
 	public static boolean notEmpty(String string, String variableName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		if (string == null || string.isEmpty()) {
 			String callerName = getCallerName();
-			String message = variableName + " for "
-					+ callerName + " can't be empty!";
+			String message = variableName + " for " + callerName
+					+ " can't be empty!";
 			logAndThrow(message);
 		}
 		return true;
@@ -79,8 +78,9 @@ public class FaceBotValidator {
 
 	private static String getCallerName() {
 		StackTraceElement[] stackTrace = new Exception().getStackTrace();
-		for(StackTraceElement e : stackTrace){
-			if(!e.getClassName().equals(FaceBotValidator.class.getCanonicalName()))
+		for (StackTraceElement e : stackTrace) {
+			if (!e.getClassName().equals(
+					FaceBotValidator.class.getCanonicalName()))
 				return e.getClassName();
 		}
 		return null;
@@ -104,7 +104,7 @@ public class FaceBotValidator {
 	 */
 	public static boolean shorterThanNotEmpty(String string, int length,
 			String variableName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		notEmpty(string, variableName);
@@ -114,14 +114,13 @@ public class FaceBotValidator {
 
 	public static boolean shorterThan(String string, int length,
 			String variableName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		if (string.length() > length) {
 			String callerName = getCallerName();
-			String message = variableName + " for "
-					+ callerName + " can't be longer than " + length
-					+ " characters!";
+			String message = variableName + " for " + callerName
+					+ " can't be longer than " + length + " characters!";
 			logAndThrow(message);
 		}
 		return true;
@@ -129,30 +128,43 @@ public class FaceBotValidator {
 
 	public static boolean notEqual(Object objectToCheck, Object objectTwo,
 			String variableName, String unacceptableVariableName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		notNull(objectToCheck, variableName);
 		if (objectToCheck.equals(objectTwo)) {
 			String callerName = getCallerName();
-			String message = variableName + " for "
-					+ callerName + " can't have the value "
-					+ unacceptableVariableName + "!";
+			String message = variableName + " for " + callerName
+					+ " can't have the value " + unacceptableVariableName + "!";
 			logAndThrow(message);
 		}
 		return true;
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static boolean notEmpty(Collection collection, String variableName){
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+	public static boolean notEmpty(Collection collection, String variableName) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		notNull(collection, variableName);
-		if(collection.isEmpty()){
+		if (collection.isEmpty()) {
 			String callerName = getCallerName();
-			String message = variableName + " for "
-					+ callerName + " can't be empty!";
+			String message = variableName + " for " + callerName
+					+ " can't be empty!";
+			logAndThrow(message);
+		}
+		return true;
+	}
+
+	public static boolean notEmpty(Object[] array, String variableName) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
+			return false;
+		}
+		notNull(array, variableName);
+		if (array.length == 0) {
+			String callerName = getCallerName();
+			String message = variableName + " for " + callerName
+					+ " can't be empty!";
 			logAndThrow(message);
 		}
 		return true;
@@ -161,66 +173,90 @@ public class FaceBotValidator {
 	@SuppressWarnings("rawtypes")
 	public static boolean lessElementsThanNotEmpty(List list, int maxElements,
 			String listName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
 		notEmpty(list, listName);
 		if (list.size() > maxElements) {
 			String callerName = getCallerName();
-			String message = listName + " for "
-					+ callerName + " can't have more than " + maxElements + "!";
-			logAndThrow(message);
-		}
-		return true;
-	}
-	
-	@SuppressWarnings("rawtypes")
-	public static boolean lessElementsThan(List list, int maxElements,
-			String listName) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
-			return false;
-		}
-		if (list != null && list.size() > maxElements) {
-			String callerName = getCallerName();
-			String message = listName + " for "
-					+ callerName + "can't have more than " + maxElements + "!";
+			String message = listName + " for " + callerName
+					+ " can't have more than " + maxElements + "!";
 			logAndThrow(message);
 		}
 		return true;
 	}
 
-	public static boolean onlyOneNotNull(String variableNames, Object... variables) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+	@SuppressWarnings("rawtypes")
+	public static boolean lessElementsThan(List list, int maxElements,
+			String listName) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
-		int notNullCounter = 0;
-		for(Object o : variables){
-			if(o != null){
-				notNullCounter++;
-			}
-		}
-		if (notNullCounter != 1){
+		if (list != null && list.size() > maxElements) {
 			String callerName = getCallerName();
-			String message = "Only one between [" + variableNames + "] for " + callerName + " must be not null.";
+			String message = listName + " for " + callerName
+					+ "can't have more than " + maxElements + "!";
 			logAndThrow(message);
 		}
 		return true;
 	}
-	
-	public static boolean atLeastOneNotNull(String variableNames, Object... variables) {
-		if(!FaceBotContext.getInstance().isValidationEnabled()){
+
+	public static boolean onlyOneNotNull(String variableNames,
+			Object... variables) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
 			return false;
 		}
-		for(Object o : variables){
-			if(o != null){
+		int notNullCounter = 0;
+		for (Object o : variables) {
+			if (o != null) {
+				notNullCounter++;
+			}
+		}
+		if (notNullCounter != 1) {
+			String callerName = getCallerName();
+			String message = "Only one between [" + variableNames + "] for "
+					+ callerName + " must be not null.";
+			logAndThrow(message);
+		}
+		return true;
+	}
+
+	public static boolean atLeastOneNotNull(String variableNames,
+			Object... variables) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
+			return false;
+		}
+		for (Object o : variables) {
+			if (o != null) {
 				return true;
 			}
 		}
+		String callerName = getCallerName();
+		String message = "At least one between [" + variableNames + "] for "
+				+ callerName + " must be not null.";
+		logAndThrow(message);
+
+		// Never reaches this.
+		return true;
+	}
+
+	public static boolean phoneNumberValid(String phoneNumber,
+			String variableName) {
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
+			return false;
+		}
+		notEmpty(phoneNumber, variableName);
+
+		if (!phoneNumber.startsWith("+")) {
 			String callerName = getCallerName();
-			String message = "At least one between [" + variableNames + "] for " + callerName + " must be not null.";
+			String message = variableName
+					+ " for "
+					+ callerName
+					+ " format mush be ‘+’ prefix followed by the country code, area code and local number.";
 			logAndThrow(message);
-			
-			// Never reaches this.
-			return true;
+		}
+
+		return true;
+
 	}
 }

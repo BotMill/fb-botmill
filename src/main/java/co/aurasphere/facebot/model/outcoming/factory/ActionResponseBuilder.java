@@ -1,6 +1,5 @@
 package co.aurasphere.facebot.model.outcoming.factory;
 
-import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.model.base.User;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
@@ -18,8 +17,7 @@ import co.aurasphere.facebot.validator.FaceBotValidator;
  * @author Donato
  * @date 08/ago/2016
  */
-public class ActionResponseBuilder extends FaceBotBean implements
-		FaceBotResponseBuilder {
+public class ActionResponseBuilder extends FaceBotMockableBuilder {
 
 	/**
 	 * The action to perform.
@@ -32,7 +30,7 @@ public class ActionResponseBuilder extends FaceBotBean implements
 	}
 
 	public FaceBotResponse build(MessageEnvelope envelope) {
-		User recipient = safeGetSender(envelope);
+		User recipient = getRecipient(envelope);
 		return new FaceBotActionResponse(recipient, action);
 	}
 

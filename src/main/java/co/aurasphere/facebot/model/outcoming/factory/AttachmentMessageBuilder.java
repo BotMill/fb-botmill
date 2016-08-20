@@ -1,6 +1,5 @@
 package co.aurasphere.facebot.model.outcoming.factory;
 
-import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.model.base.Attachment;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.base.User;
@@ -12,7 +11,7 @@ import co.aurasphere.facebot.model.outcoming.message.Message;
 import co.aurasphere.facebot.model.outcoming.payload.Payload;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
-public class AttachmentMessageBuilder extends FaceBotBean implements FaceBotResponseBuilder{
+public class AttachmentMessageBuilder extends FaceBotMockableBuilder{
 
 	private Attachment attachment;
 
@@ -30,7 +29,7 @@ public class AttachmentMessageBuilder extends FaceBotBean implements FaceBotResp
 	}
 
 	public FaceBotResponse build(MessageEnvelope envelope) {
-		User recipient = safeGetSender(envelope);
+		User recipient = getRecipient(envelope);
 		Message message = new AttachmentMessage(attachment);
 		return new FaceBotMessageResponse(recipient, message);
 	}

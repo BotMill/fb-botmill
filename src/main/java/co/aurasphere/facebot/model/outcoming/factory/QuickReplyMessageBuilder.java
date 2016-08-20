@@ -20,7 +20,7 @@ import co.aurasphere.facebot.validator.FaceBotValidator;
  * @author Donato
  * @date 08/ago/2016
  */
-public class QuickReplyMessageBuilder extends PayloadDelegatorBuilder implements FaceBotResponseBuilder {
+public class QuickReplyMessageBuilder extends PayloadDelegatorBuilder {
 
 	private List<QuickReply> quickReplies;
 	
@@ -81,7 +81,7 @@ public class QuickReplyMessageBuilder extends PayloadDelegatorBuilder implements
 	
 	public FaceBotResponse build(MessageEnvelope envelope) {
 		FaceBotValidator.onlyOneNotNull("Text Message, Attachment, Template", textMessage, attachment, payload);
-		User recipient = safeGetSender(envelope);
+		User recipient = getRecipient(envelope);
 		Message message = null;
 		if(textMessage != null){
 			message = new QuickReplyMessage(textMessage, quickReplies);

@@ -16,7 +16,7 @@ import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.util.FaceBotConstants;
 import co.aurasphere.facebot.util.HttpDeleteWithBody;
 import co.aurasphere.facebot.util.JsonUtils;
-import co.aurasphere.viral.string.StringConversions;
+import co.aurasphere.facebot.util.StringUtils;
 
 /**
  * Class that represents a FaceBot bean which can communicate through the
@@ -60,6 +60,7 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 
 	private static void post(HttpPost post) {
 		logger.trace("POST to Facebook...");
+		logger.debug(post.getRequestLine().toString());
 		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 		try {
 			HttpResponse response = httpClient.execute(post);
@@ -102,6 +103,7 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 						+ FaceBotConstants.FACEBOOK_THREAD_SETTINGS_URL
 						+ FaceBotContext.getInstance().getPageToken());
 		delete.setEntity(input);
+		logger.debug(delete.getRequestLine().toString());
 		try {
 			HttpResponse response = httpClient.execute(delete);
 			// TODO : better handling, model server response.
@@ -135,18 +137,18 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	 *            the object to convert to JSON.
 	 * @return a StringEntity object containing the object JSON.
 	 */
-	public static StringEntity toJson(Object object) {
+	protected static StringEntity toJson(Object object) {
 		logger.trace("Starting Json conversion...");
 		StringEntity input = null;
 		try {
 			input = new StringEntity((JsonUtils.getGson().toJson(object)));
 			input.setContentType("application/json");
-			logger.debug("Input preparato: {}",
-					StringConversions.inputStreamToString(input.getContent()));
+			logger.debug("Request: {}",
+					StringUtils.inputStreamToString(input.getContent()));
 		} catch (Exception e) {
 			logger.error("Error during JSON message creation: ", e);
 		}
 		return input;
 	}
-	
+
 }

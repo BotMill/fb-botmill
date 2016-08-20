@@ -3,7 +3,7 @@ package co.aurasphere.facebot;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.facebot.exception.FaceBotValidationException;
+import co.aurasphere.facebot.validator.FaceBotValidationException;
 import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
@@ -54,6 +54,10 @@ public class FaceBotContext {
 	 * {@link FaceBotValidationException}.
 	 */
 	private boolean validationEnabled;
+	
+	private boolean mockEnabled;
+	
+	private String facebookMockId;
 
 	/**
 	 * Default constructor. Initializes the registeredBots list. It's private
@@ -180,6 +184,19 @@ public class FaceBotContext {
 	 */
 	public void setValidationEnabled(boolean validationEnabled) {
 		this.validationEnabled = validationEnabled;
+	}
+
+	public boolean isMockEnabled() {
+		return mockEnabled;
+	}
+
+	public String getFacebookMockId() {
+		return facebookMockId;
+	}
+
+	public void setFacebookMockId(String facebookMockId) {
+		this.mockEnabled = true;
+		this.facebookMockId = facebookMockId;
 	}
 
 }

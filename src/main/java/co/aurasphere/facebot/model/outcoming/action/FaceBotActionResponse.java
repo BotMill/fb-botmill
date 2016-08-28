@@ -1,8 +1,9 @@
 package co.aurasphere.facebot.model.outcoming.action;
 
+import javax.validation.constraints.NotNull;
+
 import co.aurasphere.facebot.model.base.User;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,11 +17,11 @@ public class FaceBotActionResponse extends FaceBotResponse {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
 	@SerializedName("sender_action")
 	private TypingAction action;
 
 	public FaceBotActionResponse(User recipient, TypingAction action) {
-		FaceBotValidator.notNull(action, "Typing Action");
 		this.recipient = recipient;
 		this.action = action;
 	}

@@ -1,5 +1,7 @@
 package co.aurasphere.facebot.model.outcoming.template.button;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
 
 
@@ -7,6 +9,7 @@ public class WebUrlButton extends Button {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty
 	private String url;
 
 	/**

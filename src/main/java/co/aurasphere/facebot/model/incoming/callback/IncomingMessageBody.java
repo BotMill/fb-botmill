@@ -6,6 +6,8 @@ import co.aurasphere.facebot.model.base.Attachment;
 import co.aurasphere.facebot.model.outcoming.message.Message;
 import co.aurasphere.facebot.model.outcoming.quickreply.QuickReply;
 
+import com.google.gson.annotations.SerializedName;
+
 public class IncomingMessageBody extends Message{
 // message callback
 	private static final long serialVersionUID = 1L;
@@ -16,7 +18,8 @@ public class IncomingMessageBody extends Message{
 	
 	private String text;
 	
-	private QuickReply quick_reply;
+	@SerializedName("quick_reply")
+	private QuickReply quickReply;
 	
 	private List<Attachment> attachments;
 	
@@ -44,12 +47,12 @@ public class IncomingMessageBody extends Message{
 		this.text = text;
 	}
 
-	public QuickReply getQuick_reply() {
-		return quick_reply;
+	public QuickReply getQuickReply() {
+		return quickReply;
 	}
 
-	public void setQuick_reply(QuickReply quick_reply) {
-		this.quick_reply = quick_reply;
+	public void setQuickReply(QuickReply quickReply) {
+		this.quickReply = quickReply;
 	}
 
 	public List<Attachment> getAttachments() {

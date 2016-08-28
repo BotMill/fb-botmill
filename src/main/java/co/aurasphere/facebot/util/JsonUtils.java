@@ -1,6 +1,8 @@
 package co.aurasphere.facebot.util;
 
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -61,6 +63,23 @@ public class JsonUtils {
 					return context.serialize(src.name().toLowerCase());
 				}
 			});
+			final DecimalFormat formatter = new DecimalFormat("00");
+			// Serializes calendar in format YYYY-MM-DDThh:mm.
+			builder.registerTypeHierarchyAdapter(Calendar.class, new JsonSerializer<Calendar>() {
+
+				public JsonElement serialize(Calendar src, Type typeOfSrc,
+						JsonSerializationContext context) {
+					int year = src.get(Calendar.YEAR);
+					String month = formatter.format(Double.valueOf(src.get(Calendar.MONTH) + 1));
+					String day = formatter.format(Double.valueOf(src.get(Calendar.DAY_OF_MONTH)));
+					String hour = formatter.format(Double.valueOf(src.get(Calendar.HOUR_OF_DAY)));
+					String minute = formatter.format(Double.valueOf(src.get(Calendar.MINUTE)));
+					String formattedDate = year + "-" + month + "-" + day + "T" + hour + ":" + minute; 
+
+					return context.serialize(formattedDate);
+				}
+			});
+			
 			gson = builder.create();
 		}
 		return gson;

@@ -9,9 +9,9 @@ import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 
 /**
  * An interface that represents an automatic reply to an event. AutoReply are
- * used in conjuction with {@link FaceBotEvent} in order to handle an
- * Facebook's Messenger Platform callback automatically, using the delegation
- * design pattern.
+ * used in conjuction with {@link FaceBotEvent} in order to handle an Facebook's
+ * Messenger Platform callback automatically, using the delegation design
+ * pattern.
  * 
  * @author Donato
  * @date 31/lug/2016
@@ -27,8 +27,11 @@ public abstract class AutoReply extends FaceBotNetworkAwareBean {
 	public void reply(MessageEnvelope envelope) {
 		FaceBotResponse response = createResponse(envelope);
 		if (response != null) {
-			StringEntity jsonResponse = toJson(response);
-			postMessage(jsonResponse);
+			// If the response is valid, replies to it.
+			if (validate(response)) {
+				StringEntity jsonResponse = toJson(response);
+				postMessage(jsonResponse);
+			}
 		}
 	}
 

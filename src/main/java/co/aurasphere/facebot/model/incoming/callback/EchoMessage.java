@@ -5,6 +5,8 @@ import java.util.List;
 import co.aurasphere.facebot.model.base.Attachment;
 import co.aurasphere.facebot.model.outcoming.message.Message;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * An object that represents a message_echoes callback.
  * 
@@ -18,12 +20,14 @@ public class EchoMessage extends Message {
 	/**
 	 * Indicates the message sent from the page itself
 	 */
-	private boolean is_echo;
+	@SerializedName("is_echo")
+	private boolean isEcho;
 
 	/**
 	 * ID of the app from which the message was sent
 	 */
-	private String app_id;
+	@SerializedName("app_id")
+	private String appId;
 
 	/**
 	 * Custom string passed to the Send API as the metadata field
@@ -51,20 +55,20 @@ public class EchoMessage extends Message {
 	// TODO: custom JSON deserializer for legacy attachments and templates
 	private List<Attachment> attachments;
 
-	public boolean isIs_echo() {
-		return is_echo;
+	public boolean isEcho() {
+		return isEcho;
 	}
 
-	public void setIs_echo(boolean is_echo) {
-		this.is_echo = is_echo;
+	public void setIsEcho(boolean isEcho) {
+		this.isEcho = isEcho;
 	}
 
-	public String getApp_id() {
-		return app_id;
+	public String getAppId() {
+		return appId;
 	}
 
-	public void setApp_id(String app_id) {
-		this.app_id = app_id;
+	public void setAppId(String appId) {
+		this.appId = appId;
 	}
 
 	public String getMetadata() {

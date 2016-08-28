@@ -3,7 +3,6 @@ package co.aurasphere.facebot.autoreply;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * An {@link AutoReply} that replies with a specified message.
@@ -25,7 +24,6 @@ public class MessageAutoReply extends AutoReply {
 	 *            the reply message. It can't be null or empty.
 	 */
 	public MessageAutoReply(String replyMessage) {
-		FaceBotValidator.notEmpty(replyMessage, "Reply message");
 		this.replyMessage = replyMessage;
 	}
 

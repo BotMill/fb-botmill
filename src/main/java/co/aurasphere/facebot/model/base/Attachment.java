@@ -2,10 +2,14 @@ package co.aurasphere.facebot.model.base;
 
 import java.io.Serializable;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import co.aurasphere.facebot.model.outcoming.payload.Payload;
 
 /**
- * Represents an attachment that may be a file or a template.
+ * Represents a Facebook Messenger Platform attachment. It may be a file or a
+ * template.
  * 
  * @author Donato
  * @date 08/ago/2016
@@ -17,18 +21,21 @@ public class Attachment implements Serializable {
 	/**
 	 * The attachment type.
 	 */
+	@NotNull
 	private AttachmentType type;
 
 	/**
 	 * The payload of the attachment.
 	 */
+	@Valid
+	@NotNull
 	private Payload payload;
+	
+	public Attachment(){}
 
-	public Attachment() {}
-
-	public Attachment(Payload payload, AttachmentType type) {
-		this.payload = payload;
+	public Attachment(AttachmentType type, Payload payload) {
 		this.type = type;
+		this.payload = payload;
 	}
 
 	public AttachmentType getType() {

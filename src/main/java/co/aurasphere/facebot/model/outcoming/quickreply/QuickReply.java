@@ -2,19 +2,27 @@ package co.aurasphere.facebot.model.outcoming.quickreply;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.google.gson.annotations.SerializedName;
 
 public class QuickReply implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
 	@SerializedName("content_type")
 	private QuickReplyType contentType;
 	
-	// Max 20 char
+	@Size(max=20)
+	@NotEmpty
 	private String title;
 	
-	// Max 1000 char
+	@Size(max=1000)
+	@NotEmpty
 	private String payload;
 
 	public QuickReply(String title, String payload) {

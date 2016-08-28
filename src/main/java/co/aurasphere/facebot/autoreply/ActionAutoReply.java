@@ -4,7 +4,6 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.action.TypingAction;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * An {@link AutoReply} that replies with a {@link TypingAction}.
@@ -26,7 +25,6 @@ public class ActionAutoReply extends AutoReply {
 	 *            the action to perform. Can't be null.
 	 */
 	public ActionAutoReply(TypingAction action) {
-		FaceBotValidator.notNull(action, "Action");
 		this.action = action;
 	}
 

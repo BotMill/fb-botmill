@@ -2,6 +2,8 @@ package co.aurasphere.facebot.model.incoming.callback;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Represents an account linking incoming event.
  * @author Donato
@@ -19,7 +21,8 @@ public class AccountLinking implements Serializable{
 	/**
 	 * The authorization code for the user.
 	 */
-	private String authorization_code;
+	@SerializedName("authorization_code")
+	private String authorizationCode;
 
 	public String getStatus() {
 		return status;
@@ -29,11 +32,11 @@ public class AccountLinking implements Serializable{
 		this.status = status;
 	}
 
-	public String getAuthorization_code() {
-		return authorization_code;
+	public String getAuthorizationCode() {
+		return authorizationCode;
 	}
 
-	public void setAuthorization_code(String authorization_code) {
-		this.authorization_code = authorization_code;
+	public void setAuthorizationCode(String authorizationCode) {
+		this.authorizationCode = authorizationCode;
 	}
 }

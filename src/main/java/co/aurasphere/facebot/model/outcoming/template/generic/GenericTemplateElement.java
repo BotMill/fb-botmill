@@ -1,7 +1,13 @@
 package co.aurasphere.facebot.model.outcoming.template.generic;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 
@@ -11,6 +17,8 @@ public class GenericTemplateElement implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Size(max=80)
+	@NotEmpty
 	private String title;
 	
 	@SerializedName("item_url")
@@ -19,12 +27,16 @@ public class GenericTemplateElement implements Serializable{
 	@SerializedName("image_url")
 	private String imageUrl;
 	
+	@Size(max=80)
 	private String subtitle;
 	
+	@Valid
+	@Size(max=3)
 	private List<Button> buttons;
 
 	public GenericTemplateElement(String title){
 		this.title = title;
+		this.buttons = new ArrayList<Button>();
 	}
 	
 	public String getTitle() {
@@ -66,5 +78,9 @@ public class GenericTemplateElement implements Serializable{
 
 	public void setButtons(List<Button> buttons) {
 		this.buttons = buttons;
+	}
+
+	public void addButton(Button button) {
+		this.buttons.add(button);
 	}
 }

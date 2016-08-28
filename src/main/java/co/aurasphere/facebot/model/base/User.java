@@ -2,6 +2,8 @@ package co.aurasphere.facebot.model.base;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * An object that contains a Facebook's user ID.
  * @author Donato
@@ -14,6 +16,7 @@ public class User implements Serializable{
 	/**
 	 * The Facebook's user ID.
 	 */
+	@NotEmpty
 	private String id;
 	
 	public User(){}

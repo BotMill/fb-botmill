@@ -1,9 +1,12 @@
 package co.aurasphere.facebot.model.outcoming.payload;
 
-public class UrlPayload extends Payload {
+import org.hibernate.validator.constraints.NotEmpty;
+
+public class UrlPayload implements Payload {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty
 	private String url;
 	
 	public UrlPayload(String url){

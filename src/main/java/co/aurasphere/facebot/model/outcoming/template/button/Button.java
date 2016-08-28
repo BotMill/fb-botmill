@@ -2,6 +2,11 @@ package co.aurasphere.facebot.model.outcoming.template.button;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public abstract class Button implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -9,11 +14,14 @@ public abstract class Button implements Serializable{
 	/**
 	 * The button type.
 	 */
+	@NotNull
 	protected ButtonType type;
 	
 	/**
-	 * The button title. This field has a limit of 20 character.
+	 * The button title.
 	 */
+	@Size(max=20)
+	@NotEmpty
 	protected String title;
 
 	public ButtonType getType() {

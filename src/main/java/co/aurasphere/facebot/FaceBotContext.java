@@ -3,9 +3,6 @@ package co.aurasphere.facebot;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.facebot.validator.FaceBotValidationException;
-import co.aurasphere.facebot.validator.FaceBotValidator;
-
 /**
  * Class that contains all the context information used to handle FaceBots and
  * communicate with Facebook. The context is a singleton.
@@ -49,15 +46,9 @@ public class FaceBotContext {
 	private String pageToken;
 
 	/**
-	 * Boolean that indicates whether the {@link FaceBotValidator} is enabled or
-	 * not. If the validator is enabled an invalid message will throw a
-	 * {@link FaceBotValidationException}.
+	 * Boolean that indicates whether the validator is enabled or not.
 	 */
 	private boolean validationEnabled;
-	
-	private boolean mockEnabled;
-	
-	private String facebookMockId;
 
 	/**
 	 * Default constructor. Initializes the registeredBots list. It's private
@@ -80,7 +71,6 @@ public class FaceBotContext {
 	 *             if the FaceBot is null.
 	 */
 	public void register(FaceBot faceBot) {
-		FaceBotValidator.notNull(faceBot, "FaceBot");
 		this.registeredBots.add(faceBot);
 	}
 
@@ -121,7 +111,8 @@ public class FaceBotContext {
 
 	/**
 	 * Sets the validation token for the Facebook webhook. For more informations
-	 * read Facebook Messenger Platform documentation.
+	 * read Facebook Messenger Platform documentation. Deprecated. Use
+	 * {@link #setup(String, String)} instead.
 	 * 
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
@@ -130,6 +121,7 @@ public class FaceBotContext {
 	 * @param validationToken
 	 *            the validation token for the Facebook webhook.
 	 */
+	@Deprecated
 	public void setValidationToken(String validationToken) {
 		this.validationToken = validationToken;
 	}
@@ -150,7 +142,8 @@ public class FaceBotContext {
 
 	/**
 	 * Sets the validation token for the Facebook page. For more informations
-	 * read Facebook Messenger Platform documentation.
+	 * read Facebook Messenger Platform documentation. Deprecated. Use
+	 * {@link #setup(String, String)} instead.
 	 * 
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
@@ -159,6 +152,7 @@ public class FaceBotContext {
 	 * @param pageToken
 	 *            the validation token for the Facebook page.
 	 */
+	@Deprecated
 	public void setPageToken(String pageToken) {
 		this.pageToken = pageToken;
 	}
@@ -186,17 +180,21 @@ public class FaceBotContext {
 		this.validationEnabled = validationEnabled;
 	}
 
-	public boolean isMockEnabled() {
-		return mockEnabled;
-	}
-
-	public String getFacebookMockId() {
-		return facebookMockId;
-	}
-
-	public void setFacebookMockId(String facebookMockId) {
-		this.mockEnabled = true;
-		this.facebookMockId = facebookMockId;
+	/**
+	 * Convenience method for quickly setting up the FaceBot environment.
+	 * 
+	 * @param pageToken
+	 *            the validation token for the Facebook page.
+	 * @param validationToken
+	 *            the validation token for the Facebook webhook.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
+	 *      />Facebook Messenger Platform documentation</a>
+	 */
+	public void setup(String pageToken, String validationToken) {
+		this.pageToken = pageToken;
+		this.validationToken = validationToken;
 	}
 
 }

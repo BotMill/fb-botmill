@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.event.FaceBotEvent;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * Base event handler which occurs when a Pattern matches a String.
@@ -28,8 +27,6 @@ public abstract class BasePatternEvent extends FaceBotBean implements
 	 *            null.
 	 */
 	public BasePatternEvent(Pattern expectedPattern) {
-		FaceBotValidator.notNull(expectedPattern,
-				"Expected pattern for PatternEvent");
 		this.expectedPattern = expectedPattern;
 	}
 
@@ -41,8 +38,6 @@ public abstract class BasePatternEvent extends FaceBotBean implements
 	 *            null or empty.
 	 */
 	public BasePatternEvent(String expectedPattern) {
-		FaceBotValidator.notEmpty(expectedPattern,
-				"Expected pattern for PatternEvent");
 		this.expectedPattern = Pattern.compile(expectedPattern);
 	}
 

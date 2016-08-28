@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+
+	<!-- Console appender -->
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS, Europe/Rome} %-5level [%thread][%logger{0}] %m%n</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+	</appender>
+
+	<!-- Loggers -->
+	<logger name="co.aurasphere.facebot" level="DEBUG">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<root level="ERROR">
+	</root>
+
+</configuration>

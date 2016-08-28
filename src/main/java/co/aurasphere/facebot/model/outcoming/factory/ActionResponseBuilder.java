@@ -5,7 +5,6 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.action.FaceBotActionResponse;
 import co.aurasphere.facebot.model.outcoming.action.TypingAction;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * A builder for a response which contains and performs a {@link TypingAction}.
@@ -24,11 +23,21 @@ public class ActionResponseBuilder extends FaceBotMockableBuilder {
 	 */
 	private TypingAction action;
 
+	/**
+	 * Default constructor. Creates a builder for a response which contains and
+	 * performs a {@link TypingAction}.
+	 * 
+	 * @param action
+	 *            the action to perform.
+	 */
 	ActionResponseBuilder(TypingAction action) {
-		FaceBotValidator.notNull(action, "Action");
 		this.action = action;
 	}
 
+	/**
+	 * {@inheritDoc} It returns a {@link FaceBotActionResponse} with the
+	 * {@link TypyingAction} to perform.
+	 */
 	public FaceBotResponse build(MessageEnvelope envelope) {
 		User recipient = getRecipient(envelope);
 		return new FaceBotActionResponse(recipient, action);

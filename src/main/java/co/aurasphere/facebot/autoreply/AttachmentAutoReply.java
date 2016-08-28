@@ -3,13 +3,11 @@ package co.aurasphere.facebot.autoreply;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.facebot.validator.FaceBotIllegalAttachmentException;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * An {@link AutoReply} that replies with a file, video, image or audio
@@ -44,8 +42,6 @@ public class AttachmentAutoReply extends AutoReply {
 	 *            the URL pointing to the attachment.
 	 */
 	public AttachmentAutoReply(AttachmentType type, String url) {
-		FaceBotValidator.notNull(type, "Attachment Type");
-		FaceBotValidator.notEmpty(url, "URL");
 		this.type = type;
 		this.url = url;
 	}
@@ -74,9 +70,7 @@ public class AttachmentAutoReply extends AutoReply {
 			String message = "Illegal attachment of type [ " + type.name()
 					+ " ] for AttachmentAutoReply";
 			logger.error(message);
-			if (FaceBotContext.getInstance().isValidationEnabled()) {
-				throw new FaceBotIllegalAttachmentException(message);
-			}
+			throw new FaceBotIllegalAttachmentException(message);
 		}
 		return response;
 	}

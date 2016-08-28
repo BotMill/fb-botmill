@@ -10,6 +10,8 @@ import co.aurasphere.facebot.model.incoming.callback.Optin;
 import co.aurasphere.facebot.model.incoming.callback.Postback;
 import co.aurasphere.facebot.model.incoming.callback.Read;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * A generic incoming message envelope.
  * 
@@ -53,7 +55,8 @@ public class MessageEnvelope implements Serializable{
 	/**
 	 * Account linking callback content.
 	 */
-	private AccountLinking account_linking;
+	@SerializedName("account_linking")
+	private AccountLinking accountLinking;
 	
 	/**
 	 * message_deliveries callback content.
@@ -113,12 +116,12 @@ public class MessageEnvelope implements Serializable{
 		this.optin = optin;
 	}
 
-	public AccountLinking getAccount_linking() {
-		return account_linking;
+	public AccountLinking getAccountLinking() {
+		return accountLinking;
 	}
 
-	public void setAccount_linking(AccountLinking account_linking) {
-		this.account_linking = account_linking;
+	public void setAccountLinking(AccountLinking accountLinking) {
+		this.accountLinking = accountLinking;
 	}
 
 	public Delivery getDelivery() {

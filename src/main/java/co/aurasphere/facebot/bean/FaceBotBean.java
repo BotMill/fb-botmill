@@ -138,7 +138,7 @@ public class FaceBotBean {
 		if (envelope.getRead() != null) {
 			return FaceBotEventType.READ;
 		}
-		if (envelope.getAccount_linking() != null) {
+		if (envelope.getAccountLinking() != null) {
 			return FaceBotEventType.ACCOUNT_LINKING;
 		}
 		if (envelope.getOptin() != null) {

@@ -7,7 +7,6 @@ import co.aurasphere.facebot.actionframe.ActionFrame;
 import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * Class that represents a FaceBot. Each FaceBot has a list of
@@ -55,7 +54,9 @@ public class FaceBot {
 	 *            chain.
 	 */
 	public FaceBot(FaceBotPolicy policy) {
-		FaceBotValidator.notNull(policy, "FaceBotPolicy");
+		if (policy == null) {
+			policy = FaceBotPolicy.FIRST_ONLY;
+		}
 		this.policy = policy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
 		FaceBotContext.getInstance().register(this);

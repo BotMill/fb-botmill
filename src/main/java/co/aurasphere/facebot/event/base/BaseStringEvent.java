@@ -2,7 +2,6 @@ package co.aurasphere.facebot.event.base;
 
 import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.event.FaceBotEvent;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
 /**
  * Base event handler which occurs when an exact String is received.
@@ -35,13 +34,11 @@ public abstract class BaseStringEvent extends FaceBotBean implements
 	 *            caseSensitive.
 	 */
 	public BaseStringEvent(String expectedString, boolean caseSensitive) {
-		FaceBotValidator.notEmpty(expectedString, "Expected string for Event");
 		this.expectedString = expectedString;
 		this.caseSensitive = caseSensitive;
 	}
 	
 	public BaseStringEvent(String expectedString) {
-		FaceBotValidator.notEmpty(expectedString, "Expected string for Event");
 		this.expectedString = expectedString;
 		this.caseSensitive = true;
 	}

@@ -2,75 +2,152 @@ package co.aurasphere.facebot.model.outcoming.factory;
 
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.generic.GenericTemplateElement;
-import co.aurasphere.facebot.util.FaceBotConstants;
-import co.aurasphere.facebot.validator.FaceBotValidator;
 
-@SuppressWarnings(value = "rawtypes")
-public class GenericTemplateElementBuilder extends ButtonBuilder {
-	
+/**
+ * Builder for a {@link GenericTemplateElement}.
+ * 
+ * @author Donato
+ * @date 27/ago/2016
+ */
+public class GenericTemplateElementBuilder {
+
+	/**
+	 * The parent builder of this builder.
+	 */
 	private GenericTemplateBuilder parentBuilder;
-	
-	private String title;
-	
-	private String subtitle;
-	
-	private String itemUrl;
-	
-	private String imageUrl;
-	
-	GenericTemplateElementBuilder(String title, GenericTemplateBuilder parentBuilder){
-		FaceBotValidator.notNull(parentBuilder, "Parent builder");
-		FaceBotValidator.shorterThanNotEmpty(title, FaceBotConstants.GENERIC_TEMPLATE_TITLE_MAX_LENGHT, "Title");
+
+	/**
+	 * The element managed by this builder.
+	 */
+	private GenericTemplateElement element;
+
+	/**
+	 * Default constructor. Creates a builder for a
+	 * {@link GenericTemplateElement}.
+	 * 
+	 * @param title
+	 *            the title of the element.
+	 * @param parentBuilder
+	 *            the parent builder of this builder.
+	 */
+	GenericTemplateElementBuilder(String title,
+			GenericTemplateBuilder parentBuilder) {
 		this.parentBuilder = parentBuilder;
-		this.title = title;
-	}
-	
-	public GenericTemplateElementBuilder addSubtitle(String subtitle){
-		FaceBotValidator.shorterThan(subtitle, FaceBotConstants.GENERIC_TEMPLATE_SUBTITLE_MAX_LENGHT, "Subtitle");
-		this.subtitle = subtitle;
-		return this;
-	}
-	
-	public GenericTemplateElementBuilder addImageUrl(String imageUrl){
-		this.imageUrl = imageUrl;
-		return this;
-	}
-	
-	public GenericTemplateElementBuilder addItemUrl(String itemUrl){
-		this.itemUrl = itemUrl;
-		return this;
+		this.element = new GenericTemplateElement(title);
 	}
 
-	public GenericTemplateElementBuilder addUrlButton(String title, String url) {
-		addUrlButtonInternal(title, url);
-		return this;
-	}
-
-	public GenericTemplateElementBuilder addPhoneNumberButton(String title, String phoneNumber) {
-		addPhoneNumberButtonInternal(title, phoneNumber);
-		return this;
-	}
-
-	public GenericTemplateElementBuilder addPostbackButton(String title, String payload) {
-		addPostbackButtonInternal(title, payload);
-		return this;
-	}
-	
-	public GenericTemplateElementBuilder addButton(Button button){
-		addButtonInternal(button);
-		return this;
-	}
-	
-	public GenericTemplateBuilder build(){
-		FaceBotValidator.lessElementsThan(buttons, FaceBotConstants.BUTTONS_MAX_ELEMENTS, "Buttons");
-		FaceBotValidator.atLeastOneNotNull("Image URL, Subtitle, Buttons", imageUrl, subtitle, buttons);
-		
-		GenericTemplateElement element = new GenericTemplateElement(title);
+	/**
+	 * Sets a subtitle for the current {@link GenericTemplateElement}.
+	 * 
+	 * @param subtitle
+	 *            the subtitle to set.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder setSubtitle(String subtitle) {
 		element.setSubtitle(subtitle);
-		element.setItemUrl(itemUrl);
+		return this;
+	}
+
+	/**
+	 * Sets an image for the current {@link GenericTemplateElement}.
+	 * 
+	 * @param imageURL
+	 *            the URL of an image to set for this element.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder setImage(String imageUrl) {
 		element.setImageUrl(imageUrl);
-		element.setButtons(buttons);
-		
+		return this;
+	}
+
+	/**
+	 * Sets an URL for the current {@link GenericTemplateElement}. The URL will
+	 * be used to redirect the user when the element is clicked.
+	 * 
+	 * @param itemURL
+	 *            the URL to whom redirect when this element is clicked.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder setRedirectUrl(String itemUrl) {
+		element.setItemUrl(itemUrl);
+		return this;
+	}
+
+	/**
+	 * Adds a button which redirects to an URL when clicked to the current
+	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
+	 * element.
+	 * 
+	 * @param title
+	 *            the button label.
+	 * @param url
+	 *            the URL to whom redirect when clicked.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addUrlButton(String title, String url) {
+		Button button = ButtonFactory.createUrlButton(title, url);
+		this.element.addButton(button);
+		return this;
+	}
+
+	/**
+	 * Adds a button with a phone number to the current
+	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
+	 * element.
+	 * 
+	 * @param title
+	 *            the button label.
+	 * @param phoneNumber
+	 *            a phone number. Must be in the format '+' prefix followed by
+	 *            the country code, area code and local number.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addPhoneNumberButton(String title,
+			String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title,
+				phoneNumber);
+		this.element.addButton(button);
+		return this;
+	}
+
+	/**
+	 * Adds a button which sends a payload back when clicked to the current
+	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
+	 * element.
+	 * 
+	 * @param title
+	 *            the button label.
+	 * @param payload
+	 *            the payload to send back when clicked.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addPostbackButton(String title,
+			String payload) {
+		Button button = ButtonFactory.createPostbackButton(title, payload);
+		this.element.addButton(button);
+		return this;
+	}
+
+	/**
+	 * Adds a button to the current {@link GenericTemplateElement}. There can be
+	 * at most 3 buttons per element.
+	 * 
+	 * @param button
+	 *            the button to add.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addButton(Button button) {
+		this.element.addButton(button);
+		return this;
+	}
+
+	/**
+	 * Builds the current object, adds it to the parent builder and returns the
+	 * parent builder.
+	 * 
+	 * @return the parent builder of this builder.
+	 */
+	public GenericTemplateBuilder endElement() {
 		parentBuilder.addElement(element);
 		return parentBuilder;
 	}

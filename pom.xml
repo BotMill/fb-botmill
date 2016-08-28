@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere</groupId>
 	<artifactId>facebot</artifactId>
-	<version>1.1.1-beta</version>
+	<version>1.1.0</version>
 	<name>FaceBot</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
 

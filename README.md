@@ -3,11 +3,11 @@ A simple Java framework for building event-driven bots on Facebook's Messenger P
 
 The goal of FaceBot is making the Facebook's Messenger Platform easier: with FaceBot, you only need less than 5 lines of code to set up your own Messenger bot! 
 
-<b><h3>Premise</h3></b>
+**<h3>Premise</h3>**
 
 This tutorial will assume that you have already setup a Facebook page and application and you have a page token and a webhook validation token. If you don't, you can follow this link to Facebook's tutorial: https://developers.facebook.com/docs/messenger-platform/quickstart
 
-<b><h3>QuickStart</h3></b>
+**<h3>QuickStart</h3>**
 
 First of all, you need to register the FaceBotServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
@@ -32,11 +32,10 @@ To complete your first bot, all you have to do is write the definition class. Th
     public class MyFaceBotBehavior extends AbstractFaceBot {
   
       public void defineBehavior() {
-     		// Setting my tokens from Facebook.
-		FaceBotContext.getInstance().setPageToken("myFacebookPageToken");
-		FaceBotContext.getInstance().setValidationToken("myFacebookWebhookValidationToken");
+     	// Setting my tokens from Facebook (page token and validation token for webhook).
+		FaceBotContext.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
 
-     		// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
+     	// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
 	  	addActionFrame(new MessageEvent("Hi"),
 				  new MessageAutoReply("Hello World!"));
       }
@@ -46,7 +45,7 @@ For more information on other callbacks, framework features or how to create a d
 
 This project is a work in progress and any contribute is appreciated.
 
-<b><h3>What's currently supported</h3></b>
+**<h3>What's currently supported</h3>**
 
 FaceBot supports this Facebook Messenger Platform components:
 
@@ -80,7 +79,7 @@ FaceBot supports this Facebook Messenger Platform components:
 	- Get Started Button
 	- Persistent Menu
 	
-<b><h3>Coming next</h3></b>
+**<h3>Coming next</h3>**
 
 Here's what you can expect coming up in the next updates:
 

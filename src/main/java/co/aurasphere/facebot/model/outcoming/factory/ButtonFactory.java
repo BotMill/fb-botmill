@@ -4,6 +4,7 @@ import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.button.ButtonType;
 import co.aurasphere.facebot.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
+import co.aurasphere.facebot.model.outcoming.template.list.DefaultAction;
 
 /**
  * Factory class for building {@link Button} objects.
@@ -24,6 +25,16 @@ public class ButtonFactory {
 	 */
 	public static Button createUrlButton(String title, String url) {
 		return new WebUrlButton(title, url);
+	}
+	
+	/**
+	 * Creates a default action button (based on Web URL) for list template.
+	 * @param url
+	 * 			the redirect URL
+	 * @return a {@link DefaultAction}
+	 */
+	public static DefaultAction createDefaultActionButton(String url) {
+		return new DefaultAction(ButtonType.WEB_URL, url);
 	}
 
 	/**

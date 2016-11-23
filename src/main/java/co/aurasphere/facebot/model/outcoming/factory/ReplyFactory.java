@@ -55,6 +55,19 @@ public class ReplyFactory {
 	public static GenericTemplateBuilder addGenericTemplate() {
 		return new GenericTemplateBuilder();
 	}
+	
+	/**
+	 * Adds a List Template to the response.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/list-template"
+	 *      > Facebook's Messenger Platform Generic Template Documentation</a>
+	 * 
+	 * @return a builder for the template.
+	 */
+	public static ListTemplateBuilder addListTemplate() {
+		return new ListTemplateBuilder();
+	}
 
 	/**
 	 * Creates a response which contains only a text message.

@@ -1,11 +1,13 @@
 package co.aurasphere.facebot.demo.behavior;
-
 import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.autoreply.MessageAutoReply;
 import co.aurasphere.facebot.event.message.MessageEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
+import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
+import co.aurasphere.facebot.model.outcoming.template.list.DefaultAction;
+import co.aurasphere.facebot.model.outcoming.template.list.ListTemplateElement;
 
 public class TemplateBehavior extends BaseBehavior {
 
@@ -51,6 +53,38 @@ public class TemplateBehavior extends BaseBehavior {
 						.endElement()
 						.addQuickReply("Quick Reply 1",
 								"Payload of Quick Reply 1").build(envelope);
+			}
+		});
+		
+		// Returns a list template when message "list template" is
+		// received. (links are based on facebook's examples).
+		addActionFrame(new MessageEvent("list template"), new AutoReply() {
+			@Override
+			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.addListTemplate()
+						.addButton(ButtonFactory.createPostbackButton("Yes", "PostBack"))
+						.addElement(new ListTemplateElement("Classic T-Shirt Collection")
+								.setSubtitle("See all our colors")
+								.addButton(ButtonFactory.createUrlButton("View", "https://peterssendreceiveapp.ngrok.io/collection"))
+								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
+								.setDefaultAction(ButtonFactory.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/shop_collection")))
+						.addElement(new ListTemplateElement("Classic White T-Shirt")
+								.setSubtitle("100% Cotton, 200% Comfortable")
+								.addButton(ButtonFactory.createUrlButton("Shop Now", "https://peterssendreceiveapp.ngrok.io/shop?item=100"))
+								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png")
+								.setDefaultAction(ButtonFactory.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=100")))
+						.addElement(new ListTemplateElement("Classic Blue T-Shirt")
+								.setSubtitle("100% Cotton, 200% Comfortable")
+								.addButton(ButtonFactory.createUrlButton("Shop Now", "https://peterssendreceiveapp.ngrok.io/shop?item=101"))
+								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png")
+								.setDefaultAction(ButtonFactory.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=101")))
+						.addElement(new ListTemplateElement("Classic Black T-Shirt")
+								.setSubtitle("100% Cotton, 200% Comfortable")
+								.addButton(ButtonFactory.createUrlButton("Shop Now", "https://peterssendreceiveapp.ngrok.io/shop?item=102"))
+								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png")
+								.setDefaultAction(ButtonFactory.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=102")))
+						.addButton(ButtonFactory.createPostbackButton("View more", "view"))
+						.build(envelope);
 			}
 		});
 

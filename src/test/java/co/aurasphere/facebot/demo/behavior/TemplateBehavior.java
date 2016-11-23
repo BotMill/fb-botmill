@@ -62,7 +62,6 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FaceBotResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate()
-						.addButton(ButtonFactory.createPostbackButton("Yes", "PostBack"))
 						.addElement(new ListTemplateElement("Classic T-Shirt Collection")
 								.setSubtitle("See all our colors")
 								.addButton(ButtonFactory.createUrlButton("View", "https://peterssendreceiveapp.ngrok.io/collection"))

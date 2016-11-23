@@ -64,6 +64,7 @@ FaceBot supports this Facebook Messenger Platform components:
 	- Audio Attachment
 	- File Attachment
 	- Generic Template
+	- List Template
 	- Button Template
 	- Message Buttons
 		- URL Buttons

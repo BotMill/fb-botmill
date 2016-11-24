@@ -9,6 +9,6 @@ package co.aurasphere.facebot.model.outcoming.template.list;
  */
 public enum TopElementStyle {
 	
-	DEFAULT,COMPACT
+	LARGE,COMPACT
 	
 }

@@ -10,8 +10,8 @@ import co.aurasphere.facebot.model.outcoming.message.Message;
 /**
  * Base FaceBot bean which contains utility methods for handling an envelope.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class FaceBotBean {
 

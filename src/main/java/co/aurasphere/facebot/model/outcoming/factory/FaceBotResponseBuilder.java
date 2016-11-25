@@ -8,8 +8,8 @@ import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
  * Abstract class for the response builders. Defines how a FaceBot should build
  * the {@link FaceBotResponse} object representing its response.
  * 
- * @author Donato Rimenti
- * @date Aug 25, 2016
+ * @author Donato
+ * @date 25/ago/2016
  */
 public abstract class FaceBotResponseBuilder extends FaceBotBean {
 

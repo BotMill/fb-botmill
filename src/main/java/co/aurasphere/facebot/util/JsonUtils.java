@@ -20,8 +20,8 @@ import com.google.gson.JsonSerializer;
 /**
  * Utility class for handling JSON.
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class JsonUtils {
 

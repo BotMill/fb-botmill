@@ -7,8 +7,8 @@ package co.aurasphere.facebot;
  * class that implements this interface should then registered into your web.xml
  * as an init-param for the {@link FaceBotServlet}.
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public interface FaceBotDefinition {
 

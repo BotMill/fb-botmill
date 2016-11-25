@@ -11,8 +11,8 @@ import co.aurasphere.facebot.model.outcoming.payload.Payload;
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
  * template.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class Attachment implements Serializable {
 

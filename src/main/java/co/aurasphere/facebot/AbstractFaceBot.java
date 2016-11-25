@@ -4,44 +4,19 @@ import co.aurasphere.facebot.actionframe.ActionFrame;
 import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.event.FaceBotEvent;
 
-/**
- * Base {@link FaceBotDefinition} implementation that takes care of the
- * {@link FaceBot} handling.
- * 
- * @author Donato Rimenti
- * @date Sep 25, 2016
- */
-public abstract class AbstractFaceBot implements FaceBotDefinition {
-
-	/**
-	 * The {@link FaceBot} object handled by this class.
-	 */
+public abstract class AbstractFaceBot implements FaceBotDefinition{
+	
 	protected FaceBot faceBot;
-
-	/**
-	 * Base constructor. Instantiates a {@link FaceBot} and registers it to the
-	 * context.
-	 */
-	public AbstractFaceBot() {
+	
+	public AbstractFaceBot(){
 		this.faceBot = new FaceBot();
 	}
-
-	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
-	 * 
-	 * @param actionFrame the ActionFrame to add.
-	 */
-	protected void addActionFrame(ActionFrame actionFrame) {
+	
+	protected void addActionFrame(ActionFrame actionFrame){
 		faceBot.addActionFrame(actionFrame);
 	}
-
-	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
-	 * 
-	 * @param event the {@link FaceBotEvent} that triggers the ActionFrame.
-	 * @param reply the {@link AutoReply} to return when the event is triggered.
-	 */
-	protected void addActionFrame(FaceBotEvent event, AutoReply reply) {
+	
+	protected void addActionFrame(FaceBotEvent event, AutoReply reply){
 		faceBot.addActionFrame(event, reply);
 	}
 

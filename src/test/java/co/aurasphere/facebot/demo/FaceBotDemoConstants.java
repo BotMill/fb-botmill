@@ -3,7 +3,7 @@ package co.aurasphere.facebot.demo;
 /**
  * Put your data here to test the FaceBot framework.
  * 
- * @author Donato Rimenti
+ * @author Donato
  * @date 28/ago/2016
  */
 public class FaceBotDemoConstants {

@@ -15,8 +15,8 @@ import co.aurasphere.facebot.model.outcoming.template.airline.BoardingPass;
  *      > Facebook's Messenger Platform Airline Boarding Pass Template
  *      Documentation</a>
  * 
- * @author Donato Rimenti
- * @date Aug 25, 2016
+ * @author Donato
+ * @date 25/ago/2016
  */
 public class AirlineBoardingPassTemplateBuilder extends
 		AirlineBaseTemplateBuilder {

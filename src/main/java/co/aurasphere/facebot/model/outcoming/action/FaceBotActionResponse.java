@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * A {@link FaceBotResponse} which replies with a {@link TypingAction}.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class FaceBotActionResponse extends FaceBotResponse {
 

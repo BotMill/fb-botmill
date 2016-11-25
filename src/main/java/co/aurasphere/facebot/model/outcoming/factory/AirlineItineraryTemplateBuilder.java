@@ -20,7 +20,7 @@ import co.aurasphere.facebot.model.outcoming.template.airline.TravelClass;
  *      > Facebook's Messenger Platform Airline Itinerary Template
  *      Documentation</a>
  * 
- * @author Donato Rimenti
+ * @author Donato
  * @date 26/ago/2016
  */
 public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator {

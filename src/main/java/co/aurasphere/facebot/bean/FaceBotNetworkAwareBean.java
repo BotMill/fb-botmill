@@ -1,7 +1,6 @@
 package co.aurasphere.facebot.bean;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Set;
@@ -11,24 +10,15 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.FacebookError;
 import co.aurasphere.facebot.model.incoming.FacebookErrorMessage;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
@@ -41,8 +31,8 @@ import co.aurasphere.facebot.util.StringUtils;
  * Class that represents a FaceBot bean which can communicate through the
  * network.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class FaceBotNetworkAwareBean extends FaceBotBean {
 
@@ -55,7 +45,7 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	 * @param input
 	 *            the JSON data to send.
 	 */
-	protected static void postJsonMessage(StringEntity input) {
+	protected static void postMessage(StringEntity input) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -222,64 +212,6 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 					v.getPropertyPath());
 		}
 		return valid;
-	}
-
-	/**
-	 * POSTs a message as a JSON string to Facebook.
-	 * 
-	 * @param input
-	 *            the JSON data to send.
-	 */
-	public static void postFormDataMessage(String recipient,
-			AttachmentType type, File file) {
-		String pageToken = FaceBotContext.getInstance().getPageToken();
-		// If the page token is invalid, returns.
-		if (!validatePageToken(pageToken)) {
-			return;
-		}
-
-		// TODO: add checks for valid attachmentTypes (FILE, AUDIO or VIDEO)
-		HttpPost post = new HttpPost(FaceBotConstants.FACEBOOK_BASE_URL
-				+ FaceBotConstants.FACEBOOK_MESSAGES_URL + pageToken);
-
-		FileBody filedata = new FileBody(file);
-		StringBody recipientPart = new StringBody("{\"id\":\"" + recipient
-				+ "\"}", ContentType.MULTIPART_FORM_DATA);
-		StringBody messagePart = new StringBody("{\"attachment\":{\"type\":\""
-				+ type.name().toLowerCase() + "\", \"payload\":{}}}",
-				ContentType.MULTIPART_FORM_DATA);
-		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-		builder.setMode(HttpMultipartMode.STRICT);
-		builder.addPart("recipient", recipientPart);
-		builder.addPart("message", messagePart);
-//		builder.addPart("filedata", filedata);
-		builder.addBinaryBody("filedata", file);
-		builder.setContentType(ContentType.MULTIPART_FORM_DATA);
-
-//		builder.setBoundary("----WebKitFormBoundary7MA4YWxkTrZu0gW");
-		HttpEntity entity = builder.build();
-		post.setEntity(entity);
-
-		// Logs the raw JSON for debug purposes.
-		BufferedReader br;
-//		post.addHeader("Content-Type", "multipart/form-data");
-		try {
-//			br = new BufferedReader(new InputStreamReader(
-//					())));
-		
-			Header[] allHeaders = post.getAllHeaders();
-			for(Header h : allHeaders){
-				
-				logger.debug("Header {} ->  {}", h.getName(), h.getValue());
-			}
-//		String output = br.readLine();
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		send(post);
 	}
 
 }

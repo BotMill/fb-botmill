@@ -7,8 +7,8 @@ import java.util.List;
  * Class that contains all the context information used to handle FaceBots and
  * communicate with Facebook. The context is a singleton.
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class FaceBotContext {
 

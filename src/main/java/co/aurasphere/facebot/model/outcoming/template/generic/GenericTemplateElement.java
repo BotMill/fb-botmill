@@ -13,7 +13,6 @@ import co.aurasphere.facebot.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
-// TODO: test with generic template element without buttons and generic template without elements (if possible)
 public class GenericTemplateElement implements Serializable{
 
 	private static final long serialVersionUID = 1L;

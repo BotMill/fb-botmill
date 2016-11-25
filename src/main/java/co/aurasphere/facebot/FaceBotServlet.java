@@ -41,8 +41,8 @@ import co.aurasphere.facebot.util.StringUtils;
  *      href="https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook Subscription info</a>
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class FaceBotServlet extends HttpServlet {
 

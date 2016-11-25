@@ -13,8 +13,8 @@ import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
  * Messenger Platform callback automatically, using the delegation design
  * pattern.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public abstract class AutoReply extends FaceBotNetworkAwareBean {
 
@@ -30,7 +30,7 @@ public abstract class AutoReply extends FaceBotNetworkAwareBean {
 			// If the response is valid, replies to it.
 			if (validate(response)) {
 				StringEntity jsonResponse = toJson(response);
-				postMessage(jsonResponse);
+				postJsonMessage(jsonResponse);
 			}
 		}
 	}

@@ -70,6 +70,25 @@ public class TemplateBehavior extends BaseBehavior {
 								.build(envelope);
 					}
 				});
+		
+		// Returns a receipt template when message "receipt template" is
+		// received.
+		addActionFrame(new MessageEvent("receipt template"), new AutoReply() {
+			
+			@Override
+			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.addReceiptTemplate("Donato Rimenti", "15", "EUR", "Visa 1234")
+						.setSummary(201, 10, 13, 240)
+						.setMerchantName("Aurasphere co")
+						.addElement("Element 1")
+						.setCurrency("EUR")
+						.setQuantity(29)
+						.setPrice(200)
+						.setSubtitle("Element 1 subtitle")
+						.endElement()
+						.setTimestamp("1243").build(envelope);
+			}
+		});
 
 	}
 }

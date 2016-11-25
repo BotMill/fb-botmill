@@ -4,8 +4,8 @@ package co.aurasphere.facebot;
  * Enumeration that indicates which policy a {@link FaceBot} will use when
  * processing the callback handler chain.
  * 
- * @author Donato
- * @date 03/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 03, 2016
  */
 public enum FaceBotPolicy {
 

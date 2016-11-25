@@ -13,8 +13,8 @@ import co.aurasphere.facebot.model.outcoming.template.button.Button;
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template"
  *      > Facebook's Messenger Platform Button Template Documentation</a>
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 

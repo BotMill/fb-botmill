@@ -7,8 +7,8 @@ import java.util.List;
  * The base model of the Facebook's Messenger Platform callback. Used to model all
  * the received callbacks.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class MessengerCallback implements Serializable {
 

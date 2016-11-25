@@ -6,8 +6,8 @@ import co.aurasphere.facebot.event.FaceBotEvent;
 /**
  * Base event handler which occurs when an exact String is received.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public abstract class BaseStringEvent extends FaceBotBean implements
 		FaceBotEvent {

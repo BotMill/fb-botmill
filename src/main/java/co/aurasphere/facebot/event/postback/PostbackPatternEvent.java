@@ -11,8 +11,8 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
  * that contains a postback payload which matches against a defined pattern from
  * Facebook's Messenger Platform.
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class PostbackPatternEvent extends BasePatternEvent {
 

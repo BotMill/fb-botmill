@@ -3,8 +3,8 @@ package co.aurasphere.facebot.model.outcoming.template.airline;
 /**
  * Enum that represents the kinds of updates of a flight.
  * 
- * @author Donato Rimenti
- * @date Aug 25, 2016
+ * @author Donato
+ * @date 25/ago/2016
  */
 public enum UpdateType {
 

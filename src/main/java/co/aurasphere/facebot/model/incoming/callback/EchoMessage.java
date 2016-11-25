@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * An object that represents a message_echoes callback.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class EchoMessage extends Message {
 

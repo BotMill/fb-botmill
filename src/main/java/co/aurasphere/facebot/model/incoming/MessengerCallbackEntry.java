@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Represents a received callback from Facebook's Messenger Platform.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class MessengerCallbackEntry implements Serializable {
 

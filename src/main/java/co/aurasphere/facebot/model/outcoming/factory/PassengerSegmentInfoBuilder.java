@@ -7,8 +7,8 @@ import co.aurasphere.facebot.model.outcoming.template.airline.ProductInfo;
 /**
  * Builder for a {@link PassengerSegmentInfo} object.
  * 
- * @author Donato Rimenti
- * @date Aug 25, 2016
+ * @author Donato
+ * @date 25/ago/2016
  */
 public class PassengerSegmentInfoBuilder {
 

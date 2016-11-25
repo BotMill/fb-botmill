@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Object which represents a message_deliveries callback.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class Delivery implements Serializable {
 

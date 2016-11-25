@@ -8,8 +8,8 @@ import co.aurasphere.facebot.test.FaceBotMockMediator;
  * Abstract class for a {@link FaceBotResponseBuilder} that can be populated
  * with a mock recipient for testing.
  * 
- * @author Donato Rimenti
- * @date Aug 27, 2016
+ * @author Donato
+ * @date 27/ago/2016
  */
 public abstract class FaceBotMockableBuilder extends FaceBotResponseBuilder {
 

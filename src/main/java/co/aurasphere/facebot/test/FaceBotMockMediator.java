@@ -14,8 +14,8 @@ import co.aurasphere.facebot.model.incoming.callback.Postback;
 /**
  * Testing facility for FaceBot framework.
  * 
- * @author Donato Rimenti
- * @date Aug 27, 2016
+ * @author Donato
+ * @date 27/ago/2016
  */
 public class FaceBotMockMediator extends FaceBotNetworkAwareBean {
 

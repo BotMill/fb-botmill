@@ -28,8 +28,8 @@ import co.aurasphere.facebot.model.threadsettings.ThreadState;
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Thread Settings Documentation</a>
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean {
 

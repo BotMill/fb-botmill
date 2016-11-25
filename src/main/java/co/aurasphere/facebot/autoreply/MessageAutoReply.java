@@ -7,8 +7,8 @@ import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
 /**
  * An {@link AutoReply} that replies with a specified message.
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class MessageAutoReply extends AutoReply {
 

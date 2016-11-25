@@ -21,8 +21,8 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      > Facebook Messenger Platform callbacks</a>
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class FaceBot {
 

@@ -12,8 +12,8 @@ import co.aurasphere.facebot.model.outcoming.template.airline.TravelClass;
 /**
  * Builder for a {@link FlightInfoExtended} object.
  * 
- * @author Donato Rimenti
- * @date Aug 25, 2016
+ * @author Donato
+ * @date 25/ago/2016
  */
 public class FlightInfoExtendedBuilder {
 

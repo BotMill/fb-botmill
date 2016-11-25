@@ -13,8 +13,8 @@ import co.aurasphere.facebot.model.outcoming.action.TypingAction;
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/sender-actions"
  *      > Facebook's Messenger Platform Sender Actions Documentation</a>
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class ActionResponseBuilder extends FaceBotMockableBuilder {
 

@@ -8,8 +8,8 @@ package co.aurasphere.facebot.util;
  *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
  *      />Facebook Messenger Platform documentation</a>
  * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * @author Donato
+ * @date 31/lug/2016
  */
 public class FaceBotConstants {
 
@@ -60,7 +60,7 @@ public class FaceBotConstants {
 	/**
 	 * Facebook base URL used to POST data.
 	 */
-	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.7/me/";
+	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.6/me/";
 	
 	public static final String FACEBOOK_MESSAGES_URL = "messages?access_token=";
 	

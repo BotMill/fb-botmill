@@ -23,4 +23,5 @@ public class TemplateBasePayload implements Payload{
 		this.templateType = templateType;
 	}
 	
+	
 }

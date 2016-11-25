@@ -13,8 +13,8 @@ import co.aurasphere.facebot.model.outcoming.quickreply.QuickReply;
 /**
  * A builder for a message that contains only a plain text message.
  * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * @author Donato
+ * @date 08/ago/2016
  */
 public class TextMessageBuilder extends MessageBaseBuilder {
 

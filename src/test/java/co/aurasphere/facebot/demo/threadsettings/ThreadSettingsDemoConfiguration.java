@@ -12,7 +12,7 @@ import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
 /**
  * Demo of configuring the Thread Settings.
  * 
- * @author Donato Rimenti
+ * @author Donato
  * @date 28/ago/2016
  */
 public class ThreadSettingsDemoConfiguration {

@@ -15,8 +15,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * A generic incoming message envelope.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class MessageEnvelope implements Serializable{
 	

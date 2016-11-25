@@ -14,8 +14,8 @@ import co.aurasphere.facebot.model.outcoming.template.generic.GenericTemplateEle
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/generic-template"
  *      > Facebook's Messenger Platform Generic Template Documentation</a>
  * 
- * @author Donato
- * @date 25/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 25, 2016
  */
 public class GenericTemplateBuilder extends TemplateBaseBuilder {
 

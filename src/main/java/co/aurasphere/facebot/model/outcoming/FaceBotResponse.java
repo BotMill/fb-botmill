@@ -10,8 +10,8 @@ import co.aurasphere.facebot.model.base.User;
 /**
  * Object that represents a FaceBot response.
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public abstract class FaceBotResponse implements Serializable {
 

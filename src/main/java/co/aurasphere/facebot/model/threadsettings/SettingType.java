@@ -8,8 +8,8 @@ package co.aurasphere.facebot.model.threadsettings;
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
  * 
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public enum SettingType {
 

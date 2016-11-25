@@ -8,8 +8,8 @@ package co.aurasphere.facebot.event;
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Callbacks Documentation</a>
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public enum FaceBotEventType {
 

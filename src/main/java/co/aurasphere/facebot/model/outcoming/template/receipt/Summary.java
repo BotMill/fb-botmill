@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+// TODO: change double with BigDecimal?
+// TODO: notEmpty should be changed with notBlank
+// TODO: two decimal digits with "." as separator
 public class Summary implements Serializable {
 
 	private static final long serialVersionUID = 1L;

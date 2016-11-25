@@ -8,8 +8,8 @@ import co.aurasphere.facebot.model.outcoming.template.airline.UpdateType;
 /**
  * Static class that allows the creation of a {@link FaceBotResponse}.
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public class ReplyFactory {
 
@@ -129,6 +129,39 @@ public class ReplyFactory {
 	 */
 	public static AttachmentMessageBuilder addFileAttachment(String url) {
 		return new AttachmentMessageBuilder(AttachmentType.FILE, url);
+	}
+
+	/**
+	 * Adds a Receipt Template to the response.
+	 * 
+	 * @param recipientName
+	 *            the recipient's name.
+	 * @param orderNumber
+	 *            the order number.Must be unique for each user.
+	 * @param currency
+	 *            the currency for the price. It can't be empty. The currency
+	 *            must be a three digit ISO-4217-3 code in format [A-Z]{3}. For
+	 *            more information see <a href=
+	 *            "https://developers.facebook.com/docs/payments/reference/supportedcurrencies"
+	 *            > Facebook's currency support</a>
+	 * @param paymentMethod
+	 *            the payment method details. This can be a custom string. ex:
+	 *            "Visa 1234". You may insert an arbitrary string here but we
+	 *            recommend providing enough information for the person to
+	 *            decipher which payment method and account they used (e.g., the
+	 *            name of the payment method and partial account number).
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
+	 *      > Facebook's Messenger Receipt Template Documentation</a>
+	 * 
+	 * @return a builder for the response.
+	 */
+	public static ReceiptTemplateBuilder addAirlineItineraryTemplate(
+			String recipientName, String orderNumber, String currency,
+			String paymentMethod) {
+		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency,
+				paymentMethod);
 	}
 
 	/**
@@ -253,6 +286,37 @@ public class ReplyFactory {
 			UpdateType updateType) {
 		return new AirlineFlightUpdateTemplateBuilder(introMessage, locale,
 				pnrNumber, updateType);
+	}
+
+	/**
+	 * Adds a Receipt Template to the response.
+	 * 
+	 * @param recipientName
+	 *            the recipient name. It can't be empty.
+	 * @param orderNumber
+	 *            the order number. It can't be empty and it must be unique for
+	 *            each user.
+	 * @param currency
+	 *            the currency for order. It can't be empty.
+	 * @param paymentMethod
+	 *            the payment method details. This can be a custom string. ex:
+	 *            "Visa 1234". You may insert an arbitrary string here but we
+	 *            recommend providing enough information for the person to
+	 *            decipher which payment method and account they used (e.g., the
+	 *            name of the payment method and partial account number). It
+	 *            can't be empty.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
+	 *      > Facebook's Messenger Platform Receipt Template Documentation</a>
+	 * 
+	 * @return a builder for the response.
+	 */
+	public static ReceiptTemplateBuilder addReceiptTemplate(
+			String recipientName, String orderNumber, String currency,
+			String paymentMethod) {
+		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency,
+				paymentMethod);
 	}
 
 }

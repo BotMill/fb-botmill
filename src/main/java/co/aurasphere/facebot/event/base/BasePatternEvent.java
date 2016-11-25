@@ -8,8 +8,8 @@ import co.aurasphere.facebot.event.FaceBotEvent;
 /**
  * Base event handler which occurs when a Pattern matches a String.
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public abstract class BasePatternEvent extends FaceBotBean implements
 		FaceBotEvent {

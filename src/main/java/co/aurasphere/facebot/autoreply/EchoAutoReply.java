@@ -8,8 +8,8 @@ import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
  * An {@link AutoReply} that replies with the last received message. Mostly used
  * for testing and demo purposes.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class EchoAutoReply extends AutoReply {
 

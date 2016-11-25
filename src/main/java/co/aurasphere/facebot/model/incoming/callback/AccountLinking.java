@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Represents an account linking incoming event.
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public class AccountLinking implements Serializable{
 

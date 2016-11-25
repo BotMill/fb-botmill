@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * An object that contains a Facebook's user ID.
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class User implements Serializable{
 

@@ -13,8 +13,8 @@ import co.aurasphere.facebot.validator.FaceBotIllegalAttachmentException;
  * An {@link AutoReply} that replies with a file, video, image or audio
  * attachment.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class AttachmentAutoReply extends AutoReply {
 

@@ -9,8 +9,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 /**
  * Object which represents a Greeting Text for Thread Settings.
  * 
- * @author Donato
- * @date 08/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 08, 2016
  */
 public class Greeting implements Serializable {
 

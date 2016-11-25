@@ -6,8 +6,8 @@ import co.aurasphere.facebot.model.outcoming.template.generic.GenericTemplateEle
 /**
  * Builder for a {@link GenericTemplateElement}.
  * 
- * @author Donato
- * @date 27/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 27, 2016
  */
 public class GenericTemplateElementBuilder {
 

@@ -8,7 +8,7 @@ import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
 /**
  * Factory class for building {@link Button} objects.
  * 
- * @author Donato
+ * @author Donato Rimenti
  * @date 26/ago/2016
  */
 public class ButtonFactory {

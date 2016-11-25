@@ -11,8 +11,8 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
  * that contains a text message which matches against a defined pattern from
  * Facebook's Messenger Platform.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public class MessagePatternEvent extends BasePatternEvent {
 

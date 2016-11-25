@@ -5,8 +5,8 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 /**
  * An interface that defines an event from Facebook Messenger Platform callback.
  * 
- * @author Donato
- * @date 31/lug/2016
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
  */
 public interface FaceBotEvent {
 

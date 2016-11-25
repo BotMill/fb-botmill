@@ -10,8 +10,8 @@ import co.aurasphere.facebot.model.outcoming.template.airline.TravelClass;
 /**
  * Builder for a {@link BoardingPass} object.
  * 
- * @author Donato
- * @date 25/ago/2016
+ * @author Donato Rimenti
+ * @date Aug 25, 2016
  */
 public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 
@@ -204,6 +204,7 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 		return new FlightInfoBuilder<BoardingPassBuilder>(this, flightNumber);
 	}
 
+	// TODO: why this is not public?
 	/**
 	 * Adds a {@link FlightInfo} object to this {@link BoardingPass}. This
 	 * object is mandatory and can't be null for Airline templates. Used only by
@@ -230,6 +231,7 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 		return parentBuilder;
 	}
 
+	// TODO: check this
 	/**
 	 * {@inheritDoc} This method should not be called for this object. Use
 	 * {@link #endBoardingPass()} instead.

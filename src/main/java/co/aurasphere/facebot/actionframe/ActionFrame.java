@@ -30,9 +30,19 @@ public class ActionFrame {
 		return triggered;
 	}
 
+	/**
+	 * Executed before the reply is sent to the user.
+	 * 
+	 * @param envelope the incoming message.
+	 */
 	public void beforeReply(MessageEnvelope envelope) {
 	};
 
+	/**
+	 * Executed after the reply is sent to the user.
+	 * 
+	 * @param envelope the incoming message.
+	 */
 	public void afterReply(MessageEnvelope envelope) {
 	};
 

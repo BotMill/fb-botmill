@@ -63,6 +63,7 @@ public class JsonUtils {
 					return context.serialize(src.name().toLowerCase());
 				}
 			});
+			
 			final DecimalFormat formatter = new DecimalFormat("00");
 			// Serializes calendar in format YYYY-MM-DDThh:mm.
 			builder.registerTypeHierarchyAdapter(Calendar.class, new JsonSerializer<Calendar>() {

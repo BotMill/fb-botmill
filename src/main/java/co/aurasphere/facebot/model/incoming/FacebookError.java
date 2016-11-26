@@ -1,9 +1,13 @@
 package co.aurasphere.facebot.model.incoming;
 
+import java.io.Serializable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class FacebookError {
+public class FacebookError implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private String message;
 	
 	private String type;

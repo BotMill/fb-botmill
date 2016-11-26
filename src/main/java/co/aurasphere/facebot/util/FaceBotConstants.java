@@ -60,11 +60,13 @@ public class FaceBotConstants {
 	/**
 	 * Facebook base URL used to POST data.
 	 */
-	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.7/me/";
+	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.7/";
 	
-	public static final String FACEBOOK_MESSAGES_URL = "messages?access_token=";
+	public static final String FACEBOOK_MESSAGES_URL = "me/messages?access_token=";
 	
-	public static final String FACEBOOK_THREAD_SETTINGS_URL = "thread_settings?access_token=";
+	public static final String FACEBOOK_THREAD_SETTINGS_URL = "me/thread_settings?access_token=";
+
+	public static final String USER_PROFILE_FIELDS = "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=";
 	
 	////////////////////
 	public static final int BUTTON_TITLE_MAX_LENGTH = 20;
@@ -88,6 +90,5 @@ public class FaceBotConstants {
 	public static final int PERSISTENT_BUTTONS_MAX_ELEMENTS = 5;
 	
 	public static final int PERSISTENT_BUTTON_TITLE_MAX_LENGTH = 30;
-	
 
 }

@@ -1,9 +1,12 @@
 package co.aurasphere.facebot.bean;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -14,11 +17,12 @@ import javax.validation.ValidatorFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
@@ -32,6 +36,7 @@ import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.FacebookError;
 import co.aurasphere.facebot.model.incoming.FacebookErrorMessage;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
+import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
 import co.aurasphere.facebot.util.FaceBotConstants;
 import co.aurasphere.facebot.util.HttpDeleteWithBody;
 import co.aurasphere.facebot.util.JsonUtils;
@@ -48,6 +53,14 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(FaceBotNetworkAwareBean.class);
+	
+	protected static FacebookUserProfile getUserProfile(String userId){
+		String pageToken = FaceBotContext.getInstance().getPageToken();
+		HttpGet get = new HttpGet(FaceBotConstants.FACEBOOK_BASE_URL + userId + FaceBotConstants.USER_PROFILE_FIELDS + pageToken);
+		String response = send(get);
+		FacebookUserProfile user = JsonUtils.getGson().fromJson(response, FacebookUserProfile.class);
+		return user;
+	} 
 
 	/**
 	 * POSTs a message as a JSON string to Facebook.
@@ -90,15 +103,18 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	/**
 	 * Sends a request.
 	 * 
-	 * @param post
+	 * @param request
 	 *            the request to send
+	 * @return response the response.
 	 */
-	private static void send(HttpPost post) {
+	private static String send(HttpRequestBase request) {
 		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-		logger.debug(post.getRequestLine().toString());
+		logger.debug(request.getRequestLine().toString());
+		HttpResponse httpResponse = null;
+		String response = null;
 		try {
-			HttpResponse response = httpClient.execute(post);
-			logResponse(response);
+			httpResponse = httpClient.execute(request);
+			response = logResponse(httpResponse);
 		} catch (Exception e) {
 			logger.error("Error during HTTP connection to Facebook: ", e);
 		} finally {
@@ -108,6 +124,7 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 				logger.error("Error while closing HTTP connection: ", e);
 			}
 		}
+		return response;
 	}
 
 	/**
@@ -117,19 +134,16 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	 *            the response to log.
 	 * @throws IOException
 	 */
-	private static void logResponse(HttpResponse response) throws IOException {
+	private static String logResponse(HttpResponse response) throws IOException {
 		int statusCode = response.getStatusLine().getStatusCode();
 
 		// Logs the raw JSON for debug purposes.
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-				(response.getEntity().getContent())));
-		String output = br.readLine();
+		String output = getResponseContent(response);
 		logger.debug("HTTP Status Code: {}", statusCode);
 		logger.debug("Response: {}", output);
 
 		if (statusCode >= 400) {
-			logger.error("HTTP connection failed with error code {}.", response
-					.getStatusLine().getStatusCode());
+			logger.error("HTTP connection failed with error code {}.", statusCode);
 
 			// Parses the error message and logs it.
 			FacebookErrorMessage errorMessage = JsonUtils.getGson().fromJson(
@@ -140,8 +154,22 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 					error.getMessage(), error.getCode(), error.getType(),
 					error.getFbTraceId());
 		}
+		return output;
 	}
-
+	
+	private static String getResponseContent(HttpResponse response) throws IOException{
+		InputStream inputStream = response.getEntity().getContent();
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+//		bufferedInputStream.mark(1000000);
+		InputStreamReader inputStreamReader = new InputStreamReader(bufferedInputStream);
+		BufferedReader br = new BufferedReader(inputStreamReader);
+		br.mark(Short.MAX_VALUE);
+		String output = br.readLine();
+		br.reset();
+//		bufferedInputStream.reset();
+		return output;
+	}
+	
 	/**
 	 * DELETEs a JSON string to Facebook.
 	 * 

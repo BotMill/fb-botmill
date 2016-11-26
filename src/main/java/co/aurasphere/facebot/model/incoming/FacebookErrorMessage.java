@@ -1,6 +1,10 @@
 package co.aurasphere.facebot.model.incoming;
 
-public class FacebookErrorMessage {
+import java.io.Serializable;
+
+public class FacebookErrorMessage implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private FacebookError error;
 

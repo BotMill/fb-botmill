@@ -6,7 +6,6 @@ import java.util.Scanner;
 import co.aurasphere.facebot.FaceBot;
 import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.FaceBotDefinition;
-import co.aurasphere.facebot.bean.FaceBotNetworkAwareBean;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.incoming.callback.IncomingMessageBody;
 import co.aurasphere.facebot.model.incoming.callback.Postback;
@@ -17,7 +16,7 @@ import co.aurasphere.facebot.model.incoming.callback.Postback;
  * @author Donato Rimenti
  * @date Aug 27, 2016
  */
-public class FaceBotMockMediator extends FaceBotNetworkAwareBean {
+public class FaceBotMockMediator {
 
 	/**
 	 * Indicates where the mock are enabled or not.

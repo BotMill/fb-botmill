@@ -3,18 +3,18 @@ package co.aurasphere.facebot.threadsettings;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.entity.StringEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotDefinition;
-import co.aurasphere.facebot.bean.FaceBotNetworkAwareBean;
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.facebot.model.threadsettings.CallToActionsRequest;
 import co.aurasphere.facebot.model.threadsettings.SetGreetingTextRequest;
 import co.aurasphere.facebot.model.threadsettings.ThreadState;
+import co.aurasphere.facebot.util.network.NetworkUtils;
+
 
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
@@ -31,7 +31,7 @@ import co.aurasphere.facebot.model.threadsettings.ThreadState;
  * @author Donato Rimenti
  * @date Aug 08, 2016
  */
-public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean {
+public class FaceBotThreadSettingsConfiguration {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(FaceBotThreadSettingsConfiguration.class);
@@ -53,8 +53,7 @@ public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean 
 			return;
 		}
 		SetGreetingTextRequest request = new SetGreetingTextRequest(message);
-		StringEntity jsonRequest = toJson(request);
-		postThreadSetting(jsonRequest);
+		NetworkUtils.postThreadSetting(request);
 	}
 
 	/**
@@ -80,8 +79,7 @@ public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean 
 		buttonList.add(button);
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.NEW_THREAD, buttonList);
-		StringEntity jsonRequest = toJson(request);
-		postThreadSetting(jsonRequest);
+		NetworkUtils.postThreadSetting(request);
 	}
 
 	/**
@@ -93,8 +91,7 @@ public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean 
 	public static void deleteGetStartedButton() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.NEW_THREAD, null);
-		StringEntity jsonRequest = toJson(request);
-		delete(jsonRequest);
+		NetworkUtils.delete(request);
 	}
 
 	/**
@@ -121,8 +118,7 @@ public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean 
 		}
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, buttons);
-		StringEntity jsonRequest = toJson(request);
-		postThreadSetting(jsonRequest);
+		NetworkUtils.postThreadSetting(request);
 	}
 
 	/**
@@ -134,8 +130,7 @@ public class FaceBotThreadSettingsConfiguration extends FaceBotNetworkAwareBean 
 	public static void deletePersistentMenu() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, null);
-		StringEntity jsonRequest = toJson(request);
-		delete(jsonRequest);
+		NetworkUtils.delete(request);
 	}
 
 }

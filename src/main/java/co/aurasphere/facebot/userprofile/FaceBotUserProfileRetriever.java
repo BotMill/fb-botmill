@@ -1,7 +1,8 @@
 package co.aurasphere.facebot.userprofile;
 
-import co.aurasphere.facebot.bean.FaceBotNetworkAwareBean;
 import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
+import co.aurasphere.facebot.util.network.NetworkUtils;
+
 
 /**
  * Class for handling the retrieval of Facebook user info.
@@ -9,7 +10,8 @@ import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
  * @author Donato Rimenti
  * @date Nov 26, 2016
  */
-public class FaceBotUserProfileRetriever extends FaceBotNetworkAwareBean {
+
+public class FaceBotUserProfileRetriever {
 
 	/**
 	 * Retrieves a {@link FacebookUserProfile} object containing the info for
@@ -20,7 +22,7 @@ public class FaceBotUserProfileRetriever extends FaceBotNetworkAwareBean {
 	 * @return the user profile.
 	 */
 	public static FacebookUserProfile getUser(String userId) {
-		return getUserProfile(userId);
+		return NetworkUtils.getUserProfile(userId);
 	}
 
 }

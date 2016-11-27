@@ -3,11 +3,11 @@ package co.aurasphere.facebot.autoreply;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.facebot.exception.FaceBotIllegalAttachmentException;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.facebot.validator.FaceBotIllegalAttachmentException;
 
 /**
  * An {@link AutoReply} that replies with a file, video, image or audio

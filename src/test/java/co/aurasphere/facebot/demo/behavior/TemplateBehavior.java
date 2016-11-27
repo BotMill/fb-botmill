@@ -6,7 +6,6 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.facebot.model.outcoming.template.list.DefaultAction;
 import co.aurasphere.facebot.model.outcoming.template.list.ListTemplateElement;
 
 public class TemplateBehavior extends BaseBehavior {

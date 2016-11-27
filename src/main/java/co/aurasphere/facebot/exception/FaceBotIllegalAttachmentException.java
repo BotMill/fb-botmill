@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.validator;
+package co.aurasphere.facebot.exception;
 
 /**
  * Exception used to handle an {@link Attachment} that's not permitted for a response.

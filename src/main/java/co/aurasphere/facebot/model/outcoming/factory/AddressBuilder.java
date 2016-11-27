@@ -1,7 +1,6 @@
 package co.aurasphere.facebot.model.outcoming.factory;
 
 import co.aurasphere.facebot.model.outcoming.template.receipt.Address;
-import co.aurasphere.facebot.model.outcoming.template.receipt.ReceiptTemplateElement;
 
 /**
  * Builder for an {@link Address}.

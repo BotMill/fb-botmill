@@ -1,18 +1,12 @@
-package co.aurasphere.facebot.bean;
+package co.aurasphere.facebot.util.network;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -35,32 +29,31 @@ import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.FacebookError;
 import co.aurasphere.facebot.model.incoming.FacebookErrorMessage;
-import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
 import co.aurasphere.facebot.util.FaceBotConstants;
-import co.aurasphere.facebot.util.HttpDeleteWithBody;
-import co.aurasphere.facebot.util.JsonUtils;
-import co.aurasphere.facebot.util.StringUtils;
+import co.aurasphere.facebot.util.json.JsonUtils;
 
 /**
- * Class that represents a FaceBot bean which can communicate through the
+ * Class that contains methods that allows FaceBot to communicate through the
  * network.
  * 
  * @author Donato Rimenti
  * @date Aug 08, 2016
  */
-public class FaceBotNetworkAwareBean extends FaceBotBean {
+public class NetworkUtils {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(FaceBotNetworkAwareBean.class);
-	
-	protected static FacebookUserProfile getUserProfile(String userId){
+			.getLogger(NetworkUtils.class);
+
+	public static FacebookUserProfile getUserProfile(String userId) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
-		HttpGet get = new HttpGet(FaceBotConstants.FACEBOOK_BASE_URL + userId + FaceBotConstants.USER_PROFILE_FIELDS + pageToken);
+		HttpGet get = new HttpGet(FaceBotConstants.FACEBOOK_BASE_URL + userId
+				+ FaceBotConstants.USER_PROFILE_FIELDS + pageToken);
 		String response = send(get);
-		FacebookUserProfile user = JsonUtils.getGson().fromJson(response, FacebookUserProfile.class);
+		FacebookUserProfile user = JsonUtils.fromJson(response,
+				FacebookUserProfile.class);
 		return user;
-	} 
+	}
 
 	/**
 	 * POSTs a message as a JSON string to Facebook.
@@ -68,7 +61,7 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	 * @param input
 	 *            the JSON data to send.
 	 */
-	protected static void postJsonMessage(StringEntity input) {
+	public static void postJsonMessage(StringEntity input) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -82,12 +75,23 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	}
 
 	/**
+	 * POSTs a message as a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 */
+	public static void postJsonMessage(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		postJsonMessage(stringEntity);
+	}
+
+	/**
 	 * POSTs a thread setting as a JSON string to Facebook.
 	 * 
 	 * @param input
 	 *            the JSON data to send.
 	 */
-	protected static void postThreadSetting(StringEntity input) {
+	public static void postThreadSetting(StringEntity input) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -98,6 +102,17 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 				+ FaceBotConstants.FACEBOOK_THREAD_SETTINGS_URL + pageToken);
 		post.setEntity(input);
 		send(post);
+	}
+
+	/**
+	 * POSTs a thread setting as a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 */
+	public static void postThreadSetting(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		postThreadSetting(stringEntity);
 	}
 
 	/**
@@ -143,11 +158,12 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 		logger.debug("Response: {}", output);
 
 		if (statusCode >= 400) {
-			logger.error("HTTP connection failed with error code {}.", statusCode);
+			logger.error("HTTP connection failed with error code {}.",
+					statusCode);
 
 			// Parses the error message and logs it.
-			FacebookErrorMessage errorMessage = JsonUtils.getGson().fromJson(
-					output, FacebookErrorMessage.class);
+			FacebookErrorMessage errorMessage = JsonUtils.fromJson(output,
+					FacebookErrorMessage.class);
 			FacebookError error = errorMessage.getError();
 			logger.error(
 					"Error message from Facebook. Message: [{}], Code: [{}], Type: [{}], FbTraceID: [{}].",
@@ -156,27 +172,30 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 		}
 		return output;
 	}
-	
-	private static String getResponseContent(HttpResponse response) throws IOException{
+
+	private static String getResponseContent(HttpResponse response)
+			throws IOException {
 		InputStream inputStream = response.getEntity().getContent();
-		BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-//		bufferedInputStream.mark(1000000);
-		InputStreamReader inputStreamReader = new InputStreamReader(bufferedInputStream);
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(
+				inputStream);
+		// bufferedInputStream.mark(1000000);
+		InputStreamReader inputStreamReader = new InputStreamReader(
+				bufferedInputStream);
 		BufferedReader br = new BufferedReader(inputStreamReader);
 		br.mark(Short.MAX_VALUE);
 		String output = br.readLine();
 		br.reset();
-//		bufferedInputStream.reset();
+		// bufferedInputStream.reset();
 		return output;
 	}
-	
+
 	/**
 	 * DELETEs a JSON string to Facebook.
 	 * 
 	 * @param input
 	 *            the JSON data to send.
 	 */
-	protected static void delete(StringEntity input) {
+	public static void delete(StringEntity input) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -189,6 +208,17 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 						+ pageToken);
 		delete.setEntity(input);
 		send(delete);
+	}
+
+	/**
+	 * DELETEs a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 */
+	public static void delete(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		delete(stringEntity);
 	}
 
 	/**
@@ -207,51 +237,48 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 	}
 
 	/**
-	 * Utility method that converts an object to its JSON representation.
+	 * Utility method that converts an object to its StringEntity
+	 * representation.
 	 * 
 	 * @param object
-	 *            the object to convert to JSON.
+	 *            the object to convert to a StringEntity.
 	 * @return a StringEntity object containing the object JSON.
 	 */
-	protected static StringEntity toJson(Object object) {
+	private static StringEntity toStringEntity(Object object) {
 		StringEntity input = null;
 		try {
-			input = new StringEntity(JsonUtils.getGson().toJson(object));
+			input = new StringEntity(JsonUtils.toJson(object));
 			input.setContentType("application/json");
 			logger.debug("Request: {}",
-					StringUtils.inputStreamToString(input.getContent()));
+					inputStreamToString(input.getContent()));
 		} catch (Exception e) {
 			logger.error("Error during JSON message creation: ", e);
 		}
 		return input;
 	}
-
+	
 	/**
-	 * Validates the {@link FaceBotResponse} before sending it.
+	 * Utility method which converts an InputStream to a String.
 	 * 
-	 * @return true if the response is valid, false otherwise.
+	 * @param stream
+	 *            the InputStream to convert.
+	 * @return a String with the InputStream content.
+	 * @throws IOException
 	 */
-	protected boolean validate(FaceBotResponse response) {
-		// If validations are not enabled, returns true.
-		if (!FaceBotContext.getInstance().isValidationEnabled()) {
-			return true;
+	private static String inputStreamToString(InputStream stream)
+			throws IOException {
+		ByteArrayOutputStream result = new ByteArrayOutputStream();
+		byte[] buffer = new byte[1024];
+		int length;
+		String resultString = null;
+		while ((length = stream.read(buffer)) != -1) {
+			result.write(buffer, 0, length);
 		}
-
-		boolean valid = true;
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		Validator validator = factory.getValidator();
-		Set<ConstraintViolation<FaceBotResponse>> violations = validator
-				.validate(response);
-		for (ConstraintViolation<FaceBotResponse> v : violations) {
-			valid = false;
-			logger.error(
-					"FaceBotResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
-					v.getMessage(), v.getInvalidValue(), v.getRootBean(),
-					v.getPropertyPath());
-		}
-		return valid;
+		resultString = result.toString("UTF-8");
+		return resultString;
 	}
 
+	// TODO: used for attaching files but not working at the moment.
 	/**
 	 * POSTs a message as a JSON string to Facebook.
 	 * 
@@ -280,33 +307,33 @@ public class FaceBotNetworkAwareBean extends FaceBotBean {
 		builder.setMode(HttpMultipartMode.STRICT);
 		builder.addPart("recipient", recipientPart);
 		builder.addPart("message", messagePart);
-//		builder.addPart("filedata", filedata);
+		// builder.addPart("filedata", filedata);
 		builder.addBinaryBody("filedata", file);
 		builder.setContentType(ContentType.MULTIPART_FORM_DATA);
 
-//		builder.setBoundary("----WebKitFormBoundary7MA4YWxkTrZu0gW");
+		// builder.setBoundary("----WebKitFormBoundary7MA4YWxkTrZu0gW");
 		HttpEntity entity = builder.build();
 		post.setEntity(entity);
 
 		// Logs the raw JSON for debug purposes.
 		BufferedReader br;
-//		post.addHeader("Content-Type", "multipart/form-data");
+		// post.addHeader("Content-Type", "multipart/form-data");
 		try {
-//			br = new BufferedReader(new InputStreamReader(
-//					())));
-		
+			// br = new BufferedReader(new InputStreamReader(
+			// ())));
+
 			Header[] allHeaders = post.getAllHeaders();
-			for(Header h : allHeaders){
-				
+			for (Header h : allHeaders) {
+
 				logger.debug("Header {} ->  {}", h.getName(), h.getValue());
 			}
-//		String output = br.readLine();
+			// String output = br.readLine();
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		send(post);
 	}
 

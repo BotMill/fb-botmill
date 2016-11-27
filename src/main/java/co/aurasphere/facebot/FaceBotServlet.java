@@ -6,6 +6,7 @@ import static co.aurasphere.facebot.util.FaceBotConstants.HUB_MODE_SUBSCRIBE;
 import static co.aurasphere.facebot.util.FaceBotConstants.HUB_VERIFY_TOKEN_PARAMETER;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.List;
 import java.util.Map;
 
@@ -21,8 +22,7 @@ import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.incoming.MessengerCallback;
 import co.aurasphere.facebot.model.incoming.MessengerCallbackEntry;
 import co.aurasphere.facebot.util.FaceBotConstants;
-import co.aurasphere.facebot.util.JsonUtils;
-import co.aurasphere.facebot.util.StringUtils;
+import co.aurasphere.facebot.util.json.JsonUtils;
 
 /**
  * Main Servlet for FaceBot framework. This servlet requires an init-param
@@ -167,12 +167,12 @@ public class FaceBotServlet extends HttpServlet {
 		MessengerCallback callback = null;
 
 		// Extrapolates and logs the JSON for debugging.
-		String json = StringUtils.readerToString(req.getReader());
+		String json = readerToString(req.getReader());
 		logger.debug("JSON input: " + json);
 
 		// Parses the request as a MessengerCallback.
 		try {
-			callback = JsonUtils.getGson().fromJson(json,
+			callback = JsonUtils.fromJson(json,
 					MessengerCallback.class);
 		} catch (Exception e) {
 			logger.error("Error during MessengerCallback parsing: ", e);
@@ -214,5 +214,24 @@ public class FaceBotServlet extends HttpServlet {
 		}
 		return parameter[0];
 	}
+	
+	/**
+	 * Utility method that converts a Reader to a String.
+	 * 
+	 * @param reader
+	 *            the reader to convert.
+	 * @return a String with the content of the reader.
+	 * @throws IOException
+	 */
+	private static String readerToString(Reader reader) throws IOException {
+		char[] arr = new char[8 * 1024];
+		StringBuilder buffer = new StringBuilder();
+		int numCharsRead;
+		while ((numCharsRead = reader.read(arr, 0, arr.length)) != -1) {
+			buffer.append(arr, 0, numCharsRead);
+		}
+		return buffer.toString();
+	}
+
 
 }

@@ -1,10 +1,22 @@
 package co.aurasphere.facebot.bean;
 
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.event.FaceBotEventType;
 import co.aurasphere.facebot.model.base.User;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.incoming.callback.EchoMessage;
 import co.aurasphere.facebot.model.incoming.callback.IncomingMessageBody;
+import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
 import co.aurasphere.facebot.model.outcoming.message.Message;
 
 /**
@@ -14,6 +26,8 @@ import co.aurasphere.facebot.model.outcoming.message.Message;
  * @date Aug 08, 2016
  */
 public class FaceBotBean {
+	
+	private final static Logger logger = LoggerFactory.getLogger(FaceBotBean.class);
 
 	/**
 	 * Retrieves a text message from an envelope. It never returns null.
@@ -146,5 +160,33 @@ public class FaceBotBean {
 		}
 		return FaceBotEventType.ANY;
 	}
+	
+
+	/**
+	 * Validates the {@link FaceBotResponse}.
+	 * 
+	 * @return true if the response is valid, false otherwise.
+	 */
+	protected boolean validate(FaceBotResponse response) {
+		// If validations are not enabled, returns true.
+		if (!FaceBotContext.getInstance().isValidationEnabled()) {
+			return true;
+		}
+
+		boolean valid = true;
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+		Set<ConstraintViolation<FaceBotResponse>> violations = validator
+				.validate(response);
+		for (ConstraintViolation<FaceBotResponse> v : violations) {
+			valid = false;
+			logger.error(
+					"FaceBotResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
+					v.getMessage(), v.getInvalidValue(), v.getRootBean(),
+					v.getPropertyPath());
+		}
+		return valid;
+	}
+
 
 }

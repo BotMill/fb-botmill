@@ -1,11 +1,10 @@
 package co.aurasphere.facebot.autoreply;
 
-import org.apache.http.entity.StringEntity;
-
-import co.aurasphere.facebot.bean.FaceBotNetworkAwareBean;
+import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.event.FaceBotEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
+import co.aurasphere.facebot.util.network.NetworkUtils;
 
 /**
  * An interface that represents an automatic reply to an event. AutoReply are
@@ -16,8 +15,8 @@ import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
  * @author Donato Rimenti
  * @date Jul 31, 2016
  */
-public abstract class AutoReply extends FaceBotNetworkAwareBean {
-
+public abstract class AutoReply extends FaceBotBean {
+	
 	/**
 	 * Method which defines the reply flow.
 	 * 
@@ -29,8 +28,7 @@ public abstract class AutoReply extends FaceBotNetworkAwareBean {
 		if (response != null) {
 			// If the response is valid, replies to it.
 			if (validate(response)) {
-				StringEntity jsonResponse = toJson(response);
-				postJsonMessage(jsonResponse);
+				NetworkUtils.postJsonMessage(response);
 			}
 		}
 	}

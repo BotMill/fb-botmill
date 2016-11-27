@@ -1,10 +1,12 @@
 package co.aurasphere.facebot.demo;
 
+import static co.aurasphere.facebot.demo.FaceBotDemoConstants.MOCK_FACEBOOK_ID;
+import static co.aurasphere.facebot.demo.FaceBotDemoConstants.PAGE_TOKEN;
+import static co.aurasphere.facebot.demo.FaceBotDemoConstants.VALIDATION_TOKEN;
 import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.demo.behavior.AirplaneBehavior;
 import co.aurasphere.facebot.demo.behavior.TemplateBehavior;
 import co.aurasphere.facebot.test.FaceBotMockMediator;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
 
 public class FaceBotDemo {
 	

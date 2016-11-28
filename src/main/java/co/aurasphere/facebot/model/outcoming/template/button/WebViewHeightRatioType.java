@@ -7,9 +7,12 @@ package co.aurasphere.facebot.model.outcoming.template.button;
  * @date 27/Nov/2016
  * 
  */
-public enum ButtonType {
+public enum WebViewHeightRatioType {
 	
-	WEB_URL, POSTBACK, PHONE_NUMBER,ELEMENT_SHARE, 
-	ACCOUNT_LINK, ACCOUNT_UNLINK,PAYMENT;
-
+	/** The compact. */
+	COMPACT, 
+ /** The tall. */
+ TALL, 
+ /** The full. */
+ FULL;
 }

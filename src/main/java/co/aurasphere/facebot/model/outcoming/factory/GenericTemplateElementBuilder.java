@@ -1,6 +1,8 @@
 package co.aurasphere.facebot.model.outcoming.factory;
 
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
+import co.aurasphere.facebot.model.outcoming.template.button.ButtonType;
+import co.aurasphere.facebot.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.facebot.model.outcoming.template.generic.GenericTemplateElement;
 
 /**
@@ -137,6 +139,54 @@ public class GenericTemplateElementBuilder {
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addButton(Button button) {
+		this.element.addButton(button);
+		return this;
+	}
+	
+	/**
+	 * Adds a share button on a generic template
+	 * @param button
+	 *            the share button to add.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addShareButton() {
+		Button button = ButtonFactory.createShareButton();
+		this.element.addButton(button);
+		return this;
+	}
+	
+	/**
+	 * Adds a login button on a generic template
+	 * @param button
+	 *            the login button to add.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addLoginButton(String url) {
+		Button button = ButtonFactory.createLoginButton(url);
+		this.element.addButton(button);
+		return this;
+	}
+	
+	/**
+	 * Adds a logout button on a generic template
+	 * @param button
+	 *            the logout button to add.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addLogoutButton(){
+		Button button = ButtonFactory.createLogoutButton();
+		this.element.addButton(button);
+		return this;
+	}
+	
+	/**
+	 * Adds a buy button on a generic template
+	 * @param button
+	 *            the share button to add.
+	 * @return this builder.
+	 */
+	public GenericTemplateElementBuilder addBuyButton(String title, String payload, PaymentSummary paymentSummary) {
+		Button button = ButtonFactory.createBuyButton(ButtonType.PAYMENT, title, payload, paymentSummary);
 		this.element.addButton(button);
 		return this;
 	}

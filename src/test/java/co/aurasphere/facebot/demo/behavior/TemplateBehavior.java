@@ -49,6 +49,9 @@ public class TemplateBehavior extends BaseBehavior {
 								"https://github.com/Aurasphere/facebot")
 						.setSubtitle("Subtitle of element 1")
 						.setRedirectUrl("www.aurasphere.co")
+						.addLoginButton("https://github.com/Aurasphere/facebot")
+						.addLogoutButton()
+						.addShareButton()
 						.endElement()
 						.addQuickReply("Quick Reply 1",
 								"Payload of Quick Reply 1").build(envelope);

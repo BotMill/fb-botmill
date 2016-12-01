@@ -1,9 +1,14 @@
 package co.aurasphere.facebot.model.outcoming.factory;
-
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.button.ButtonType;
+import co.aurasphere.facebot.model.outcoming.template.button.BuyButton;
+import co.aurasphere.facebot.model.outcoming.template.button.LoginButton;
+import co.aurasphere.facebot.model.outcoming.template.button.LogoutButton;
+import co.aurasphere.facebot.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.facebot.model.outcoming.template.button.PostbackButton;
+import co.aurasphere.facebot.model.outcoming.template.button.ShareButton;
 import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
+import co.aurasphere.facebot.model.outcoming.template.button.WebViewHeightRatioType;
 import co.aurasphere.facebot.model.outcoming.template.list.DefaultAction;
 
 /**
@@ -36,6 +41,20 @@ public class ButtonFactory {
 	public static DefaultAction createDefaultActionButton(String url) {
 		return new DefaultAction(ButtonType.WEB_URL, url);
 	}
+	
+	/**
+	 * Creates a web view button
+	 * @param title
+	 * 			the button label.
+	 * @param url
+	 * 			the URL to whom redirect when clicked.
+	 * @param ratioType
+	 * 			the web view ratio type.
+	 * @return
+	 */
+	public static Button createWebViewButton(String title, String url, WebViewHeightRatioType ratioType) {
+		return new WebUrlButton(title, url, ratioType);
+	}
 
 	/**
 	 * Creates a button which sends a payload back when clicked.
@@ -63,5 +82,50 @@ public class ButtonFactory {
 	public static Button createPhoneNumberButton(String title,
 			String phoneNumber) {
 		return new PostbackButton(title, ButtonType.PHONE_NUMBER, phoneNumber);
+	}
+	
+	/**
+	 * Creates a default action (which is based off from Url Button) which redirects to an URL when clicked.
+	 * 
+	 * @return a {@link Button}.
+	 */
+	public static Button createShareButton() {
+		return new ShareButton(ButtonType.ELEMENT_SHARE);
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * 			the button type
+	 * @param title
+	 * 			the label of the button
+	 * @param payload
+	 * 			the payload data
+	 * @param paymentSummary
+	 * 			the payment summary that will be displayed.
+	 * @return a {@link Button}
+	 */
+	public static Button createBuyButton(ButtonType type, String title, String payload, PaymentSummary paymentSummary) {
+		return new BuyButton(ButtonType.PAYMENT, title,payload,paymentSummary);
+	}
+	
+	/**
+	 * Creates a login button (which is based off from Url Button) which redirects to an URL when clicked.
+	 * 
+	 * @param url
+	 * 			the url on which the user will be authenticated
+	 * @return a {@link Button}
+	 */
+	public static Button createLoginButton(String url) {
+		return new LoginButton(ButtonType.ACCOUNT_LINK, url);
+	}
+	
+	/**
+	 * Creates a logout button which redirects to an URL when clicked.
+	 * 
+	 * @return a {@link Button}
+	 */ 
+	public static Button createLogoutButton() {
+		return new LogoutButton(ButtonType.ACCOUNT_UNLINK);
 	}
 }

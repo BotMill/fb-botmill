@@ -2,6 +2,8 @@ package co.aurasphere.facebot.model.outcoming.template.button;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.google.gson.annotations.SerializedName;
+
 import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
 
 
@@ -11,6 +13,15 @@ public class WebUrlButton extends Button {
 
 	@NotEmpty
 	private String url;
+	
+	@SerializedName("webview_height_ratio")
+	private WebViewHeightRatioType webviewHeightRatio;
+	
+	@SerializedName("fallback_url")
+	private String fallBackUrl;
+	
+	@SerializedName("messenger_extensions")
+	private boolean messengerExtension;
 
 	/**
 	 * Default constructor. Can instantiate this object only through
@@ -31,6 +42,13 @@ public class WebUrlButton extends Button {
 		this.title = title;
 		this.url = url;
 		this.type = ButtonType.WEB_URL;
+	}
+	
+	public WebUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
+		this.title = title;
+		this.url = url;
+		this.type = ButtonType.WEB_URL;
+		this.webviewHeightRatio = ratioType;
 	}
 
 	public String getUrl() {

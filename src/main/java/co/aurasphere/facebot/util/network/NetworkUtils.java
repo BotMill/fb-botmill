@@ -45,6 +45,13 @@ public class NetworkUtils {
 	private static final Logger logger = LoggerFactory
 			.getLogger(NetworkUtils.class);
 
+	/**
+	 * Method used to retrieve a {@link FacebookUserProfile} from an ID using
+	 * the GET method.
+	 * 
+	 * @param userId the ID of the user to retrieve.
+	 * @return the user profile info.
+	 */
 	public static FacebookUserProfile getUserProfile(String userId) {
 		String pageToken = FaceBotContext.getInstance().getPageToken();
 		HttpGet get = new HttpGet(FaceBotConstants.FACEBOOK_BASE_URL + userId
@@ -173,20 +180,28 @@ public class NetworkUtils {
 		return output;
 	}
 
+	/**
+	 * Utility method that converts an HttpResponse to a String.
+	 * 
+	 * @param response
+	 *            the response to convert.
+	 * @return a String with the response content.
+	 * @throws IOException
+	 */
 	private static String getResponseContent(HttpResponse response)
 			throws IOException {
 		InputStream inputStream = response.getEntity().getContent();
 		BufferedInputStream bufferedInputStream = new BufferedInputStream(
 				inputStream);
-		// bufferedInputStream.mark(1000000);
 		InputStreamReader inputStreamReader = new InputStreamReader(
 				bufferedInputStream);
 		BufferedReader br = new BufferedReader(inputStreamReader);
-		br.mark(Short.MAX_VALUE);
-		String output = br.readLine();
-		br.reset();
-		// bufferedInputStream.reset();
-		return output;
+		StringBuilder builder = new StringBuilder();
+		String output = null;
+		while ((output = br.readLine()) != null) {
+			builder.append(output);
+		}
+		return builder.toString();
 	}
 
 	/**
@@ -249,14 +264,13 @@ public class NetworkUtils {
 		try {
 			input = new StringEntity(JsonUtils.toJson(object));
 			input.setContentType("application/json");
-			logger.debug("Request: {}",
-					inputStreamToString(input.getContent()));
+			logger.debug("Request: {}", inputStreamToString(input.getContent()));
 		} catch (Exception e) {
 			logger.error("Error during JSON message creation: ", e);
 		}
 		return input;
 	}
-	
+
 	/**
 	 * Utility method which converts an InputStream to a String.
 	 * 

@@ -2,8 +2,6 @@ package co.aurasphere.facebot.model.outcoming.template.button;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
@@ -16,33 +14,33 @@ import com.google.gson.annotations.SerializedName;
  * 
  */
 public class PaymentSummary implements Serializable {
-	
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The currency. */
 	@NotEmpty
 	private String currency;
-	
+
 	/** The is test payment. */
 	@SerializedName("is_test_payment")
 	private boolean isTestPayment = true;
-	
+
 	/** The payment type. */
 	@NotEmpty
 	@SerializedName("payment_type")
 	private PaymentType paymentType;
-	
+
 	/** The merchant name. */
 	@NotEmpty
 	@SerializedName("merchant_name")
 	private String merchantName;
-	
+
 	/** The price list. */
 	@NotEmpty
 	@SerializedName("price_list")
 	private PriceList priceList;
-	
+
 	/** The requested user info. */
 	@NotEmpty
 	@SerializedName("requested_user_info")
@@ -60,7 +58,8 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the currency.
 	 *
-	 * @param currency the new currency
+	 * @param currency
+	 *            the new currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -78,7 +77,8 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the test payment.
 	 *
-	 * @param isTestPayment the new test payment
+	 * @param isTestPayment
+	 *            the new test payment
 	 */
 	public void setTestPayment(boolean isTestPayment) {
 		this.isTestPayment = isTestPayment;
@@ -96,7 +96,8 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the payment type.
 	 *
-	 * @param paymentType the new payment type
+	 * @param paymentType
+	 *            the new payment type
 	 */
 	public void setPaymentType(PaymentType paymentType) {
 		this.paymentType = paymentType;
@@ -114,7 +115,8 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the merchant name.
 	 *
-	 * @param merchantName the new merchant name
+	 * @param merchantName
+	 *            the new merchant name
 	 */
 	public void setMerchantName(String merchantName) {
 		this.merchantName = merchantName;
@@ -132,7 +134,8 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the price list.
 	 *
-	 * @param priceList the new price list
+	 * @param priceList
+	 *            the new price list
 	 */
 	public void setPriceList(PriceList priceList) {
 		this.priceList = priceList;
@@ -150,13 +153,11 @@ public class PaymentSummary implements Serializable {
 	/**
 	 * Sets the requested user info.
 	 *
-	 * @param requestedUserInfo the new requested user info
+	 * @param requestedUserInfo
+	 *            the new requested user info
 	 */
 	public void setRequestedUserInfo(RequestedUserInfo requestedUserInfo) {
 		this.requestedUserInfo = requestedUserInfo;
 	}
-	
-	
-	
-	
+
 }

@@ -157,6 +157,15 @@ public class FaceBotBean {
 		}
 		if (envelope.getOptin() != null) {
 			return FaceBotEventType.AUTHENTICATION;
+		}	
+		if (envelope.getCheckoutUpdate() != null) {
+			return FaceBotEventType.CHECKOUT_UPDATE;
+		}
+		if (envelope.getReferral() != null) {
+			return FaceBotEventType.REFERRAL;
+		}
+		if (envelope.getPayment() != null) {
+			return FaceBotEventType.PAYMENT;
 		}
 		return FaceBotEventType.ANY;
 	}

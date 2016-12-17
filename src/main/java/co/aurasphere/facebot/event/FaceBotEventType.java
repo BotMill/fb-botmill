@@ -50,6 +50,21 @@ public enum FaceBotEventType {
 	ECHO,
 
 	/**
+	 * Represents messaging_checkout_updates callback.
+	 */
+	CHECKOUT_UPDATE,
+
+	/**
+	 * Represents messaging_referral callback.
+	 */
+	REFERRAL,
+
+	/**
+	 * Represents messaging_payments callback.
+	 */
+	PAYMENT,
+
+	/**
 	 * Represents any of the previous callbacks. Used as utility event.
 	 */
 	ANY;

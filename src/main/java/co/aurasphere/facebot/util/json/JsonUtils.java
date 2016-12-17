@@ -35,10 +35,11 @@ public class JsonUtils {
 			// Register an adapter to manage the date types as long values
 			builder.registerTypeAdapter(Date.class,
 					new DateToLongJsonDeserializer());
+			
 			// Serializes enums as lower-case.
 			builder.registerTypeHierarchyAdapter(Enum.class,
 					new EnumLowercaseSerializer());
-
+			
 			// Serializes calendar in format YYYY-MM-DDThh:mm.
 			builder.registerTypeHierarchyAdapter(Calendar.class,
 					new CalendarSerializer());

@@ -1,9 +1,9 @@
 package co.aurasphere.facebot;
 
-import static co.aurasphere.facebot.util.FaceBotConstants.HUB_CHALLENGE_PARAMETER;
-import static co.aurasphere.facebot.util.FaceBotConstants.HUB_MODE_PARAMETER;
-import static co.aurasphere.facebot.util.FaceBotConstants.HUB_MODE_SUBSCRIBE;
-import static co.aurasphere.facebot.util.FaceBotConstants.HUB_VERIFY_TOKEN_PARAMETER;
+import static co.aurasphere.facebot.internal.util.FaceBotConstants.HUB_CHALLENGE_PARAMETER;
+import static co.aurasphere.facebot.internal.util.FaceBotConstants.HUB_MODE_PARAMETER;
+import static co.aurasphere.facebot.internal.util.FaceBotConstants.HUB_MODE_SUBSCRIBE;
+import static co.aurasphere.facebot.internal.util.FaceBotConstants.HUB_VERIFY_TOKEN_PARAMETER;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -18,11 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.facebot.internal.util.FaceBotConstants;
+import co.aurasphere.facebot.internal.util.json.JsonUtils;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.incoming.MessengerCallback;
 import co.aurasphere.facebot.model.incoming.MessengerCallbackEntry;
-import co.aurasphere.facebot.util.FaceBotConstants;
-import co.aurasphere.facebot.util.json.JsonUtils;
 
 /**
  * Main Servlet for FaceBot framework. This servlet requires an init-param

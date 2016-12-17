@@ -2,7 +2,7 @@ package co.aurasphere.facebot.model.outcoming.factory;
 
 import co.aurasphere.facebot.model.base.User;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
-import co.aurasphere.facebot.test.FaceBotMockMediator;
+import co.aurasphere.facebot.test.support.FaceBotMockMediator;
 
 /**
  * Abstract class for a {@link FaceBotResponseBuilder} that can be populated

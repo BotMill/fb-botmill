@@ -3,7 +3,7 @@ package co.aurasphere.facebot.demo;
 import co.aurasphere.facebot.FaceBotContext;
 import co.aurasphere.facebot.demo.behavior.AirplaneBehavior;
 import co.aurasphere.facebot.demo.behavior.TemplateBehavior;
-import co.aurasphere.facebot.test.FaceBotMockMediator;
+import co.aurasphere.facebot.test.support.FaceBotMockMediator;
 import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
 
 public class FaceBotDemo {

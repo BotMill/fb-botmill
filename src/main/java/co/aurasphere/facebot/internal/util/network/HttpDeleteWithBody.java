@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.util.network;
+package co.aurasphere.facebot.internal.util.network;
 
 import org.apache.http.client.methods.HttpPost;
 

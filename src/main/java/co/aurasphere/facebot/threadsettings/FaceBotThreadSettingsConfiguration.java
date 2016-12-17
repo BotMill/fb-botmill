@@ -7,13 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotDefinition;
+import co.aurasphere.facebot.internal.util.network.NetworkUtils;
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.facebot.model.threadsettings.CallToActionsRequest;
 import co.aurasphere.facebot.model.threadsettings.SetGreetingTextRequest;
 import co.aurasphere.facebot.model.threadsettings.ThreadState;
-import co.aurasphere.facebot.util.network.NetworkUtils;
 
 
 /**

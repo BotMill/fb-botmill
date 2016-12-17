@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.util.network;
+package co.aurasphere.facebot.internal.util.network;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -26,12 +26,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.facebot.FaceBotContext;
+import co.aurasphere.facebot.internal.util.FaceBotConstants;
+import co.aurasphere.facebot.internal.util.json.JsonUtils;
 import co.aurasphere.facebot.model.base.AttachmentType;
 import co.aurasphere.facebot.model.incoming.FacebookError;
 import co.aurasphere.facebot.model.incoming.FacebookErrorMessage;
 import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
-import co.aurasphere.facebot.util.FaceBotConstants;
-import co.aurasphere.facebot.util.json.JsonUtils;
 
 /**
  * Class that contains methods that allows FaceBot to communicate through the

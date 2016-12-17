@@ -1,7 +1,7 @@
 package co.aurasphere.facebot.userprofile;
 
+import co.aurasphere.facebot.internal.util.network.NetworkUtils;
 import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
-import co.aurasphere.facebot.util.network.NetworkUtils;
 
 
 /**

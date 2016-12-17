@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.util;
+package co.aurasphere.facebot.internal.util;
 
 /**
  * Utility class that contains the constants used to handle the communication

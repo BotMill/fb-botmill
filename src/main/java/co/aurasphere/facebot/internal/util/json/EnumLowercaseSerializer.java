@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.util.json;
+package co.aurasphere.facebot.internal.util.json;
 
 import java.lang.reflect.Type;
 

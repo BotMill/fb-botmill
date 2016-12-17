@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.test;
+package co.aurasphere.facebot.test.support;
 
 import java.util.List;
 import java.util.Scanner;

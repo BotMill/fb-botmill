@@ -2,9 +2,9 @@ package co.aurasphere.facebot.autoreply;
 
 import co.aurasphere.facebot.bean.FaceBotBean;
 import co.aurasphere.facebot.event.FaceBotEvent;
+import co.aurasphere.facebot.internal.util.network.NetworkUtils;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
 import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
-import co.aurasphere.facebot.util.network.NetworkUtils;
 
 /**
  * An interface that represents an automatic reply to an event. AutoReply are

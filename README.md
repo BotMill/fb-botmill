@@ -51,34 +51,44 @@ FaceBot supports this Facebook Messenger Platform components:
 
 - Callbacks
 	- Message Received
-	- Postback Received
-	- Authentication
-	- Account Linking
 	- Message Delivered
 	- Message Read
 	- Message Echo
+	- Postback
+	- Plugin Opt-in
+	- Referral
+	- Payment
+	- Checkout Update
+	- Account Linking
 - Send API
-	- Text Message
-	- Image Attachment
-	- Video Attachment
-	- Audio Attachment
-	- File Attachment
-	- Generic Template
-	- List Template
-	- Button Template
-	- Message Buttons
-		- URL Buttons
-		- Postback Buttons
-		- Call Buttons
+	- Templates
+		- Button Template
+		- Generic Template
+		- List Template
+		- Receipt Template
+		- Airline Boarding Pass Template
+		- Airline Checkin Template
+		- Airline Itinerary Template
+		- Airline Flight Update Template
+	- Buttons
+		- URL Button
+		- Postback Button
+		- Call Button
+		- Share Button
+		- Buy Button
 	- Quick Replies
-	- Airline Itinerary Template
-	- Airline Checkin Template
-	- Airline Boarding Pass Template
-	- Airline Flight Update Template
+	- Sender Actions
+	- Content Types
+		- Text Message
+		- Audio Attachment
+		- File Attachment
+		- Image Attachment
+		- Video Attachment
 - Thread Settings
-	- Greeting Text
 	- Get Started Button
+	- Greeting Text
 	- Persistent Menu
+- User Profile retrieving
 	
 **<h3>Coming next</h3>**
 
@@ -86,13 +96,10 @@ Here's what you can expect coming up in the next updates:
 
 - More documentation
 - More examples
-- Support for Share and Buy buttons
-- Support for Receipt Template
 - Support for Webview & Extesions
-- Thread settings for Domain Whitelisting and Payment
-- Support for Account Linking and Payment
-- Support for retrieving User Account
+- Thread settings for Domain Whitelisting, Account Linking and Payment
 - Possibility of attaching files instead of using links
+- Support for Log In and Log Out buttons
 
 Please notice that this list isn't ordered. If you don't find a feature you need in the list or you want me to give priority over one, just send me an e-mail.
 

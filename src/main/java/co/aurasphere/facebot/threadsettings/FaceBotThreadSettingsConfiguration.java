@@ -3,17 +3,19 @@ package co.aurasphere.facebot.threadsettings;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.entity.StringEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.facebot.FaceBotDefinition;
 import co.aurasphere.facebot.internal.util.network.NetworkUtils;
 import co.aurasphere.facebot.model.outcoming.template.button.Button;
 import co.aurasphere.facebot.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.facebot.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.facebot.model.threadsettings.CallToActionsRequest;
+import co.aurasphere.facebot.model.threadsettings.DomainActionType;
 import co.aurasphere.facebot.model.threadsettings.SetGreetingTextRequest;
 import co.aurasphere.facebot.model.threadsettings.ThreadState;
+import co.aurasphere.facebot.model.threadsettings.WhitelistDomainRequest;
 
 
 /**
@@ -131,6 +133,34 @@ public class FaceBotThreadSettingsConfiguration {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, null);
 		NetworkUtils.delete(request);
+	}
+	
+	/**
+	 * Add a list of domains that needs to be "white listed"
+	 * @param whiteListDomains the list of domains in String.
+	 */
+	public static void setWhiteListDomains(List<String> whiteListDomains) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains);
+		NetworkUtils.postThreadSetting(request);
+	}
+	
+	/**
+	 * Add a single domain on the list of domains that needs to be "white listed"
+	 * @param domain the domain that needs to be "white listed"
+	 */
+	public static void addWhiteListDomain(String domain) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest();
+		request.addWhiteListedDomain(domain);
+		NetworkUtils.postThreadSetting(request);
+	}
+	
+	/**
+	 * Removes a list of domains that are currently "white listed"
+	 * @param whiteListDomains the list of domains that needs to be removed.
+	 */
+	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains,DomainActionType.REMOVE);
+		NetworkUtils.postThreadSetting(request);
 	}
 
 }

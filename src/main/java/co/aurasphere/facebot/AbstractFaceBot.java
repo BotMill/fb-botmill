@@ -1,5 +1,7 @@
 package co.aurasphere.facebot;
 
+import java.util.List;
+
 import co.aurasphere.facebot.actionframe.ActionFrame;
 import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.event.FaceBotEvent;
@@ -43,6 +45,30 @@ public abstract class AbstractFaceBot implements FaceBotDefinition {
 	 */
 	protected void addActionFrame(FaceBotEvent event, AutoReply reply) {
 		faceBot.addActionFrame(event, reply);
+	}
+	
+	/**
+	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * 
+	 * @param event the {@link FaceBotEvent} that triggers the ActionFrame.
+	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
+	 */
+	protected void addActionFrame(FaceBotEvent event, List<AutoReply> replies) {
+		for(AutoReply reply:replies) {
+			faceBot.addActionFrame(event, reply);
+		}
+	}
+	
+	/**
+	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * 
+	 * @param event the {@link FaceBotEvent} that triggers the ActionFrame.
+	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
+	 */
+	protected void addActionFrame(FaceBotEvent event, AutoReply... replies) {
+		for(AutoReply reply:replies) {
+			faceBot.addActionFrame(event, reply);
+		}
 	}
 
 }

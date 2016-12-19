@@ -21,6 +21,8 @@ public enum SettingType {
 	/**
 	 * Setting for the Get Started Button or the Persistent Menu.
 	 */
-	CALL_TO_ACTIONS;
+	CALL_TO_ACTIONS,
+	
+	DOMAIN_WHITELISTING;
 
 }

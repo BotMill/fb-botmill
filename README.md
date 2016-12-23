@@ -1,4 +1,4 @@
-# fb-botmill
+# FB-BotMill
 A simple Java framework for building event-driven bots on Facebook's Messenger Platform.
 
 The goal of fb-botmill is making the Facebook's Messenger Platform easier: with fb-botmill, you only need less than 5 lines of code to set up your own Messenger bot! 
@@ -76,7 +76,11 @@ fb-botmill supports this Facebook Messenger Platform components:
 		- Call Button
 		- Share Button
 		- Buy Button
+		- Log in
+		- Log out
 	- Quick Replies
+		- Generic Quick Reply Payload
+		- Location Quick Reply
 	- Sender Actions
 	- Content Types
 		- Text Message
@@ -88,6 +92,7 @@ fb-botmill supports this Facebook Messenger Platform components:
 	- Get Started Button
 	- Greeting Text
 	- Persistent Menu
+	- Domain whitelisting
 - User Profile retrieving
 	
 **<h3>Coming next</h3>**

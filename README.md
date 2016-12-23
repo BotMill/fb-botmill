@@ -1,7 +1,7 @@
-# FaceBot
+# fb-botmill
 A simple Java framework for building event-driven bots on Facebook's Messenger Platform.
 
-The goal of FaceBot is making the Facebook's Messenger Platform easier: with FaceBot, you only need less than 5 lines of code to set up your own Messenger bot! 
+The goal of fb-botmill is making the Facebook's Messenger Platform easier: with fb-botmill, you only need less than 5 lines of code to set up your own Messenger bot! 
 
 **<h3>Premise</h3>**
 
@@ -47,7 +47,7 @@ This project is a work in progress and any contribute is appreciated.
 
 **<h3>What's currently supported</h3>**
 
-FaceBot supports this Facebook Messenger Platform components:
+fb-botmill supports this Facebook Messenger Platform components:
 
 - Callbacks
 	- Message Received
@@ -103,4 +103,4 @@ Here's what you can expect coming up in the next updates:
 
 Please notice that this list isn't ordered. If you don't find a feature you need in the list or you want me to give priority over one, just send me an e-mail.
 
-<sub>Copyright (c) 2016 Donato Rimenti</sub>
+<sub>Copyright (c) 2016 Donato Rimenti, Alvin Reyes</sub>

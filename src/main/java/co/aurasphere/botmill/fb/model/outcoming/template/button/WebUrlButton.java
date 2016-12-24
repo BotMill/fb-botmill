@@ -7,6 +7,13 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import com.google.gson.annotations.SerializedName;
 
 
+/**
+ * The WebUrlButton Class/Object
+ * 
+ * @author Alvin Reyes
+ * @date 27/Nov/2016
+ * 
+ */
 public class WebUrlButton extends Button {
 
 	private static final long serialVersionUID = 1L;

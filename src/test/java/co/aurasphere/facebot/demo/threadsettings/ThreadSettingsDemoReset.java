@@ -1,8 +1,9 @@
 package co.aurasphere.facebot.demo.threadsettings;
 
-import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.threadsettings.FaceBotThreadSettingsConfiguration;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
+
+import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
 /**
  * Demo of resetting the Thread Settings configuration.

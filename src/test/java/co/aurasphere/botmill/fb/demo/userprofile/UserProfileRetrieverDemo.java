@@ -1,15 +1,15 @@
-package co.aurasphere.facebot.demo.userprofile;
+package co.aurasphere.botmill.fb.demo.userprofile;
 
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.MOCK_FACEBOOK_ID;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.PAGE_TOKEN;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.VALIDATION_TOKEN;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.PAGE_TOKEN;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.VALIDATION_TOKEN;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.model.userprofile.FacebookUserProfile;
-import co.aurasphere.facebot.userprofile.FaceBotUserProfileRetriever;
+import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
+import co.aurasphere.botmill.fb.userprofile.FbBotMillUserProfileRetriever;
 
 public class UserProfileRetrieverDemo {
 	

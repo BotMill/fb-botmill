@@ -1,12 +1,13 @@
-package co.aurasphere.facebot.demo;
+package co.aurasphere.botmill.fb.demo;
 
-import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.demo.behavior.AirplaneBehavior;
-import co.aurasphere.facebot.demo.behavior.TemplateBehavior;
-import co.aurasphere.facebot.test.support.FbBotMillMockMediator;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 
-public class FaceBotDemo {
+import co.aurasphere.botmill.fb.demo.behavior.AirplaneBehavior;
+import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
+import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
+
+public class FbBotMillDemo {
 	
 	public static void main(String[] args) {
 		

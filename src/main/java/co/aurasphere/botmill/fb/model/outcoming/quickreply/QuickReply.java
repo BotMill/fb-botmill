@@ -17,6 +17,9 @@ public class QuickReply implements Serializable{
 	@SerializedName("content_type")
 	private QuickReplyType contentType;
 	
+	@SerializedName("image_url")
+	private String imageUrl;
+	
 	@Size(max=20)
 	@NotEmpty
 	private String title;
@@ -53,6 +56,14 @@ public class QuickReply implements Serializable{
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 }

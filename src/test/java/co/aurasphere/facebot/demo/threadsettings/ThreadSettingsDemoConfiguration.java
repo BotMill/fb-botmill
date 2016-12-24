@@ -3,11 +3,11 @@ package co.aurasphere.facebot.demo.threadsettings;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.facebot.FaceBotContext;
-import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
-import co.aurasphere.facebot.model.outcoming.template.button.Button;
-import co.aurasphere.facebot.threadsettings.FaceBotThreadSettingsConfiguration;
-import static co.aurasphere.facebot.demo.FaceBotDemoConstants.*;
+import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 
 /**
  * Demo of configuring the Thread Settings.

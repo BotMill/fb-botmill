@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.demo;
+package co.aurasphere.botmill.fb.demo;
 
 /**
  * Put your data here to test the FaceBot framework.
@@ -6,7 +6,7 @@ package co.aurasphere.facebot.demo;
  * @author Donato Rimenti
  * @date Aug 28, 2016
  */
-public class FaceBotDemoConstants {
+public class FbBotMillDemoConstants {
 
 	public static final String PAGE_TOKEN = "EAACQsMIQbbkBAEfNdPsY6yHNV5dksXRW3ZAAct50pJGuc5uZA4Us0fOEHC6ikNNDD6ydQyn435r3duAUhgVwzp26u69RXSFmSZB15NJWuy31QZBZCAYvE1VmuwXqsI5SLVkAHv9ThAe30sudsfNJEMJ8s4S7Lf3Bg1ZB1GKW0JIgZDZD";
 

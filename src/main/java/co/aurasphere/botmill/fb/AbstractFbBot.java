@@ -6,6 +6,7 @@ import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
+ 
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
  * {@link FbBot} handling.

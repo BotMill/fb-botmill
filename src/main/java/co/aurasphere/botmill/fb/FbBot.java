@@ -8,6 +8,7 @@ import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * Class that represents a FaceBot. Each FaceBot has a list of
  * {@link FbBotMillEvent}. An event is a callback from Facebook Messenger
@@ -16,12 +17,11 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * received from Facebook, all registered FaceBots callbacks handler are
  * checked. If any callback condition is verified, then the handleCallback
  * method is called.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      > Facebook Messenger Platform callbacks</a>
- * 
- * @author Donato Rimenti
  * @date Jul 31, 2016
  */
 public class FbBot {

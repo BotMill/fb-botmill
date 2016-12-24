@@ -13,6 +13,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class ListTemplateElement.
  * 
@@ -60,6 +61,7 @@ public class ListTemplateElement implements Serializable {
 	 * Sets the default action.
 	 *
 	 * @param defaultAction the new default action
+	 * @return the list template element
 	 */
 	public ListTemplateElement setDefaultAction(DefaultAction defaultAction) {
 		this.defaultAction = defaultAction;
@@ -89,6 +91,7 @@ public class ListTemplateElement implements Serializable {
 	 * Sets the title.
 	 *
 	 * @param title the new title
+	 * @return the list template element
 	 */
 	public ListTemplateElement setTitle(String title) {
 		this.title = title;
@@ -108,6 +111,7 @@ public class ListTemplateElement implements Serializable {
 	 * Sets the image url.
 	 *
 	 * @param imageUrl the new image url
+	 * @return the list template element
 	 */
 	public ListTemplateElement setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
@@ -128,6 +132,7 @@ public class ListTemplateElement implements Serializable {
 	 * Sets the subtitle.
 	 *
 	 * @param subtitle the new subtitle
+	 * @return the list template element
 	 */
 	public ListTemplateElement setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
@@ -147,6 +152,7 @@ public class ListTemplateElement implements Serializable {
 	 * Sets the buttons.
 	 *
 	 * @param buttons the new buttons
+	 * @return the list template element
 	 */
 	public ListTemplateElement setButtons(List<Button> buttons) {
 		this.buttons = buttons;
@@ -157,6 +163,7 @@ public class ListTemplateElement implements Serializable {
 	 * Adds the button.
 	 *
 	 * @param button the button
+	 * @return the list template element
 	 */
 	public ListTemplateElement addButton(Button button) {
 		this.buttons.add(button);

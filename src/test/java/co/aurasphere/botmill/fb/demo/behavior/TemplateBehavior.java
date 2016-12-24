@@ -8,8 +8,15 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 
+
+/**
+ * The Class TemplateBehavior.
+ */
 public class TemplateBehavior extends BaseBehavior {
 
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
+	 */
 	public void defineBehavior() {
 
 		addActionFrame(new MessageEvent("text message"), new MessageAutoReply(

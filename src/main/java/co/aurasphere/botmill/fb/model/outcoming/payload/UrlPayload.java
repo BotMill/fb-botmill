@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.payload;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
 /**
  * A {@link Payload} which contains an URL.
  * 

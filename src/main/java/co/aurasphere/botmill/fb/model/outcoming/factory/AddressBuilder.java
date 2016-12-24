@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Address;
 
+
 /**
  * Builder for an {@link Address}.
  * 

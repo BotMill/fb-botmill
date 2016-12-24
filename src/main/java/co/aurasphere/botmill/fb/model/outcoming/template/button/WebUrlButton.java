@@ -7,26 +7,31 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import com.google.gson.annotations.SerializedName;
 
 
+
 /**
- * The WebUrlButton Class/Object
- * 
+ * The WebUrlButton Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class WebUrlButton extends Button {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The url. */
 	@NotEmpty
 	private String url;
 	
+	/** The webview height ratio. */
 	@SerializedName("webview_height_ratio")
 	private WebViewHeightRatioType webviewHeightRatio;
 	
+	/** The fall back url. */
 	@SerializedName("fallback_url")
 	private String fallBackUrl;
 	
+	/** The messenger extension. */
 	@SerializedName("messenger_extensions")
 	private boolean messengerExtension;
 
@@ -51,6 +56,13 @@ public class WebUrlButton extends Button {
 		this.type = ButtonType.WEB_URL;
 	}
 	
+	/**
+	 * Instantiates a new web url button.
+	 *
+	 * @param title the title
+	 * @param url the url
+	 * @param ratioType the ratio type
+	 */
 	public WebUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
 		this.title = title;
 		this.url = url;
@@ -58,10 +70,20 @@ public class WebUrlButton extends Button {
 		this.webviewHeightRatio = ratioType;
 	}
 
+	/**
+	 * Gets the url.
+	 *
+	 * @return the url
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Sets the url.
+	 *
+	 * @param url the new url
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}

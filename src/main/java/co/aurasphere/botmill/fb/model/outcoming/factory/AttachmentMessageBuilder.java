@@ -14,6 +14,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.Payload;
 import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * Builder for a {@link Message} that contains an {@link Attachment}.
  * 
@@ -56,17 +57,14 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 	
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param title            the quick reply button label. It can't be empty.
+	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
-	 * @param payload
-	 *            the payload sent back when the button is pressed. It can't be
-	 *            empty.
-	 * @return this builder.
 	 */
 	public AttachmentMessageBuilder addQuickReply(String title, String payload) {
 		if(this.quickReplies == null){
@@ -78,14 +76,12 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param reply            a quick reply object.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param reply
-	 *            a quick reply object.
-	 * @return this builder.
 	 */
 	public AttachmentMessageBuilder addQuickReply(QuickReply reply) {
 		if(this.quickReplies == null){

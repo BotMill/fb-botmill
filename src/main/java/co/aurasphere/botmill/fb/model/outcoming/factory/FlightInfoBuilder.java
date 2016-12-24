@@ -6,14 +6,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.Airport;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightSchedule;
 
+
 /**
  * Builder for a {@link FlightInfo} object.
- * 
+ *
  * @author Donato Rimenti
- * @date Aug 25, 2016
- * @param <T>
- *            the class of the parent builder. Used for casting before returning
+ * @param <T>            the class of the parent builder. Used for casting before returning
  *            it.
+ * @date Aug 25, 2016
  */
 public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 

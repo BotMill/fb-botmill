@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.incoming;
 
 import java.io.Serializable;
 
+
 /**
  * Message which contains a {@link FacebookError}.
  * 

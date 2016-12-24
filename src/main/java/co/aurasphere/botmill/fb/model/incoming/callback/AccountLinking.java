@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for an account linking callback. <br/>
  * <br/>
@@ -15,7 +16,8 @@ import com.google.gson.annotations.SerializedName;
  * set to inform you whether the user linked or unlinked their account. The
  * authorization_code is a pass-through parameter. allowing you to match the
  * business user entity to the page-scoped ID (PSID) of the sender.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/account-linking"
  *      >Facebook's Messenger Platform Account Linking Callback
@@ -32,7 +34,6 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class AccountLinking implements Serializable {

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+
 /**
  * Utility class for handling JSON serialization and deserialization.
  * 
@@ -45,24 +46,26 @@ public class JsonUtils {
 	}
 
 	/**
-	 * @see Gson#fromJson(String, Class)
-	 * @param json
-	 *            the string from which the object is to be deserialized.
-	 * @param T
-	 *            the type of the desired object.
+	 * From json.
+	 *
+	 * @param <T> the generic type
+	 * @param json            the string from which the object is to be deserialized.
+	 * @param T            the type of the desired object.
 	 * @return an object of type T from the string. Returns null if json is
 	 *         null.
+	 * @see Gson#fromJson(String, Class)
 	 */
 	public static <T> T fromJson(String json, Class<T> T) {
 		return getGson().fromJson(json, T);
 	}
 
 	/**
-	 * @see Gson#toJson(Object)
-	 * @param src
-	 *            the object for which Json representation is to be created
+	 * To json.
+	 *
+	 * @param src            the object for which Json representation is to be created
 	 *            setting for Gson .
 	 * @return Json representation of src.
+	 * @see Gson#toJson(Object)
 	 */
 	public static String toJson(Object src) {
 		return getGson().toJson(src);

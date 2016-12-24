@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
+
 /**
  * Model for a read message callback. <br/>
  * <br/>
@@ -10,15 +11,14 @@ import java.io.Serializable;
  * when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-read"
  *      >Facebook's Messenger Platform Read Message Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Dec 24, 2016
  */
 public class Read implements Serializable {

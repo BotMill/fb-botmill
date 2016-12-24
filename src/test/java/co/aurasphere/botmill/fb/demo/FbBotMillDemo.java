@@ -7,8 +7,17 @@ import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
 
+
+/**
+ * The Class FbBotMillDemo.
+ */
 public class FbBotMillDemo {
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		
 		// Configuration.

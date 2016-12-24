@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb;
 
+
 /**
  * An interface that represents the base configuration of a {@link FbBot}. To
  * configure your bot, you will need a class that implements this interface. The

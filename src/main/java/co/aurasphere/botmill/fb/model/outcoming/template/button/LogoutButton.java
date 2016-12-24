@@ -1,11 +1,11 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
+
 /**
- * The Logout Button Class/Object
- * 
+ * The Logout Button Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class LogoutButton extends Button {
 	

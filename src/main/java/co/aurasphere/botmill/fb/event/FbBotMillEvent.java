@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.event;
 
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * An interface that defines an event from Facebook Messenger Platform callback.
  * 

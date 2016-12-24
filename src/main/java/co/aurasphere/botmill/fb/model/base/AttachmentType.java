@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.base;
 
 import java.io.Serializable;
 
+
 /**
  * Enum for attachment types.
  * 

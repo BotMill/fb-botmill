@@ -10,6 +10,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 
+
 /**
  * Testing facility for FaceBot framework.
  * 
@@ -58,11 +59,10 @@ public class FbBotMillMockMediator {
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
 	 * and a list of FaceBotDefinition.
-	 * 
-	 * @param facebookMockId
-	 *            the {@link #facebookMockId}.
-	 * @param faceBotDefinitions
-	 *            a list of {@link FbBotDefinition} to register.
+	 *
+	 * @param facebookMockId            the {@link #facebookMockId}.
+	 * @param faceBotDefinitions            a list of {@link FbBotDefinition} to register.
+	 * @return single instance of FbBotMillMockMediator
 	 */
 	public static FbBotMillMockMediator getInstance(String facebookMockId,
 			FbBotDefinition... faceBotDefinitions) {
@@ -83,11 +83,10 @@ public class FbBotMillMockMediator {
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
 	 * and instantiates and registers a list of FaceBotDefinition classes.
-	 * 
-	 * @param facebookMockId
-	 *            the {@link #facebookMockId}.
-	 * @param faceBotDefinitions
-	 *            a list of classes implementing {@link FaceBotDefinition}.
+	 *
+	 * @param facebookMockId            the {@link #facebookMockId}.
+	 * @param faceBotDefinitions            a list of classes implementing {@link FaceBotDefinition}.
+	 * @return single instance of FbBotMillMockMediator
 	 */
 	@SafeVarargs
 	public static FbBotMillMockMediator getInstance(String facebookMockId,

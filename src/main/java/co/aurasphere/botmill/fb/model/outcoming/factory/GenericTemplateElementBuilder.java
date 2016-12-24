@@ -5,6 +5,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
+
 /**
  * Builder for a {@link GenericTemplateElement}.
  * 
@@ -52,9 +53,8 @@ public class GenericTemplateElementBuilder {
 
 	/**
 	 * Sets an image for the current {@link GenericTemplateElement}.
-	 * 
-	 * @param imageURL
-	 *            the URL of an image to set for this element.
+	 *
+	 * @param imageUrl the image url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder setImage(String imageUrl) {
@@ -65,9 +65,8 @@ public class GenericTemplateElementBuilder {
 	/**
 	 * Sets an URL for the current {@link GenericTemplateElement}. The URL will
 	 * be used to redirect the user when the element is clicked.
-	 * 
-	 * @param itemURL
-	 *            the URL to whom redirect when this element is clicked.
+	 *
+	 * @param itemUrl the item url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder setRedirectUrl(String itemUrl) {
@@ -144,9 +143,8 @@ public class GenericTemplateElementBuilder {
 	}
 	
 	/**
-	 * Adds a share button on a generic template
-	 * @param button
-	 *            the share button to add.
+	 * Adds a share button on a generic template.
+	 *
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addShareButton() {
@@ -156,9 +154,9 @@ public class GenericTemplateElementBuilder {
 	}
 	
 	/**
-	 * Adds a login button on a generic template
-	 * @param button
-	 *            the login button to add.
+	 * Adds a login button on a generic template.
+	 *
+	 * @param url the url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addLoginButton(String url) {
@@ -168,9 +166,8 @@ public class GenericTemplateElementBuilder {
 	}
 	
 	/**
-	 * Adds a logout button on a generic template
-	 * @param button
-	 *            the logout button to add.
+	 * Adds a logout button on a generic template.
+	 *
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addLogoutButton(){
@@ -180,9 +177,11 @@ public class GenericTemplateElementBuilder {
 	}
 	
 	/**
-	 * Adds a buy button on a generic template
-	 * @param button
-	 *            the share button to add.
+	 * Adds a buy button on a generic template.
+	 *
+	 * @param title the title
+	 * @param payload the payload
+	 * @param paymentSummary the payment summary
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addBuyButton(String title, String payload, PaymentSummary paymentSummary) {

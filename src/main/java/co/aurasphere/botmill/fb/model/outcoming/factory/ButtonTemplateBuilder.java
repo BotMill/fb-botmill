@@ -6,14 +6,14 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.payload.template.ButtonTemplatePayload;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
+
 /**
  * A builder for a Button Template.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template"
  *      > Facebook's Messenger Platform Button Template Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class ButtonTemplateBuilder extends TemplateBaseBuilder {

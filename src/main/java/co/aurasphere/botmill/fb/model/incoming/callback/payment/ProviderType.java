@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb.model.incoming.callback.payment;
 
+
 /**
  * Provider type for a {@link PaymentCredential} object.
  * 

@@ -1,6 +1,12 @@
 package co.aurasphere.botmill.fb.model.outcoming.quickreply;
 
+
+/**
+ * The Enum QuickReplyType.
+ */
 public enum QuickReplyType {
 
-	TEXT, LOCATION;
+	/** The text. */
+	TEXT, /** The location. */
+ LOCATION;
 }

@@ -17,6 +17,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.WhitelistDomainRequest;
 import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextRequest;
 
 
+
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
  * Thread Settings (for more informations, see the link below). The methods of
@@ -24,12 +25,11 @@ import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextReq
  * class that implements {@link FaceBotDefinition}. The best way of handling the
  * configuration would be defining your own class with a main method and put the
  * call on it.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Thread Settings Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class FbBotMillThreadSettingsConfiguration {
@@ -43,13 +43,11 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * Sets the greeting message for the bot. The Greeting Text is only rendered
 	 * the first time the user interacts with a the Page on Messenger.
-	 * 
+	 *
+	 * @param message            the greeting message to show.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/greeting-text"
 	 *      >Facebook's Greeting Text Documentation</a>
-	 * 
-	 * @param message
-	 *            the greeting message to show.
 	 */
 	public static void setGreetingMessage(String message) {
 		if (message == null || message.isEmpty()) {
@@ -65,13 +63,11 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * rendered the first time the user interacts with a the Page on Messenger.
 	 * When this button is tapped, the defined payload will be sent back with a
 	 * postback received callback.
-	 * 
+	 *
+	 * @param payload            the payload to return when the button is tapped.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/get-started-button"
 	 *      >Facebook's Get Started Button Documentation</a>
-	 * 
-	 * @param payload
-	 *            the payload to return when the button is tapped.
 	 */
 	public static void setGetStartedButton(String payload) {
 		if (payload == null || payload.isEmpty()) {
@@ -105,15 +101,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * capabilities of your bot for first-time and returning users. The menu can
 	 * be invoked by a user, by tapping on the 3-caret icon on the left of the
 	 * composer.
-	 * 
+	 *
+	 * @param buttons            a list of {@link Button} (max 5 elements) to use as menu. The
+	 *            buttons can only be {@link PostbackButton} or
+	 *            {@link WebUrlButton}. Phone buttons are not supported.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/persistent-menu"
 	 *      >Facebook's Persistent Menu Documentation</a>
-	 * 
-	 * @param buttons
-	 *            a list of {@link Button} (max 5 elements) to use as menu. The
-	 *            buttons can only be {@link PostbackButton} or
-	 *            {@link WebUrlButton}. Phone buttons are not supported.
 	 */
 	public static void setPersistentMenu(List<Button> buttons) {
 		if (buttons == null || buttons.isEmpty() || buttons.size() > 5) {
@@ -138,7 +132,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	}
 	
 	/**
-	 * Add a list of domains that needs to be "white listed"
+	 * Add a list of domains that needs to be "white listed".
+	 *
 	 * @param whiteListDomains the list of domains in String.
 	 */
 	public static void setWhiteListDomains(List<String> whiteListDomains) {
@@ -147,7 +142,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	}
 	
 	/**
-	 * Add a single domain on the list of domains that needs to be "white listed"
+	 * Add a single domain on the list of domains that needs to be "white listed".
+	 *
 	 * @param domain the domain that needs to be "white listed"
 	 */
 	public static void addWhiteListDomain(String domain) {
@@ -157,7 +153,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	}
 	
 	/**
-	 * Removes a list of domains that are currently "white listed"
+	 * Removes a list of domains that are currently "white listed".
+	 *
 	 * @param whiteListDomains the list of domains that needs to be removed.
 	 */
 	public static void deleteWhiteListDomains(List<String> whiteListDomains) {

@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.outcoming.payload.Payload;
 
+
 /**
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
  * template.

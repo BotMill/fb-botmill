@@ -2,12 +2,12 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 /**
- * The Login Class/Object
- * 
+ * The Login Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class LoginButton extends Button {
 	

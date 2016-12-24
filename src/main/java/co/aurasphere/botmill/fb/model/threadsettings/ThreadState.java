@@ -1,14 +1,13 @@
 package co.aurasphere.botmill.fb.model.threadsettings;
 
+
 /**
  * Enum that represents the Facebook Thread state.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
- * 
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public enum ThreadState {

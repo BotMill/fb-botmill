@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 /**
  * An object that contains a Facebook's user ID.
  * 

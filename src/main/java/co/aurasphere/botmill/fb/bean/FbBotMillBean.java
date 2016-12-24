@@ -19,6 +19,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 
+
 /**
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 
@@ -191,7 +192,8 @@ public class FbBotMillBean {
 
 	/**
 	 * Validates the {@link FbBotMillResponse}.
-	 * 
+	 *
+	 * @param response the response
 	 * @return true if the response is valid, false otherwise.
 	 */
 	protected boolean validate(FbBotMillResponse response) {

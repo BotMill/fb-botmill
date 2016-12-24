@@ -9,6 +9,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
+
 /**
  * An {@link AutoReply} that replies with a file, video, image or audio
  * attachment.

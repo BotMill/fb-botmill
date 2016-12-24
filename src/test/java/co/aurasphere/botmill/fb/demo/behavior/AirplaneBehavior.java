@@ -10,8 +10,15 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
+
+/**
+ * The Class AirplaneBehavior.
+ */
 public class AirplaneBehavior extends BaseBehavior {
 
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
+	 */
 	public void defineBehavior() {
 
 		// Boarding pass template

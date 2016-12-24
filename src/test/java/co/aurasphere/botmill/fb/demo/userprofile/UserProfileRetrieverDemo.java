@@ -11,10 +11,20 @@ import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 import co.aurasphere.botmill.fb.userprofile.FbBotMillUserProfileRetriever;
 
+
+/**
+ * The Class UserProfileRetrieverDemo.
+ */
 public class UserProfileRetrieverDemo {
 	
+	/** The Constant logger. */
 	private static final Logger logger = LoggerFactory.getLogger(UserProfileRetrieverDemo.class);
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
 		FacebookUserProfile user = FbBotMillUserProfileRetriever.getUser(MOCK_FACEBOOK_ID);

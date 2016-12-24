@@ -6,6 +6,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a checkout update callback. <br/>
  * <br/>
@@ -21,7 +22,8 @@ import com.google.gson.annotations.SerializedName;
  * messaging_checkout_updates field when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/checkout-update"
  *      >Facebook's Messenger Platform Checkout Update Callback
@@ -32,7 +34,6 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @author Donato Rimenti
  * @date Dec 17, 2016
  */
 public class CheckoutUpdate implements Serializable {

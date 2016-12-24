@@ -9,6 +9,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 
+
 /**
  * Demo of configuring the Thread Settings.
  * 

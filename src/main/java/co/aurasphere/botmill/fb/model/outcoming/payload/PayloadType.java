@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.payload;
 
+
 // TODO: improve javadoc here
 /**
  * Enum that represents the all available payloads.

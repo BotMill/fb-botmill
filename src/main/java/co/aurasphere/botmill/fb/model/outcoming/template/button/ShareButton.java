@@ -1,11 +1,11 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
+
 /**
- * The Share Button Class/Object
- * 
+ * The Share Button Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class ShareButton extends Button {
 	

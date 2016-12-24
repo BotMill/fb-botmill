@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
+
 /**
  * Model for a plugin opt-in callback. <br/>
  * <br/>
@@ -14,7 +15,8 @@ import java.io.Serializable;
  * messaging_optins field when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/optins"
  *      >Facebook's Messenger Platform Plugin Opt-in Callback Documentation</a>
@@ -24,8 +26,6 @@ import java.io.Serializable;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Dec 22, 2016
  */
 public class Optin implements Serializable {

@@ -6,6 +6,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
+
 /**
  * An {@link AutoReply} that replies with a specified message.
  * 

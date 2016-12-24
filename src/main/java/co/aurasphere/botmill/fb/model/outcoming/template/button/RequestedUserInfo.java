@@ -6,12 +6,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
- * The RequestedUserInfo Class/Object
- * 
+ * The RequestedUserInfo Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class RequestedUserInfo implements Serializable{
 	

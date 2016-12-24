@@ -7,6 +7,7 @@ import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a message echo callback. <br/>
  * <br/>
@@ -26,14 +27,14 @@ import com.google.gson.annotations.SerializedName;
  * - Message with template attachment 
  * - Message with fallback attachment (any unrecognized or unsupported attachment)
  * </pre>
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-echo"
  *      >Facebook's Messenger Platform Message Echo Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class EchoMessage extends Message {

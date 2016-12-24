@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+
 /**
- * The PriceList Class/Object
- * 
+ * The PriceList Class/Object.
+ *
  * @author Alvin Reyes
  * @date 27/Nov/2016
- * 
  */
 public class PriceList implements Serializable{
 

@@ -8,6 +8,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a received message callback. <br/>
  * <br/>

@@ -5,6 +5,7 @@ import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
+
 /**
  * Demo of resetting the Thread Settings configuration.
  * 

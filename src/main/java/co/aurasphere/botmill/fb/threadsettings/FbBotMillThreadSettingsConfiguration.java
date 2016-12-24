@@ -11,7 +11,9 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.botmill.fb.model.threadsettings.CallToActionsRequest;
+import co.aurasphere.botmill.fb.model.threadsettings.DomainActionType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadState;
+import co.aurasphere.botmill.fb.model.threadsettings.WhitelistDomainRequest;
 import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextRequest;
 
 
@@ -133,6 +135,34 @@ public class FbBotMillThreadSettingsConfiguration {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, null);
 		NetworkUtils.delete(request);
+	}
+	
+	/**
+	 * Add a list of domains that needs to be "white listed"
+	 * @param whiteListDomains the list of domains in String.
+	 */
+	public static void setWhiteListDomains(List<String> whiteListDomains) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains);
+		NetworkUtils.postThreadSetting(request);
+	}
+	
+	/**
+	 * Add a single domain on the list of domains that needs to be "white listed"
+	 * @param domain the domain that needs to be "white listed"
+	 */
+	public static void addWhiteListDomain(String domain) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest();
+		request.addWhiteListedDomain(domain);
+		NetworkUtils.postThreadSetting(request);
+	}
+	
+	/**
+	 * Removes a list of domains that are currently "white listed"
+	 * @param whiteListDomains the list of domains that needs to be removed.
+	 */
+	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains,DomainActionType.REMOVE);
+		NetworkUtils.postThreadSetting(request);
 	}
 
 }

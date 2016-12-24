@@ -48,6 +48,21 @@ public class FbBotMillBean {
 		}
 		return "";
 	}
+	
+	/**
+	 * Retrieves a quick reply payload from an envelope. It never returns null.
+	 * 
+	 * @param envelope
+	 *            the message envelope.
+	 * @return the text message if found or an empty String otherwise. It never
+	 *         returns null.
+	 */
+	protected String safeGetQuickReplyPayload(MessageEnvelope envelope) {
+		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getQuickReply() != null && envelope.getMessage().getQuickReply().getPayload() != null) {
+			return envelope.getMessage().getQuickReply().getPayload();
+		}
+		return "";
+	}
 
 	/**
 	 * Retrieves a text message from an envelope. It never returns null.

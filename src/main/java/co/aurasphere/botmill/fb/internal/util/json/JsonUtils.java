@@ -1,0 +1,71 @@
+package co.aurasphere.botmill.fb.internal.util.json;
+
+import java.util.Calendar;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+/**
+ * Utility class for handling JSON serialization and deserialization.
+ * 
+ * @author Donato Rimenti
+ * @date Jul 31, 2016
+ */
+public class JsonUtils {
+
+	/**
+	 * Gson which handles the JSON conversion.
+	 */
+	private static Gson gson;
+
+	/**
+	 * Initializes the current Gson object if null and returns it. The Gson
+	 * object has custom adapters to manage datatypes according to Facebook
+	 * formats.
+	 * 
+	 * @return the current instance of Gson.
+	 */
+	private static Gson getGson() {
+		if (gson == null) {
+			// Creates the Gson object which will manage the information
+			// received
+			GsonBuilder builder = new GsonBuilder();
+
+			// Serializes enums as lower-case.
+			builder.registerTypeHierarchyAdapter(Enum.class,
+					new EnumLowercaseSerializer());
+			
+			// Serializes calendar in format YYYY-MM-DDThh:mm.
+			builder.registerTypeHierarchyAdapter(Calendar.class,
+					new CalendarSerializer());
+
+			gson = builder.create();
+		}
+		return gson;
+	}
+
+	/**
+	 * @see Gson#fromJson(String, Class)
+	 * @param json
+	 *            the string from which the object is to be deserialized.
+	 * @param T
+	 *            the type of the desired object.
+	 * @return an object of type T from the string. Returns null if json is
+	 *         null.
+	 */
+	public static <T> T fromJson(String json, Class<T> T) {
+		return getGson().fromJson(json, T);
+	}
+
+	/**
+	 * @see Gson#toJson(Object)
+	 * @param src
+	 *            the object for which Json representation is to be created
+	 *            setting for Gson .
+	 * @return Json representation of src.
+	 */
+	public static String toJson(Object src) {
+		return getGson().toJson(src);
+	}
+
+}

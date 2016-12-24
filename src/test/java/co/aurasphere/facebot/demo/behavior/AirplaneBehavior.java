@@ -5,7 +5,7 @@ import java.util.Calendar;
 import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.event.message.MessageEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
-import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
+import co.aurasphere.facebot.model.outcoming.FbBotMillResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.facebot.model.outcoming.template.airline.TravelClass;
 import co.aurasphere.facebot.model.outcoming.template.airline.UpdateType;
@@ -19,7 +19,7 @@ public class AirplaneBehavior extends BaseBehavior {
 				new AutoReply() {
 
 					@Override
-					public FaceBotResponse createResponse(
+					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
 
 						return ReplyFactory
@@ -68,7 +68,7 @@ public class AirplaneBehavior extends BaseBehavior {
 				new AutoReply() {
 
 					@Override
-					public FaceBotResponse createResponse(
+					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
 						return ReplyFactory
 								.addAirlineCheckinTemplate(
@@ -89,7 +89,7 @@ public class AirplaneBehavior extends BaseBehavior {
 				new AutoReply() {
 
 					@Override
-					public FaceBotResponse createResponse(
+					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
 						return ReplyFactory
 								.addAirlineFlightUpdateTemplate(
@@ -108,7 +108,7 @@ public class AirplaneBehavior extends BaseBehavior {
 		addActionFrame(new MessageEvent("itinerary airline template"),
 				new AutoReply() {
 					@Override
-					public FaceBotResponse createResponse(
+					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
 						return ReplyFactory
 								.addAirlineItineraryTemplate(

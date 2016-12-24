@@ -26,7 +26,7 @@ public class ThreadSettingsDemoConfiguration {
 	 */
 	public static void main(String[] args) {
 		// Configuration.
-		FaceBotContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
+		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
 
 		// Creates a list of persistent buttons.
 		List<Button> buttons = new ArrayList<Button>();
@@ -36,11 +36,11 @@ public class ThreadSettingsDemoConfiguration {
 				"http://www.aurasphere.co"));
 
 		// Sets the thread settings.
-		FaceBotThreadSettingsConfiguration
+		FbBotMillThreadSettingsConfiguration
 				.setGreetingMessage("Hi, welcome to FaceBot!");
-		FaceBotThreadSettingsConfiguration
+		FbBotMillThreadSettingsConfiguration
 				.setGetStartedButton("Get Started Button Payload");
-		FaceBotThreadSettingsConfiguration.setPersistentMenu(buttons);
+		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
 	}
 
 }

@@ -16,8 +16,8 @@ public class UserProfileRetrieverDemo {
 	private static final Logger logger = LoggerFactory.getLogger(UserProfileRetrieverDemo.class);
 	
 	public static void main(String[] args) {
-		FaceBotContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
-		FacebookUserProfile user = FaceBotUserProfileRetriever.getUser(MOCK_FACEBOOK_ID);
+		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
+		FacebookUserProfile user = FbBotMillUserProfileRetriever.getUser(MOCK_FACEBOOK_ID);
 		logger.info("----------- Retrieved user -----------");
 		logger.info("Name: " + user.getFirstName());
 		logger.info("Surname: " + user.getLastName());

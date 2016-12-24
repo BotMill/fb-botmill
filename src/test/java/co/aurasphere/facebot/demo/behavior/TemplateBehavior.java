@@ -3,7 +3,7 @@ import co.aurasphere.facebot.autoreply.AutoReply;
 import co.aurasphere.facebot.autoreply.MessageAutoReply;
 import co.aurasphere.facebot.event.message.MessageEvent;
 import co.aurasphere.facebot.model.incoming.MessageEnvelope;
-import co.aurasphere.facebot.model.outcoming.FaceBotResponse;
+import co.aurasphere.facebot.model.outcoming.FbBotMillResponse;
 import co.aurasphere.facebot.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.facebot.model.outcoming.template.list.ListTemplateElement;
@@ -19,7 +19,7 @@ public class TemplateBehavior extends BaseBehavior {
 		addActionFrame(new MessageEvent("button template"), new AutoReply() {
 
 			@Override
-			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory
 						.addButtonTemplate("Test button template")
 						.addPostbackButton("postback button",
@@ -37,7 +37,7 @@ public class TemplateBehavior extends BaseBehavior {
 		addActionFrame(new MessageEvent("generic template"), new AutoReply() {
 
 			@Override
-			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory
 						.addGenericTemplate()
 						.addElement("Generic Template Element 1")
@@ -62,7 +62,7 @@ public class TemplateBehavior extends BaseBehavior {
 		// received. (links are based on facebook's examples).
 		addActionFrame(new MessageEvent("list template"), new AutoReply() {
 			@Override
-			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate()
 						.addElement(new ListTemplateElement("Classic T-Shirt Collection")
 								.setSubtitle("See all our colors")
@@ -95,7 +95,7 @@ public class TemplateBehavior extends BaseBehavior {
 				new AutoReply() {
 
 					@Override
-					public FaceBotResponse createResponse(
+					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
 						return ReplyFactory
 								.addTextMessageOnly(
@@ -111,7 +111,7 @@ public class TemplateBehavior extends BaseBehavior {
 		addActionFrame(new MessageEvent("receipt template"), new AutoReply() {
 			
 			@Override
-			public FaceBotResponse createResponse(MessageEnvelope envelope) {
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addReceiptTemplate("Donato Rimenti", "15", "EUR", "Visa 1234")
 						.setSummary(201, 10, 13, 240)
 						.setMerchantName("Aurasphere co")

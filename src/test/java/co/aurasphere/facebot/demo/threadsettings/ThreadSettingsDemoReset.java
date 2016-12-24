@@ -20,9 +20,9 @@ public class ThreadSettingsDemoReset {
 	 */
 	public static void main(String[] args) {
 		// Configuration.
-		FaceBotContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
+		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
 		
-		FaceBotThreadSettingsConfiguration.deleteGetStartedButton();
-		FaceBotThreadSettingsConfiguration.deletePersistentMenu();
+		FbBotMillThreadSettingsConfiguration.deleteGetStartedButton();
+		FbBotMillThreadSettingsConfiguration.deletePersistentMenu();
 	}
 }

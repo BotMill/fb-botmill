@@ -128,6 +128,24 @@ public class FbBotMillBean {
 		}
 		return new User();
 	}
+	
+	
+	/**
+	 * Retrieves the location from an envelope. It never returns null.
+	 * @param envelope
+	 * @return
+	 */
+	protected String safeGetLocationMessage(MessageEnvelope envelope) {
+	//		TODO: Handle coordinates payload.
+		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getAttachments() != null 
+				&& envelope.getMessage().getAttachments().get(0) != null 
+				&& envelope.getMessage().getAttachments().get(0).getPayload() != null) {
+				//&& envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate() != null) {
+			return envelope.getMessage().getAttachments().get(0).getPayload().toString();
+			//return envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate().toString();
+		}
+		return "";
+	}
 
 	/**
 	 * Retrieves the sender from an envelope. It never returns null.
@@ -224,5 +242,6 @@ public class FbBotMillBean {
 	public String toString() {
 		return "FaceBotBean []";
 	}
+
 
 }

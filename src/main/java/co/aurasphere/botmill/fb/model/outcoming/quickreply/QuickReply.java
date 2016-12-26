@@ -1,12 +1,9 @@
 package co.aurasphere.botmill.fb.model.outcoming.quickreply;
 
 import java.io.Serializable;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotEmpty;
-
 import com.google.gson.annotations.SerializedName;
 
 
@@ -47,6 +44,18 @@ public class QuickReply implements Serializable{
 		this.contentType = QuickReplyType.TEXT;
 		this.title = title;
 		this.payload = payload;
+	}
+	
+	public QuickReply(String title, String payload, String imageUrl) {
+		this.contentType = QuickReplyType.TEXT;
+		this.title = title;
+		this.payload = payload;
+		this.imageUrl = imageUrl;
+	}
+	
+	public QuickReply(String locationMessage) {
+		this.contentType = QuickReplyType.LOCATION;
+		this.title = locationMessage;
 	}
 
 	/**

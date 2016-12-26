@@ -1,25 +1,27 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
-
 /**
  * The Enum for WebViewHeightRatioType.
  *
  * @author Alvin Reyes
- * @date 27/Nov/2016
+ * @date Nov 27, 2016
  */
 public enum ButtonType {
-	
+
 	/** The web url. */
-	WEB_URL, /** The postback. */
- POSTBACK, /** The phone number. */
- PHONE_NUMBER,/** The element share. */
-ELEMENT_SHARE, 
-	
+	WEB_URL,
+	/** The postback. */
+	POSTBACK,
+	/** The phone number. */
+	PHONE_NUMBER,
+	/** The element share. */
+	ELEMENT_SHARE,
+
 	/** The account link. */
-	ACCOUNT_LINK, 
- /** The account unlink. */
- ACCOUNT_UNLINK,
-/** The payment. */
-PAYMENT;
+	ACCOUNT_LINK,
+	/** The account unlink. */
+	ACCOUNT_UNLINK,
+	/** The payment. */
+	PAYMENT;
 
 }

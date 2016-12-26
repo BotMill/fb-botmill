@@ -253,6 +253,30 @@ public class NetworkUtils {
 		}
 		return true;
 	}
+	
+	/**
+	 * Utility to send a POST request.
+	 * @param url
+	 * @param entity
+	 * @return
+	 */
+	public static String post(String url, StringEntity entity) {
+		HttpPost post = new HttpPost(url);
+		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+		post.setEntity(entity);
+		return send(post);
+	}
+	
+	/**
+	 * Utility to send a GET request.
+	 * @param url
+	 * @return
+	 */
+	public static String get(String url) {
+		System.out.println(url);
+		HttpGet get = new HttpGet(url);
+		return send(get);
+	}
 
 	/**
 	 * Utility method that converts an object to its StringEntity

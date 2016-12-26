@@ -70,6 +70,26 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 		this.quickReplies.add(reply);
 		return this;
 	}
+	
+	/**
+	 * 
+	 * Adds a Location {@link QuickReply} to the current object.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
+	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
+	 * 
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @return this builder.
+	 */
+	public TextMessageBuilder addQuickLocationReply(String locationMessage) {
+		if (this.quickReplies == null) {
+			this.quickReplies = new ArrayList<QuickReply>();
+		}
+		this.quickReplies.add(new QuickReply(locationMessage));
+		return this;
+	}
 
 	/**
 	 * {@inheritDoc} Returns a response containing a plain text message.

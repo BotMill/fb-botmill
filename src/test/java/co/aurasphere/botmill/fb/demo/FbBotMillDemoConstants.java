@@ -9,13 +9,13 @@ package co.aurasphere.botmill.fb.demo;
  */
 public class FbBotMillDemoConstants {
 
-	/** The Constant PAGE_TOKEN. */
-	public static final String PAGE_TOKEN = "EAACQsMIQbbkBAEfNdPsY6yHNV5dksXRW3ZAAct50pJGuc5uZA4Us0fOEHC6ikNNDD6ydQyn435r3duAUhgVwzp26u69RXSFmSZB15NJWuy31QZBZCAYvE1VmuwXqsI5SLVkAHv9ThAe30sudsfNJEMJ8s4S7Lf3Bg1ZB1GKW0JIgZDZD";
+	public static final String PAGE_TOKEN = "EAAIyxesjRBcBAFWc6nI74YdxVuvGnOzpa9Cx3qkc0zlqKUZCqMQAjv6dqEg73h6gzFvN2Kp4Ip8r6OCKwMTMZCG0RXcjqSrqTwpbjyKnQqf9ZAbY8V6pLw0rnuFof858iP8yESpTteVTMzCHwiQi6iBAoprGZA3DzMzTsR5U1QZDZD";
 
-	/** The Constant VALIDATION_TOKEN. */
-	public static final String VALIDATION_TOKEN = "";
-
-	/** The Constant MOCK_FACEBOOK_ID. */
-	public static final String MOCK_FACEBOOK_ID = "1545768135449437";
+	public static final String VALIDATION_TOKEN = "123456789";
+	
+	//	This is unique for each user, to get yours, (this is lame: you need to run 
+	//	the app and look for the response with recepient.id: <>)
+	//	Put that ID here. (That's basically a page scope id - unique for each user).
+	public static final String MOCK_FACEBOOK_ID = "1158621824216736";
 
 }

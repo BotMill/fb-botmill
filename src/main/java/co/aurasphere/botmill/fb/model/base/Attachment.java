@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.outcoming.payload.Payload;
 
-
 /**
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
  * template.
@@ -21,6 +20,12 @@ public class Attachment implements Serializable {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/** The title. */
+	private String title;
+
+	/** The url. */
+	private String url;
 
 	/**
 	 * The attachment type.
@@ -90,6 +95,52 @@ public class Attachment implements Serializable {
 	 */
 	public void setPayload(Payload payload) {
 		this.payload = payload;
+	}
+	
+	
+	/**
+	 * Gets the title.
+	 *
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * Sets the title.
+	 *
+	 * @param title the new title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * Gets the url.
+	 *
+	 * @return the url
+	 */
+	public String getUrl() {
+		return url;
+	}
+
+	/**
+	 * Sets the url.
+	 *
+	 * @param url the new url
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	/**
+	 * Gets the serialversionuid.
+	 *
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

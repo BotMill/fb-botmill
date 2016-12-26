@@ -17,7 +17,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/list-template"
  *      > Facebook's Messenger Platform List Template Documentation</a>
- * @date 22/Nov/2016
+ * @date Nov 22, 2016
  */
 public class ListTemplateBuilder extends TemplateBaseBuilder {
 

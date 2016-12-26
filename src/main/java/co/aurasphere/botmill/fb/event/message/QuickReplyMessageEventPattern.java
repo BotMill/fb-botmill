@@ -12,7 +12,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * 
+ * @date Dec 25, 2016
  */
 public class QuickReplyMessageEventPattern extends BasePatternEvent {
 

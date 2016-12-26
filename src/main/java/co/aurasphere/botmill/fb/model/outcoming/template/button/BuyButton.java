@@ -7,15 +7,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Buy Button Class/Object.
  *
  * @author Alvin Reyes
- * @date 27/Nov/2016
+ * @date Nov 27, 2016
  */
-public class BuyButton extends Button{
-	
+public class BuyButton extends Button {
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
@@ -23,19 +22,23 @@ public class BuyButton extends Button{
 	@Size(max = 1000)
 	@NotEmpty
 	private String payload;
-	
+
 	/** The payment summary. */
 	@NotNull
 	@SerializedName("payment_summary")
 	private PaymentSummary paymentSummary;
-	
+
 	/**
 	 * Instantiates a new buy button.
 	 *
-	 * @param type the type
-	 * @param title the title
-	 * @param payload the payload
-	 * @param paymentSummary the payment summary
+	 * @param type
+	 *            the type
+	 * @param title
+	 *            the title
+	 * @param payload
+	 *            the payload
+	 * @param paymentSummary
+	 *            the payment summary
 	 */
 	public BuyButton(ButtonType type, String title, String payload, PaymentSummary paymentSummary) {
 		this.title = title;
@@ -56,7 +59,8 @@ public class BuyButton extends Button{
 	/**
 	 * Sets the payload.
 	 *
-	 * @param payload the new payload
+	 * @param payload
+	 *            the new payload
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
@@ -74,13 +78,11 @@ public class BuyButton extends Button{
 	/**
 	 * Sets the payment summary.
 	 *
-	 * @param paymentSummary the new payment summary
+	 * @param paymentSummary
+	 *            the new payment summary
 	 */
 	public void setPaymentSummary(PaymentSummary paymentSummary) {
 		this.paymentSummary = paymentSummary;
 	}
-	
-	
-
 
 }

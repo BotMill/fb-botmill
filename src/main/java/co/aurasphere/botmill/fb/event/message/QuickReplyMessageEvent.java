@@ -9,7 +9,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * contains a specific text message from Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * 
+ * @date Dec 25, 2016
  */
 public class QuickReplyMessageEvent extends BaseStringEvent {
 

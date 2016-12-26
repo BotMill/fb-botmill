@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
  * The Class ListTemplateElement.
  * 
  * @author Alvin Reyes
- * @date 22/Nov/2016
+ * @date Nov 27, 2016
  * 
  */
 public class ListTemplateElement implements Serializable {

@@ -9,7 +9,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElemen
  * Builder for a {@link ListTemplateElement}.
  * 
  * @author Alvin Reyes
- * @date 27/Oct/2016
+ * @date Nov 27, 2016
  */
 public class ListTemplateElementBuilder {
 

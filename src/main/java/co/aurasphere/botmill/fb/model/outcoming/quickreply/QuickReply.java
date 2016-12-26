@@ -31,7 +31,6 @@ public class QuickReply implements Serializable{
 	
 	/** The payload. */
 	@Size(max=1000)
-	@NotEmpty
 	private String payload;
 
 	/**

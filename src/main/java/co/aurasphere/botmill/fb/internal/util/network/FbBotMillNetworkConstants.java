@@ -1,14 +1,14 @@
 package co.aurasphere.botmill.fb.internal.util.network;
 
+
 /**
  * Utility class that contains the constants used to handle the network
  * communication with Facebook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
  *      />Facebook's Messenger Platform Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Jul 31, 2016
  */
 public class FbBotMillNetworkConstants {

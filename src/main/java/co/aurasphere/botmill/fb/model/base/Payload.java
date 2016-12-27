@@ -1,4 +1,4 @@
-package co.aurasphere.botmill.fb.model.outcoming.payload;
+package co.aurasphere.botmill.fb.model.base;
 
 import java.io.Serializable;
 

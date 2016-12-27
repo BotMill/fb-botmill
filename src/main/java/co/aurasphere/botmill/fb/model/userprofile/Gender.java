@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.userprofile;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Enumeration used for the deserialization of the gender in the user profile.
  * 

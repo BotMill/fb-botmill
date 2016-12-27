@@ -1,17 +1,24 @@
-package co.aurasphere.facebot.demo.behavior;
+package co.aurasphere.botmill.fb.demo.behavior;
 
 import java.util.Calendar;
 
-import co.aurasphere.facebot.autoreply.AutoReply;
-import co.aurasphere.facebot.event.message.MessageEvent;
-import co.aurasphere.facebot.model.incoming.MessageEnvelope;
-import co.aurasphere.facebot.model.outcoming.FbBotMillResponse;
-import co.aurasphere.facebot.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.facebot.model.outcoming.template.airline.TravelClass;
-import co.aurasphere.facebot.model.outcoming.template.airline.UpdateType;
+import co.aurasphere.botmill.fb.autoreply.AutoReply;
+import co.aurasphere.botmill.fb.event.message.MessageEvent;
+import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
+import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
+import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
+import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
+import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
+
+/**
+ * The Class AirplaneBehavior.
+ */
 public class AirplaneBehavior extends BaseBehavior {
 
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
+	 */
 	public void defineBehavior() {
 
 		// Boarding pass template

@@ -4,11 +4,12 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 
+
 /**
  * Builder for a {@link ListTemplateElement}.
  * 
  * @author Alvin Reyes
- * @date 27/Oct/2016
+ * @date Nov 27, 2016
  */
 public class ListTemplateElementBuilder {
 
@@ -50,9 +51,8 @@ public class ListTemplateElementBuilder {
 
 	/**
 	 * Sets an image for the current {@link ListTemplateElement}.
-	 * 
-	 * @param imageURL
-	 *            the URL of an image to set for this element.
+	 *
+	 * @param imageUrl the image url
 	 * @return this builder.
 	 */
 	public ListTemplateElementBuilder setImage(String imageUrl) {

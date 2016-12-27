@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.base.User;
 
+
 /**
  * Object that represents a FbBotMill response.
  * 

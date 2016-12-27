@@ -7,6 +7,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * A {@link FbBotMillResponse} which replies with a {@link TypingAction}.
  * 

@@ -12,14 +12,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Adjustment;
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Summary;
 
+
 /**
  * A builder for a Receipt Template.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
  *      > Facebook's Messenger Platform Receipt Template Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 25, 2016
  */
 public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
@@ -31,11 +31,14 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 
 	/**
 	 * Default constructor. Creates a builder for a Receipt Template.
-	 * 
+	 *
+	 * @param recipientName the recipient name
+	 * @param orderNumber the order number
+	 * @param currency the currency
+	 * @param paymentMethod the payment method
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
 	 *      > Facebook's Messenger Platform Generic Receipt Documentation</a>
-	 * 
 	 */
 	ReceiptTemplateBuilder(String recipientName, String orderNumber,
 			String currency, String paymentMethod) {
@@ -201,17 +204,14 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param title            the quick reply button label. It can't be empty.
+	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
-	 * @param payload
-	 *            the payload sent back when the button is pressed. It can't be
-	 *            empty.
-	 * @return this builder.
 	 */
 	public ReceiptTemplateBuilder addQuickReply(String title, String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
@@ -220,14 +220,12 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param reply            a quick reply object.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param reply
-	 *            a quick reply object.
-	 * @return this builder.
 	 */
 	public ReceiptTemplateBuilder addQuickReply(QuickReply reply) {
 		this.messageBuilder.addQuickReply(reply);

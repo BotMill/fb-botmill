@@ -4,6 +4,7 @@ import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
 
+
 /**
  * Abstract class for a {@link FbBotMillResponseBuilder} that can be populated
  * with a mock recipient for testing.

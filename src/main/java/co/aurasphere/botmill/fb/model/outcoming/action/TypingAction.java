@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.action;
 
+
 /**
  * Enum that represents the non-message actions that a bot can perform. They are
  * used in conjunction with {@link FbBotMillActionResponse}.

@@ -6,14 +6,14 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.FbBotMillActionResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 
+
 /**
  * A builder for a response which contains and performs a {@link TypingAction}.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/sender-actions"
  *      > Facebook's Messenger Platform Sender Actions Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class ActionResponseBuilder extends FbBotMillMockableBuilder {

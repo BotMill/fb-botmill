@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
+
 /**
  * A {@link Message} which contains text.
  * 

@@ -3,6 +3,7 @@ package co.aurasphere.botmill.fb.event.base;
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
+
 /**
  * Base event handler which occurs when an exact String is received.
  * 

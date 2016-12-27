@@ -1,14 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>co.aurasphere</groupId>
-	<artifactId>facebot</artifactId>
+	<groupId>co.aurasphere.botmill</groupId>
+	<artifactId>fb-botmill</artifactId>
 	<version>1.1.0</version>
-	<name>FaceBot</name>
+	<name>FB-BotMill</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -59,4 +58,5 @@
 		</dependency>
 
 	</dependencies>
+
 </project>

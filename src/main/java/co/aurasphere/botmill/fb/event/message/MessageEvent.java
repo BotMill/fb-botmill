@@ -4,6 +4,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * A {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a specific text message from Facebook's Messenger Platform.
@@ -36,6 +37,9 @@ public class MessageEvent extends BaseStringEvent {
 	}
 
 	/**
+	 * Verify event condition.
+	 *
+	 * @param envelope the envelope
 	 * @return true if the text message received by the callback equals the
 	 *         expected message, false otherwise.
 	 */

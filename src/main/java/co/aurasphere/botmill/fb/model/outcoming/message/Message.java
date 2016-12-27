@@ -11,6 +11,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * An object that represents the content of a {@link FbBotMillMessageResponse}.
  * 

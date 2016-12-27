@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for the User Profile API. <br>
  * <br>
@@ -23,14 +24,14 @@ import com.google.gson.annotations.SerializedName;
  * the API before these actions, then you will receive an empty result. You will
  * also receive an empty result if a person has revoked platform permissions on
  * Facebook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/user-profile" >
  *      Facebook's Messenger User Profile Reference Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/plugin-reference"
  *      > Facebook's Messenger Platform Plugin Reference Documentation</a>
- * @author Donato Rimenti
  * @date Dec 18, 2016
  */
 public class FacebookUserProfile implements Serializable {

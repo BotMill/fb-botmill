@@ -19,6 +19,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 
+
 /**
  * Main Servlet for FaceBot framework. This servlet requires an init-param
  * containing the fully qualified name of a class implementing
@@ -31,12 +32,11 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  * the communication is handled, check the documentation for {@link #doGet},
  * {@link #doPost(HttpServletRequest, HttpServletResponse)} and Facebook's
  * documentation with the link below.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a
  *      href="https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook Subscription info</a>
- * 
- * @author Donato Rimenti
  * @date Jul 31, 2016
  */
 public class FbBotMillServlet extends HttpServlet {
@@ -123,6 +123,11 @@ public class FbBotMillServlet extends HttpServlet {
 	 * the FaceBotServlet will reply sending back the value of the
 	 * {@link FbBotMillNetworkConstants#HUB_CHALLENGE_PARAMETER} received, in order to
 	 * confirm the registration, otherwise it will return an error 403.
+	 *
+	 * @param req the req
+	 * @param resp the resp
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -159,6 +164,11 @@ public class FbBotMillServlet extends HttpServlet {
 	 * MessengerCallback, then the FaceBotServlet logs an error and does
 	 * nothing, otherwise it will forward the request to all registered FaceBots
 	 * in order to let them process the callbacks.
+	 *
+	 * @param req the req
+	 * @param resp the resp
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -217,11 +227,10 @@ public class FbBotMillServlet extends HttpServlet {
 
 	/**
 	 * Utility method that converts a Reader to a String.
-	 * 
-	 * @param reader
-	 *            the reader to convert.
+	 *
+	 * @param reader            the reader to convert.
 	 * @return a String with the content of the reader.
-	 * @throws IOException
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	private static String readerToString(Reader reader) throws IOException {
 		char[] arr = new char[8 * 1024];

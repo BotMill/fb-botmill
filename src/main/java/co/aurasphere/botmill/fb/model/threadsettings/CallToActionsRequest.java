@@ -13,14 +13,15 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Request used for Thread Settings of Get Started Button and Persistent Menu.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
  *      
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class CallToActionsRequest extends ThreadSettingsBaseRequest {

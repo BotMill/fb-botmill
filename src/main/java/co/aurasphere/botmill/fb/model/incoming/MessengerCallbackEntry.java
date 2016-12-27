@@ -3,14 +3,14 @@ package co.aurasphere.botmill.fb.model.incoming;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
  * Represents a received callback from Facebook's Messenger Platform.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class MessengerCallbackEntry implements Serializable {

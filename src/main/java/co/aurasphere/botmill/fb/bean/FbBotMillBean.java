@@ -15,9 +15,11 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
+
 
 /**
  * Base FbBot bean which contains utility methods for handling an envelope.
@@ -127,6 +129,24 @@ public class FbBotMillBean {
 		}
 		return new User();
 	}
+	
+	
+	/**
+	 * Retrieves the location from an envelope. It return nulls if none was retrieved.
+	 * @param envelope
+	 * @return
+	 */
+	protected LocationCoordinates safeGetLocationMessage(MessageEnvelope envelope) {
+		if (envelope != null && envelope.getMessage() != null 
+				&& envelope.getMessage().getAttachments() != null 
+				&& envelope.getMessage().getAttachments().get(0) != null 
+				&& envelope.getMessage().getAttachments().get(0).getPayload() != null 
+				&& envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate() != null) {
+			
+			return envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate();
+		}
+		return null;
+	}
 
 	/**
 	 * Retrieves the sender from an envelope. It never returns null.
@@ -191,7 +211,8 @@ public class FbBotMillBean {
 
 	/**
 	 * Validates the {@link FbBotMillResponse}.
-	 * 
+	 *
+	 * @param response the response
 	 * @return true if the response is valid, false otherwise.
 	 */
 	protected boolean validate(FbBotMillResponse response) {
@@ -222,5 +243,6 @@ public class FbBotMillBean {
 	public String toString() {
 		return "FaceBotBean []";
 	}
+
 
 }

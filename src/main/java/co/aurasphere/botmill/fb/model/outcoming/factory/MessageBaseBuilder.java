@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * Base class for a {@link FbBotMillMockableBuilder} that builds a message.
  * 

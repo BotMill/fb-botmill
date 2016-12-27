@@ -8,15 +8,15 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
+
 /**
  * Builder for an Airline Flight Update Template.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-itinerary-template"
  *      > Facebook's Messenger Platform Airline Itinerary Template
  *      Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 25, 2016
  */
 public class AirlineFlightUpdateTemplateBuilder extends
@@ -104,17 +104,14 @@ public class AirlineFlightUpdateTemplateBuilder extends
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param title            the quick reply button label. It can't be empty.
+	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
-	 * @param payload
-	 *            the payload sent back when the button is pressed. It can't be
-	 *            empty.
-	 * @return this builder.
 	 */
 	public AirlineFlightUpdateTemplateBuilder addQuickReply(String title,
 			String payload) {
@@ -124,14 +121,12 @@ public class AirlineFlightUpdateTemplateBuilder extends
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param reply            a quick reply object.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param reply
-	 *            a quick reply object.
-	 * @return this builder.
 	 */
 	public AirlineFlightUpdateTemplateBuilder addQuickReply(QuickReply reply) {
 		this.messageBuilder.addQuickReply(reply);

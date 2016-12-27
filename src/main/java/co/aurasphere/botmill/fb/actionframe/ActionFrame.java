@@ -4,6 +4,7 @@ import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to it.
  * 

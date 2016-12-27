@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplateElement;
 
+
 /**
  * Builder for a {@link ReceiptTemplateElement}.
  * 

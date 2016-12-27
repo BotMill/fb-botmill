@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.incoming.FacebookError;
 import co.aurasphere.botmill.fb.model.incoming.FacebookErrorMessage;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 
+
 /**
  * Class that contains methods that allows FaceBot to communicate through the
  * network.
@@ -154,10 +155,10 @@ public class NetworkUtils {
 
 	/**
 	 * Logs the response before returning it.
-	 * 
-	 * @param response
-	 *            the response to log.
-	 * @throws IOException
+	 *
+	 * @param response            the response to log.
+	 * @return the string
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	private static String logResponse(HttpResponse response) throws IOException {
 		int statusCode = response.getStatusLine().getStatusCode();
@@ -185,11 +186,10 @@ public class NetworkUtils {
 
 	/**
 	 * Utility method that converts an HttpResponse to a String.
-	 * 
-	 * @param response
-	 *            the response to convert.
+	 *
+	 * @param response            the response to convert.
 	 * @return a String with the response content.
-	 * @throws IOException
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	private static String getResponseContent(HttpResponse response)
 			throws IOException {
@@ -253,6 +253,30 @@ public class NetworkUtils {
 		}
 		return true;
 	}
+	
+	/**
+	 * Utility to send a POST request.
+	 * @param url
+	 * @param entity
+	 * @return
+	 */
+	public static String post(String url, StringEntity entity) {
+		HttpPost post = new HttpPost(url);
+		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+		post.setEntity(entity);
+		return send(post);
+	}
+	
+	/**
+	 * Utility to send a GET request.
+	 * @param url
+	 * @return
+	 */
+	public static String get(String url) {
+		System.out.println(url);
+		HttpGet get = new HttpGet(url);
+		return send(get);
+	}
 
 	/**
 	 * Utility method that converts an object to its StringEntity
@@ -276,11 +300,10 @@ public class NetworkUtils {
 
 	/**
 	 * Utility method which converts an InputStream to a String.
-	 * 
-	 * @param stream
-	 *            the InputStream to convert.
+	 *
+	 * @param stream            the InputStream to convert.
 	 * @return a String with the InputStream content.
-	 * @throws IOException
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	private static String inputStreamToString(InputStream stream)
 			throws IOException {
@@ -298,9 +321,10 @@ public class NetworkUtils {
 	// TODO: used for attaching files but not working at the moment.
 	/**
 	 * POSTs a message as a JSON string to Facebook.
-	 * 
-	 * @param input
-	 *            the JSON data to send.
+	 *
+	 * @param recipient the recipient
+	 * @param type the type
+	 * @param file the file
 	 */
 	public static void postFormDataMessage(String recipient,
 			AttachmentType type, File file) {

@@ -7,11 +7,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * The Payment Summary Class/Object
- * 
+ * The Payment Summary Class/Object.
+ *
  * @author Alvin Reyes
- * @date 27/Nov/2016
- * 
+ * @date Nov 27, 2016
  */
 public class PaymentSummary implements Serializable {
 

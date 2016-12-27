@@ -6,6 +6,7 @@ import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
+
 /**
  * A class that represents an automatic reply to an event. AutoReply are used in
  * conjuction with {@link FbBotMillEvent} in order to handle an Facebook's

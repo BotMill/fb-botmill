@@ -6,14 +6,15 @@ import javax.validation.constraints.NotNull;
 import co.aurasphere.botmill.fb.model.threadsettings.SettingType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
 
+
 /**
  * Request used for Thread Settings of Text Greeting.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
  *      
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {

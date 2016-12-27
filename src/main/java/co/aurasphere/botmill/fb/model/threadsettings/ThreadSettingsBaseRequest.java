@@ -6,14 +6,14 @@ import javax.validation.constraints.NotNull;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Base request for a Thread Setting configuration.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public abstract class ThreadSettingsBaseRequest implements Serializable {

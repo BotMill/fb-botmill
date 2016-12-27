@@ -6,15 +6,17 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class DefaultAction.
  * 
  * @author Alvin Reyes
- * @date 22/Nov/2016
+ * @date Nov 27, 2016
  * 
  */
 public class DefaultAction implements Serializable {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/** The type. */
 	private ButtonType type;
@@ -34,6 +36,15 @@ public class DefaultAction implements Serializable {
 	@SerializedName("fallback_url")
 	private String fallbackUrl;
 	
+	/**
+	 * Instantiates a new default action.
+	 *
+	 * @param type the type
+	 * @param url the url
+	 * @param messengerExtensions the messenger extensions
+	 * @param webviewHeightRatio the webview height ratio
+	 * @param fallbackUrl the fallback url
+	 */
 	public DefaultAction(ButtonType type, String url, String messengerExtensions, String webviewHeightRatio, String fallbackUrl) {
 		this.type = type;
 		this.url = url;
@@ -42,6 +53,12 @@ public class DefaultAction implements Serializable {
 		this.fallbackUrl = fallbackUrl;
 	}
 	
+	/**
+	 * Instantiates a new default action.
+	 *
+	 * @param type the type
+	 * @param url the url
+	 */
 	public DefaultAction(ButtonType type, String url) {
 		this.type = type;
 		this.url = url;
@@ -60,6 +77,7 @@ public class DefaultAction implements Serializable {
 	 * Sets the type.
 	 *
 	 * @param type the new type
+	 * @return the default action
 	 */
 	public DefaultAction setType(ButtonType type) {
 		this.type = type;
@@ -79,6 +97,7 @@ public class DefaultAction implements Serializable {
 	 * Sets the url.
 	 *
 	 * @param url the new url
+	 * @return the default action
 	 */
 	public DefaultAction setUrl(String url) {
 		this.url = url;
@@ -98,6 +117,7 @@ public class DefaultAction implements Serializable {
 	 * Sets the messenger extensions.
 	 *
 	 * @param messengerExtensions the new messenger extensions
+	 * @return the default action
 	 */
 	public DefaultAction setMessengerExtensions(String messengerExtensions) {
 		this.messengerExtensions = messengerExtensions;
@@ -117,6 +137,7 @@ public class DefaultAction implements Serializable {
 	 * Sets the webview height ratio.
 	 *
 	 * @param webviewHeightRatio the new webview height ratio
+	 * @return the default action
 	 */
 	public DefaultAction setWebviewHeightRatio(String webviewHeightRatio) {
 		this.webviewHeightRatio = webviewHeightRatio;
@@ -136,6 +157,7 @@ public class DefaultAction implements Serializable {
 	 * Sets the fallback url.
 	 *
 	 * @param fallbackUrl the new fallback url
+	 * @return the default action
 	 */
 	public DefaultAction setFallbackUrl(String fallbackUrl) {
 		this.fallbackUrl = fallbackUrl;

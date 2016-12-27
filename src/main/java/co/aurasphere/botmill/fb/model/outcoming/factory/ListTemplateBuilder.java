@@ -9,15 +9,15 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
 
+
 /**
  * A builder for a List Template.
- * 
- * @see <a href=		
+ *
+ * @author Alvin Reyes
+ * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/list-template"
  *      > Facebook's Messenger Platform List Template Documentation</a>
- * 
- * @author Alvin Reyes
- * @date 22/Nov/2016
+ * @date Nov 22, 2016
  */
 public class ListTemplateBuilder extends TemplateBaseBuilder {
 
@@ -75,9 +75,9 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	}
 	
 	/**
-	 * Add a {@link Button} to this template
-	 * @param button 
-	 * 			the button to add
+	 * Add a {@link Button} to this template.
+	 *
+	 * @param button 			the button to add
 	 * @return this builder.
 	 */
 	public ListTemplateBuilder addButton(Button button) {
@@ -87,17 +87,14 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param title            the quick reply button label. It can't be empty.
+	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
-	 * @param payload
-	 *            the payload sent back when the button is pressed. It can't be
-	 *            empty.
-	 * @return this builder.
 	 */
 	public ListTemplateBuilder addQuickReply(String title, String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
@@ -106,14 +103,12 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param reply            a quick reply object.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param reply
-	 *            a quick reply object.
-	 * @return this builder.
 	 */
 	public ListTemplateBuilder addQuickReply(QuickReply reply) {
 		this.messageBuilder.addQuickReply(reply);

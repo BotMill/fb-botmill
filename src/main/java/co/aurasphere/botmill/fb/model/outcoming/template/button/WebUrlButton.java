@@ -6,28 +6,38 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 
 import com.google.gson.annotations.SerializedName;
 
-
+/**
+ * The WebUrlButton Class/Object.
+ *
+ * @author Alvin Reyes
+ * @date Nov 27, 2016
+ */
 public class WebUrlButton extends Button {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The url. */
 	@NotEmpty
 	private String url;
-	
+
+	/** The webview height ratio. */
 	@SerializedName("webview_height_ratio")
 	private WebViewHeightRatioType webviewHeightRatio;
-	
+
+	/** The fall back url. */
 	@SerializedName("fallback_url")
 	private String fallBackUrl;
-	
+
+	/** The messenger extension. */
 	@SerializedName("messenger_extensions")
 	private boolean messengerExtension;
 
 	/**
 	 * Default constructor. Can instantiate this object only through
 	 * {@link ButtonFactory}. It checks that the title is not null, not empty
-	 * and shorter than 20 characters and that the URL is not empty. The
-	 * button type is set to {@link ButtonType#WEB_URL}.
+	 * and shorter than 20 characters and that the URL is not empty. The button
+	 * type is set to {@link ButtonType#WEB_URL}.
 	 * 
 	 * @param title
 	 *            the button title. It can't be null or empty and has to be
@@ -43,7 +53,17 @@ public class WebUrlButton extends Button {
 		this.url = url;
 		this.type = ButtonType.WEB_URL;
 	}
-	
+
+	/**
+	 * Instantiates a new web url button.
+	 *
+	 * @param title
+	 *            the title
+	 * @param url
+	 *            the url
+	 * @param ratioType
+	 *            the ratio type
+	 */
 	public WebUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
 		this.title = title;
 		this.url = url;
@@ -51,10 +71,21 @@ public class WebUrlButton extends Button {
 		this.webviewHeightRatio = ratioType;
 	}
 
+	/**
+	 * Gets the url.
+	 *
+	 * @return the url
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * Sets the url.
+	 *
+	 * @param url
+	 *            the new url
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}

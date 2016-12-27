@@ -7,14 +7,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * The RequestedUserInfo Class/Object
- * 
+ * The RequestedUserInfo Class/Object.
+ *
  * @author Alvin Reyes
- * @date 27/Nov/2016
- * 
+ * @date Nov 27, 2016
  */
-public class RequestedUserInfo implements Serializable{
-	
+public class RequestedUserInfo implements Serializable {
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +29,7 @@ public class RequestedUserInfo implements Serializable{
 	/** The contact phont. */
 	@SerializedName("contact_phone")
 	private String contactPhont;
-	
+
 	/** The contact email. */
 	@SerializedName("contact_email")
 	private String contactEmail;
@@ -47,7 +46,8 @@ public class RequestedUserInfo implements Serializable{
 	/**
 	 * Sets the shipping address.
 	 *
-	 * @param shippingAddress the new shipping address
+	 * @param shippingAddress
+	 *            the new shipping address
 	 */
 	public void setShippingAddress(String shippingAddress) {
 		this.shippingAddress = shippingAddress;
@@ -65,7 +65,8 @@ public class RequestedUserInfo implements Serializable{
 	/**
 	 * Sets the contact name.
 	 *
-	 * @param contactName the new contact name
+	 * @param contactName
+	 *            the new contact name
 	 */
 	public void setContactName(String contactName) {
 		this.contactName = contactName;
@@ -83,7 +84,8 @@ public class RequestedUserInfo implements Serializable{
 	/**
 	 * Sets the contact phont.
 	 *
-	 * @param contactPhont the new contact phont
+	 * @param contactPhont
+	 *            the new contact phont
 	 */
 	public void setContactPhont(String contactPhont) {
 		this.contactPhont = contactPhont;
@@ -101,12 +103,11 @@ public class RequestedUserInfo implements Serializable{
 	/**
 	 * Sets the contact email.
 	 *
-	 * @param contactEmail the new contact email
+	 * @param contactEmail
+	 *            the new contact email
 	 */
 	public void setContactEmail(String contactEmail) {
 		this.contactEmail = contactEmail;
 	}
-	
-	
-	
+
 }

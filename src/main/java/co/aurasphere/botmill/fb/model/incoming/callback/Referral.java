@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
+
 /**
  * Model for the Referral Callback. <br/>
  * <br/>
@@ -19,11 +20,11 @@ import java.io.Serializable;
  * An m.me link with an an added parameter looks like this:
  * http://m.me/mybot?ref=myparam. The value of the ref parameter will be passed
  * to the server via webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/referral"
  *      > Facebook's Messenger Platform Referral Callback Documentation</a>
- * @author Donato Rimenti
  * @date Dec 4, 2016
  */
 public class Referral implements Serializable {

@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
+
 /**
  * Model for a postback callback. <br/>
  * <br/>
@@ -11,15 +12,14 @@ import java.io.Serializable;
  * messaging_postbacks field when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback"
  *      >Facebook's Messenger Platform Postback Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Dec 24, 2016
  */
 public class Postback implements Serializable {

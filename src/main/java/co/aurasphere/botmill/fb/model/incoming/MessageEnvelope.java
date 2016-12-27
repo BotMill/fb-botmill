@@ -15,14 +15,14 @@ import co.aurasphere.botmill.fb.model.incoming.callback.payment.Payment;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * A generic incoming message envelope.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Jul 31, 2016
  */
 public class MessageEnvelope implements Serializable {

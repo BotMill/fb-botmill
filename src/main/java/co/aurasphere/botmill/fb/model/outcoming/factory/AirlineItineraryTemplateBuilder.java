@@ -14,15 +14,15 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmen
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PriceInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
+
 /**
  * Builder for an Airline Itinerary Template.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-itinerary-template"
  *      > Facebook's Messenger Platform Airline Itinerary Template
  *      Documentation</a>
- * 
- * @author Donato Rimenti
  * @date 26/ago/2016
  */
 public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator {
@@ -132,13 +132,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	/**
 	 * Adds a {@PassengerInfo} object to this template. This
 	 * field is mandatory for this template. There must be at least one element.
-	 * 
-	 * @param passengerId
-	 *            the passenger ID. It can't be empty.
-	 * @param name
-	 *            the passenger name. It can't be empty.
-	 * @param ticketNumber
-	 *            the ticket number. This field is optional.
+	 *
+	 * @param passengerInfo the passenger info
 	 * @return this builder.
 	 */
 	public AirlineItineraryTemplateBuilder addPassengerInfo(
@@ -151,18 +146,15 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 * Adds a {@PassengerSegmentInfo} object to this
 	 * template. This field is mandatory for this template. There must be at
 	 * least one element.
-	 * 
-	 * @param segmentId
-	 *            used to identify a flight segment. It can't be empty and must
+	 *
+	 * @param segmentId            used to identify a flight segment. It can't be empty and must
 	 *            be unique within the itinerary.
-	 * @param passengerId
-	 *            the passengerId of {@link PassengerInfo} object. It can't be
+	 * @param passengerId            the passengerId of {@link PassengerInfo} object. It can't be
 	 *            empty and it must match an actual passenger.
-	 * @param seat
-	 *            the seat number for the passenger. It can't be empty.
-	 * @param seatType
-	 *            the seat type for the passenger (e.g. Economy comfort). It
+	 * @param seat            the seat number for the passenger. It can't be empty.
+	 * @param seatType            the seat type for the passenger (e.g. Economy comfort). It
 	 *            can't be empty.
+	 * @return the passenger segment info builder
 	 */
 	public PassengerSegmentInfoBuilder addPassengerSegmentInfo(
 			String segmentId, String passengerId, String seat, String seatType) {
@@ -310,17 +302,14 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param title            the quick reply button label. It can't be empty.
+	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      >Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
-	 * @param payload
-	 *            the payload sent back when the button is pressed. It can't be
-	 *            empty.
-	 * @return this builder.
 	 */
 	public AirlineItineraryTemplateBuilder addQuickReply(String title,
 			String payload) {
@@ -330,14 +319,12 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param reply            a quick reply object.
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      >Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param reply
-	 *            a quick reply object.
-	 * @return this builder.
 	 */
 	public AirlineItineraryTemplateBuilder addQuickReply(QuickReply reply) {
 		this.messageBuilder.addQuickReply(reply);

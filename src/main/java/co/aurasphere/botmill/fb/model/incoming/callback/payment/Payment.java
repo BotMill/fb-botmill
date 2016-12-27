@@ -7,6 +7,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInf
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for the Payment Callback. <br/>
  * <br/>
@@ -51,15 +52,14 @@ import com.google.gson.annotations.SerializedName;
  * to <a href=
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#test_payments"
  * >How to Test Payment</a> for details. <br/>
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/payment"
  *      >Facebook's Messenger Platform Payment Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/buy-button"
  *      >Facebook's Messenger Platform Buy Button Documentation</a>
- * 
- * @author Donato Rimenti
  * @date Dec 4, 2016
  */
 public class Payment implements Serializable {

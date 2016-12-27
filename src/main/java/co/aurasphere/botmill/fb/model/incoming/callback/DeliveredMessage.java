@@ -3,6 +3,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
  * Model for a delivered message callback. <br/>
  * <br/>
@@ -11,14 +12,14 @@ import java.util.List;
  * when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
- * 
+ *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-delivered"
  *      >Facebook's Messenger Platform Delivery Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @author Donato Rimenti
  * @date Aug 08, 2016
  */
 public class DeliveredMessage implements Serializable {

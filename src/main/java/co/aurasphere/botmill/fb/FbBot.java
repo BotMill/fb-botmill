@@ -99,7 +99,7 @@ public class FbBot {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
 			if (f.process(envelope)
-					&& this.faceBotPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+					&& !this.faceBotPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
 				break;
 			}
 		}

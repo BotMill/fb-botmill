@@ -15,6 +15,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
@@ -131,20 +132,20 @@ public class FbBotMillBean {
 	
 	
 	/**
-	 * Retrieves the location from an envelope. It never returns null.
+	 * Retrieves the location from an envelope. It return nulls if none was retrieved.
 	 * @param envelope
 	 * @return
 	 */
-	protected String safeGetLocationMessage(MessageEnvelope envelope) {
-	//		TODO: Handle coordinates payload.
-		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getAttachments() != null 
+	protected LocationCoordinates safeGetLocationMessage(MessageEnvelope envelope) {
+		if (envelope != null && envelope.getMessage() != null 
+				&& envelope.getMessage().getAttachments() != null 
 				&& envelope.getMessage().getAttachments().get(0) != null 
-				&& envelope.getMessage().getAttachments().get(0).getPayload() != null) {
-				//&& envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate() != null) {
-			return envelope.getMessage().getAttachments().get(0).getPayload().toString();
-			//return envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate().toString();
+				&& envelope.getMessage().getAttachments().get(0).getPayload() != null 
+				&& envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate() != null) {
+			
+			return envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate();
 		}
-		return "";
+		return null;
 	}
 
 	/**

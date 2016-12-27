@@ -2,6 +2,9 @@ package co.aurasphere.botmill.fb.model.outcoming.payload;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import co.aurasphere.botmill.fb.model.base.GenericPayload;
+import co.aurasphere.botmill.fb.model.base.Payload;
+
 
 /**
  * A {@link Payload} which contains an URL.
@@ -9,7 +12,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author Donato Rimenti
  * @date Dec 24, 2016
  */
-public class UrlPayload implements Payload {
+public class UrlPayload extends GenericPayload implements Payload {
 
 	/**
 	 * The serial version UID.

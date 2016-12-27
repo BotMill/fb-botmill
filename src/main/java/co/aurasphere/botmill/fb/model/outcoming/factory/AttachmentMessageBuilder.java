@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 import co.aurasphere.botmill.fb.model.base.Attachment;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
+import co.aurasphere.botmill.fb.model.base.GenericPayload;
+import co.aurasphere.botmill.fb.model.base.Payload;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.AttachmentMessage;
 import co.aurasphere.botmill.fb.model.outcoming.message.FbBotMillMessageResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
-import co.aurasphere.botmill.fb.model.outcoming.payload.Payload;
 import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
@@ -51,7 +52,7 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 	 * @param payload
 	 *            the attachment {@link Payload}.
 	 */
-	AttachmentMessageBuilder(AttachmentType type, Payload payload) {
+	AttachmentMessageBuilder(AttachmentType type, GenericPayload payload) {
 		this.attachment = new Attachment(type, payload);
 	}
 	

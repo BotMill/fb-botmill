@@ -45,6 +45,12 @@ public class QuickReply implements Serializable{
 		this.payload = payload;
 	}
 	
+	/**
+	 * Instantiates a new quick reply with the following parameters.
+	 * @param title
+	 * @param payload
+	 * @param imageUrl
+	 */
 	public QuickReply(String title, String payload, String imageUrl) {
 		this.contentType = QuickReplyType.TEXT;
 		this.title = title;
@@ -52,6 +58,10 @@ public class QuickReply implements Serializable{
 		this.imageUrl = imageUrl;
 	}
 	
+	/**
+	 * Instantiates a new location quick reply.
+	 * @param locationMessage
+	 */
 	public QuickReply(String locationMessage) {
 		this.contentType = QuickReplyType.LOCATION;
 		this.title = locationMessage;

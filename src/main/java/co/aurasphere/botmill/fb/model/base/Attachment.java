@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import co.aurasphere.botmill.fb.model.outcoming.payload.Payload;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
@@ -38,7 +38,8 @@ public class Attachment implements Serializable {
 	 */
 	@Valid
 	@NotNull
-	private Payload payload;
+	@SerializedName("payload")
+	private GenericPayload payload;
 
 	/**
 	 * Instantiates a new attachment.
@@ -54,7 +55,7 @@ public class Attachment implements Serializable {
 	 * @param payload
 	 *            the {@link #payload}.
 	 */
-	public Attachment(AttachmentType type, Payload payload) {
+	public Attachment(AttachmentType type, GenericPayload payload) {
 		this.type = type;
 		this.payload = payload;
 	}
@@ -83,7 +84,7 @@ public class Attachment implements Serializable {
 	 *
 	 * @return the {@link #payload}.
 	 */
-	public Payload getPayload() {
+	public GenericPayload getPayload() {
 		return payload;
 	}
 
@@ -93,7 +94,7 @@ public class Attachment implements Serializable {
 	 * @param payload
 	 *            the {@link #payload} to set.
 	 */
-	public void setPayload(Payload payload) {
+	public void setPayload(GenericPayload payload) {
 		this.payload = payload;
 	}
 	

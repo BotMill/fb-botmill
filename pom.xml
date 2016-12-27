@@ -4,6 +4,7 @@
 	<groupId>co.aurasphere.botmill</groupId>
 	<artifactId>fb-botmill</artifactId>
 	<version>1.0.0-RC1-SNAPSHOT</version>
+
 	<name>FB-BotMill</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
 	<url>http://www.botmill.io</url>
@@ -102,5 +103,4 @@
 			<version>2.2.4</version>
 		</dependency>
 	</dependencies>
-
 </project>

@@ -43,8 +43,6 @@ To complete your first bot, all you have to do is write the definition class. Th
 
 For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
 
-This project is a work in progress and any contribute is appreciated.
-
 **<h3>What's currently supported</h3>**
 
 FB-BotMill supports this Facebook Messenger Platform components:
@@ -104,8 +102,6 @@ Here's what you can expect coming up in the next updates:
 - Support for Webview & Extesions
 - Thread settings for Domain Whitelisting, Account Linking and Payment
 - Possibility of attaching files instead of using links
-- Support for Log In and Log Out buttons
 
-Please notice that this list isn't ordered. If you don't find a feature you need in the list or you want me to give priority over one, just send me an e-mail.
 
 <sub>Copyright (c) 2016 Donato Rimenti, Alvin Reyes</sub>

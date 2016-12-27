@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
+import java.math.BigDecimal;
+
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
@@ -209,7 +211,7 @@ public class ReplyFactory {
 	 */
 	public static AirlineItineraryTemplateBuilder addAirlineItineraryTemplate(
 			String introMessage, String locale, String pnrNumber,
-			double totalPrice, String currency) {
+			BigDecimal totalPrice, String currency) {
 		return new AirlineItineraryTemplateBuilder(introMessage, locale,
 				pnrNumber, totalPrice, currency);
 	}

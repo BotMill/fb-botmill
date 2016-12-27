@@ -1,67 +1,67 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.receipt;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import com.google.gson.annotations.SerializedName;
 
-// TODO: change double with BigDecimal?
 // TODO: notEmpty should be changed with notBlank
 // TODO: two decimal digits with "." as separator
 public class Summary implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private double subtotal;
+	private BigDecimal subtotal;
 
 	@SerializedName("shipping_cost")
-	private double shippingCost;
+	private BigDecimal shippingCost;
 
 	@SerializedName("total_tax")
-	private double totalTax;
+	private BigDecimal totalTax;
 
 	@SerializedName("total_cost")
-	private double totalCost;
+	private BigDecimal totalCost;
 
 	public Summary() {
 	}
 
-	public Summary(double subtotal, double shippingCost, double totalTax,
-			double totalCost) {
+	public Summary(BigDecimal subtotal, BigDecimal shippingCost, BigDecimal totalTax,
+			BigDecimal totalCost) {
 		this.subtotal = subtotal;
 		this.shippingCost = shippingCost;
 		this.totalTax = totalTax;
 		this.totalCost = totalCost;
 	}
 
-	public double getSubtotal() {
+	public BigDecimal getSubtotal() {
 		return subtotal;
 	}
 
-	public void setSubtotal(double subtotal) {
+	public void setSubtotal(BigDecimal subtotal) {
 		this.subtotal = subtotal;
 	}
 
-	public double getShippingCost() {
+	public BigDecimal getShippingCost() {
 		return shippingCost;
 	}
 
-	public void setShippingCost(double shippingCost) {
+	public void setShippingCost(BigDecimal shippingCost) {
 		this.shippingCost = shippingCost;
 	}
 
-	public double getTotalTax() {
+	public BigDecimal getTotalTax() {
 		return totalTax;
 	}
 
-	public void setTotalTax(double totalTax) {
+	public void setTotalTax(BigDecimal totalTax) {
 		this.totalTax = totalTax;
 	}
 
-	public double getTotalCost() {
+	public BigDecimal getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(double totalCost) {
+	public void setTotalCost(BigDecimal totalCost) {
 		this.totalCost = totalCost;
 	}
 

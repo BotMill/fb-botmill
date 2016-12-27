@@ -1,6 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.receipt;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -21,7 +22,7 @@ public class ReceiptTemplateElement implements Serializable {
 	private int quantity;
 	
 	@NotNull
-	private double price;
+	private BigDecimal price;
 	
 	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
 	private String currency;
@@ -53,11 +54,11 @@ public class ReceiptTemplateElement implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

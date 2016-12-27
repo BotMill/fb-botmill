@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
+import java.math.BigDecimal;
+
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
@@ -59,7 +61,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *      Documentation</a>
 	 */
 	AirlineItineraryTemplateBuilder(String introMessage, String locale,
-			String pnrNumber, double totalPrice, String currency) {
+			String pnrNumber, BigDecimal totalPrice, String currency) {
 		this.payload = new AirlineItineraryTemplatePayload(introMessage,
 				locale, pnrNumber, totalPrice, currency);
 		this.messageBuilder = new AttachmentMessageBuilder(
@@ -73,7 +75,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the tax amount.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder setTax(double tax) {
+	public AirlineItineraryTemplateBuilder setTax(BigDecimal tax) {
 		this.payload.setTax(tax);
 		return this;
 	}
@@ -85,7 +87,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the base price.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder setBasePrice(double basePrice) {
+	public AirlineItineraryTemplateBuilder setBasePrice(BigDecimal basePrice) {
 		this.payload.setBasePrice(basePrice);
 		return this;
 	}
@@ -194,7 +196,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 * @return this builder.
 	 */
 	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
-			double amount) {
+			BigDecimal amount) {
 		PriceInfo priceInfo = new PriceInfo(title, amount);
 		this.payload.addPriceInfo(priceInfo);
 		return this;
@@ -217,7 +219,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 * @return this builder.
 	 */
 	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
-			double amount, String currency) {
+			BigDecimal amount, String currency) {
 		PriceInfo priceInfo = new PriceInfo(title, amount, currency);
 		this.payload.addPriceInfo(priceInfo);
 		return this;

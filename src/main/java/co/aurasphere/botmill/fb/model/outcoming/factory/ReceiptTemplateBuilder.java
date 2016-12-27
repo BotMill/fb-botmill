@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
+import java.math.BigDecimal;
+
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
@@ -162,8 +164,8 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 	 *            the total cost.
 	 * @return this builder.
 	 */
-	public ReceiptTemplateBuilder setSummary(double subtotal,
-			double shippingCost, double totalTax, double totalCost) {
+	public ReceiptTemplateBuilder setSummary(BigDecimal subtotal,
+			BigDecimal shippingCost, BigDecimal totalTax, BigDecimal totalCost) {
 		Summary summary = new Summary(subtotal, shippingCost, totalTax,
 				totalCost);
 		return this.setSummary(summary);
@@ -192,7 +194,7 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 	 *            the amount of the adjustment.
 	 * @return this builder.
 	 */
-	public ReceiptTemplateBuilder addAdjustment(String name, double amount) {
+	public ReceiptTemplateBuilder addAdjustment(String name, BigDecimal amount) {
 		Adjustment adjustment = new Adjustment(name, amount);
 		return this.addAdjustment(adjustment);
 	}

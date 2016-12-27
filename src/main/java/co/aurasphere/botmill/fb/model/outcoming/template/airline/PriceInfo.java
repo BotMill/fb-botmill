@@ -1,6 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.Pattern;
 
@@ -13,17 +14,17 @@ public class PriceInfo implements Serializable{
 	@NotEmpty
 	private String title;
 	
-	private double amount;
+	private BigDecimal amount;
 	
 	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
 	private String currency;
 
-	public PriceInfo(String title, double amount) {
+	public PriceInfo(String title, BigDecimal amount) {
 		this.title = title;
 		this.amount = amount;
 	}
 
-	public PriceInfo(String title, double amount, String currency) {
+	public PriceInfo(String title, BigDecimal amount, String currency) {
 		this(title, amount);
 		this.currency = currency;
 	}
@@ -36,11 +37,11 @@ public class PriceInfo implements Serializable{
 		this.title = title;
 	}
 
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 

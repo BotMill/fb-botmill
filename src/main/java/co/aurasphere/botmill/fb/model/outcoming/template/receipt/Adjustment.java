@@ -1,6 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.receipt;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Adjustment implements Serializable{
 
@@ -8,11 +9,11 @@ public class Adjustment implements Serializable{
 
 	private String name;
 	
-	private double amount;
+	private BigDecimal amount;
 	
 	public Adjustment(){}
 	
-	public Adjustment(String name, double amount){
+	public Adjustment(String name, BigDecimal amount){
 		this.name = name;
 		this.amount = amount;
 	}
@@ -25,11 +26,11 @@ public class Adjustment implements Serializable{
 		this.name = name;
 	}
 
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 	

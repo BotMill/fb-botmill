@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
+import java.math.BigDecimal;
+
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplateElement;
 
 /**
@@ -69,7 +71,7 @@ public class ReceiptTemplateElementBuilder {
 	 *            the item price to set.
 	 * @return this builder.
 	 */
-	public ReceiptTemplateElementBuilder setPrice(double price) {
+	public ReceiptTemplateElementBuilder setPrice(BigDecimal price) {
 		this.element.setPrice(price);
 		return this;
 	}

@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.payload.template.airline;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,19 +44,19 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	private List<PriceInfo> priceInfo;
 	
 	@SerializedName("base_price")
-	private double basePrice;
+	private BigDecimal basePrice;
 	
-	private double tax;
+	private BigDecimal tax;
 	
 	@NotNull
 	@SerializedName("total_price")
-	private double totalPrice;
+	private BigDecimal totalPrice;
 	
 	@NotEmpty
 	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
 	private String currency;
 	
-	public AirlineItineraryTemplatePayload(String introMessage, String locale, String pnrNumber, double totalPrice, String currency){
+	public AirlineItineraryTemplatePayload(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice, String currency){
 		super(introMessage, locale, pnrNumber);
 		this.totalPrice = totalPrice;
 		this.currency = currency;
@@ -91,27 +92,27 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 		this.priceInfo = priceInfo;
 	}
 
-	public double getBasePrice() {
+	public BigDecimal getBasePrice() {
 		return basePrice;
 	}
 
-	public void setBasePrice(double basePrice) {
+	public void setBasePrice(BigDecimal basePrice) {
 		this.basePrice = basePrice;
 	}
 
-	public double getTax() {
+	public BigDecimal getTax() {
 		return tax;
 	}
 
-	public void setTax(double tax) {
+	public void setTax(BigDecimal tax) {
 		this.tax = tax;
 	}
 
-	public double getTotalPrice() {
+	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(double totalPrice) {
+	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

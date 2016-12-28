@@ -42,8 +42,8 @@ public class JsonUtils {
 					new CalendarSerializer());
 
 			// Deserializes payloads from interface.
-			builder.registerTypeAdapter(Payload.class,
-					new PayloadDeserializer());
+//			builder.registerTypeAdapter(Payload.class,
+//					new PayloadDeserializer());
 
 			gson = builder.create();
 		}

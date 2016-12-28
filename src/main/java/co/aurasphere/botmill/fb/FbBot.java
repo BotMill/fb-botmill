@@ -81,6 +81,19 @@ public class FbBot {
 		ActionFrame frame = new ActionFrame(event, reply);
 		this.actionFrameList.add(frame);
 	}
+	
+	/**
+	 * Adds an {@link ActionFrame} to this bot with multiple reply
+	 * 
+	 * @param event
+	 *            the {@link FbBotMillEvent} to handle.
+	 * @param replies
+	 *            the collection of {@link AutoReply} which should handle the event.
+	 */
+	public void addActionFrame(FbBotMillEvent event, AutoReply... replies) {
+		ActionFrame frame = new ActionFrame(event, replies);
+		this.actionFrameList.add(frame);
+	}
 
 	/**
 	 * Checks if there's any registered {@link FbBotMillEvent} for the incoming
@@ -98,9 +111,16 @@ public class FbBot {
 		for (ActionFrame f : this.actionFrameList) {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
-			if (f.process(envelope)
-					&& this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
-				break;
+			if(f.getReplies() != null && f.getReplies().length > 0) {
+				if (f.processMultipleReply(envelope)
+						&& this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+					break;
+				}
+			}else {
+				if (f.process(envelope)
+						&& this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+					break;
+				}
 			}
 		}
 	}

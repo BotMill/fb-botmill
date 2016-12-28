@@ -249,18 +249,6 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 
-
-		addActionFrame(new MessageEvent("No", false), new AutoReply() {
-			@Override
-			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-				return ReplyFactory
-						.addTextMessageOnly(
-								"Is there any way I can help you with then? Type in (video, about, price list, products, services)")
-						.build(envelope);
-
-			}
-		});
-
 		addActionFrame(new MessagePatternEvent("(?:.*thanks.*)|(?:.*thank you.*)"), new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {

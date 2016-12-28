@@ -3,9 +3,55 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere.botmill</groupId>
 	<artifactId>fb-botmill</artifactId>
-	<version>1.1.0</version>
+	<version>1.0.0-RC1-SNAPSHOT</version>
+
 	<name>FB-BotMill</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
+	<url>http://www.botmill.io</url>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://raw.githubusercontent.com/BotMill/fb-botmill/master/LICENSE</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>BotMill</name>
+		<url>http://www.botmill.io</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>Donato Rimenti</name>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<email>donato.rimenti@botmill.io</email>
+		</developer>
+		<developer>
+			<name>Alvin Reyes</name>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<email>alvin.reyes@botmill.io</email>
+		</developer>
+	</developers>
+	<scm>
+		<url>https://github.com/BotMill/fb-botmill</url>
+		<connection>scm:git:git://github.com/BotMill/fb-botmill.git</connection>
+		<developerConnection>scm:git:git@github.com:BotMill/fb-botmill.git</developerConnection>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.6</version>
+				<configuration>
+					<locales>en</locales>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -56,7 +102,5 @@
 			<artifactId>javax.el</artifactId>
 			<version>2.2.4</version>
 		</dependency>
-
 	</dependencies>
-
 </project>

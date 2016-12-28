@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,12 +16,12 @@ public class Airport implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/** The airport code. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("airport_code")
 	private String airportCode;
 	
 	/** The city. */
-	@NotEmpty
+	@NotBlank
 	private String city;
 	
 	/** The terminal. */

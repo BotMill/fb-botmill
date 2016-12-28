@@ -2,9 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.payload;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import co.aurasphere.botmill.fb.model.base.GenericPayload;
 import co.aurasphere.botmill.fb.model.base.Payload;
-
 
 /**
  * A {@link Payload} which contains an URL.
@@ -12,7 +10,7 @@ import co.aurasphere.botmill.fb.model.base.Payload;
  * @author Donato Rimenti
  * @date Dec 24, 2016
  */
-public class UrlPayload extends GenericPayload implements Payload {
+public class UrlPayload implements Payload {
 
 	/**
 	 * The serial version UID.
@@ -26,9 +24,16 @@ public class UrlPayload extends GenericPayload implements Payload {
 	private String url;
 
 	/**
+	 * Instantiates a new UrlPayload.		
+	 */
+	public UrlPayload() {
+	}
+
+	/**
 	 * Instantiates a new UrlPayload.
 	 *
-	 * @param url the {@link #url}.
+	 * @param url
+	 *            the {@link #url}.
 	 */
 	public UrlPayload(String url) {
 		this.url = url;
@@ -46,7 +51,8 @@ public class UrlPayload extends GenericPayload implements Payload {
 	/**
 	 * Sets the {@link #url}.
 	 *
-	 * @param url the {@link #url} to set.
+	 * @param url
+	 *            the {@link #url} to set.
 	 */
 	public void setUrl(String url) {
 		this.url = url;

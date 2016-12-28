@@ -7,7 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
@@ -25,7 +25,7 @@ public class GenericTemplateElement implements Serializable{
 
 	/** The title. */
 	@Size(max=80)
-	@NotEmpty
+	@NotBlank
 	private String title;
 	
 	/** The item url. */

@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.demo.threadsettings;
+package co.aurasphere.botmill.fb.demo.threadsettings;
 
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 

@@ -6,30 +6,20 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
 /**
- * A {@link FbBotMillEvent} that processes all the incoming callbacks that
- * contains a postback from Facebook's Messenger Platform.
- * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * The Class AnyPostbackEvent.
  */
 public class AnyPostbackEvent extends FbBotMillBean implements FbBotMillEvent {
 
-	/**
-	 * Verify event condition.
-	 *
-	 * @param envelope the envelope
-	 * @return true if the incoming callback contains a non-empty, non-null
-	 *         postback, false otherwise.
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.event.FbBotMillEvent#verifyEventCondition(co.aurasphere.botmill.fb.model.incoming.MessageEnvelope)
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
 		String payload = safeGetPostbackPayload(envelope);
 		return !payload.isEmpty();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.bean.FaceBotBean#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override
 	public String toString() {

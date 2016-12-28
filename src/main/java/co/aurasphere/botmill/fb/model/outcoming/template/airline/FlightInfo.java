@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -19,7 +19,7 @@ public class FlightInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/** The flight number. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("flight_number")
 	private String flightNumber;
 

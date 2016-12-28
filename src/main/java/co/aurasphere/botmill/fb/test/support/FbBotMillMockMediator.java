@@ -3,6 +3,9 @@ package co.aurasphere.botmill.fb.test.support;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.FbBotMillContext;
@@ -10,9 +13,8 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 
-
 /**
- * Testing facility for FaceBot framework.
+ * Testing facility for FbBotMill framework.
  * 
  * @author Donato Rimenti
  * @date Aug 27, 2016
@@ -28,7 +30,7 @@ public class FbBotMillMockMediator {
 	/**
 	 * The mocked page-scoped user ID used as recipient. For more informations
 	 * on how to find yours, read on the <a href
-	 * ="https://github.com/Aurasphere/facebot/wiki/Unit-Testing"> official
+	 * ="https://github.com/BotMill/fb-botmill/wiki/Unit-Testing"> official
 	 * GitHub wiki</a>.
 	 */
 	private static String facebookMockId;
@@ -58,22 +60,24 @@ public class FbBotMillMockMediator {
 
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and a list of FaceBotDefinition.
+	 * and a list of {@link FbBotDefinition}.
 	 *
-	 * @param facebookMockId            the {@link #facebookMockId}.
-	 * @param faceBotDefinitions            a list of {@link FbBotDefinition} to register.
+	 * @param facebookMockId
+	 *            the {@link #facebookMockId}.
+	 * @param fbBotDefinitions
+	 *            a list of {@link FbBotDefinition} to register.
 	 * @return single instance of FbBotMillMockMediator
 	 */
 	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			FbBotDefinition... faceBotDefinitions) {
+			FbBotDefinition... fbBotDefinitions) {
 		if (instance == null) {
 			instance = new FbBotMillMockMediator();
 		}
 		FbBotMillMockMediator.mockEnabled = true;
 		FbBotMillMockMediator.facebookMockId = facebookMockId;
 
-		if (faceBotDefinitions != null) {
-			for (FbBotDefinition f : faceBotDefinitions) {
+		if (fbBotDefinitions != null) {
+			for (FbBotDefinition f : fbBotDefinitions) {
 				f.defineBehavior();
 			}
 		}
@@ -82,23 +86,25 @@ public class FbBotMillMockMediator {
 
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and instantiates and registers a list of FaceBotDefinition classes.
+	 * and instantiates and registers a list of {@link FbBotDefinition} classes.
 	 *
-	 * @param facebookMockId            the {@link #facebookMockId}.
-	 * @param faceBotDefinitions            a list of classes implementing {@link FaceBotDefinition}.
+	 * @param facebookMockId
+	 *            the {@link #facebookMockId}.
+	 * @param fbBotDefinitions
+	 *            a list of classes implementing {@link FbBotDefinition}.
 	 * @return single instance of FbBotMillMockMediator
 	 */
 	@SafeVarargs
 	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			Class<? extends FbBotDefinition>... faceBotDefinitions) {
+			Class<? extends FbBotDefinition>... fbBotDefinitions) {
 		if (instance == null) {
 			instance = new FbBotMillMockMediator();
 		}
 		FbBotMillMockMediator.mockEnabled = true;
 		FbBotMillMockMediator.facebookMockId = facebookMockId;
 
-		if (faceBotDefinitions != null) {
-			for (Class<? extends FbBotDefinition> f : faceBotDefinitions) {
+		if (fbBotDefinitions != null) {
+			for (Class<? extends FbBotDefinition> f : fbBotDefinitions) {
 				FbBotDefinition definition = instantiateClass(f);
 				definition.defineBehavior();
 			}
@@ -107,11 +113,11 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Utility method that instantiates a FaceBotDefinition class.
+	 * Utility method that instantiates a {@link FbBotDefinition} class.
 	 * 
 	 * @param klass
 	 *            the class to instantiate.
-	 * @return a FaceBotDefinition.
+	 * @return a {@link FbBotDefinition}.
 	 */
 	private static FbBotDefinition instantiateClass(
 			Class<? extends FbBotDefinition> klass) {
@@ -127,7 +133,7 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Sends a text message to all the registered FaceBots. Used to simulate a
+	 * Sends a text message to all the registered bots. Used to simulate a
 	 * user typing in chat with your bot.
 	 * 
 	 * @param message
@@ -146,7 +152,7 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Sends a payload to all the registered FaceBots. Used to simulate a user
+	 * Sends a payload to all the registered bots. Used to simulate a user
 	 * interacting with buttons.
 	 * 
 	 * @param payload
@@ -165,7 +171,7 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Forwards an envelope to the registered FaceBots.
+	 * Forwards an envelope to the registered bots.
 	 * 
 	 * @param envelope
 	 *            the envelope to forward.
@@ -178,9 +184,9 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Starts an interactive test that simulates the behavior of the FaceBot
+	 * Starts an interactive test that simulates the behavior of the bot
 	 * according to the chat inputs. You can send messages to the registered
-	 * FaceBot typing in your IDE console. To send a message, just type it. To
+	 * bots typing in your IDE console. To send a message, just type it. To
 	 * send a payload, type {@value #PAYLOAD_MARKER} followed by your payload.
 	 * To end the test, type {@value #STOP_MARKER}.
 	 */
@@ -188,7 +194,7 @@ public class FbBotMillMockMediator {
 		// Prints instructions.
 		System.out.println("Starting interactive test...");
 		System.out
-				.printf("Type your message or '%s<YOUR_PAYLOAD>' to send a message or a payload to the FaceBot. Type '%s' to stop the interactive test.\n",
+				.printf("Type your message or '%s<YOUR_PAYLOAD>' to send a message or a payload to the bot. Type '%s' to stop the interactive test.\n",
 						PAYLOAD_MARKER, STOP_MARKER);
 		Scanner scanner = new Scanner(System.in);
 		while (true) {

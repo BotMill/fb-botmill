@@ -22,10 +22,8 @@ public class EchoAutoReply extends AutoReply {
 		return ReplyFactory.addTextMessageOnly(lastMessage).build(envelope);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.autoreply.AutoReply#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.autoreply.AutoReply#toString()
 	 */
 	@Override
 	public String toString() {

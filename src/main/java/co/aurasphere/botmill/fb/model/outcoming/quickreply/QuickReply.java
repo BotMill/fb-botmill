@@ -1,9 +1,12 @@
 package co.aurasphere.botmill.fb.model.outcoming.quickreply;
 
 import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.google.gson.annotations.SerializedName;
 
 
@@ -26,7 +29,7 @@ public class QuickReply implements Serializable{
 	
 	/** The title. */
 	@Size(max=20)
-	@NotEmpty
+	@NotBlank
 	private String title;
 	
 	/** The payload. */

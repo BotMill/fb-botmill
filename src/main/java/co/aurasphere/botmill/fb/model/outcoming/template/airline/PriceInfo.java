@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 
 /**
@@ -17,7 +17,7 @@ public class PriceInfo implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/** The title. */
-	@NotEmpty
+	@NotBlank
 	private String title;
 	
 	private BigDecimal amount;

@@ -25,7 +25,7 @@ public class MessengerCallbackEntry implements Serializable {
 	 */
 	private String id;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * Time of update (epoch time in milliseconds).
 	 */

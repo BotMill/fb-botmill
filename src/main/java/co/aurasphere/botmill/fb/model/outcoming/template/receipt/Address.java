@@ -4,10 +4,9 @@ import java.io.Serializable;
 
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
-
 
 /**
  * The Class Address.
@@ -18,7 +17,7 @@ public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** The street 1. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("street_1")
 	private String street1;
 	
@@ -27,21 +26,20 @@ public class Address implements Serializable {
 	private String street2;
 	
 	/** The city. */
-	@NotEmpty
+	@NotBlank
 	private String city;
 	
 	/** The postal code. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("postal_code")
 	private String postalCode;
 	
 	/** The state. */
-	@NotEmpty
+	@NotBlank
 	private String state;
 	
 	/** The country. */
-	// TODO message
-	@NotEmpty
+	@NotBlank
 	@Pattern(regexp="[A-Za-z]{2}", message="{country.pattern.message}")
 	private String country;
 	

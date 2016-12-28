@@ -42,7 +42,7 @@ public class MessageEnvelope implements Serializable {
 	 */
 	private User recipient;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The message timestamp.
 	 */

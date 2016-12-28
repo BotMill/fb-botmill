@@ -2,7 +2,10 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -18,30 +21,33 @@ public class PaymentSummary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** The currency. */
-	@NotEmpty
+	@NotBlank
 	private String currency;
 
 	/** The is test payment. */
 	@SerializedName("is_test_payment")
-	private boolean isTestPayment = true;
+	private boolean isTestPayment;
 
 	/** The payment type. */
-	@NotEmpty
+	@Valid
+	@NotNull
 	@SerializedName("payment_type")
 	private PaymentType paymentType;
 
 	/** The merchant name. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("merchant_name")
 	private String merchantName;
 
 	/** The price list. */
-	@NotEmpty
+	@Valid
+	@NotNull
 	@SerializedName("price_list")
 	private PriceList priceList;
 
 	/** The requested user info. */
-	@NotEmpty
+	@Valid
+	@NotNull
 	@SerializedName("requested_user_info")
 	private RequestedUserInfo requestedUserInfo;
 

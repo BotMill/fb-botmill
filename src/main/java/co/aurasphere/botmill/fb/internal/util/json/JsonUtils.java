@@ -2,9 +2,10 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.util.Calendar;
 
+import co.aurasphere.botmill.fb.model.base.Payload;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 
 /**
  * Utility class for handling JSON serialization and deserialization.
@@ -35,10 +36,14 @@ public class JsonUtils {
 			// Serializes enums as lower-case.
 			builder.registerTypeHierarchyAdapter(Enum.class,
 					new EnumLowercaseSerializer());
-			
+
 			// Serializes calendar in format YYYY-MM-DDThh:mm.
 			builder.registerTypeHierarchyAdapter(Calendar.class,
 					new CalendarSerializer());
+
+			// Deserializes payloads from interface.
+			builder.registerTypeAdapter(Payload.class,
+					new PayloadDeserializer());
 
 			gson = builder.create();
 		}
@@ -48,9 +53,12 @@ public class JsonUtils {
 	/**
 	 * From json.
 	 *
-	 * @param <T> the generic type
-	 * @param json            the string from which the object is to be deserialized.
-	 * @param T            the type of the desired object.
+	 * @param <T>
+	 *            the generic type
+	 * @param json
+	 *            the string from which the object is to be deserialized.
+	 * @param T
+	 *            the type of the desired object.
 	 * @return an object of type T from the string. Returns null if json is
 	 *         null.
 	 * @see Gson#fromJson(String, Class)
@@ -62,7 +70,8 @@ public class JsonUtils {
 	/**
 	 * To json.
 	 *
-	 * @param src            the object for which Json representation is to be created
+	 * @param src
+	 *            the object for which Json representation is to be created
 	 *            setting for Gson .
 	 * @return Json representation of src.
 	 * @see Gson#toJson(Object)

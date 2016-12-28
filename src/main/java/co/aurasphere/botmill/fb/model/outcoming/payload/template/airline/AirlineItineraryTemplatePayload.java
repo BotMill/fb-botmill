@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
@@ -65,7 +66,7 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	private BigDecimal totalPrice;
 	
 	/** The currency. */
-	@NotEmpty
+	@NotBlank
 	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
 	private String currency;
 	

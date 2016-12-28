@@ -8,51 +8,38 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
 /**
- * A {@link FbBotMillEvent} that processes all the incoming callbacks that
- * contains a postback payload which matches against a defined pattern from
- * Facebook's Messenger Platform.
- * 
- * @author Donato Rimenti
- * @date Jul 31, 2016
+ * The Class PostbackPatternEvent.
  */
 public class PostbackPatternEvent extends BasePatternEvent {
 
 	/**
-	 * Instantiates a new postback pattern event.
+	 * Instantiates a new PostbackPatternEvent.
 	 *
-	 * @param expectedPattern
-	 *            the {@link BasePatternEvent#expecteddPattern}.
+	 * @param expectedPattern the {@link #expectedPattern}.
 	 */
 	public PostbackPatternEvent(Pattern expectedPattern) {
 		super(expectedPattern);
 	}
 
 	/**
-	 * Instantiates a new postback pattern event.
+	 * Instantiates a new PostbackPatternEvent.
 	 *
-	 * @param expectedPattern
-	 *            the {@link BasePatternEvent#expectedPattern}.
+	 * @param expectedPattern the {@link #expectedPattern}.
 	 */
 	public PostbackPatternEvent(String expectedPattern) {
 		super(expectedPattern);
 	}
 
-	/**
-	 * Verify event condition.
-	 *
-	 * @param envelope the envelope
-	 * @return true if the postback payload received from the callback matches
-	 *         the expected pattern, false otherwise.
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.event.FbBotMillEvent#verifyEventCondition(co.aurasphere.botmill.fb.model.incoming.MessageEnvelope)
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
 		String payload = safeGetPostbackPayload(envelope);
 		return verifyPatternMatch(payload);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.event.base.BasePatternEvent#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.event.base.BasePatternEvent#toString()
 	 */
 	@Override
 	public String toString() {

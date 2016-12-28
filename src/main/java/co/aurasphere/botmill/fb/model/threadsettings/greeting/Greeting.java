@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
@@ -57,7 +57,7 @@ public class Greeting implements Serializable {
 	 * characters, meanwhile the first name uses 19 characters.
 	 */
 	@Size(max = FbBotMillValidationConstants.THREAD_SETTINGS_GREETING_MESSAGE_MAX_LENGTH)
-	@NotEmpty
+	@NotBlank
 	private String text;
 
 	/**

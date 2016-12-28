@@ -332,14 +332,14 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Builds the {@link FbBotMillResponse} that the FaceBot should return. The
+	 * Builds the {@link FbBotMillResponse} that the bot should return. The
 	 * template builders, like this, delegate an
 	 * {@link AttachmentMessageBuilder} to build the message.
 	 * 
 	 * @param envelope
 	 *            a {@link MessageEnvelope} object representing the incoming
 	 *            message.
-	 * @return the {@link FbBotMillResponse} of this FaceBot.
+	 * @return the {@link FbBotMillResponse} of this bot.
 	 */
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {

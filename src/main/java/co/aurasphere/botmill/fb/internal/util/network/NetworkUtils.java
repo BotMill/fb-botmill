@@ -34,7 +34,7 @@ import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 
 
 /**
- * Class that contains methods that allows FaceBot to communicate through the
+ * Class that contains methods that allows FbBotMill to communicate through the
  * network.
  * 
  * @author Donato Rimenti
@@ -248,7 +248,7 @@ public class NetworkUtils {
 	 */
 	private static boolean validatePageToken(String pageToken) {
 		if (pageToken == null || pageToken.isEmpty()) {
-			logger.error("FaceBot validation error: Page token can't be null or empty! Have you called the method FaceBotContext.getInstance().setup(String, String)?");
+			logger.error("FbBotMill validation error: Page token can't be null or empty! Have you called the method FbBotMillContext.getInstance().setup(String, String)?");
 			return false;
 		}
 		return true;
@@ -371,7 +371,6 @@ public class NetworkUtils {
 			// String output = br.readLine();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

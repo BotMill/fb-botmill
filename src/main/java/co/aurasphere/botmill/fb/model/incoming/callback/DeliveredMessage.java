@@ -42,7 +42,7 @@ public class DeliveredMessage implements Serializable {
 	 */
 	private List<String> mids;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * All messages before this timestamp where seen.<br/>
 	 * <br/>

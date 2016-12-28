@@ -1,11 +1,12 @@
 package co.aurasphere.botmill.fb.event.message;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
 /**
- * An {@link FaceBotEvent} that processes all the incoming callbacks that
+ * An {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a specific text message from Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes

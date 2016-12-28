@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -22,7 +22,7 @@ public class RequestedUserInfo implements Serializable {
 	private String shippingAddress;
 
 	/** The contact name. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("contact_name")
 	private String contactName;
 

@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class ReceiptTemplatePayload.
  */
-//TODO test con le liste vuote. Se spaccano, si inizializzano lazy.
+//TODO test with empty lists. if they don't work, use lazy initialization
 public class ReceiptTemplatePayload extends TemplateBasePayload {
 
 	/** The Constant serialVersionUID. */

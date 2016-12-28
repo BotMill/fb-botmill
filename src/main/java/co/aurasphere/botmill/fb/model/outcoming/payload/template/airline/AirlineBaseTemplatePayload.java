@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.payload.template.airline;
 
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePayload;
 
@@ -12,18 +12,18 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class AirlineBaseTemplatePayload.
  */
-public class AirlineBaseTemplatePayload extends TemplateBasePayload{
+public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The intro message. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("intro_message")
 	private String introMessage;
 	
 	/** The locale. */
-	@NotEmpty
+	@NotBlank
 	@Pattern(regexp="[a-z]{2}_[A-Z]{2}", message="{locale.pattern.message}")
 	private String locale;
 	

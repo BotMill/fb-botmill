@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
+import co.aurasphere.botmill.fb.model.base.QuickReplyLocationPayload;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
@@ -136,14 +137,16 @@ public class FbBotMillBean {
 	 * @param envelope
 	 * @return
 	 */
-	protected LocationCoordinates safeGetLocationMessage(MessageEnvelope envelope) {
+	protected LocationCoordinates getLocationMessage(MessageEnvelope envelope) {
 		if (envelope != null && envelope.getMessage() != null 
 				&& envelope.getMessage().getAttachments() != null 
 				&& envelope.getMessage().getAttachments().get(0) != null 
-				&& envelope.getMessage().getAttachments().get(0).getPayload() != null 
-				&& envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate() != null) {
+				&& envelope.getMessage().getAttachments().get(0).getPayload() != null
+				&& envelope.getMessage().getAttachments().get(0).getPayload() instanceof QuickReplyLocationPayload) {
+		
+				QuickReplyLocationPayload payload = (QuickReplyLocationPayload) envelope.getMessage().getAttachments().get(0).getPayload();
 			
-			return envelope.getMessage().getAttachments().get(0).getPayload().getCoordinate();
+			return payload.getCoordinates();
 		}
 		return null;
 	}
@@ -229,7 +232,7 @@ public class FbBotMillBean {
 		for (ConstraintViolation<FbBotMillResponse> v : violations) {
 			valid = false;
 			logger.error(
-					"FaceBotResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
+					"FbBotMillResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
 					v.getMessage(), v.getInvalidValue(), v.getRootBean(),
 					v.getPropertyPath());
 		}
@@ -241,7 +244,7 @@ public class FbBotMillBean {
 	 */
 	@Override
 	public String toString() {
-		return "FaceBotBean []";
+		return "FbBotMillBean []";
 	}
 
 

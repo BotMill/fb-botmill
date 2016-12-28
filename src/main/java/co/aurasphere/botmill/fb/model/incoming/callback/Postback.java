@@ -2,7 +2,6 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
-
 /**
  * Model for a postback callback. <br/>
  * <br/>
@@ -35,8 +34,7 @@ public class Postback implements Serializable {
 	private String payload;
 
 	/**
-	 * 
-	 Comes only with Get Started postback and if an optional ref param was
+	 * Comes only with Get Started postback and if an optional ref param was
 	 * passed from the entry point, such as <a href=
 	 * "https://developers.facebook.com/docs/messenger-platform/referral-params"
 	 * >m.me link</a>.
@@ -59,7 +57,8 @@ public class Postback implements Serializable {
 	/**
 	 * Sets the {@link #payload}.
 	 *
-	 * @param payload the {@link #payload} to set.
+	 * @param payload
+	 *            the {@link #payload} to set.
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
@@ -77,7 +76,8 @@ public class Postback implements Serializable {
 	/**
 	 * Sets the {@link #referral}.
 	 *
-	 * @param referral the {@link #referral} to set.
+	 * @param referral
+	 *            the {@link #referral} to set.
 	 */
 	public void setReferral(Referral referral) {
 		this.referral = referral;

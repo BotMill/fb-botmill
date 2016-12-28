@@ -2,7 +2,6 @@ package co.aurasphere.botmill.fb.model.outcoming.payload.template;
 
 import javax.validation.constraints.NotNull;
 
-import co.aurasphere.botmill.fb.model.base.GenericPayload;
 import co.aurasphere.botmill.fb.model.base.Payload;
 import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
 
@@ -15,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Donato Rimenti
  * @date Dec 24, 2016
  */
-public class TemplateBasePayload extends GenericPayload implements Payload {
+public class TemplateBasePayload implements Payload {
 
 	/**
 	 * The serial version UID.

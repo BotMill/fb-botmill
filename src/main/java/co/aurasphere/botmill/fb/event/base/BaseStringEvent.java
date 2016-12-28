@@ -5,32 +5,26 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
 
 /**
- * Base event handler which occurs when an exact String is received.
- * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * The Class BaseStringEvent.
  */
 public abstract class BaseStringEvent extends FbBotMillBean implements
 		FbBotMillEvent {
 
 	/**
-	 * The expected string from the Facebook Messenger Platform callback in
-	 * order to trigger this handler.
+	 * The expected string.
 	 */
 	protected String expectedString;
 
 	/**
-	 * Indicates whether the comparison should be case sensitive or not.
+	 * The case sensitive.
 	 */
 	protected boolean caseSensitive;
 
 	/**
-	 * Instantiates a new base string event.
+	 * Instantiates a new BaseStringEvent.
 	 *
-	 * @param expectedString
-	 *            the {@link #expectedString}.
-	 * @param caseSensitive
-	 *            the {@link #caseSensitive}.
+	 * @param expectedString the {@link #expectedString}.
+	 * @param caseSensitive the {@link #caseSensitive}.
 	 */
 	public BaseStringEvent(String expectedString, boolean caseSensitive) {
 		if (caseSensitive == false && expectedString != null) {
@@ -40,10 +34,9 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	}
 
 	/**
-	 * Instantiates a new base string event.
+	 * Instantiates a new BaseStringEvent.
 	 *
-	 * @param expectedString
-	 *            the {@link #expectedString}.
+	 * @param expectedString the {@link #expectedString}.
 	 */
 	public BaseStringEvent(String expectedString) {
 		this.expectedString = expectedString;
@@ -51,11 +44,10 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	}
 
 	/**
-	 * Method used to check if a text is equal to this event string.
-	 * 
-	 * @param text
-	 *            the text to check.
-	 * @return true if the text is equal to this event string, false otherwise.
+	 * Verify string match.
+	 *
+	 * @param text the {@link #text}.
+	 * @return true, if successful
 	 */
 	protected boolean verifyStringMatch(String text) {
 		if (text == null) {
@@ -106,10 +98,8 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.bean.FaceBotBean#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override
 	public String toString() {

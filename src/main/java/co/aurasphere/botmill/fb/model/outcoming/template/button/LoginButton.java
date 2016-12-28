@@ -1,6 +1,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * The Login Class/Object.
@@ -14,7 +14,7 @@ public class LoginButton extends Button {
 	private static final long serialVersionUID = 1L;
 
 	/** The url. */
-	@NotEmpty
+	@NotBlank
 	private String url;
 
 	/**

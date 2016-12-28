@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
  * template.
@@ -20,11 +18,15 @@ public class Attachment implements Serializable {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	/** The title. */
+
+	/**
+	 * The title.
+	 */
 	private String title;
 
-	/** The url. */
+	/**
+	 *  The url. 
+	 */
 	private String url;
 
 	/**
@@ -38,8 +40,7 @@ public class Attachment implements Serializable {
 	 */
 	@Valid
 	@NotNull
-	@SerializedName("payload")
-	private GenericPayload payload;
+	private Payload payload;
 
 	/**
 	 * Instantiates a new attachment.
@@ -55,7 +56,7 @@ public class Attachment implements Serializable {
 	 * @param payload
 	 *            the {@link #payload}.
 	 */
-	public Attachment(AttachmentType type, GenericPayload payload) {
+	public Attachment(AttachmentType type, Payload payload) {
 		this.type = type;
 		this.payload = payload;
 	}
@@ -72,8 +73,7 @@ public class Attachment implements Serializable {
 	/**
 	 * Sets the {@link #type}.
 	 *
-	 * @param type
-	 *            the {@link #type} to set.
+	 * @param type the {@link #type} to set.
 	 */
 	public void setType(AttachmentType type) {
 		this.type = type;
@@ -84,64 +84,53 @@ public class Attachment implements Serializable {
 	 *
 	 * @return the {@link #payload}.
 	 */
-	public GenericPayload getPayload() {
+	public Payload getPayload() {
 		return payload;
 	}
 
 	/**
 	 * Sets the {@link #payload}.
 	 *
-	 * @param payload
-	 *            the {@link #payload} to set.
+	 * @param payload the {@link #payload} to set.
 	 */
-	public void setPayload(GenericPayload payload) {
+	public void setPayload(Payload payload) {
 		this.payload = payload;
 	}
-	
-	
+
 	/**
-	 * Gets the title.
+	 * Gets the {@link #title}.
 	 *
-	 * @return the title
+	 * @return the {@link #title}.
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Sets the title.
+	 * Sets the {@link #title}.
 	 *
-	 * @param title the new title
+	 * @param title the {@link #title} to set.
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	 * Gets the url.
+	 * Gets the {@link #url}.
 	 *
-	 * @return the url
+	 * @return the {@link #url}.
 	 */
 	public String getUrl() {
 		return url;
 	}
 
 	/**
-	 * Sets the url.
+	 * Sets the {@link #url}.
 	 *
-	 * @param url the new url
+	 * @param url the {@link #url} to set.
 	 */
 	public void setUrl(String url) {
 		this.url = url;
-	}
-
-	/**
-	 * Gets the serialversionuid.
-	 *
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

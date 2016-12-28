@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,12 +16,12 @@ public class FlightInfoExtended extends FlightInfo{
 	private static final long serialVersionUID = 1L;
 
 	/** The connection id. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("connection_id")
 	private String connectionId;
 
 	/** The segment id. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("segment_id")
 	private String segmentId;
 	

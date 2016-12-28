@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.internal.util.network;
 
+import co.aurasphere.botmill.fb.FbBotMillContext;
+
 
 /**
  * Utility class that contains the constants used to handle the network
@@ -27,7 +29,7 @@ public class FbBotMillNetworkConstants {
 	 * GET parameter indicating the verify token from Facebook. Used only during
 	 * WebHook initial registration. Facebook will send a verify token as
 	 * defined during configuration phase. The Servlet will check that the token
-	 * is the same registered in the FaceBotContext and, if that's the case,
+	 * is the same registered in the {@link FbBotMillContext} and, if that's the case,
 	 * proceed with registration.
 	 * 
 	 * @see <a href=

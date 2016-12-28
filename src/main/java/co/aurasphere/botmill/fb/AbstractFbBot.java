@@ -30,7 +30,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 
 	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * Adds an {@link ActionFrame} to the current bot.
 	 * 
 	 * @param actionFrame
 	 *            the ActionFrame to add.
@@ -40,7 +40,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 
 	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * Adds an {@link ActionFrame} to the current bot.
 	 * 
 	 * @param event
 	 *            the {@link FbBotMillEvent} that triggers the ActionFrame.
@@ -52,7 +52,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 	
 	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * Adds an {@link ActionFrame} to the current bot.
 	 * 
 	 * @param event the {@link FbBotMillEvent} that triggers the ActionFrame.
 	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
@@ -64,7 +64,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 	
 	/**
-	 * Adds an {@link ActionFrame} to the current FaceBot.
+	 * Adds an {@link ActionFrame} to the current bot.
 	 * 
 	 * @param event the {@link FbBotMillEvent} that triggers the ActionFrame.
 	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
@@ -117,7 +117,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 */
 	@Override
 	public String toString() {
-		return "AbstractFaceBot [faceBot=" + fbBot + "]";
+		return "AbstractFbBot [fbBot=" + fbBot + "]";
 	}
 
 }

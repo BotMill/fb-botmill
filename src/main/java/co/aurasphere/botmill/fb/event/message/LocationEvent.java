@@ -17,7 +17,7 @@ public class LocationEvent extends FbBotMillBean implements FbBotMillEvent {
 	 * @return true if the text message received from the callback is a location.
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
-		LocationCoordinates locationCoordinates = safeGetLocationMessage(envelope);
+		LocationCoordinates locationCoordinates = getLocationMessage(envelope);
 		return (locationCoordinates != null ? true : false);
 	}
 }

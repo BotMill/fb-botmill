@@ -26,10 +26,8 @@ public class AnyMessageEvent extends FbBotMillBean implements FbBotMillEvent {
 		return eventKind(envelope) == FbBotMillEventType.MESSAGE;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.bean.FaceBotBean#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override
 	public String toString() {

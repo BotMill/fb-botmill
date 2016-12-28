@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 
 import com.google.gson.annotations.SerializedName;
 
-// TODO: notEmpty should be changed with notBlank
 /**
  * The Class Summary.
  */

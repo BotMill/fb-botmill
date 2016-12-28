@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.base;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 
 /**
@@ -21,7 +21,7 @@ public class User implements Serializable {
 	/**
 	 * The Facebook's user ID.
 	 */
-	@NotEmpty
+	@NotBlank
 	private String id;
 
 	/**

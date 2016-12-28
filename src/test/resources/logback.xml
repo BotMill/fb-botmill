@@ -13,7 +13,7 @@
 	</appender>
 
 	<!-- Loggers -->
-	<logger name="co.aurasphere.facebot" level="DEBUG">
+	<logger name="co.aurasphere.botmill" level="ERROR">
 		<appender-ref ref="consoleAppender" />
 	</logger>
 

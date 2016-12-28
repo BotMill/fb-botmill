@@ -3,7 +3,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,7 +20,7 @@ public class BuyButton extends Button {
 
 	/** The payload. */
 	@Size(max = 1000)
-	@NotEmpty
+	@NotBlank
 	private String payload;
 
 	/** The payment summary. */

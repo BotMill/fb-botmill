@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.base.Attachment;
 
-
 /**
  * A {@link Message} which contains an {@link Attachment}.
  * 

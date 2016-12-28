@@ -31,7 +31,7 @@ public class FbBotMillIllegalAttachmentException extends IllegalArgumentExceptio
 	 */
 	@Override
 	public String toString() {
-		return "FaceBotIllegalAttachmentException []";
+		return "FbBotMillIllegalAttachmentException []";
 	}
 
 }

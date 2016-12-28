@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.demo;
 
 
 /**
- * Put your data here to test the FaceBot framework.
+ * Put your data here to test the FbBotMill framework.
  * 
  * @author Donato Rimenti
  * @date Aug 28, 2016

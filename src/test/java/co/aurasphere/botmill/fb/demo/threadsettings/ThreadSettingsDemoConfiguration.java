@@ -1,4 +1,4 @@
-package co.aurasphere.facebot.demo.threadsettings;
+package co.aurasphere.botmill.fb.demo.threadsettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class ThreadSettingsDemoConfiguration {
 
 		// Sets the thread settings.
 		FbBotMillThreadSettingsConfiguration
-				.setGreetingMessage("Hi, welcome to FaceBot!");
+				.setGreetingMessage("Hi, welcome to FbBotMill!");
 		FbBotMillThreadSettingsConfiguration
 				.setGetStartedButton("Get Started Button Payload");
 		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);

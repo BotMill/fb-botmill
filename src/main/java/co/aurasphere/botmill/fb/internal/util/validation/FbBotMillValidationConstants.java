@@ -42,6 +42,12 @@ public class FbBotMillValidationConstants {
 
 	/** The Constant PERSISTENT_BUTTON_TITLE_MAX_LENGTH. */
 	public static final int PERSISTENT_BUTTON_TITLE_MAX_LENGTH = 30;
+	
+	public static final int LIST_TEMPLATE_MAX_BUTTONS = 1;
+	
+	public static final int LIST_TEMPLATE_MAX_ELEMENTS = 4;
+	
+	public static final int LIST_TEMPLATE_MIN_ELEMENTS = 2;
 
 	/**
 	 * Thread Settings max length of buttons lists.

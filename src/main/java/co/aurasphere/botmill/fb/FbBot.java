@@ -10,11 +10,11 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
 /**
- * Class that represents a FaceBot. Each FaceBot has a list of
+ * Class that represents a FbBotMill bot. Each bot has a list of
  * {@link FbBotMillEvent}. An event is a callback from Facebook Messenger
  * Platform. There may be different events, according to what your app has
  * registered for (for more info check the link below). At each callback
- * received from Facebook, all registered FaceBots callbacks handler are
+ * received from Facebook, all registered bots callbacks handler are
  * checked. If any callback condition is verified, then the handleCallback
  * method is called.
  *
@@ -27,17 +27,17 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 public class FbBot {
 
 	/**
-	 * A list of registered {@link FbBotMillEvent} for the current FaceBot.
+	 * A list of registered {@link FbBotMillEvent} for the current bot.
 	 */
 	private List<ActionFrame> actionFrameList;
 
 	/**
 	 * The policy this bot follows when processing the callback handler list.
 	 */
-	private FbBotMillPolicy faceBotPolicy;
+	private FbBotMillPolicy fbBotMillPolicy;
 
 	/**
-	 * Instantiates a new FaceBot with a default policy of
+	 * Instantiates a new FbBot with a default policy of
 	 * {@link FbBotMillPolicy#FIRST_ONLY}.
 	 */
 	public FbBot() {
@@ -45,22 +45,22 @@ public class FbBot {
 	}
 
 	/**
-	 * Instantiates a new FaceBot.
+	 * Instantiates a new FbBot.
 	 *
-	 * @param faceBotPolicy
-	 *            the {@link #faceBotPolicy}.
+	 * @param fbBotMillPolicy
+	 *            the {@link #fbBotMillPolicy}.
 	 */
-	public FbBot(FbBotMillPolicy faceBotPolicy) {
-		if (faceBotPolicy == null) {
-			faceBotPolicy = FbBotMillPolicy.FIRST_ONLY;
+	public FbBot(FbBotMillPolicy fbBotMillPolicy) {
+		if (fbBotMillPolicy == null) {
+			fbBotMillPolicy = FbBotMillPolicy.FIRST_ONLY;
 		}
-		this.faceBotPolicy = faceBotPolicy;
+		this.fbBotMillPolicy = fbBotMillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
 		FbBotMillContext.getInstance().register(this);
 	}
 
 	/**
-	 * Adds an {@link ActionFrame} to this FaceBot.
+	 * Adds an {@link ActionFrame} to this bot.
 	 * 
 	 * @param actionFrame
 	 *            the actionFrame to add.
@@ -70,7 +70,7 @@ public class FbBot {
 	}
 
 	/**
-	 * Adds an {@link ActionFrame} to this FaceBot.
+	 * Adds an {@link ActionFrame} to this bot.
 	 * 
 	 * @param event
 	 *            the {@link FbBotMillEvent} to handle.
@@ -86,7 +86,7 @@ public class FbBot {
 	 * Checks if there's any registered {@link FbBotMillEvent} for the incoming
 	 * callback. If there's any, then the callback is handled. The chain will be
 	 * processed according to the {@link FbBotMillPolicy} followed by this
-	 * FaceBot. If the policy is {@link FbBotMillPolicy#FIRST_ONLY}, the chain
+	 * bot. If the policy is {@link FbBotMillPolicy#FIRST_ONLY}, the chain
 	 * will be processed until the first callback matches. Otherwise, if the
 	 * policy is {@link FbBotMillPolicy#PROCESS_ALL}, all the chain will always be
 	 * processed.
@@ -99,7 +99,7 @@ public class FbBot {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
 			if (f.process(envelope)
-					&& !this.faceBotPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+					&& this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
 				break;
 			}
 		}
@@ -117,7 +117,7 @@ public class FbBot {
 		result = prime * result
 				+ ((actionFrameList == null) ? 0 : actionFrameList.hashCode());
 		result = prime * result
-				+ ((faceBotPolicy == null) ? 0 : faceBotPolicy.hashCode());
+				+ ((fbBotMillPolicy == null) ? 0 : fbBotMillPolicy.hashCode());
 		return result;
 	}
 
@@ -140,7 +140,7 @@ public class FbBot {
 				return false;
 		} else if (!actionFrameList.equals(other.actionFrameList))
 			return false;
-		if (faceBotPolicy != other.faceBotPolicy)
+		if (fbBotMillPolicy != other.fbBotMillPolicy)
 			return false;
 		return true;
 	}
@@ -152,8 +152,8 @@ public class FbBot {
 	 */
 	@Override
 	public String toString() {
-		return "FaceBot [actionFrameList=" + actionFrameList + ", policy="
-				+ faceBotPolicy + "]";
+		return "FbBot [actionFrameList=" + actionFrameList + ", policy="
+				+ fbBotMillPolicy + "]";
 	}
 
 }

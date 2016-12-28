@@ -1,8 +1,10 @@
 package co.aurasphere.botmill.fb.demo.behavior;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.message.LocationEvent;
@@ -42,7 +44,7 @@ public class TemplateBehavior extends BaseBehavior {
 				return ReplyFactory.addButtonTemplate("Test button template")
 						.addPostbackButton("postback button", "postback button payload")
 						.addPhoneNumberButton("phone number button", "+393541247844")
-						.addUrlButton("web url button", "https://github.com/Aurasphere/facebot").build(envelope);
+						.addUrlButton("web url button", "https://github.com/BotMill/fb-botmill").build(envelope);
 			}
 		});
 
@@ -55,9 +57,9 @@ public class TemplateBehavior extends BaseBehavior {
 				return ReplyFactory.addGenericTemplate().addElement("Generic Template Element 1")
 						.addPostbackButton("postback button", "postback button payload")
 						.addPhoneNumberButton("phone number button", "+393541247844")
-						.addUrlButton("web url button", "https://github.com/Aurasphere/facebot")
+						.addUrlButton("web url button", "https://github.com/BotMill/fb-botmill")
 						.setSubtitle("Subtitle of element 1").setRedirectUrl("www.aurasphere.co")
-						.addLoginButton("https://github.com/Aurasphere/facebot").addLogoutButton().addShareButton()
+						.addLoginButton("https://github.com/BotMill/fb-botmill").addLogoutButton().addShareButton()
 						.endElement().addQuickReply("Quick Reply 1", "Payload of Quick Reply 1").build(envelope);
 			}
 		});
@@ -118,11 +120,12 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addReceiptTemplate("Donato Rimenti", "15", "EUR", "Visa 1234")
-						.setSummary(201, 10, 13, 240).setMerchantName("Aurasphere co").addElement("Element 1")
-						.setCurrency("EUR").setQuantity(29).setPrice(200).setSubtitle("Element 1 subtitle").endElement()
+						.setSummary(new BigDecimal(201), new BigDecimal(10), new BigDecimal(13), new BigDecimal(240)).setMerchantName("Aurasphere co").addElement("Element 1")
+						.setCurrency("EUR").setQuantity(29).setPrice(new BigDecimal(200)).setSubtitle("Element 1 subtitle").endElement()
 						.setTimestamp("1243").build(envelope);
 			}
 		});
+		
 		List<String> a = new ArrayList<String>();
 		a.add("http://www.alvinjayreyes.com");
 		FbBotMillThreadSettingsConfiguration.setWhiteListDomains(a);

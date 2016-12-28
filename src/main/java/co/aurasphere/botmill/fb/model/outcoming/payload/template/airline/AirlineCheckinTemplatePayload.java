@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
@@ -28,7 +29,7 @@ public class AirlineCheckinTemplatePayload extends AirlineBasePnrNumberTemplateP
 	private List<FlightInfo> flightInfo;
 
 	/** The checkin url. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("checkin_url")
 	private String checkinUrl;
 	

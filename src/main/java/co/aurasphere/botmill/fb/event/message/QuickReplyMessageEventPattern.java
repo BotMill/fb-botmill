@@ -7,7 +7,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
 /**
- * An {@link FaceBotEvent} that processes all the incoming callbacks that
+ * An {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a text message which matches against a defined pattern from
  * Facebook's Messenger Platform.
  * 

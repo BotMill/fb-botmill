@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 
 /**
@@ -20,7 +20,7 @@ public class PostbackButton extends Button {
 	 * number.
 	 */
 	@Size(max = 1000)
-	@NotEmpty
+	@NotBlank
 	private String payload;
 
 	/**

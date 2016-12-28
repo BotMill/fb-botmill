@@ -1,6 +1,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.payload.template.airline;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +14,7 @@ public abstract class AirlineBasePnrNumberTemplatePayload extends AirlineBaseTem
 	private static final long serialVersionUID = 1L;
 
 	/** The pnr number. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("pnr_number")
 	private String pnrNumber;
 	

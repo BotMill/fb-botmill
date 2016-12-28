@@ -1,5 +1,6 @@
 package co.aurasphere.botmill.fb.demo.behavior;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
@@ -120,8 +121,8 @@ public class AirplaneBehavior extends BaseBehavior {
 						return ReplyFactory
 								.addAirlineItineraryTemplate(
 										"Here's your itinerary", "en_US",
-										"D0FQTK", 4032.54, "USD")
-								.setBasePrice(200.71)
+										"D0FQTK", new BigDecimal(4032.54), "USD")
+								.setBasePrice(new BigDecimal(200.71))
 								.addPassengerInfo("1", "Sarah Hum")
 								.addPassengerInfo("2", "Jeremy Goldberg")
 								.addFlightInfo("123", "123", "1",
@@ -136,8 +137,8 @@ public class AirplaneBehavior extends BaseBehavior {
 										"Economy")
 								.addProductInfo("Cabin", "Coach")
 								.endPassengerSegmentInfo()
-								.addPriceInfo("Cabin", 100)
-								.addPriceInfo("Ticket", 200).setTax(200)
+								.addPriceInfo("Cabin", new BigDecimal(100))
+								.addPriceInfo("Ticket", new BigDecimal(200)).setTax(new BigDecimal(200))
 								.addQuickReply("OK", "OK").build(envelope);
 					}
 				});

@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -22,12 +22,12 @@ public class BoardingPass implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	/** The passenger name. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("passenger_name")
 	private String passengerName;
 
 	/** The pnr number. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("pnr_number")
 	private String pnrNumber;
 	
@@ -49,7 +49,7 @@ public class BoardingPass implements Serializable{
 	private List<Field> secondaryFields;
 	
 	/** The logo image url. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("logo_image_url")
 	private String logoImageUrl;
 	
@@ -70,7 +70,7 @@ public class BoardingPass implements Serializable{
 	private String barcodeImageUrl;
 	
 	/** The above bar code image url. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("above_bar_code_image_url")
 	private String aboveBarCodeImageUrl;
 	

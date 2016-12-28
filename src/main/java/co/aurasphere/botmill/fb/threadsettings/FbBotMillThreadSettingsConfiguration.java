@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
@@ -22,7 +23,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextReq
  * Class which handles the configuration of the Facebook Messenger Platform
  * Thread Settings (for more informations, see the link below). The methods of
  * this class needs to be called only once and thus shouldn't be put on the
- * class that implements {@link FaceBotDefinition}. The best way of handling the
+ * class that implements {@link FbBotDefinition}. The best way of handling the
  * configuration would be defining your own class with a main method and put the
  * call on it.
  *
@@ -51,7 +52,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 */
 	public static void setGreetingMessage(String message) {
 		if (message == null || message.isEmpty()) {
-			logger.error("FaceBot validation error: Greeting message can't be null or empty!");
+			logger.error("FbBotMill validation error: Greeting message can't be null or empty!");
 			return;
 		}
 		SetGreetingTextRequest request = new SetGreetingTextRequest(message);
@@ -71,7 +72,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 */
 	public static void setGetStartedButton(String payload) {
 		if (payload == null || payload.isEmpty()) {
-			logger.error("FaceBot validation error: Get Started Button payload can't be null or empty!");
+			logger.error("FbBotMill validation error: Get Started Button payload can't be null or empty!");
 			return;
 		}
 		Button button = new PostbackButton(null, null, payload);
@@ -111,7 +112,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 */
 	public static void setPersistentMenu(List<Button> buttons) {
 		if (buttons == null || buttons.isEmpty() || buttons.size() > 5) {
-			logger.error("FaceBot validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
+			logger.error("FbBotMill validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
 			return;
 		}
 		CallToActionsRequest request = new CallToActionsRequest(

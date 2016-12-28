@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.message;
 
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
@@ -24,7 +24,7 @@ public class TextMessage extends Message {
 	 * The text of this message.
 	 */
 	@Size(max = FbBotMillValidationConstants.MESSAGE_MAX_LENGTH)
-	@NotEmpty
+	@NotBlank
 	private String text;
 
 	/**

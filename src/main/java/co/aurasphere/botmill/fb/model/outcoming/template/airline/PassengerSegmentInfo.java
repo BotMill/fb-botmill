@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
@@ -21,21 +22,21 @@ public class PassengerSegmentInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** The segment id. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("segment_id")
 	private String segmentId; 
 	
 	/** The passenger id. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("passenger_id")
 	private String passengerId;
 	
 	/** The seat. */
-	@NotEmpty
+	@NotBlank
 	private String seat;
 	
 	/** The seat type. */
-	@NotEmpty
+	@NotBlank
 	@SerializedName("seat_type")
 	private String seatType;
 	

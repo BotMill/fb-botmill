@@ -40,14 +40,14 @@ public class Referral implements Serializable {
 	 */
 	private String ref;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The source of this referral. Currently, the only possible value is
 	 * “SHORTLINK”.
 	 */
 	private String source;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The identifier for the referral. For referrals coming from m.me links, it
 	 * will always be "OPEN_THREAD".

@@ -43,7 +43,7 @@ public class AccountLinking implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	// TODO: https://github.com/Aurasphere/facebot/issues/19
+	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * May be linked or unlinked.
 	 */

@@ -7,45 +7,39 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
 
 /**
- * Base event handler which occurs when a Pattern matches a String.
- * 
- * @author Donato Rimenti
- * @date Aug 08, 2016
+ * The Class BasePatternEvent.
  */
 public abstract class BasePatternEvent extends FbBotMillBean implements
 		FbBotMillEvent {
 
 	/**
-	 * The pattern to match against the incoming text message.
+	 * The expected pattern.
 	 */
 	public Pattern expectedPattern;
 
 	/**
-	 * Instantiates a new base pattern event.
+	 * Instantiates a new BasePatternEvent.
 	 *
-	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 * @param expectedPattern the {@link #expectedPattern}.
 	 */
 	protected BasePatternEvent(Pattern expectedPattern) {
 		this.expectedPattern = expectedPattern;
 	}
 
 	/**
-	 * Instantiates a new base pattern event.
+	 * Instantiates a new BasePatternEvent.
 	 *
-	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 * @param expectedPattern the {@link #expectedPattern}.
 	 */
 	protected BasePatternEvent(String expectedPattern) {
 		this.expectedPattern = Pattern.compile(expectedPattern);
 	}
 
 	/**
-	 * Method used to check if a text matches against this event pattern.
-	 * 
-	 * @param text
-	 *            the text to match.
-	 * @return true if the text matches this event pattern, false otherwise.
+	 * Verify pattern match.
+	 *
+	 * @param text the {@link #text}.
+	 * @return true, if successful
 	 */
 	protected boolean verifyPatternMatch(String text) {
 		if(this.expectedPattern == null){
@@ -90,10 +84,8 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.facebot.bean.FaceBotBean#toString()
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override
 	public String toString() {

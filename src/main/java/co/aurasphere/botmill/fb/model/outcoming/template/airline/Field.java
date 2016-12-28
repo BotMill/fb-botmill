@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 
 /**
@@ -14,11 +14,11 @@ public class Field implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/** The label. */
-	@NotEmpty
+	@NotBlank
 	private String label;
 	
 	/** The value. */
-	@NotEmpty
+	@NotBlank
 	private String value;
 	
 	/**

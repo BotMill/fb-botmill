@@ -5,7 +5,7 @@ import java.util.List;
 
 
 /**
- * Class that contains all the context information used to handle FaceBots and
+ * Class that contains all the context information used to handle bots and
  * communicate with Facebook. The context is a singleton.
  * 
  * @author Donato Rimenti
@@ -14,7 +14,7 @@ import java.util.List;
 public class FbBotMillContext {
 
 	/**
-	 * A list of the registered FaceBots in the context. A {@link FbBot} can't
+	 * A list of the registered bots in the context. A {@link FbBot} can't
 	 * be used unless it's registered to the context.
 	 */
 	private List<FbBot> registeredBots;
@@ -31,7 +31,7 @@ public class FbBotMillContext {
 	private String validationToken;
 
 	/**
-	 * The current FaceBotContext instance.
+	 * The current instance.
 	 */
 	private static FbBotMillContext instance;
 
@@ -52,7 +52,7 @@ public class FbBotMillContext {
 	private boolean validationEnabled;
 
 	/**
-	 * Instantiates a new FaceBotContext. The validator is enabled by default.
+	 * Instantiates a new FbBotMillContext. The validator is enabled by default.
 	 */
 	private FbBotMillContext() {
 		this.registeredBots = new ArrayList<FbBot>();
@@ -60,22 +60,22 @@ public class FbBotMillContext {
 	}
 
 	/**
-	 * Registers a {@link FbBot} to the FaceBotContext. A FaceBot can't be
-	 * used unless it's registered to the FaceBotContext.
+	 * Registers a {@link FbBot} to the context. A bot can't be
+	 * used unless it's registered to the context.
 	 * 
-	 * @param faceBot
-	 *            the FaceBot to register.
+	 * @param fbBot
+	 *            the bot to register.
 	 */
-	void register(FbBot faceBot) {
-		if (faceBot != null) {
-			this.registeredBots.add(faceBot);
+	void register(FbBot fbBot) {
+		if (fbBot != null) {
+			this.registeredBots.add(fbBot);
 		}
 	}
 
 	/**
-	 * Gets the current instance of FaceBotContext.
+	 * Gets the current instance of FbBotMillContext.
 	 *
-	 * @return the current instance of FaceBotContext.
+	 * @return the current instance of FbBotMillContext.
 	 */
 	public static FbBotMillContext getInstance() {
 		if (instance == null) {
@@ -155,7 +155,7 @@ public class FbBotMillContext {
 	}
 
 	/**
-	 * Convenience method for quickly setting up the FaceBot environment.
+	 * Convenience method for quickly setting up the FbBotMill environment.
 	 * 
 	 * @param pageToken
 	 *            the validation token for the Facebook page.
@@ -178,7 +178,7 @@ public class FbBotMillContext {
 	 */
 	@Override
 	public String toString() {
-		return "FaceBotContext [registeredBots=" + registeredBots
+		return "FbBotMillContext [registeredBots=" + registeredBots
 				+ ", validationToken=" + validationToken + ", pageToken="
 				+ pageToken + ", validationEnabled=" + validationEnabled + "]";
 	}

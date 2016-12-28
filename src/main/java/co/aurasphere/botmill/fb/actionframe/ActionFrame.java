@@ -5,6 +5,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to it.
  * 
@@ -22,6 +23,29 @@ public class ActionFrame {
 	 * The reply of this frame to send if the event is triggered.
 	 */
 	private AutoReply reply;
+	
+	/**
+	 * The replies of this frame to send if the event is triggered.
+	 */
+	private AutoReply[] replies;
+
+	/**
+	 * Gets the reply.
+	 *
+	 * @return the reply
+	 */
+	public AutoReply getReply() {
+		return reply;
+	}
+
+	/**
+	 * Gets the replies.
+	 *
+	 * @return the replies
+	 */
+	public AutoReply[] getReplies() {
+		return replies;
+	}
 
 	/**
 	 * Instantiates a new action frame.
@@ -34,6 +58,17 @@ public class ActionFrame {
 	public ActionFrame(FbBotMillEvent event, AutoReply reply) {
 		this.event = event;
 		this.reply = reply;
+	}
+	
+	/**
+	 * Instantiates a new action frame with multiple / collection replies.
+	 *
+	 * @param event            the {@link #event}.
+	 * @param replies            the list of {@link #reply}.
+	 */
+	public ActionFrame(FbBotMillEvent event, AutoReply... replies) {
+		this.event = event;
+		this.replies = replies;
 	}
 
 	/**
@@ -52,6 +87,29 @@ public class ActionFrame {
 			beforeReply(envelope);
 			if (this.reply != null) {
 				this.reply.reply(envelope);
+			}
+			afterReply(envelope);
+		}
+		return triggered;
+	}
+	
+	/**
+	 * Executes multiple replies when multiple autoreply is set.
+	 * @param envelope
+	 *            the incoming message.
+	 * @return true, if the event has been triggered.
+	 */
+	public boolean processMultipleReply(MessageEnvelope envelope) {
+		if (this.event == null) {
+			return false;
+		}
+		boolean triggered = this.event.verifyEventCondition(envelope);
+		if (triggered) {
+			beforeReply(envelope);
+			if (this.replies != null) {
+				for(AutoReply reply: replies) {
+					reply.reply(envelope);
+				}
 			}
 			afterReply(envelope);
 		}

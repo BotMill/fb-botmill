@@ -49,6 +49,12 @@ public class AirlineCheckinTemplatePayload extends AirlineBasePnrNumberTemplateP
 	}
 
 	/**
+	 * Instantiates a new AirlineCheckinTemplatePayload.
+	 */
+	public AirlineCheckinTemplatePayload() {
+	}
+
+	/**
 	 * Gets the checkin url.
 	 *
 	 * @return the checkin url

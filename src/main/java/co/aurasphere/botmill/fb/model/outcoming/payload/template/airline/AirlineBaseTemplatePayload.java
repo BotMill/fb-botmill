@@ -8,7 +8,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePay
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class AirlineBaseTemplatePayload.
  */
@@ -21,22 +20,30 @@ public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 	@NotBlank
 	@SerializedName("intro_message")
 	private String introMessage;
-	
+
 	/** The locale. */
 	@NotBlank
-	@Pattern(regexp="[a-z]{2}_[A-Z]{2}", message="{locale.pattern.message}")
+	@Pattern(regexp = "[a-z]{2}_[A-Z]{2}", message = "{locale.pattern.message}")
 	private String locale;
-	
+
 	/** The theme color. */
-	@Pattern(regexp="#\\d{6}", message="{theme.color.pattern.message}")
+	@Pattern(regexp = "#\\d{6}", message = "{theme.color.pattern.message}")
 	@SerializedName("theme_color")
 	private String themeColor;
-	
+
+	/**
+	 * Instantiates a new AirlineBaseTemplatePayload.
+	 */
+	public AirlineBaseTemplatePayload() {
+	}
+
 	/**
 	 * Instantiates a new airline base template payload.
 	 *
-	 * @param introMessage the intro message
-	 * @param locale the locale
+	 * @param introMessage
+	 *            the intro message
+	 * @param locale
+	 *            the locale
 	 */
 	public AirlineBaseTemplatePayload(String introMessage, String locale) {
 		this.introMessage = introMessage;
@@ -55,7 +62,8 @@ public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 	/**
 	 * Sets the intro message.
 	 *
-	 * @param introMessage the new intro message
+	 * @param introMessage
+	 *            the new intro message
 	 */
 	public void setIntroMessage(String introMessage) {
 		this.introMessage = introMessage;
@@ -73,7 +81,8 @@ public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 	/**
 	 * Sets the locale.
 	 *
-	 * @param locale the new locale
+	 * @param locale
+	 *            the new locale
 	 */
 	public void setLocale(String locale) {
 		this.locale = locale;
@@ -91,10 +100,11 @@ public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 	/**
 	 * Sets the theme color.
 	 *
-	 * @param themeColor the new theme color
+	 * @param themeColor
+	 *            the new theme color
 	 */
 	public void setThemeColor(String themeColor) {
 		this.themeColor = themeColor;
 	}
-	
+
 }

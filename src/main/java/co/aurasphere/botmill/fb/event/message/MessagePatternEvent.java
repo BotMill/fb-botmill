@@ -2,7 +2,6 @@ package co.aurasphere.botmill.fb.event.message;
 
 import java.util.regex.Pattern;
 
-import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BasePatternEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 

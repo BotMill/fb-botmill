@@ -289,7 +289,8 @@ public class NetworkUtils {
 	private static StringEntity toStringEntity(Object object) {
 		StringEntity input = null;
 		try {
-			input = new StringEntity(JsonUtils.toJson(object));
+			String json = JsonUtils.toJson(object);
+			input = new StringEntity(json);
 			input.setContentType("application/json");
 			logger.debug("Request: {}", inputStreamToString(input.getContent()));
 		} catch (Exception e) {

@@ -58,6 +58,12 @@ public class ButtonTemplatePayload extends TemplateBasePayload {
 	}
 
 	/**
+	 * Instantiates a new ButtonTemplatePayload.
+	 */
+	public ButtonTemplatePayload() {
+	}
+
+	/**
 	 * Gets the {@link #text}.
 	 *
 	 * @return the {@link #text}.

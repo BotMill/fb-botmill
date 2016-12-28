@@ -3,9 +3,6 @@ package co.aurasphere.botmill.fb.test.support;
 import java.util.List;
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.FbBotMillContext;
@@ -133,8 +130,8 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Sends a text message to all the registered bots. Used to simulate a
-	 * user typing in chat with your bot.
+	 * Sends a text message to all the registered bots. Used to simulate a user
+	 * typing in chat with your bot.
 	 * 
 	 * @param message
 	 *            the message to send.
@@ -186,9 +183,9 @@ public class FbBotMillMockMediator {
 	/**
 	 * Starts an interactive test that simulates the behavior of the bot
 	 * according to the chat inputs. You can send messages to the registered
-	 * bots typing in your IDE console. To send a message, just type it. To
-	 * send a payload, type {@value #PAYLOAD_MARKER} followed by your payload.
-	 * To end the test, type {@value #STOP_MARKER}.
+	 * bots typing in your IDE console. To send a message, just type it. To send
+	 * a payload, type {@value #PAYLOAD_MARKER} followed by your payload. To end
+	 * the test, type {@value #STOP_MARKER}.
 	 */
 	public void interactiveTest() {
 		// Prints instructions.

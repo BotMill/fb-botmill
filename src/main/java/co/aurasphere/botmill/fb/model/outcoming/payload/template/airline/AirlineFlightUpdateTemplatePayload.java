@@ -44,6 +44,12 @@ public class AirlineFlightUpdateTemplatePayload extends AirlineBasePnrNumberTemp
 	}
 
 	/**
+	 * Instantiates a new AirlineFlightUpdateTemplatePayload.
+	 */
+	public AirlineFlightUpdateTemplatePayload() {
+	}
+
+	/**
 	 * Gets the update flight info.
 	 *
 	 * @return the update flight info

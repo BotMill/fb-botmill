@@ -1,6 +1,5 @@
 package co.aurasphere.botmill.fb.event.postback;
 
-import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 

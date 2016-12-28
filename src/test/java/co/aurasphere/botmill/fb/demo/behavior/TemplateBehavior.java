@@ -55,11 +55,13 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addGenericTemplate().addElement("Generic Template Element 1")
-						.addPostbackButton("postback button", "postback button payload")
-						.addPhoneNumberButton("phone number button", "+393541247844")
-						.addUrlButton("web url button", "https://github.com/BotMill/fb-botmill")
+//						.addPostbackButton("postback button", "postback button payload")
+//						.addPhoneNumberButton("phone number button", "+393541247844")
+//						.addUrlButton("web url button", "https://github.com/BotMill/fb-botmill")
 						.setSubtitle("Subtitle of element 1").setRedirectUrl("www.aurasphere.co")
-						.addLoginButton("https://github.com/BotMill/fb-botmill").addLogoutButton().addShareButton()
+						.addLoginButton("https://github.com/BotMill/fb-botmill")
+						.addLogoutButton()
+						.addShareButton()
 						.endElement().addQuickReply("Quick Reply 1", "Payload of Quick Reply 1").build(envelope);
 			}
 		});

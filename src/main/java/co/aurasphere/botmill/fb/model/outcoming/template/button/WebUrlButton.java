@@ -1,5 +1,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
@@ -32,6 +34,13 @@ public class WebUrlButton extends Button {
 	/** The messenger extension. */
 	@SerializedName("messenger_extensions")
 	private boolean messengerExtension;
+	
+	/**
+	 * The button title.
+	 */
+	@Size(max=20)
+	@NotBlank
+	protected String title;
 
 	/**
 	 * Default constructor. Can instantiate this object only through
@@ -90,4 +99,23 @@ public class WebUrlButton extends Button {
 		this.url = url;
 	}
 
+
+	/**
+	 * Gets the title.
+	 *
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+	
+	/**
+	 * Sets the title.
+	 *
+	 * @param title the new title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 }

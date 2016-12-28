@@ -100,14 +100,13 @@ public class ButtonFactory {
 	 * Creates a new Button object.
 	 *
 	 * @param type            the button type
-	 * @param title            the label of the button
 	 * @param payload            the payload data
 	 * @param paymentSummary            the payment summary that will be displayed.
 	 * @return a {@link Button}
 	 */
-	public static Button createBuyButton(ButtonType type, String title,
-			String payload, PaymentSummary paymentSummary) {
-		return new BuyButton(ButtonType.PAYMENT, title, payload, paymentSummary);
+	public static Button createBuyButton(ButtonType type, String payload, PaymentSummary paymentSummary) {
+		// TODO: the buy button title must be buy
+		return new BuyButton(ButtonType.PAYMENT, payload, paymentSummary);
 	}
 
 	/**

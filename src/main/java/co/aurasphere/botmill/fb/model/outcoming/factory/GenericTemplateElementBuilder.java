@@ -178,14 +178,13 @@ public class GenericTemplateElementBuilder {
 	
 	/**
 	 * Adds a buy button on a generic template.
-	 *
-	 * @param title the title
+	 * 
 	 * @param payload the payload
 	 * @param paymentSummary the payment summary
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addBuyButton(String title, String payload, PaymentSummary paymentSummary) {
-		Button button = ButtonFactory.createBuyButton(ButtonType.PAYMENT, title, payload, paymentSummary);
+	public GenericTemplateElementBuilder addBuyButton(String payload, PaymentSummary paymentSummary) {
+		Button button = ButtonFactory.createBuyButton(ButtonType.PAYMENT, payload, paymentSummary);
 		this.element.addButton(button);
 		return this;
 	}

@@ -22,6 +22,13 @@ public class PostbackButton extends Button {
 	@Size(max = 1000)
 	@NotBlank
 	private String payload;
+	
+	/**
+	 * The button title.
+	 */
+	@Size(max=20)
+	@NotBlank
+	protected String title;
 
 	/**
 	 * Instantiates a new postback button.
@@ -52,6 +59,25 @@ public class PostbackButton extends Button {
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
+	}
+
+
+	/**
+	 * Gets the title.
+	 *
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+	
+	/**
+	 * Sets the title.
+	 *
+	 * @param title the new title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

@@ -29,7 +29,6 @@ public class PaymentSummary implements Serializable {
 	private boolean isTestPayment;
 
 	/** The payment type. */
-	@Valid
 	@NotNull
 	@SerializedName("payment_type")
 	private PaymentType paymentType;

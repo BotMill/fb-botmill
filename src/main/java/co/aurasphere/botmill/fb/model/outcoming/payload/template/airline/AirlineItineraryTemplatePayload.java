@@ -91,6 +91,12 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	}
 
 	/**
+	 * Instantiates a new AirlineItineraryTemplatePayload.
+	 */
+	public AirlineItineraryTemplatePayload() {
+	}
+
+	/**
 	 * Gets the passenger info.
 	 *
 	 * @return the passenger info

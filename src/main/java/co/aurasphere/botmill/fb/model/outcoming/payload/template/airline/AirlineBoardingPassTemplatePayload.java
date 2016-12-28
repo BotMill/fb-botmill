@@ -37,6 +37,12 @@ public class AirlineBoardingPassTemplatePayload extends AirlineBaseTemplatePaylo
 	}
 
 	/**
+	 * Instantiates a new AirlineBoardingPassTemplatePayload.
+	 */
+	public AirlineBoardingPassTemplatePayload() {
+	}
+
+	/**
 	 * Gets the boarding pass.
 	 *
 	 * @return the boarding pass

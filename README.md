@@ -36,7 +36,6 @@ To complete your first bot, all you have to do is write the definition class. Th
 	public class MyBotBehaviour extends AbstractFbBot {
 		public void defineBehavior() {
 			addActionFrame(new MessageEvent("text message"), new MessageAutoReply("simple text message"));
-		
 		}
 	}
 

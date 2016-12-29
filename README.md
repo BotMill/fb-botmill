@@ -48,10 +48,12 @@ There are several types of events and reply that can be used.
 # Developing with FB-BotMill
 
 Table of Contents
+* [Setting up](#setting-up)
 * [Sending Messages](#sending-messages)
 * [Receiving Messages](#receiving-messages)
 * [Advance Topics](#advance-topics)
 
+**<h3>Setting Up</h3>**
 **<h3>Sending Messages</h3>**
 **<h3>Receiving Messages</h3>**
 **<h3>Advance Topics</h3>**

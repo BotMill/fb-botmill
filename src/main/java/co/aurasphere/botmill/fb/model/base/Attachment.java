@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import co.aurasphere.botmill.fb.internal.util.json.SkipDeserialization;
+
 /**
  * Represents a Facebook Messenger Platform attachment. It may be a file or a
  * template.
@@ -40,6 +42,7 @@ public class Attachment implements Serializable {
 	 */
 	@Valid
 	@NotNull
+	@SkipDeserialization
 	private Payload payload;
 
 	/**

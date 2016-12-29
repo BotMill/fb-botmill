@@ -2,7 +2,7 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.util.Calendar;
 
-import co.aurasphere.botmill.fb.model.base.Payload;
+import co.aurasphere.botmill.fb.model.base.Attachment;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,9 +42,9 @@ public class JsonUtils {
 					new CalendarSerializer());
 
 			// Deserializes payloads from interface.
-			builder.registerTypeAdapter(Payload.class,
-					new PayloadDeserializer());
-
+			builder.registerTypeAdapter(Attachment.class,
+					new AttachmentDeserializer());
+			
 			gson = builder.create();
 		}
 		return gson;

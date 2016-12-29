@@ -63,4 +63,5 @@ For more information on other callbacks, framework features or how to create a d
 # Contribution
 
 [Contribution Guide](https://github.com/BotMill/fb-botmill/blob/master/CONTRIBUTING.md)
+
 <sub>Copyright (c) 2017 Donato Rimenti, Alvin Reyes</sub>

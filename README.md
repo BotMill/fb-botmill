@@ -41,8 +41,6 @@ To complete your first bot, all you have to do is write the definition class. Th
 
 The example above will basically create an event that will catch a response with text = "text message". A Reply object is then called to respond to this text message.
 
-There are several types of events and reply that can be used.
-
 **<h3>Examples</h3>**
 
 # Developing with FB-BotMill
@@ -51,12 +49,10 @@ Table of Contents
 * [Setting up](#setting-up)
 * [Sending Messages](#sending-messages)
 * [Receiving Messages](#receiving-messages)
-* [Advance Topics](#advance-topics)
 
 **<h3>Setting Up</h3>**
 **<h3>Sending Messages</h3>**
 **<h3>Receiving Messages</h3>**
-**<h3>Advance Topics</h3>**
 
 For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
 

@@ -137,6 +137,7 @@ public class FbBotMillBean {
 	 * @param envelope
 	 * @return
 	 */
+	// TODO: can we improve this using a FbBotMillEventType? Also, wouldn't be better if this method name was getLocation?
 	protected LocationCoordinates getLocationMessage(MessageEnvelope envelope) {
 		if (envelope != null && envelope.getMessage() != null 
 				&& envelope.getMessage().getAttachments() != null 

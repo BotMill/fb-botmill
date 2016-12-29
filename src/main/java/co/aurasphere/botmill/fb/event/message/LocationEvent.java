@@ -8,6 +8,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 
 public class LocationEvent extends FbBotMillBean implements FbBotMillEvent {
+	
 	/**
 	 * @see BasePatternEvent#BasePatternEvent(Pattern)
 	 */

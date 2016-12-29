@@ -60,4 +60,7 @@ Table of Contents
 
 For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
 
+# Contribution
+
+[Contribution Guide](https://github.com/BotMill/fb-botmill/blob/master/CONTRIBUTING.md)
 <sub>Copyright (c) 2017 Donato Rimenti, Alvin Reyes</sub>

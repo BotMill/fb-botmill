@@ -67,7 +67,7 @@ To complete your first bot, all you have to do is write the definition class. Th
       }
     }
 
-Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki). 
+Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
 
 
 **<h3>What's currently supported</h3>**

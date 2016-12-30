@@ -1,28 +1,32 @@
-# FB-BotMill
-A simple Java framework for building event-driven bots on Facebook's Messenger Platform.
+# FB-BotMill - Tools to Mill Facebook Bots
+FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 
 
-The goal of FB-BotMill is making the Facebook's Messenger Platform easier: with FB-BotMill, you only need less than 5 lines of code to set up your own Messenger bot! 
+It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.
 
-<div>
-<div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_demo_chat.PNG" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/services_chat.PNG" height="345" width="210" />&nbsp;
-</div>
-</div>
+**<h3>Getting Started</h3>**
+The FB-BotMill can be imported as a dependency via Maven.
 
-Try THUB bot [now](http://technowebhub.com/fb_thub.html)
+	<dependency>
+	  <groupId>co.aurasphere.botmill</groupId>
+	  <artifactId>fb-botmill</artifactId>
+	  <version>1.0.0</version>
+	</dependency>
 
-**<h3>Premise</h3>**
+Gradle
+    
+    compile 'co.aurasphere.botmill:fb-botmill:1.0.0'
 
-This tutorial will assume that you have already setup a Facebook page and application and you have a page token and a webhook validation token. If you don't, you can follow this link to Facebook's tutorial: https://developers.facebook.com/docs/messenger-platform/quickstart
+Grovvy
 
-**<h3>QuickStart</h3>**
+    @Grapes( 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='1.0.0') 
+    )
+    
+Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 
 
-First of all, you need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
+Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
-    <servlet>
+     <servlet>
 		  <servlet-name>myFbBot</servlet-name>
 		  <servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
 		  <init-param>
@@ -40,7 +44,7 @@ This will register a servlet named myFbBot to the path /myFbBot. The bot-definit
 
 To complete your first bot, all you have to do is write the definition class. This class will describe your bot behavior. Here's an example:
 
-    public class MyFbBotBehavior extends AbstractFbBot {
+    public class MyFbBotDefinitionClass extends AbstractFbBot {
  
       public void defineBehavior() {
      	// Setting my tokens from Facebook (page token and validation token for webhook).
@@ -52,7 +56,21 @@ To complete your first bot, all you have to do is write the definition class. Th
       }
     }
 
-For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
+Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki). 
+
+**<h3>Demo</h3>**
+FB-BotMill offers a powerful feature set for developing Facebook ChatBots while providing a simple to use set of tools for developers.
+
+<div>
+<div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_demo_chat.PNG" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/services_chat.PNG" height="345" width="210" />&nbsp;
+</div>
+</div>
+
+Try Bot[NOW](http://technowebhub.com/fb_thub.html)
 
 **<h3>What's currently supported</h3>**
 

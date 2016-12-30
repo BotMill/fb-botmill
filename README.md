@@ -103,16 +103,15 @@ FB-BotMill supports this Facebook Messenger Platform components:
 	- Persistent Menu
 	- Domain whitelisting
 - User Profile retrieving
+- Web View and Extensions
 	
 **<h3>Coming next</h3>**
 
 Here's what you can expect coming up in the next updates:
 
-- More documentation
-- More examples
-- Support for Webview & Extesions
-- Thread settings for Domain Whitelisting, Account Linking and Payment
-- Possibility of attaching files instead of using links
-
+- Payments
+- File Attachments
+- Rasa NLU/NLP Plugin
+- Tons of Examples
 
 <sub>Copyright (c) 2016 Donato Rimenti, Alvin Reyes</sub>

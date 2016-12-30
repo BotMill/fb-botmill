@@ -13,9 +13,9 @@ Interested in contributing to our project? We will always be open to your pull r
 Step 1: Review our Code of Conduct [here](#code-of-conduct)  
 Step 2: Review the Coding Standards [here](#coding-standards)  
 
-- 1) Forked our project
-- 2) Introduce/Code your heart out to implement your idea
-- 3) Submit a pull request
+- Forked our project.
+- Introduce/Code your heart out to implement your idea.
+- Submit a pull request
 
 **<h4>Code of Conduct</h4>**
 **<h4>Coding Standards</h4>**
@@ -24,6 +24,5 @@ Step 2: Review the Coding Standards [here](#coding-standards)
 We would really appreciate it if you can share the bots that you made using our framework, just like the many people who ask us to show case theirs.
 
 * [TechnoWebhub](https://www.facebook.com/twebhub/?fref=ts)
-* [SpotPrints](https://www.facebook.com/spotprints00/?ref=settings)
 * [SimplyLocate](https://www.facebook.com/SimplyLocate-1209810882431614/?fref=ts)
 * [TriviaBot](https://www.facebook.com/TriviaBot-338552286519777/)

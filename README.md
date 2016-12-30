@@ -4,7 +4,9 @@ FB-BotMill is designed to ease the process of developing, designing and running 
 It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.
 
 **<h3>Getting Started</h3>**
-The FB-BotMill can be imported as a dependency via Maven.
+The FB-BotMill can be imported as a dependency
+
+Maven
 
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
@@ -12,6 +14,15 @@ The FB-BotMill can be imported as a dependency via Maven.
 	  <version>1.0.0</version>
 	</dependency>
 
+Gradle
+
+	compile 'co.aurasphere.botmill:fb-botmill:1.0.0'
+
+Apache Bldr
+
+	'co.aurasphere.botmill:fb-botmill:jar:1.0.0'
+	
+	
 Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
      <servlet>

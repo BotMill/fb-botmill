@@ -66,9 +66,76 @@ Table of Contents
 * [Sending Messages](#sending-messages)
 * [Receiving Messages](#receiving-messages)
 
-**<h3>Setting Up</h3>**
 **<h3>Sending Messages</h3>**
+The core of our framework plays around using builder patterns. When sending a message, it is important to keep in mind that whenever we receive a response from the user, we need to build a response object for it.
+
+Here is an example of how you can create a text message response given a user input.
+
+	public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		String greetingMessage = "Hey There! ";
+		return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+	}
+					
+Aside from sending a simple text, you can also respond differently.
+
+	public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
+			.addUrlButton("Go to Our Website", "http://www.technowebhub.com")
+			.setImage("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTCau2xKug5qTlyXnwQDubIJDeBWvFy0YXPJmobXnMNwInJLDbj")
+			.addPostbackButton("Start Chatting", "chat")
+			.addShareButton()
+			.setSubtitle("Systems Development Company, How would like to check our services?")
+			.endElement().build(envelope);
+	}
+	
+Go to our [snippets page](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets) for the complete list of Reply/Response type.
+
+
 **<h3>Receiving Messages</h3>**
+Either it's rule based or ml-based, receiving a message will be match to a configured Event.
+
+There are different types of Events that can be use to catch a user input. The most basic one would be to match it against a specific string.
+
+	addActionFrame(new MessageEvent("text message"), new MessageAutoReply("simple text message"));
+
+You can also match it against a Regular Expression.
+
+	addActionFrame(new PostbackPatternEvent(Pattern.compile("(?i:chat)")), new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			return ReplyFactory.addTextMessageOnly("Sure!").build(envelope);
+		}
+	});
+	
+A postback.
+
+	addActionFrame(new PostbackPatternEvent(Pattern.compile("(?i:services)")), new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
+		}
+	});
+	
+	addActionFrame(new PostbackEvent("inquire_softdev", false), new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			return ReplyFactory.addTextMessageOnly("Hold on tight, One of our Sales Development will be with you shortly!")
+				.build(envelope);
+		}
+	});
+		
+
+And even a catch all event.
+
+	addActionFrame(new AnyEvent(), new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			if(safeGetMessage(envelope).equals("")) {return null;}
+			return ReplyFactory.addTextMessageOnly("I didn't get that, you can type in: products, service or bot demo").build(envelope);
+		}
+	});
+		
+Go to our [snippets page](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets) for the complete list of Events.
 
 For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
 

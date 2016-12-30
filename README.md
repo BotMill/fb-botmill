@@ -5,14 +5,14 @@ The goal of FB-BotMill is making the Facebook's Messenger Platform easier: with 
 
 <div>
 <div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="340" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="340" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_thub.PNG" height="340" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/slider_thub.PNG" height="340" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_thub.PNG" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/slider_thub.PNG" height="345" width="210" />&nbsp;
 </div>
 </div>
 
-Try THUB bot [now](https://www.facebook.com/twebhub/)
+Try THUB bot [now](http://technowebhub.com/fb_thub.html)
 
 **<h3>Premise</h3>**
 

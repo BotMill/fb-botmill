@@ -3,6 +3,17 @@ FB-BotMill is designed to ease the process of developing, designing and running 
 
 It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.
 
+<div>
+<div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_demo_chat.PNG" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/services_chat.PNG" height="345" width="210" />&nbsp;
+</div>
+</div>
+
+Try THUB [NOW](http://technowebhub.com/fb_thub.html)
+
 **<h3>Getting Started</h3>**
 The FB-BotMill can be imported as a dependency via Maven.
 
@@ -58,19 +69,6 @@ To complete your first bot, all you have to do is write the definition class. Th
 
 Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki). 
 
-**<h3>Demo</h3>**
-FB-BotMill offers a powerful feature set for developing Facebook ChatBots while providing a simple to use set of tools for developers.
-
-<div>
-<div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_demo_chat.PNG" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/services_chat.PNG" height="345" width="210" />&nbsp;
-</div>
-</div>
-
-Try Bot[NOW](http://technowebhub.com/fb_thub.html)
 
 **<h3>What's currently supported</h3>**
 

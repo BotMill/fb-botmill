@@ -54,7 +54,7 @@ The example above will basically create an event that will catch a response with
 
 Further reading.
 
-[Developing Facebook Bots with FB-BotMill](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill)  
+[Developing Facebook Bots with FB-BotMill](https://github.com/BotMill/fb-botmill/wiki)  
 [Code Snippets](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets)
 
 # What's currently supported

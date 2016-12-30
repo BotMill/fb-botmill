@@ -52,6 +52,8 @@ To complete your first bot, all you have to do is write the definition class. Th
 
 The example above will basically create an event that will catch a response with text = "text message". A Reply object is then called to respond to this text message.
 
+Further reading.
+
 [Developing Facebook Bots with FB-BotMill](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill)  
 [Code Snippets](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets)
 

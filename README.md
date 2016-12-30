@@ -4,7 +4,9 @@ FB-BotMill is designed to ease the process of developing, designing and running 
 It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.
 
 **<h3>Getting Started</h3>**
-The FB-BotMill can be imported as a dependency via Maven.
+The FB-BotMill can be imported as a dependency
+
+Maven
 
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
@@ -12,6 +14,15 @@ The FB-BotMill can be imported as a dependency via Maven.
 	  <version>1.0.0</version>
 	</dependency>
 
+Gradle
+
+	compile 'co.aurasphere.botmill:fb-botmill:1.0.0'
+
+Apache Bldr
+
+	'co.aurasphere.botmill:fb-botmill:jar:1.0.0'
+	
+	
 Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
      <servlet>
@@ -36,27 +47,78 @@ To complete your first bot, all you have to do is write the definition class. Th
 	public class MyBotBehaviour extends AbstractFbBot {
 		public void defineBehavior() {
 			addActionFrame(new MessageEvent("text message"), new MessageAutoReply("simple text message"));
-		
 		}
 	}
 
 The example above will basically create an event that will catch a response with text = "text message". A Reply object is then called to respond to this text message.
 
-There are several types of events and reply that can be used.
+Further reading.
 
-**<h3>Examples</h3>**
+[Developing Facebook Bots with FB-BotMill](https://github.com/BotMill/fb-botmill/wiki)  
+[Code Snippets](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets)
 
-# Developing with FB-BotMill
+# What's currently supported
 
-Table of Contents
-* [Sending Messages](#sending-messages)
-* [Receiving Messages](#receiving-messages)
-* [Advance Topics](#advance-topics)
+FB-BotMill supports this Facebook Messenger Platform components:
 
-**<h3>Sending Messages</h3>**
-**<h3>Receiving Messages</h3>**
-**<h3>Advance Topics</h3>**
+- Callbacks
+	- Message Received
+	- Message Delivered
+	- Message Read
+	- Message Echo
+	- Postback
+	- Plugin Opt-in
+	- Referral
+	- Payment
+	- Checkout Update
+	- Account Linking
+- Send API
+	- Templates
+		- Button Template
+		- Generic Template
+		- List Template
+		- Receipt Template
+		- Airline Boarding Pass Template
+		- Airline Checkin Template
+		- Airline Itinerary Template
+		- Airline Flight Update Template
+	- Buttons
+		- URL Button
+		- Postback Button
+		- Call Button
+		- Share Button
+		- Buy Button
+		- Log in
+		- Log out
+	- Quick Replies
+		- Generic Quick Reply Payload
+		- Location Quick Reply
+	- Sender Actions
+	- Content Types
+		- Text Message
+		- Audio Attachment
+		- File Attachment
+		- Image Attachment
+		- Video Attachment
+- Thread Settings
+	- Get Started Button
+	- Greeting Text
+	- Persistent Menu
+	- Domain whitelisting
+- User Profile retrieving
+- WebView and Extensions
+- Account Linking
+	
+**<h3>Coming next</h3>**
 
-For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
+Here's what you can expect coming up in the next release:
+
+- Payment integration
+- Pre-checkout/checkout
+- File attachments.
+
+# Contribution
+
+[Contribution Guide](https://github.com/BotMill/fb-botmill/blob/master/CONTRIBUTING.md)
 
 <sub>Copyright (c) 2017 Donato Rimenti, Alvin Reyes</sub>

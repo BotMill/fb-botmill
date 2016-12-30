@@ -7,8 +7,8 @@ The goal of FB-BotMill is making the Facebook's Messenger Platform easier: with 
 <div style="text-align:centered; width:100%;padding:5px; border:1px solid gray;">
 <img src="https://dl.dropboxusercontent.com/u/1737239/botmill/thub_main.jpg" height="345" width="210" />&nbsp;
 <img src="https://dl.dropboxusercontent.com/u/1737239/botmill/hi_textjpg.jpg" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_thub.PNG" height="345" width="210" />&nbsp;
-<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/slider_thub.PNG" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/list_demo_chat.PNG" height="345" width="210" />&nbsp;
+<img src="https://dl.dropboxusercontent.com/u/1737239/botmill/services_chat.PNG" height="345" width="210" />&nbsp;
 </div>
 </div>
 

@@ -43,6 +43,11 @@ The example above will basically create an event that will catch a response with
 
 **<h3>Examples</h3>**
 
+* [TechnoWebhub](https://www.facebook.com/twebhub/?fref=ts)
+* [SpotPrints](https://www.facebook.com/spotprints00/?ref=settings)
+* [SimplyLocate](https://www.facebook.com/SimplyLocate-1209810882431614/?fref=ts)
+* [TriviaBot](https://www.facebook.com/TriviaBot-338552286519777/)
+
 # Developing with FB-BotMill
 
 Table of Contents

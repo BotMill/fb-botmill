@@ -12,7 +12,7 @@ public class PostbackEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new PostbackEvent.
 	 *
-	 * @param expectedPayload the {@link #expectedPayload}.
+	 * @param expectedPayload the expectedPayload.
 	 * @param caseSensitive the {@link #caseSensitive}.
 	 */
 	public PostbackEvent(String expectedPayload, boolean caseSensitive) {
@@ -22,7 +22,7 @@ public class PostbackEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new PostbackEvent.
 	 *
-	 * @param expectedPayload the {@link #expectedPayload}.
+	 * @param expectedPayload the expectedPayload.
 	 */
 	public PostbackEvent(String expectedPayload) {
 		super(expectedPayload);

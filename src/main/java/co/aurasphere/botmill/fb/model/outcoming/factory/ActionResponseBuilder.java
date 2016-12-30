@@ -14,7 +14,7 @@ import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/sender-actions"
  *      > Facebook's Messenger Platform Sender Actions Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class ActionResponseBuilder extends FbBotMillMockableBuilder {
 
@@ -34,7 +34,7 @@ public class ActionResponseBuilder extends FbBotMillMockableBuilder {
 
 	/**
 	 * {@inheritDoc} It returns a {@link FbBotMillActionResponse} with the
-	 * {@link TypyingAction} to perform.
+	 * {@link TypingAction} to perform.
 	 */
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		User recipient = getRecipient(envelope);

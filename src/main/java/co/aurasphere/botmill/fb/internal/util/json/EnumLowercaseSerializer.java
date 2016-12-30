@@ -11,7 +11,7 @@ import com.google.gson.JsonSerializer;
  * Class that serializes an Enum as its lowercase name.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class EnumLowercaseSerializer implements JsonSerializer<Enum<?>> {
 

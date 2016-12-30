@@ -37,7 +37,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  * @see <a
  *      href="https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook Subscription info</a>
- * @date Jul 31, 2016
+ * 
  */
 public class FbBotMillServlet extends HttpServlet {
 

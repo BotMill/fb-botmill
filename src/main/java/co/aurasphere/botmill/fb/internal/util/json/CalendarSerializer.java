@@ -14,7 +14,7 @@ import com.google.gson.JsonSerializer;
  * format (YYYY-MM-DDThh:mm).
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class CalendarSerializer implements JsonSerializer<Calendar> {
 

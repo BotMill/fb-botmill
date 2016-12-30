@@ -7,7 +7,7 @@ package co.aurasphere.botmill.fb;
  * as an init-param for the {@link FbBotMillServlet}.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public interface FbBotDefinition {
 

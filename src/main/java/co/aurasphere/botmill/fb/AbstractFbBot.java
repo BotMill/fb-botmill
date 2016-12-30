@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
  * {@link FbBot} handling.
  * 
  * @author Donato Rimenti
- * @date Sep 25, 2016
+ * 
  */
 public abstract class AbstractFbBot implements FbBotDefinition {
 

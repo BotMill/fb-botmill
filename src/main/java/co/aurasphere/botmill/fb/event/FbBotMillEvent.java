@@ -7,7 +7,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * An interface that defines an event from Facebook Messenger Platform callback.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public interface FbBotMillEvent {
 

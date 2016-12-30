@@ -9,16 +9,16 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model for a message echo callback. <br/>
- * <br/>
+ * Model for a message echo callback. <br>
+ * <br>
  * This callback will occur when a message has been sent by your page. You may
  * receive text messsages or messages with attachments (image, video, audio,
  * template or fallback). The payload will also include an optional custom
  * metadata sent by the sender, and the corresponding app_id. You can subscribe
  * to this callback by selecting the message_echoes field when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
- * >setting up</a> your webhook. <br/>
- * <br/>
+ * >setting up</a> your webhook. <br>
+ * <br>
  * Multiple types of messages are supported:
  * 
  * <pre>
@@ -35,7 +35,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class EchoMessage extends Message {
 

@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
  * Demo of resetting the Thread Settings configuration.
  * 
  * @author Donato Rimenti
- * @date Aug 28, 2016
+ * 
  */
 public class ThreadSettingsDemoReset {
 

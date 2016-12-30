@@ -14,7 +14,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
  * Testing facility for FbBotMill framework.
  * 
  * @author Donato Rimenti
- * @date Aug 27, 2016
+ * 
  */
 public class FbBotMillMockMediator {
 

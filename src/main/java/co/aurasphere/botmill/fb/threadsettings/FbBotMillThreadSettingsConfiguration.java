@@ -31,7 +31,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextReq
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Thread Settings Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class FbBotMillThreadSettingsConfiguration {
 
@@ -45,7 +45,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * Sets the greeting message for the bot. The Greeting Text is only rendered
 	 * the first time the user interacts with a the Page on Messenger.
 	 *
-	 * @param message            the greeting message to show.
+	 * @param message 
+	 * 			the greeting message to show.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/greeting-text"
 	 *      >Facebook's Greeting Text Documentation</a>
@@ -65,7 +66,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * When this button is tapped, the defined payload will be sent back with a
 	 * postback received callback.
 	 *
-	 * @param payload            the payload to return when the button is tapped.
+	 * @param payload            
+	 * 			the payload to return when the button is tapped.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/get-started-button"
 	 *      >Facebook's Get Started Button Documentation</a>
@@ -86,8 +88,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * Removes the current Get Started Button.
 	 * 
-	 * @see {@link #setGetStartedButton(String)}
-	 * 
+	 * @see #setGetStartedButton(String)
 	 */
 	public static void deleteGetStartedButton() {
 		CallToActionsRequest request = new CallToActionsRequest(
@@ -103,7 +104,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * be invoked by a user, by tapping on the 3-caret icon on the left of the
 	 * composer.
 	 *
-	 * @param buttons            a list of {@link Button} (max 5 elements) to use as menu. The
+	 * @param buttons 
+	 * 			  a list of {@link Button} (max 5 elements) to use as menu. The
 	 *            buttons can only be {@link PostbackButton} or
 	 *            {@link WebUrlButton}. Phone buttons are not supported.
 	 * @see <a href=
@@ -123,7 +125,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * Removes the current Persistent Menu.
 	 * 
-	 * @see {@link #setPersistentMenu(List)}
+	 * @see #setPersistentMenu(List)
 	 * 
 	 */
 	public static void deletePersistentMenu() {

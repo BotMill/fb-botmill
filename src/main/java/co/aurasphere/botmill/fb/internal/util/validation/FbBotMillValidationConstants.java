@@ -6,7 +6,7 @@ package co.aurasphere.botmill.fb.internal.util.validation;
  * validations.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class FbBotMillValidationConstants {
 

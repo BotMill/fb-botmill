@@ -46,7 +46,7 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	/**
 	 * Verify string match.
 	 *
-	 * @param text the {@link #text}.
+	 * @param text the string used to check if it matches the event string.
 	 * @return true, if successful
 	 */
 	protected boolean verifyStringMatch(String text) {

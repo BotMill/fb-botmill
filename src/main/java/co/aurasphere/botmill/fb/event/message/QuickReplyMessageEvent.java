@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * contains a specific text message from Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * @date Dec 25, 2016
+ * 
  */
 public class QuickReplyMessageEvent extends BaseStringEvent {
 
@@ -19,7 +19,6 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	 *
 	 * @param expectedPayload the expected payload
 	 * @param caseSensitive the case sensitive
-	 * @see BaseStringEvent#BaseEvent(String)
 	 */
 	public QuickReplyMessageEvent(String expectedPayload, boolean caseSensitive) {
 		super(expectedPayload, caseSensitive);

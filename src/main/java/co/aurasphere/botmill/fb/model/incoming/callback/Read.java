@@ -3,8 +3,8 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 import java.io.Serializable;
 
 /**
- * Model for a read message callback. <br/>
- * <br/>
+ * Model for a read message callback. <br>
+ * <br>
  * This callback will occur when a message a page has sent has been read by the
  * user. You can subscribe to this callback by selecting the message_reads field
  * when <a href=
@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Dec 24, 2016
+ * 
  */
 public class Read implements Serializable {
 

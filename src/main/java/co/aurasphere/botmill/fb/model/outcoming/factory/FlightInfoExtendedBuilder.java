@@ -14,7 +14,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
  * Builder for a {@link FlightInfoExtended} object.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public class FlightInfoExtendedBuilder {
 
@@ -168,7 +168,7 @@ public class FlightInfoExtendedBuilder {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfoExtended} object. This field is mandatory for this
 	 * object and can't be null.
 	 * 
@@ -187,7 +187,7 @@ public class FlightInfoExtendedBuilder {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfoExtended} object. This field is mandatory for this
 	 * object and can't be null.
 	 * 
@@ -208,7 +208,7 @@ public class FlightInfoExtendedBuilder {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfoExtended} object. This field is mandatory for this
 	 * object and can't be null.
 	 * 

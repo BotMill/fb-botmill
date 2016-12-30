@@ -13,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
  * The Payment Summary Class/Object.
  *
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class PaymentSummary implements Serializable {
 

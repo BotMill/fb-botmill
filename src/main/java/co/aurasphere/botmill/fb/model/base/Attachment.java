@@ -12,7 +12,7 @@ import co.aurasphere.botmill.fb.internal.util.json.SkipDeserialization;
  * template.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class Attachment implements Serializable {
 

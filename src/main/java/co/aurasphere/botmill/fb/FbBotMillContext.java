@@ -9,7 +9,7 @@ import java.util.List;
  * communicate with Facebook. The context is a singleton.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class FbBotMillContext {
 
@@ -162,9 +162,7 @@ public class FbBotMillContext {
 	 * @param validationToken
 	 *            the validation token for the Facebook webhook.
 	 * 
-	 * @see <a href=
-	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart"
-	 *      />Facebook Messenger Platform documentation</a>
+	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/quickstart">Facebook Messenger Platform documentation</a>
 	 */
 	public void setup(String pageToken, String validationToken) {
 		this.pageToken = pageToken;

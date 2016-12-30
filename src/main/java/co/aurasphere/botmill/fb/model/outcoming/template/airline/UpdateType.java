@@ -5,7 +5,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.airline;
  * Enum that represents the kinds of updates of a flight.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public enum UpdateType {
 

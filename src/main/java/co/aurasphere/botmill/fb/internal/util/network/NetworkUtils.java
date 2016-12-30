@@ -38,7 +38,7 @@ import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
  * network.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class NetworkUtils {
 
@@ -256,9 +256,9 @@ public class NetworkUtils {
 	
 	/**
 	 * Utility to send a POST request.
-	 * @param url
-	 * @param entity
-	 * @return
+	 * @param url the url we need to send the post request to.
+	 * @param entity the entity that containts the object we need to pass as part of the post request.
+	 * @return {@link String}
 	 */
 	public static String post(String url, StringEntity entity) {
 		HttpPost post = new HttpPost(url);
@@ -269,8 +269,8 @@ public class NetworkUtils {
 	
 	/**
 	 * Utility to send a GET request.
-	 * @param url
-	 * @return
+	 * @param url the url we need to send the get request to.
+	 * @return {@link String}
 	 */
 	public static String get(String url) {
 		System.out.println(url);
@@ -284,7 +284,7 @@ public class NetworkUtils {
 	 * 
 	 * @param object
 	 *            the object to convert to a StringEntity.
-	 * @return a StringEntity object containing the object JSON.
+	 * @return a {@link StringEntity} object containing the object JSON.
 	 */
 	private static StringEntity toStringEntity(Object object) {
 		StringEntity input = null;
@@ -303,7 +303,7 @@ public class NetworkUtils {
 	/**
 	 * Utility method which converts an InputStream to a String.
 	 *
-	 * @param stream            the InputStream to convert.
+	 * @param stream the InputStream to convert.
 	 * @return a String with the InputStream content.
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */

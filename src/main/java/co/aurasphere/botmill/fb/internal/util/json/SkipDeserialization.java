@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * Annotation used to skip the Gson deserialization of a field.
  * 
  * @author Donato Rimenti
- * @date Dec 29, 2016
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

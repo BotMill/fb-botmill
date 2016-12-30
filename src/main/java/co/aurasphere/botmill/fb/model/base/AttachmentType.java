@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Enum for attachment types.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public enum AttachmentType implements Serializable {
 

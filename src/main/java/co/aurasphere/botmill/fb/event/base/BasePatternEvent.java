@@ -38,7 +38,7 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 	/**
 	 * Verify pattern match.
 	 *
-	 * @param text the {@link #text}.
+	 * @param text the string that we match against the {@link #expectedPattern} object.
 	 * @return true, if successful
 	 */
 	protected boolean verifyPatternMatch(String text) {

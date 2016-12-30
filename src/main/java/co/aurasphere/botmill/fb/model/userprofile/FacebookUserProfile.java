@@ -32,7 +32,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/plugin-reference"
  *      > Facebook's Messenger Platform Plugin Reference Documentation</a>
- * @date Dec 18, 2016
+ * 
  */
 public class FacebookUserProfile implements Serializable {
 

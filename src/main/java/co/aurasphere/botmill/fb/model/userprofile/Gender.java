@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Enumeration used for the deserialization of the gender in the user profile.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public enum Gender {
 

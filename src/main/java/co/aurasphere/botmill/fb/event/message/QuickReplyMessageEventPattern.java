@@ -2,6 +2,7 @@ package co.aurasphere.botmill.fb.event.message;
 
 import java.util.regex.Pattern;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BasePatternEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
@@ -12,7 +13,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * @date Dec 25, 2016
+ * 
  */
 public class QuickReplyMessageEventPattern extends BasePatternEvent {
 

@@ -23,7 +23,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-itinerary-template"
  *      > Facebook's Messenger Platform Airline Itinerary Template
  *      Documentation</a>
- * @date 26/ago/2016
+ * 
  */
 public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator {
 
@@ -93,7 +93,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@PassengerInfo} object to this template. This
+	 * Adds a {@link PassengerInfo} object to this template. This
 	 * field is mandatory for this template. There must be at least one element.
 	 * 
 	 * @param passengerId
@@ -113,7 +113,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@PassengerInfo} object to this template. This
+	 * Adds a {@link PassengerInfo} object to this template. This
 	 * field is mandatory for this template. There must be at least one element.
 	 * 
 	 * @param passengerId
@@ -130,7 +130,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@PassengerInfo} object to this template. This
+	 * Adds a {@link PassengerInfo} object to this template. This
 	 * field is mandatory for this template. There must be at least one element.
 	 *
 	 * @param passengerInfo the passenger info
@@ -143,7 +143,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@PassengerSegmentInfo} object to this
+	 * Adds a {@link PassengerSegmentInfo} object to this
 	 * template. This field is mandatory for this template. There must be at
 	 * least one element.
 	 *
@@ -163,7 +163,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@PassengerSegmentInfo} object to this
+	 * Adds a {@link PassengerSegmentInfo} object to this
 	 * template. This field is mandatory for this template. There must be at
 	 * least one element.
 	 * 
@@ -241,11 +241,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the connection ID, used to group together segments. It can't
 	 *            be empty.
 	 * @param segmentId
-	 *            the segment ID. It must match the segment ID of a
-	 *            {@link SegmentInfoObject} added using
-	 *            {@link #addPassengerSegmentInfo(PassengerSegmentInfo)} or
-	 *            {@link #addPassengerSegmentInfo(String, String, String, String)}
-	 *            . It can't be empty.
+	 *            the segment ID. It must match the segment ID.
 	 * @param travelClass
 	 *            the travel class. It can't be null.
 	 * @return a builder for the {@link FlightInfoExtended} object.

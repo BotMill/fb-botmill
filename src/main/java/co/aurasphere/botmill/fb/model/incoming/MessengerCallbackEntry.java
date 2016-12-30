@@ -11,7 +11,7 @@ import java.util.List;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class MessengerCallbackEntry implements Serializable {
 

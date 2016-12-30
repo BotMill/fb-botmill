@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model for the Payment Callback. <br/>
- * <br/>
+ * Model for the Payment Callback. <br>
+ * <br>
  * This callback occurs when a persons taps the pay button from the checkout
  * dialog rendered by the {@link BuyButton}. It contains the requested user
  * information as well as payment credentials. Depends on the payment provider
- * you use, the payment credential will differ. <br/>
- * <br/>
+ * you use, the payment credential will differ. <br>
+ * <br>
  * You must subscribe to this callback by selecting the messaging_payments field
  * when setting up your webhook.
  * 
@@ -26,14 +26,14 @@ import com.google.gson.annotations.SerializedName;
  * the process succeed. All the requested user information that user entered in
  * the payment dialog will be passed back in the webhook event. The charge_id
  * from Paypal/Stripe will be passed to you for tracking the payment. You need
- * to return HTTP status of 200 once you finished processing the event. <br/>
- * <br/>
+ * to return HTTP status of 200 once you finished processing the event. <br>
+ * <br>
  * If the payment is a test payment, we will not charge the card but will send a
  * result with dummy fb_payment_id/charge_id to you. You can do test payment
  * with Stripe/Paypal only if your page has payment permission for now. Refers
  * to <a href=
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#test_payments"
- * >How to Test Payment</a> for details. <br/>
+ * >How to Test Payment</a> for details. <br>
  * 
  * <h1>Tokenized Payment</h1>
  * 
@@ -44,14 +44,14 @@ import com.google.gson.annotations.SerializedName;
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#decrypting"
  * >detail steps here</a>. After you successfully decoded the credential, you
  * can then integrate with your preferred payment provider to charge the card.
- * You need to return HTTP status of 200 once you finished processing the event.<br/>
- * </br> If the payment is a test payment, you will get a dummy tokenized card
+ * You need to return HTTP status of 200 once you finished processing the event.<br>
+ * If the payment is a test payment, you will get a dummy tokenized card
  * back with the following dummy information (card_number: 4111111111111111,
  * cvv: 123, expiry month: 11, expiry year: 2020). You can test tokenized
  * payment even if your page/app has not been accepted to beta program. Refers
  * to <a href=
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#test_payments"
- * >How to Test Payment</a> for details. <br/>
+ * >How to Test Payment</a> for details. <br>
  *
  * @author Donato Rimenti
  * @see <a href=
@@ -60,7 +60,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/buy-button"
  *      >Facebook's Messenger Platform Buy Button Documentation</a>
- * @date Dec 4, 2016
+ * 
  */
 public class Payment implements Serializable {
 

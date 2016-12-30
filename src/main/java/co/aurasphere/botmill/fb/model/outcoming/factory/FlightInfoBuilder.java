@@ -13,7 +13,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightSchedule;
  * @author Donato Rimenti
  * @param <T>            the class of the parent builder. Used for casting before returning
  *            it.
- * @date Aug 25, 2016
+ * 
  */
 public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 
@@ -147,7 +147,7 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfo} object. This field is mandatory for this object and
 	 * can't be null.
 	 * 
@@ -165,7 +165,7 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfo} object. This field is mandatory for this object and
 	 * can't be null.
 	 * 
@@ -186,7 +186,7 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	}
 
 	/**
-	 * Sets the {@FlightSchedule} object for the current
+	 * Sets the {@link FlightSchedule} object for the current
 	 * {@link FlightInfo} object. This field is mandatory for this object and
 	 * can't be null.
 	 * 

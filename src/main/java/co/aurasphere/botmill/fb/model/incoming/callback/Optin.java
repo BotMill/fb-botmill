@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 
 /**
- * Model for a plugin opt-in callback. <br/>
- * <br/>
+ * Model for a plugin opt-in callback. <br>
+ * <br>
  * This callback will occur when the <a href=
  * "https://developers.facebook.com/docs/messenger-platform/plugin-reference/send-to-messenger"
  * >Send-to-Messenger</a> plugin has been tapped. The optin.ref parameter is set
@@ -26,7 +26,7 @@ import java.io.Serializable;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Dec 22, 2016
+ * 
  */
 public class Optin implements Serializable {
 

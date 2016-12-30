@@ -16,7 +16,7 @@ import com.google.gson.annotations.SerializedName;
  * An object that represents the content of a {@link FbBotMillMessageResponse}.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public abstract class Message implements Serializable {
 

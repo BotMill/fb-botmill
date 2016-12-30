@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Object that represents an error from Facebook.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class FacebookError implements Serializable {
 

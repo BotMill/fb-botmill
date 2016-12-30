@@ -8,7 +8,7 @@ import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
  * Class for handling the retrieval of Facebook user info.
  * 
  * @author Donato Rimenti
- * @date Nov 26, 2016
+ * 
  */
 public class FbBotMillUserProfileRetriever {
 

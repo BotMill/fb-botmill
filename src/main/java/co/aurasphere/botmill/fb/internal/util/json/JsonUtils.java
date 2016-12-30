@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder;
  * Utility class for handling JSON serialization and deserialization.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class JsonUtils {
 

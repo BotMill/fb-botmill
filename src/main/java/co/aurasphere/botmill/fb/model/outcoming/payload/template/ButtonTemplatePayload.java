@@ -21,7 +21,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
  *      > Facebook's Messenger Platform Button Template Documentation</a>
  *
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class ButtonTemplatePayload extends TemplateBasePayload {
 

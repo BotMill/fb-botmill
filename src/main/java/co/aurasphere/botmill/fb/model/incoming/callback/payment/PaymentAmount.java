@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * {@link Payment} callback.
  * 
  * @author Donato Rimenti
- * @date Dec 4, 2016
+ * 
  */
 public class PaymentAmount implements Serializable {
 

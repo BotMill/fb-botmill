@@ -6,7 +6,7 @@ package co.aurasphere.botmill.fb;
  * processing the callback handler chain.
  * 
  * @author Donato Rimenti
- * @date Aug 03, 2016
+ * 
  */
 public enum FbBotMillPolicy {
 

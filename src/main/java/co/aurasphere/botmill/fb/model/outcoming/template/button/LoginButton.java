@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * The Login Class/Object.
  *
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class LoginButton extends Button {
 

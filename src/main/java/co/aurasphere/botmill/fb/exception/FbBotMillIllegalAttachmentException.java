@@ -8,7 +8,7 @@ import co.aurasphere.botmill.fb.model.base.Attachment;
  * response.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class FbBotMillIllegalAttachmentException extends IllegalArgumentException {
 

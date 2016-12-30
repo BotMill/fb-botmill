@@ -8,7 +8,7 @@ import org.apache.http.client.methods.HttpPost;
  * does).
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class HttpDeleteWithBody extends HttpPost {
 

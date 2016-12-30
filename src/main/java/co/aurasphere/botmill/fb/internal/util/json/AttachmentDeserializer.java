@@ -20,7 +20,7 @@ import com.google.gson.JsonParseException;
  * payload according to the current object.
  * 
  * @author Donato Rimenti
- * @date Dec 29, 2016
+ * 
  */
 public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 

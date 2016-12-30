@@ -12,8 +12,8 @@ public class MessageEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new MessageEvent.
 	 *
-	 * @param expectedMessage the {@link #expectedMessage}.
-	 * @param caseSensitive the {@link #caseSensitive}.
+	 * @param expectedMessage the message string use to match a user response.
+	 * @param caseSensitive the flag to set if the checker will be case sensitive or not.
 	 */
 	public MessageEvent(String expectedMessage, boolean caseSensitive) {
 		super(expectedMessage, caseSensitive);
@@ -22,7 +22,7 @@ public class MessageEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new MessageEvent.
 	 *
-	 * @param expectedMessage the {@link #expectedMessage}.
+	 * @param expectedMessage the message string use to match a user response.
 	 */
 	public MessageEvent(String expectedMessage) {
 		super(expectedMessage);

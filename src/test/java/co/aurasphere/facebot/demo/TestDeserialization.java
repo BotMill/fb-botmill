@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
 
 /**
  * @author Donato Rimenti
- * @date Dec 27, 2016
+ * 
  */
 public class TestDeserialization {
 	

@@ -14,7 +14,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
  * pattern.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public abstract class AutoReply extends FbBotMillBean {
 

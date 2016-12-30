@@ -8,7 +8,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * Facebook Messenger Platform.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class AnyEvent implements FbBotMillEvent {
 

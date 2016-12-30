@@ -4,7 +4,7 @@ package co.aurasphere.botmill.fb.model.outcoming.payload;
  * Enum that represents the all available payloads.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public enum PayloadType {
 

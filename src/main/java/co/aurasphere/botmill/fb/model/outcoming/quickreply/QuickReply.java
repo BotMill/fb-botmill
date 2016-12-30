@@ -39,8 +39,9 @@ public class QuickReply implements Serializable{
 	/**
 	 * Instantiates a new quick reply.
 	 *
-	 * @param title the title
-	 * @param payload the payload
+	 * @param title 
+	 * 			the title of the quick reply payload
+	 * @param payload the payload itself
 	 */
 	public QuickReply(String title, String payload) {
 		this.contentType = QuickReplyType.TEXT;
@@ -50,9 +51,12 @@ public class QuickReply implements Serializable{
 	
 	/**
 	 * Instantiates a new quick reply with the following parameters.
-	 * @param title
+	 * @param title 
+	 * 			the title of the quick reply payload
 	 * @param payload
+	 * 			the payload itself
 	 * @param imageUrl
+	 * 			the url of the image that needs to be shown along within this quick reply
 	 */
 	public QuickReply(String title, String payload, String imageUrl) {
 		this.contentType = QuickReplyType.TEXT;
@@ -64,6 +68,7 @@ public class QuickReply implements Serializable{
 	/**
 	 * Instantiates a new location quick reply.
 	 * @param locationMessage
+	 * 			the location text
 	 */
 	public QuickReply(String locationMessage) {
 		this.contentType = QuickReplyType.LOCATION;

@@ -14,7 +14,7 @@ import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
  * Demo of configuring the Thread Settings.
  * 
  * @author Donato Rimenti
- * @date Aug 28, 2016
+ * 
  */
 public class ThreadSettingsDemoConfiguration {
 

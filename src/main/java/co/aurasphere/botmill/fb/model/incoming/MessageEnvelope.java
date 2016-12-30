@@ -23,7 +23,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>
- * @date Jul 31, 2016
+ * 
  */
 public class MessageEnvelope implements Serializable {
 

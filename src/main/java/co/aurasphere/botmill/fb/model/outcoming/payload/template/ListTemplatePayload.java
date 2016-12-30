@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
  *      > Facebook's Messenger Platform List Template Documentation</a>
  * 
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class ListTemplatePayload extends TemplateBasePayload {
 

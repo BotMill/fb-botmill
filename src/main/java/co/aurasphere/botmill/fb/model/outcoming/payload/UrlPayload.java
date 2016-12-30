@@ -8,7 +8,7 @@ import co.aurasphere.botmill.fb.model.base.Payload;
  * A {@link Payload} which contains an URL.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class UrlPayload implements Payload {
 

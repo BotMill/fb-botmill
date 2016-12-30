@@ -11,7 +11,7 @@ import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationCons
  * A {@link Message} which contains text.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class TextMessage extends Message {
 

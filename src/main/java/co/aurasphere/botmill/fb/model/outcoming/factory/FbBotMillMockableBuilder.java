@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
  * with a mock recipient for testing.
  * 
  * @author Donato Rimenti
- * @date Aug 27, 2016
+ * 
  */
 public abstract class FbBotMillMockableBuilder extends FbBotMillResponseBuilder {
 

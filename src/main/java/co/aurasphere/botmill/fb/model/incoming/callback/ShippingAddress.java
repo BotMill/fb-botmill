@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * {@link CheckoutUpdate} class.
  * 
  * @author Donato Rimenti
- * @date Dec 17, 2016
+ * 
  */
 public class ShippingAddress implements Serializable {
 

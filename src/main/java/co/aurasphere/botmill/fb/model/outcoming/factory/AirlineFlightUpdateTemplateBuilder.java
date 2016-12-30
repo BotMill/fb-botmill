@@ -17,7 +17,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-itinerary-template"
  *      > Facebook's Messenger Platform Airline Itinerary Template
  *      Documentation</a>
- * @date Aug 25, 2016
+ * 
  */
 public class AirlineFlightUpdateTemplateBuilder extends
 		FlightInfoBuilderDelegator {

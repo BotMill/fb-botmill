@@ -5,8 +5,8 @@ import java.util.List;
 
 
 /**
- * Model for a delivered message callback. <br/>
- * <br/>
+ * Model for a delivered message callback. <br>
+ * <br>
  * This callback will occur when a message a page has sent has been delivered.
  * You can subscribe to this callback by selecting the message_deliveries field
  * when <a href=
@@ -20,7 +20,7 @@ import java.util.List;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class DeliveredMessage implements Serializable {
 
@@ -30,8 +30,8 @@ public class DeliveredMessage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Messages IDs. <br/>
-	 * <br/>
+	 * Messages IDs. <br>
+	 * <br>
 	 * Both mids and {@link #watermark} fields are used to determine which
 	 * messages were delivered. watermark is always present and mids is
 	 * sometimes present. mids provides delivery receipts on a per-message basis
@@ -44,8 +44,8 @@ public class DeliveredMessage implements Serializable {
 
 	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
-	 * All messages before this timestamp where seen.<br/>
-	 * <br/>
+	 * All messages before this timestamp where seen.<br>
+	 * <br>
 	 * Both {@link #mids} and watermark fields are used to determine which
 	 * messages were delivered. watermark is always present and mids is
 	 * sometimes present. mids provides delivery receipts on a per-message basis

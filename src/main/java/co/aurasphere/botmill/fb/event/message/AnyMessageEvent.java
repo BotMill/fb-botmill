@@ -11,7 +11,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * contains a text message from Facebook's Messenger Platform.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class AnyMessageEvent extends FbBotMillBean implements FbBotMillEvent {
 

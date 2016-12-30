@@ -10,20 +10,20 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model for a received message callback. <br/>
- * <br/>
+ * Model for a received message callback. <br>
+ * <br>
  * This callback will occur when a message has been sent to your page. You may
  * receive text messages or messages with attachments (image, audio, video, file
  * or location). Callbacks contain a seq number which can be used to know the
- * sequence of a message in a conversation. Messages are always sent in order. <br/>
- * <br/>
+ * sequence of a message in a conversation. Messages are always sent in order. <br>
+ * <br>
  * You can subscribe to this callback by selecting the message field when <a
  * href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class ReceivedMessage extends Message {
 

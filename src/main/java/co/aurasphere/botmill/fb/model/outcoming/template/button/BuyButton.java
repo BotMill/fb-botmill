@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
  * The Buy Button Class/Object.
  *
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class BuyButton extends Button {
 

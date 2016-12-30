@@ -9,7 +9,7 @@ package co.aurasphere.botmill.fb.event;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Callbacks Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public enum FbBotMillEventType {
 

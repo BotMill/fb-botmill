@@ -22,7 +22,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      > Facebook Messenger Platform callbacks</a>
- * @date Jul 31, 2016
+ * 
  */
 public class FbBot {
 

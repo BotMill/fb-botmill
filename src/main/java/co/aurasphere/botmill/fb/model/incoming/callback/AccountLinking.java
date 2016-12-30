@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model for an account linking callback. <br/>
- * <br/>
+ * Model for an account linking callback. <br>
+ * <br>
  * This callback will occur when the <a href=
  * "https://developers.facebook.com/docs/messenger-platform/account-linking/link-account"
  * >Linked Account</a> or <a href=
@@ -34,7 +34,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public class AccountLinking implements Serializable {
 

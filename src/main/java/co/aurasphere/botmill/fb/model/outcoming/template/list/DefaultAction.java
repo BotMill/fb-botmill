@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
  * The Class DefaultAction.
  * 
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  * 
  */
 public class DefaultAction implements Serializable {

@@ -12,7 +12,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
  * Builder for a {@link BoardingPass} object.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 

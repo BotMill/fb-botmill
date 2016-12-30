@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
  * the {@link FbBotMillResponse} object representing its response.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public abstract class FbBotMillResponseBuilder extends FbBotMillBean {
 

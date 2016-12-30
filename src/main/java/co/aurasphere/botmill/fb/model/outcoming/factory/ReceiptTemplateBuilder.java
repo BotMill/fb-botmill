@@ -20,7 +20,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Summary;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
  *      > Facebook's Messenger Platform Receipt Template Documentation</a>
- * @date Aug 25, 2016
+ * 
  */
 public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 

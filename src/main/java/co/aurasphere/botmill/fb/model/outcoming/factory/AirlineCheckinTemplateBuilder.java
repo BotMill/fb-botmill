@@ -16,7 +16,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-checkin-template"
  *      > Facebook's Messenger Platform Airline Checkin Template
  *      Documentation</a>
- * @date Aug 25, 2016
+ * 
  */
 public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 

@@ -26,7 +26,7 @@ import co.aurasphere.botmill.fb.model.outcoming.message.Message;
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class FbBotMillBean {
 
@@ -135,9 +135,10 @@ public class FbBotMillBean {
 	/**
 	 * Retrieves the location from an envelope. It return nulls if none was retrieved.
 	 * @param envelope
-	 * @return
+	 * 			the message envelope
+	 * @return a {@link LocationCoordinates} containing the coordinates that the user sets
+	 * 			from the quick reply location payload.
 	 */
-	// TODO: can we improve this using a FbBotMillEventType? Also, wouldn't be better if this method name was getLocation?
 	protected LocationCoordinates getLocationMessage(MessageEnvelope envelope) {
 		if (envelope != null && envelope.getMessage() != null 
 				&& envelope.getMessage().getAttachments() != null 

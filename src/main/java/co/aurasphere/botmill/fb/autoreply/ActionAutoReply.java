@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
  * An {@link AutoReply} that replies with a {@link TypingAction}.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class ActionAutoReply extends AutoReply {
 

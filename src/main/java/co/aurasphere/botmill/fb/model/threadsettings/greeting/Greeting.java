@@ -13,7 +13,7 @@ import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationCons
  * Object which represents a Greeting Text for Thread Settings.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class Greeting implements Serializable {
 

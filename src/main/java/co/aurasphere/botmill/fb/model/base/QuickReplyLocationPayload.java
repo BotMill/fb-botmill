@@ -6,7 +6,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
  * A {@link Payload} which contains a Location sent by a Quick Reply.
  * 
  * @author Alvin Reyes
- * @date Dec 26, 2016
+ * 
  */
 public class QuickReplyLocationPayload implements Payload {
 	

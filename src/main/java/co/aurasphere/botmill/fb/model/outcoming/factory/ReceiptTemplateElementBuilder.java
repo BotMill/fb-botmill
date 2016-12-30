@@ -9,7 +9,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplate
  * Builder for a {@link ReceiptTemplateElement}.
  * 
  * @author Donato Rimenti
- * @date Nov 25, 2016
+ * 
  */
 public class ReceiptTemplateElementBuilder {
 

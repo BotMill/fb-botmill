@@ -8,7 +8,7 @@ import com.google.gson.FieldAttributes;
  * with {@link SkipDeserialization}.
  * 
  * @author Donato Rimenti
- * @date Dec 29, 2016
+ * 
  */
 final class SkipDeserializationAnnotationExclusionStrategy implements
 		ExclusionStrategy {

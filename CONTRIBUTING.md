@@ -19,8 +19,6 @@ Step 2: Review the Coding Standards [here](#coding-standards)
 
 **<h4>Code of Conduct</h4>**
 **<h4>Coding Standards</h4>**
-<<<<<<< HEAD
-=======
 
 **<h3>Bot Examples</h3>**
 We would really appreciate it if you can share the bots that you made using our framework, just like the many people who ask us to show case theirs.
@@ -28,4 +26,3 @@ We would really appreciate it if you can share the bots that you made using our 
 * [TechnoWebhub](https://www.facebook.com/twebhub/?fref=ts)
 * [SimplyLocate](https://www.facebook.com/SimplyLocate-1209810882431614/?fref=ts)
 * [TriviaBot](https://www.facebook.com/TriviaBot-338552286519777/)
->>>>>>> af15f0d38036469cbb3d772d2005fbd9ea10d061

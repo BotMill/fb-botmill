@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
- * @date Aug 08, 2016
+ * 
  */
 public abstract class ThreadSettingsBaseRequest implements Serializable {
 

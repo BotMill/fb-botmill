@@ -10,7 +10,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplate
  * Builder for a {@link GenericTemplateElement}.
  * 
  * @author Donato Rimenti
- * @date Aug 27, 2016
+ * 
  */
 public class GenericTemplateElementBuilder {
 

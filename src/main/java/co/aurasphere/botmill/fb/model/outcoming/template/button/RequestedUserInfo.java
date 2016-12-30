@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * The RequestedUserInfo Class/Object.
  *
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class RequestedUserInfo implements Serializable {
 

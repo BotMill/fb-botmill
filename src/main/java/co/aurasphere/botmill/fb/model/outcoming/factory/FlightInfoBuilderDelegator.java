@@ -8,7 +8,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
  * object to populate its {@link FlightInfo} field.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public abstract class FlightInfoBuilderDelegator extends AirlineBaseTemplateBuilder {
 

@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
  * A {@link Payload} which contains a Template.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class TemplateBasePayload implements Payload {
 

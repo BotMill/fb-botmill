@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * An object that contains a Facebook's user ID.
  * 
  * @author Donato Rimenti
- * @date Jul 31, 2016
+ * 
  */
 public class User implements Serializable {
 

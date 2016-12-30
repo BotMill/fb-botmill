@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
  * A {@link FbBotMillResponse} which replies with a {@link TypingAction}.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class FbBotMillActionResponse extends FbBotMillResponse {
 

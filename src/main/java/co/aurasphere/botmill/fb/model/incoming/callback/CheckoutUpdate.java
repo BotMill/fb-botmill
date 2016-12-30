@@ -8,16 +8,16 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model for a checkout update callback. <br/>
- * <br/>
+ * Model for a checkout update callback. <br>
+ * <br>
  * This callback enables you to update pricing for flexible-amount transactions
- * on the checkout dialog displayed by the {@link BuyButton}. <br/>
- * <br/>
+ * on the checkout dialog displayed by the {@link BuyButton}. <br>
+ * <br>
  * After the Buy Button is tapped, a call is made to the webhook containing the
  * person's shipping address. This enables you to update pricing with shipping
  * and taxes based on a person's location. This callback is made each time the
- * shipping address is changed. <br/>
- * <br/>
+ * shipping address is changed. <br>
+ * <br>
  * You can subscribe to this callback by selecting the
  * messaging_checkout_updates field when <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
@@ -34,7 +34,7 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Dec 17, 2016
+ * 
  */
 public class CheckoutUpdate implements Serializable {
 

@@ -20,7 +20,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplate
  * > Facebook's Messenger Platform Generic Template Documentation</a>
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class GenericTemplatePayload extends TemplateBasePayload {
 

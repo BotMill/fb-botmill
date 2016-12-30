@@ -6,7 +6,7 @@ package co.aurasphere.botmill.fb.model.outcoming.action;
  * used in conjunction with {@link FbBotMillActionResponse}.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public enum TypingAction {
 
@@ -16,14 +16,14 @@ public enum TypingAction {
 	MARK_SEEN,
 
 	/**
-	 * Brings up the "<bot-name> is writing..." label. This label is turned off
+	 * Brings up the "is writing..." label. This label is turned off
 	 * automatically after 20 seconds or when a {@link #TYPING_OFF} action is
 	 * sent.
 	 */
 	TYPING_ON,
 
 	/**
-	 * Removes the "<bot-name> is writing..." label if present.
+	 * Removes the "is writing..." label if present.
 	 */
 	TYPING_OFF;
 

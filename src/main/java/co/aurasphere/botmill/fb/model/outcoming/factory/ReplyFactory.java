@@ -11,7 +11,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
  * Static class that allows the creation of a {@link FbBotMillResponse}.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class ReplyFactory {
 

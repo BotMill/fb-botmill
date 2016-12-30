@@ -5,12 +5,11 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to it.
  * 
  * @author Donato Rimenti
- * @date Dec 18, 2016
+ * 
  */
 public class ActionFrame {
 

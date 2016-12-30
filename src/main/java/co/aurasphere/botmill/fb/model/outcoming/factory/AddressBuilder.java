@@ -7,7 +7,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Address;
  * Builder for an {@link Address}.
  * 
  * @author Donato Rimenti
- * @date Nov 25, 2016
+ * 
  */
 public class AddressBuilder {
 

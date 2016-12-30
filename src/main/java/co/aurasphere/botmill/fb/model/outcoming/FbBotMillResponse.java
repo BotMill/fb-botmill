@@ -12,7 +12,7 @@ import co.aurasphere.botmill.fb.model.base.User;
  * Object that represents a FbBotMill response.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public abstract class FbBotMillResponse implements Serializable {
 

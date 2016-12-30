@@ -9,7 +9,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.ProductInfo;
  * Builder for a {@link PassengerSegmentInfo} object.
  * 
  * @author Donato Rimenti
- * @date Aug 25, 2016
+ * 
  */
 public class PassengerSegmentInfoBuilder {
 

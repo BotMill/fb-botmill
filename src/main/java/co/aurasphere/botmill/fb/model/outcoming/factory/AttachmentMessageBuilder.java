@@ -18,7 +18,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
  * Builder for a {@link Message} that contains an {@link Attachment}.
  * 
  * @author Donato Rimenti
- * @date 26/ago/2016
+ * 
  */
 public class AttachmentMessageBuilder extends MessageBaseBuilder {
 

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
  * The PriceList Class/Object.
  *
  * @author Alvin Reyes
- * @date Nov 27, 2016
+ * 
  */
 public class PriceList implements Serializable {
 

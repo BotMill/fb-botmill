@@ -4,19 +4,19 @@ import java.io.Serializable;
 
 
 /**
- * Model for the Referral Callback. <br/>
- * <br/>
+ * Model for the Referral Callback. <br>
+ * <br>
  * This callback will occur when an m.me link is used with a referral param and
  * only in a case this user already has a thread with this bot (for new threads
  * see <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received"
  * >Postback Event</a>). See also the full guide on <a href=
  * "https://developers.facebook.com/docs/messenger-platform/referral-params"
- * >m.me links</a>. <br/>
- * <br/>
+ * >m.me links</a>. <br>
+ * <br>
  * To start receiving these events you need to subscribe to messaging_referral
- * in the webhook settings for your app. <br/>
- * <br/>
+ * in the webhook settings for your app. <br>
+ * <br>
  * An m.me link with an an added parameter looks like this:
  * http://m.me/mybot?ref=myparam. The value of the ref parameter will be passed
  * to the server via webhook.
@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/referral"
  *      > Facebook's Messenger Platform Referral Callback Documentation</a>
- * @date Dec 4, 2016
+ * 
  */
 public class Referral implements Serializable {
 

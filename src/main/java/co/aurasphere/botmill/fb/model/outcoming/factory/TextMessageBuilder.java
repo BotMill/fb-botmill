@@ -15,7 +15,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
  * A builder for a message that contains only a plain text message.
  * 
  * @author Donato Rimenti
- * @date Aug 08, 2016
+ * 
  */
 public class TextMessageBuilder extends MessageBaseBuilder {
 
@@ -79,8 +79,8 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 * 
-	 * @param title
-	 *            the quick reply button label. It can't be empty.
+	 * @param locationMessage
+	 *            the location text
 	 * @return this builder.
 	 */
 	public TextMessageBuilder addQuickLocationReply(String locationMessage) {

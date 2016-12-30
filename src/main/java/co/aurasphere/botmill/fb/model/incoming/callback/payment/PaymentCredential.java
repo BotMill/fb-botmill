@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Object that represents a payment credentials for a {@link Payment} callback.
  * 
  * @author Donato Rimenti
- * @date Dec 4, 2016
+ * 
  */
 public class PaymentCredential implements Serializable {
 

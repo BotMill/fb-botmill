@@ -9,7 +9,7 @@ import co.aurasphere.botmill.fb.model.base.Attachment;
  * A {@link Message} which contains an {@link Attachment}.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class AttachmentMessage extends Message {
 

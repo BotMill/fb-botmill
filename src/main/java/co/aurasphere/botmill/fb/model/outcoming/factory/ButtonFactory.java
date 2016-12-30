@@ -17,7 +17,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
  * Factory class for building {@link Button} objects.
  * 
  * @author Donato Rimenti
- * @date 26/ago/2016
+ * 
  */
 public class ButtonFactory {
 

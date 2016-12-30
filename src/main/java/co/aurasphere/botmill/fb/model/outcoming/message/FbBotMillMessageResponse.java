@@ -11,7 +11,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
  * A {@link FbBotMillResponse} which replies with a {@link Message}.
  * 
  * @author Donato Rimenti
- * @date Dec 24, 2016
+ * 
  */
 public class FbBotMillMessageResponse extends FbBotMillResponse {
 

@@ -3,8 +3,8 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 import java.io.Serializable;
 
 /**
- * Model for a postback callback. <br/>
- * <br/>
+ * Model for a postback callback. <br>
+ * <br>
  * Postbacks occur when a Postback button, Get Started button, Persistent menu
  * or Structured Message is tapped. The payload field in the callback is defined
  * on the button. You can subscribe to this callback by selecting the
@@ -19,7 +19,7 @@ import java.io.Serializable;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * @date Dec 24, 2016
+ * 
  */
 public class Postback implements Serializable {
 

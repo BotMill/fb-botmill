@@ -17,5 +17,5 @@ Interested in contributing to our project? We will always be open to your pull r
 **<h3>Bot Examples</h3>**
 We would really appreciate it if you can share the bots that you made using our framework, just like the many people who ask us to show case theirs.
 
-* [TechnoWebhub](https://www.facebook.com/twebhub/?fref=ts)
-* [TriviaBot](https://www.facebook.com/TriviaBot-338552286519777/)
+* [TechnoWebhub](https://technowebhub.com/fb_thub.html)
+* [TriviaBot](https://technowebhub.com/trivia_bot.html)

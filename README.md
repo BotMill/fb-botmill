@@ -1,17 +1,32 @@
-# FB-BotMill
-A simple Java framework for building event-driven bots on Facebook's Messenger Platform.
+# FB-BotMill - Tools to Mill Facebook Bots
+FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 
 
-The goal of FB-BotMill is making the Facebook's Messenger Platform easier: with FB-BotMill, you only need less than 5 lines of code to set up your own Messenger bot! 
+It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.
 
-**<h3>Premise</h3>**
+**<h3>Getting Started</h3>**
+The FB-BotMill can be imported as a dependency via Maven.
 
-This tutorial will assume that you have already setup a Facebook page and application and you have a page token and a webhook validation token. If you don't, you can follow this link to Facebook's tutorial: https://developers.facebook.com/docs/messenger-platform/quickstart
+	<dependency>
+	  <groupId>co.aurasphere.botmill</groupId>
+	  <artifactId>fb-botmill</artifactId>
+	  <version>1.0.0</version>
+	</dependency>
 
-**<h3>QuickStart</h3>**
+Gradle
+    
+    compile 'co.aurasphere.botmill:fb-botmill:1.0.0'
 
-First of all, you need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
+Grovvy
 
-    <servlet>
+    @Grapes( 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='1.0.0') 
+    )
+    
+Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 
+
+Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
+
+     <servlet>
 		  <servlet-name>myFbBot</servlet-name>
 		  <servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
 		  <init-param>
@@ -29,7 +44,7 @@ This will register a servlet named myFbBot to the path /myFbBot. The bot-definit
 
 To complete your first bot, all you have to do is write the definition class. This class will describe your bot behavior. Here's an example:
 
-    public class MyFbBotBehavior extends AbstractFbBot {
+    public class MyFbBotDefinitionClass extends AbstractFbBot {
  
       public void defineBehavior() {
      	// Setting my tokens from Facebook (page token and validation token for webhook).
@@ -41,7 +56,8 @@ To complete your first bot, all you have to do is write the definition class. Th
       }
     }
 
-For more information on other callbacks, framework features or how to create a different kind of reply, check out the official wiki.
+Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
+
 
 **<h3>What's currently supported</h3>**
 
@@ -92,16 +108,15 @@ FB-BotMill supports this Facebook Messenger Platform components:
 	- Persistent Menu
 	- Domain whitelisting
 - User Profile retrieving
+- Web View and Extensions
 	
 **<h3>Coming next</h3>**
 
 Here's what you can expect coming up in the next updates:
 
-- More documentation
-- More examples
-- Support for Webview & Extesions
-- Thread settings for Domain Whitelisting, Account Linking and Payment
-- Possibility of attaching files instead of using links
-
+- Payments
+- File Attachments
+- Rasa NLU/NLP Plugin
+- Tons of Examples
 
 <sub>Copyright (c) 2016 Donato Rimenti, Alvin Reyes</sub>

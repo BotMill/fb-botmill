@@ -119,4 +119,4 @@ Here's what you can expect coming up in the next updates:
 - Rasa NLU/NLP Plugin
 - Tons of Examples
 
-<sub>Copyright (c) 2016 Donato Rimenti, Alvin Reyes</sub>
+<sub>Copyright (c) 2016 BotMill.io</sub>

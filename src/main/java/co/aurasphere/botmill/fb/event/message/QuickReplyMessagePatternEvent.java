@@ -15,7 +15,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * @author Alvin Reyes
  * 
  */
-public class QuickReplyMessageEventPattern extends BasePatternEvent {
+public class QuickReplyMessagePatternEvent extends BasePatternEvent {
 
 	/**
 	 * Instantiates a new quick reply message event pattern.
@@ -23,7 +23,7 @@ public class QuickReplyMessageEventPattern extends BasePatternEvent {
 	 * @param expectedPattern the expected pattern
 	 * @see BasePatternEvent#BasePatternEvent(Pattern)
 	 */
-	public QuickReplyMessageEventPattern(Pattern expectedPattern) {
+	public QuickReplyMessagePatternEvent(Pattern expectedPattern) {
 		super(expectedPattern);
 	}
 
@@ -33,7 +33,7 @@ public class QuickReplyMessageEventPattern extends BasePatternEvent {
 	 * @param expectedPattern the expected pattern
 	 * @see BasePatternEvent#BasePatternEvent(String)
 	 */
-	public QuickReplyMessageEventPattern(String expectedPattern) {
+	public QuickReplyMessagePatternEvent(String expectedPattern) {
 		super(expectedPattern);
 	}
 

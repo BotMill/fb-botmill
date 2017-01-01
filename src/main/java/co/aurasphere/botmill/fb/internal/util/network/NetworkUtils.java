@@ -292,7 +292,6 @@ public class NetworkUtils {
 			String json = JsonUtils.toJson(object);
 			input = new StringEntity(json);
 			input.setContentType("application/json");
-			System.out.println(inputStreamToString(input.getContent()));
 			logger.debug("Request: {}", inputStreamToString(input.getContent()));
 		} catch (Exception e) {
 			logger.error("Error during JSON message creation: ", e);

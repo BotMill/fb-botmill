@@ -9,6 +9,9 @@ import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
+import co.aurasphere.botmill.fb.model.outcoming.message.Message;
+import co.aurasphere.botmill.fb.model.outcoming.message.TextMessage;
+import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 /**
  * Testing facility for FbBotMill framework.
@@ -37,6 +40,12 @@ public class FbBotMillMockMediator {
 	 * to send a payload during {@link #interactiveTest()}.
 	 */
 	private static final String PAYLOAD_MARKER = "payload:";
+	
+	/**
+	 * The string that should be matched at the beginning of an input in order
+	 * to send a quickreply during {@link #interactiveTest()}.
+	 */
+	private static final String QUICK_REPLY_MARKER = "quickreply:";
 
 	/**
 	 * The string that should be matched at the beginning of an input in order
@@ -166,6 +175,25 @@ public class FbBotMillMockMediator {
 		forward(envelope);
 		System.out.println("Sent!");
 	}
+	
+	/**
+	 * Sends a quickreply to all the registered bots. Used to simulate a user
+	 * interacting with buttons.
+	 * 
+	 * @param payload
+	 *            the payload to send.
+	 */
+	public void sendQuickReplyPayload(String payload) {
+		MessageEnvelope envelope = new MessageEnvelope();
+		QuickReply quickReply = new QuickReply("Sample", payload);
+		ReceivedMessage message = new ReceivedMessage();
+		envelope.setMessage(message);
+		envelope.getMessage().setQuickReply(quickReply);
+		
+		System.out.println("Sending quickReply: " + payload);
+		forward(envelope);
+		System.out.println("Sent!");
+	}
 
 	/**
 	 * Forwards an envelope to the registered bots.
@@ -207,7 +235,10 @@ public class FbBotMillMockMediator {
 			if (line.startsWith(PAYLOAD_MARKER)) {
 				line = line.replaceFirst(PAYLOAD_MARKER, "");
 				sendPayload(line);
-			} else {
+			} else if(line.startsWith(QUICK_REPLY_MARKER)) {
+				line = line.replaceFirst(QUICK_REPLY_MARKER, "");
+				sendQuickReplyPayload(line);
+			}else {
 				sendTextMessage(line);
 			}
 		}

@@ -56,9 +56,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
 	 */
 	protected void addActionFrame(FbBotMillEvent event, AutoReply... replies) {
-		//for(AutoReply reply:replies) {
-			fbBot.addActionFrame(event, replies);
-		//}
+		fbBot.addActionFrame(event, replies);
 	}
 
 	/*

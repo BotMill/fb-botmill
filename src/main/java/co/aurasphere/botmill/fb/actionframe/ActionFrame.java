@@ -81,6 +81,7 @@ public class ActionFrame {
 		if (this.event == null) {
 			return false;
 		}
+		
 		boolean triggered = this.event.verifyEventCondition(envelope);
 		if (triggered) {
 			beforeReply(envelope);

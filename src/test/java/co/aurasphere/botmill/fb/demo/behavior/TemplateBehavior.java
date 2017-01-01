@@ -11,6 +11,7 @@ import co.aurasphere.botmill.fb.event.message.LocationEvent;
 import co.aurasphere.botmill.fb.event.message.MessageEvent;
 import co.aurasphere.botmill.fb.event.message.MessagePatternEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
+import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
@@ -125,36 +126,74 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 		
-		List<String> a = new ArrayList<String>();
-		a.add("http://www.alvinjayreyes.com");
-		FbBotMillThreadSettingsConfiguration.setWhiteListDomains(a);
-		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
-				new AutoReply() {
-					@Override
-					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-						try {
-							System.out.println(JsonUtils.toJson(envelope).toString());
-							return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
-									.addButton(ButtonFactory.createWebViewButton("Title",
-											"https://www.alvinjayreyes.com", WebViewHeightRatioType.COMPACT))
-									.setSubtitle("Tell us what you want (call, about, price list, products, services)")
-									.endElement().build(envelope);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						return null;
-					}
-				});
 
-		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
+//		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
+//				new AutoReply() {
+//					@Override
+//					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+//						try {
+//							System.out.println(JsonUtils.toJson(envelope).toString());
+//							return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
+//									.addButton(ButtonFactory.createWebViewButton("Title",
+//											"https://www.alvinjayreyes.com", WebViewHeightRatioType.COMPACT))
+//									.setSubtitle("Tell us what you want (call, about, price list, products, services)")
+//									.endElement().build(envelope);
+//						} catch (Exception e) {
+//							e.printStackTrace();
+//						}
+//						return null;
+//					}
+//				});
+
+		addActionFrame(new PostbackPatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")),
 				new AutoReply() {
 					@Override
 					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-						ReplyFactory.addTypingAction(TypingAction.TYPING_ON);
-						return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
-								.addLoginButton("https://www.alvinjayreyes.com").endElement().build(envelope);
+						return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
+					}
+				}, new AutoReply() {
+					@Override
+					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+						String greetingMessage = "Hey There! ";
+						return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+					}
+				}, new AutoReply() {
+					@Override
+					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+						return ReplyFactory.addTextMessageOnly("Ready for some dosage of Trivia?")
+								.addQuickReply("Random Trivia", "randomtriv").build(envelope);
 					}
 				});
+		
+		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")),
+				new AutoReply() {
+					@Override
+					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+						return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
+					}
+				}, new AutoReply() {
+					@Override
+					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+						String greetingMessage = "Hey There! ";
+						return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+					}
+				}, new AutoReply() {
+					@Override
+					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+						return ReplyFactory.addTextMessageOnly("Ready for some dosage of Trivia?")
+								.addQuickReply("Random Trivia", "randomtriv").build(envelope);
+					}
+				});
+		
+//		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
+//				new AutoReply() {
+//					@Override
+//					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+//						ReplyFactory.addTypingAction(TypingAction.TYPING_ON);
+//						return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
+//								.addLoginButton("https://www.alvinjayreyes.com").endElement().build(envelope);
+//					}
+//				});
 
 		addActionFrame(new MessagePatternEvent(Pattern.compile("(?:.*price list.*)|(?:.*list of prices.*)")),
 				new AutoReply() {
@@ -287,18 +326,18 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 
-		addActionFrame(new MessagePatternEvent(Pattern.compile(".*")), new AutoReply() {
-
-			@Override
-			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-				return ReplyFactory.addGenericTemplate().addElement("Generic Template Element 1")
-						.addPostbackButton("postback button", "postback button payload")
-						.addPhoneNumberButton("phone number button", "+393541247844")
-						.addUrlButton("web url button", "https://alvinjayreyes.com")
-						.setSubtitle("Subtitle of element 1").setRedirectUrl("www.alvinjayreyes.com").endElement()
-						.addQuickReply("Quick Reply 1", "Payload of Quick Reply 1").build(envelope);
-			}
-		});
+//		addActionFrame(new MessagePatternEvent(Pattern.compile(".*")), new AutoReply() {
+//
+//			@Override
+//			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+//				return ReplyFactory.addGenericTemplate().addElement("Generic Template Element 1")
+//						.addPostbackButton("postback button", "postback button payload")
+//						.addPhoneNumberButton("phone number button", "+393541247844")
+//						.addUrlButton("web url button", "https://alvinjayreyes.com")
+//						.setSubtitle("Subtitle of element 1").setRedirectUrl("www.alvinjayreyes.com").endElement()
+//						.addQuickReply("Quick Reply 1", "Payload of Quick Reply 1").build(envelope);
+//			}
+//		});
 
 		// Returns a text message with quick replies when message
 		// "text message with quick replies" is received.

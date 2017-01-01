@@ -98,7 +98,6 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 	 */
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		User recipient = getRecipient(envelope);
-		System.out.println(attachment);
 		Message message = new AttachmentMessage(attachment);
 		message.setQuickReplies(quickReplies);
 		return new FbBotMillMessageResponse(recipient, message);

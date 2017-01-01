@@ -46,7 +46,7 @@ public class FbBotMillBean {
 	 */
 	protected String safeGetMessage(MessageEnvelope envelope) {
 		if (envelope != null && envelope.getMessage() != null
-				&& envelope.getMessage().getText() != null) {
+				&& envelope.getMessage().getText() != null && envelope.getMessage().getQuickReply() == null) {
 			return envelope.getMessage().getText();
 		}
 		return "";
@@ -61,9 +61,12 @@ public class FbBotMillBean {
 	 *         returns null.
 	 */
 	protected String safeGetQuickReplyPayload(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getQuickReply() != null && envelope.getMessage().getQuickReply().getPayload() != null) {
+		if (envelope != null && envelope.getMessage() != null 
+				&& envelope.getMessage().getQuickReply() != null 
+				&& envelope.getMessage().getQuickReply().getPayload() != null) {
 			return envelope.getMessage().getQuickReply().getPayload();
 		}
+		
 		return "";
 	}
 

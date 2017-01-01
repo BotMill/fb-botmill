@@ -42,11 +42,16 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
 		String message = safeGetQuickReplyPayload(envelope);
-		if (!caseSensitive) {
+		if (caseSensitive) {
 			expectedString = expectedString.toLowerCase();
 			message = message.toLowerCase();
 		}
 		return message.equals(expectedString);
 	}
 
+	@Override
+	public String toString() {
+		return "QuickReplyMessageEvent [expectedString=" + expectedString + "]";
+	}
+	
 }

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BotMill/fb-botmill.svg?branch=master)](https://travis-ci.org/BotMill/fb-botmill)
+
 # FB-BotMill - Tools to Mill Facebook Bots
 FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 
 

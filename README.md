@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/BotMill/fb-botmill.svg?branch=master)](https://travis-ci.org/BotMill/fb-botmill)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/co.aurasphere.botmill/fb-botmill/badge.svg?style=blue)](https://maven-badges.herokuapp.com/maven-central/co.aurasphere.botmill/fb-botmill)
+[![Javadocs](http://www.javadoc.io/badge/co.aurasphere.botmill/fb-botmill.svg)](http://www.javadoc.io/doc/co.aurasphere.botmill/fb-botmill)
 
 # FB-BotMill - Tools to Mill Facebook Bots
 FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 

@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Model for a message echo callback. <br>
  * <br>

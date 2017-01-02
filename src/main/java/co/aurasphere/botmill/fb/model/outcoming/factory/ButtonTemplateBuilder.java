@@ -29,7 +29,6 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.payload.template.ButtonTemplatePayload;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
-
 /**
  * A builder for a Button Template.
  *
@@ -58,8 +57,7 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	ButtonTemplateBuilder(String text) {
 		this.payload = new ButtonTemplatePayload(text);
-		this.messageBuilder = new AttachmentMessageBuilder(
-				AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -88,10 +86,8 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 *            a phone number.
 	 * @return this builder.
 	 */
-	public ButtonTemplateBuilder addPhoneNumberButton(String title,
-			String phoneNumber) {
-		Button button = ButtonFactory.createPhoneNumberButton(title,
-				phoneNumber);
+	public ButtonTemplateBuilder addPhoneNumberButton(String title, String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
 		this.payload.addButton(button);
 		return this;
 	}

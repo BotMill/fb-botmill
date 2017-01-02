@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Object that represents a payment credentials for a {@link Payment} callback.
  * 
@@ -97,7 +96,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #providerType}.
 	 *
-	 * @param providerType the {@link #providerType} to set.
+	 * @param providerType
+	 *            the {@link #providerType} to set.
 	 */
 	public void setProviderType(ProviderType providerType) {
 		this.providerType = providerType;
@@ -115,7 +115,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #chargeId}.
 	 *
-	 * @param chargeId the {@link #chargeId} to set.
+	 * @param chargeId
+	 *            the {@link #chargeId} to set.
 	 */
 	public void setChargeId(String chargeId) {
 		this.chargeId = chargeId;
@@ -133,7 +134,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #tokenizedCard}.
 	 *
-	 * @param tokenizedCard the {@link #tokenizedCard} to set.
+	 * @param tokenizedCard
+	 *            the {@link #tokenizedCard} to set.
 	 */
 	public void setTokenizedCard(String tokenizedCard) {
 		this.tokenizedCard = tokenizedCard;
@@ -151,7 +153,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #tokenizedCvv}.
 	 *
-	 * @param tokenizedCvv the {@link #tokenizedCvv} to set.
+	 * @param tokenizedCvv
+	 *            the {@link #tokenizedCvv} to set.
 	 */
 	public void setTokenizedCvv(String tokenizedCvv) {
 		this.tokenizedCvv = tokenizedCvv;
@@ -169,7 +172,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #tokenExpiryMonth}.
 	 *
-	 * @param tokenExpiryMonth the {@link #tokenExpiryMonth} to set.
+	 * @param tokenExpiryMonth
+	 *            the {@link #tokenExpiryMonth} to set.
 	 */
 	public void setTokenExpiryMonth(String tokenExpiryMonth) {
 		this.tokenExpiryMonth = tokenExpiryMonth;
@@ -187,7 +191,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #tokenExpiryYear}.
 	 *
-	 * @param tokenExpiryYear the {@link #tokenExpiryYear} to set.
+	 * @param tokenExpiryYear
+	 *            the {@link #tokenExpiryYear} to set.
 	 */
 	public void setTokenExpiryYear(String tokenExpiryYear) {
 		this.tokenExpiryYear = tokenExpiryYear;
@@ -205,7 +210,8 @@ public class PaymentCredential implements Serializable {
 	/**
 	 * Sets the {@link #fbPaymentId}.
 	 *
-	 * @param fbPaymentId the {@link #fbPaymentId} to set.
+	 * @param fbPaymentId
+	 *            the {@link #fbPaymentId} to set.
 	 */
 	public void setFbPaymentId(String fbPaymentId) {
 		this.fbPaymentId = fbPaymentId;

@@ -39,8 +39,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.DomainActionType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadState;
 import co.aurasphere.botmill.fb.model.threadsettings.WhitelistDomainRequest;
 import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextRequest;
-
-
+import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
 
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
@@ -61,15 +60,30 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory
-			.getLogger(FbBotMillThreadSettingsConfiguration.class);
-
+	private static final Logger logger = LoggerFactory.getLogger(FbBotMillThreadSettingsConfiguration.class);
+	
+	/**
+	 * This method is used to add any payment settings needed.
+	 * 
+	 * @param paymentSettings the payment settings object.
+	 * 
+	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+ 	 *	     >Payments settings</a>
+	 */
+	public static void addPaymentSettings(PaymentSettings paymentSettings) {
+		if (paymentSettings == null) {
+			logger.error("FbBotMill validation error: Payment Settings can't be null or empty!");
+			return;
+		}
+		NetworkUtils.postThreadSetting(paymentSettings);
+	}
+	
 	/**
 	 * Sets the greeting message for the bot. The Greeting Text is only rendered
 	 * the first time the user interacts with a the Page on Messenger.
 	 *
-	 * @param message 
-	 * 			the greeting message to show.
+	 * @param message
+	 *            the greeting message to show.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/greeting-text"
 	 *      >Facebook's Greeting Text Documentation</a>
@@ -89,8 +103,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * When this button is tapped, the defined payload will be sent back with a
 	 * postback received callback.
 	 *
-	 * @param payload            
-	 * 			the payload to return when the button is tapped.
+	 * @param payload
+	 *            the payload to return when the button is tapped.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/get-started-button"
 	 *      >Facebook's Get Started Button Documentation</a>
@@ -103,8 +117,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		Button button = new PostbackButton(null, null, payload);
 		List<Button> buttonList = new ArrayList<Button>();
 		buttonList.add(button);
-		CallToActionsRequest request = new CallToActionsRequest(
-				ThreadState.NEW_THREAD, buttonList);
+		CallToActionsRequest request = new CallToActionsRequest(ThreadState.NEW_THREAD, buttonList);
 		NetworkUtils.postThreadSetting(request);
 	}
 
@@ -114,8 +127,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * @see #setGetStartedButton(String)
 	 */
 	public static void deleteGetStartedButton() {
-		CallToActionsRequest request = new CallToActionsRequest(
-				ThreadState.NEW_THREAD, null);
+		CallToActionsRequest request = new CallToActionsRequest(ThreadState.NEW_THREAD, null);
 		NetworkUtils.delete(request);
 	}
 
@@ -127,8 +139,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * be invoked by a user, by tapping on the 3-caret icon on the left of the
 	 * composer.
 	 *
-	 * @param buttons 
-	 * 			  a list of {@link Button} (max 5 elements) to use as menu. The
+	 * @param buttons
+	 *            a list of {@link Button} (max 5 elements) to use as menu. The
 	 *            buttons can only be {@link PostbackButton} or
 	 *            {@link WebUrlButton}. Phone buttons are not supported.
 	 * @see <a href=
@@ -137,11 +149,11 @@ public class FbBotMillThreadSettingsConfiguration {
 	 */
 	public static void setPersistentMenu(List<Button> buttons) {
 		if (buttons == null || buttons.isEmpty() || buttons.size() > 5) {
-			logger.error("FbBotMill validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
+			logger.error(
+					"FbBotMill validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
 			return;
 		}
-		CallToActionsRequest request = new CallToActionsRequest(
-				ThreadState.EXISTING_THREAD, buttons);
+		CallToActionsRequest request = new CallToActionsRequest(ThreadState.EXISTING_THREAD, buttons);
 		NetworkUtils.postThreadSetting(request);
 	}
 
@@ -152,39 +164,42 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * 
 	 */
 	public static void deletePersistentMenu() {
-		CallToActionsRequest request = new CallToActionsRequest(
-				ThreadState.EXISTING_THREAD, null);
+		CallToActionsRequest request = new CallToActionsRequest(ThreadState.EXISTING_THREAD, null);
 		NetworkUtils.delete(request);
 	}
-	
+
 	/**
 	 * Add a list of domains that needs to be "white listed".
 	 *
-	 * @param whiteListDomains the list of domains in String.
+	 * @param whiteListDomains
+	 *            the list of domains in String.
 	 */
 	public static void setWhiteListDomains(List<String> whiteListDomains) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains);
 		NetworkUtils.postThreadSetting(request);
 	}
-	
+
 	/**
-	 * Add a single domain on the list of domains that needs to be "white listed".
+	 * Add a single domain on the list of domains that needs to be
+	 * "white listed".
 	 *
-	 * @param domain the domain that needs to be "white listed"
+	 * @param domain
+	 *            the domain that needs to be "white listed"
 	 */
 	public static void addWhiteListDomain(String domain) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest();
 		request.addWhiteListedDomain(domain);
 		NetworkUtils.postThreadSetting(request);
 	}
-	
+
 	/**
 	 * Removes a list of domains that are currently "white listed".
 	 *
-	 * @param whiteListDomains the list of domains that needs to be removed.
+	 * @param whiteListDomains
+	 *            the list of domains that needs to be removed.
 	 */
 	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
-		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains,DomainActionType.REMOVE);
+		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains, DomainActionType.REMOVE);
 		NetworkUtils.postThreadSetting(request);
 	}
 

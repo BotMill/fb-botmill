@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Object that represents an error from Facebook.
  * 

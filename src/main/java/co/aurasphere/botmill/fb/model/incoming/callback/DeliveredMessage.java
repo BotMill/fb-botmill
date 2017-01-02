@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 import java.io.Serializable;
 import java.util.List;
 
-
 /**
  * Model for a delivered message callback. <br>
  * <br>

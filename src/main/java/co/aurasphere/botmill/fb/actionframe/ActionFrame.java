@@ -27,9 +27,9 @@ import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
-
 /**
- * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to it.
+ * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to
+ * it.
  * 
  * @author Donato Rimenti
  * 
@@ -45,7 +45,7 @@ public class ActionFrame {
 	 * The reply of this frame to send if the event is triggered.
 	 */
 	private AutoReply reply;
-	
+
 	/**
 	 * The replies of this frame to send if the event is triggered.
 	 */
@@ -81,12 +81,14 @@ public class ActionFrame {
 		this.event = event;
 		this.reply = reply;
 	}
-	
+
 	/**
 	 * Instantiates a new action frame with multiple / collection replies.
 	 *
-	 * @param event            the {@link #event}.
-	 * @param replies            the list of {@link #reply}.
+	 * @param event
+	 *            the {@link #event}.
+	 * @param replies
+	 *            the list of {@link #reply}.
 	 */
 	public ActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		this.event = event;
@@ -104,7 +106,7 @@ public class ActionFrame {
 		if (this.event == null) {
 			return false;
 		}
-		
+
 		boolean triggered = this.event.verifyEventCondition(envelope);
 		if (triggered) {
 			beforeReply(envelope);
@@ -115,9 +117,10 @@ public class ActionFrame {
 		}
 		return triggered;
 	}
-	
+
 	/**
 	 * Executes multiple replies when multiple autoreply is set.
+	 * 
 	 * @param envelope
 	 *            the incoming message.
 	 * @return true, if the event has been triggered.
@@ -130,7 +133,7 @@ public class ActionFrame {
 		if (triggered) {
 			beforeReply(envelope);
 			if (this.replies != null) {
-				for(AutoReply reply: replies) {
+				for (AutoReply reply : replies) {
 					reply.reply(envelope);
 				}
 			}

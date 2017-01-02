@@ -29,11 +29,10 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class Airport.
  */
-public class Airport implements Serializable{
+public class Airport implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -42,24 +41,26 @@ public class Airport implements Serializable{
 	@NotBlank
 	@SerializedName("airport_code")
 	private String airportCode;
-	
+
 	/** The city. */
 	@NotBlank
 	private String city;
-	
+
 	/** The terminal. */
 	private String terminal;
-	
+
 	/** The gate. */
 	private String gate;
-	
+
 	/**
 	 * Instantiates a new airport.
 	 *
-	 * @param airportCode the airport code
-	 * @param city the city
+	 * @param airportCode
+	 *            the airport code
+	 * @param city
+	 *            the city
 	 */
-	public Airport(String airportCode, String city){
+	public Airport(String airportCode, String city) {
 		this.airportCode = airportCode;
 		this.city = city;
 	}
@@ -67,13 +68,16 @@ public class Airport implements Serializable{
 	/**
 	 * Instantiates a new airport.
 	 *
-	 * @param airportCode the airport code
-	 * @param city the city
-	 * @param gate the gate
-	 * @param terminal the terminal
+	 * @param airportCode
+	 *            the airport code
+	 * @param city
+	 *            the city
+	 * @param gate
+	 *            the gate
+	 * @param terminal
+	 *            the terminal
 	 */
-	public Airport(String airportCode, String city, String gate,
-			String terminal) {
+	public Airport(String airportCode, String city, String gate, String terminal) {
 		this(airportCode, city);
 		this.gate = gate;
 		this.terminal = terminal;
@@ -91,7 +95,8 @@ public class Airport implements Serializable{
 	/**
 	 * Sets the airport code.
 	 *
-	 * @param airportCode the new airport code
+	 * @param airportCode
+	 *            the new airport code
 	 */
 	public void setAirportCode(String airportCode) {
 		this.airportCode = airportCode;
@@ -109,7 +114,8 @@ public class Airport implements Serializable{
 	/**
 	 * Sets the city.
 	 *
-	 * @param city the new city
+	 * @param city
+	 *            the new city
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -127,7 +133,8 @@ public class Airport implements Serializable{
 	/**
 	 * Sets the terminal.
 	 *
-	 * @param terminal the new terminal
+	 * @param terminal
+	 *            the new terminal
 	 */
 	public void setTerminal(String terminal) {
 		this.terminal = terminal;
@@ -145,7 +152,8 @@ public class Airport implements Serializable{
 	/**
 	 * Sets the gate.
 	 *
-	 * @param gate the new gate
+	 * @param gate
+	 *            the new gate
 	 */
 	public void setGate(String gate) {
 		this.gate = gate;

@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * A {@link FbBotMillResponse} which replies with a {@link TypingAction}.
  * 
@@ -54,8 +53,10 @@ public class FbBotMillActionResponse extends FbBotMillResponse {
 	/**
 	 * Instantiates a new fb bot mill action response.
 	 *
-	 * @param recipient the {@link FbBotMillResponse#recipient}.
-	 * @param action the {@link #action}.
+	 * @param recipient
+	 *            the {@link FbBotMillResponse#recipient}.
+	 * @param action
+	 *            the {@link #action}.
 	 */
 	public FbBotMillActionResponse(User recipient, TypingAction action) {
 		this.recipient = recipient;
@@ -74,7 +75,8 @@ public class FbBotMillActionResponse extends FbBotMillResponse {
 	/**
 	 * Sets the {@link #action}.
 	 *
-	 * @param action the {@link #action} to set.
+	 * @param action
+	 *            the {@link #action} to set.
 	 */
 	public void setAction(TypingAction action) {
 		this.action = action;

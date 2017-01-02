@@ -32,7 +32,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class FlightInfo.
  */
@@ -40,7 +39,7 @@ public class FlightInfo implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The flight number. */
 	@NotBlank
 	@SerializedName("flight_number")
@@ -51,28 +50,29 @@ public class FlightInfo implements Serializable {
 	@NotNull
 	@SerializedName("departure_airport")
 	private Airport departureAirport;
-	
+
 	/** The arrival airport. */
 	@Valid
 	@NotNull
 	@SerializedName("arrival_airport")
 	private Airport arrivalAirport;
-	
+
 	/** The flight schedule. */
 	@Valid
 	@NotNull
 	@SerializedName("flight_schedule")
 	private FlightSchedule flightSchedule;
-	
+
 	/**
 	 * Instantiates a new flight info.
 	 *
-	 * @param flightNumber the flight number
+	 * @param flightNumber
+	 *            the flight number
 	 */
-	public FlightInfo(String flightNumber){
+	public FlightInfo(String flightNumber) {
 		this.flightNumber = flightNumber;
 	}
-	
+
 	/**
 	 * Gets the flight number.
 	 *
@@ -85,7 +85,8 @@ public class FlightInfo implements Serializable {
 	/**
 	 * Sets the flight number.
 	 *
-	 * @param flightNumber the new flight number
+	 * @param flightNumber
+	 *            the new flight number
 	 */
 	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
@@ -103,7 +104,8 @@ public class FlightInfo implements Serializable {
 	/**
 	 * Sets the departure airport.
 	 *
-	 * @param departureAirport the new departure airport
+	 * @param departureAirport
+	 *            the new departure airport
 	 */
 	public void setDepartureAirport(Airport departureAirport) {
 		this.departureAirport = departureAirport;
@@ -121,7 +123,8 @@ public class FlightInfo implements Serializable {
 	/**
 	 * Sets the arrival airport.
 	 *
-	 * @param arrivalAirport the new arrival airport
+	 * @param arrivalAirport
+	 *            the new arrival airport
 	 */
 	public void setArrivalAirport(Airport arrivalAirport) {
 		this.arrivalAirport = arrivalAirport;
@@ -139,11 +142,11 @@ public class FlightInfo implements Serializable {
 	/**
 	 * Sets the flight schedule.
 	 *
-	 * @param flightSchedule the new flight schedule
+	 * @param flightSchedule
+	 *            the new flight schedule
 	 */
 	public void setFlightSchedule(FlightSchedule flightSchedule) {
 		this.flightSchedule = flightSchedule;
 	}
-	
-	
+
 }

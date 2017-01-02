@@ -57,11 +57,11 @@ public class WebUrlButton extends Button {
 	/** The messenger extension. */
 	@SerializedName("messenger_extensions")
 	private boolean messengerExtension;
-	
+
 	/**
 	 * The button title.
 	 */
-	@Size(max=20)
+	@Size(max = 20)
 	@NotBlank
 	protected String title;
 
@@ -122,7 +122,6 @@ public class WebUrlButton extends Button {
 		this.url = url;
 	}
 
-
 	/**
 	 * Gets the title.
 	 *
@@ -131,14 +130,15 @@ public class WebUrlButton extends Button {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 }

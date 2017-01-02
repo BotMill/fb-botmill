@@ -33,7 +33,7 @@ public class LocationCoordinates implements Serializable {
 
 	@SerializedName("lat")
 	private String latitude;
-	
+
 	@SerializedName("long")
 	private String longitude;
 
@@ -52,8 +52,5 @@ public class LocationCoordinates implements Serializable {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	
-	
-	
-	
+
 }

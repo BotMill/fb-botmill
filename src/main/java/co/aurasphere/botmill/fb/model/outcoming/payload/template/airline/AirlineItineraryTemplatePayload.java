@@ -43,15 +43,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PriceInfo;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class AirlineItineraryTemplatePayload.
  */
-public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplatePayload{
+public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplatePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The flight info. */
 	@Valid
 	@NotEmpty
@@ -69,40 +68,46 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	@NotEmpty
 	@SerializedName("passenger_segment_info")
 	private List<PassengerSegmentInfo> passengerSegmentInfo;
-	
+
 	/** The price info. */
 	@Valid
-	@Size(max=4)
+	@Size(max = 4)
 	@SerializedName("price_info")
 	private List<PriceInfo> priceInfo;
-	
+
 	/** The base price. */
 	@SerializedName("base_price")
 	private BigDecimal basePrice;
-	
+
 	/** The tax. */
 	private BigDecimal tax;
-	
+
 	/** The total price. */
 	@NotNull
 	@SerializedName("total_price")
 	private BigDecimal totalPrice;
-	
+
 	/** The currency. */
 	@NotBlank
-	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
+	@Pattern(regexp = "[A-Z]{3}", message = "{currency.pattern.message}")
 	private String currency;
-	
+
 	/**
 	 * Instantiates a new airline itinerary template payload.
 	 *
-	 * @param introMessage the intro message
-	 * @param locale the locale
-	 * @param pnrNumber the pnr number
-	 * @param totalPrice the total price
-	 * @param currency the currency
+	 * @param introMessage
+	 *            the intro message
+	 * @param locale
+	 *            the locale
+	 * @param pnrNumber
+	 *            the pnr number
+	 * @param totalPrice
+	 *            the total price
+	 * @param currency
+	 *            the currency
 	 */
-	public AirlineItineraryTemplatePayload(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice, String currency){
+	public AirlineItineraryTemplatePayload(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice,
+			String currency) {
 		super(introMessage, locale, pnrNumber);
 		this.totalPrice = totalPrice;
 		this.currency = currency;
@@ -131,7 +136,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Sets the passenger info.
 	 *
-	 * @param passengerInfo the new passenger info
+	 * @param passengerInfo
+	 *            the new passenger info
 	 */
 	public void setPassengerInfo(List<PassengerInfo> passengerInfo) {
 		this.passengerInfo = passengerInfo;
@@ -149,10 +155,10 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Sets the passenger segment info.
 	 *
-	 * @param passengerSegmentInfo the new passenger segment info
+	 * @param passengerSegmentInfo
+	 *            the new passenger segment info
 	 */
-	public void setPassengerSegmentInfo(
-			List<PassengerSegmentInfo> passengerSegmentInfo) {
+	public void setPassengerSegmentInfo(List<PassengerSegmentInfo> passengerSegmentInfo) {
 		this.passengerSegmentInfo = passengerSegmentInfo;
 	}
 
@@ -168,7 +174,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Sets the price info.
 	 *
-	 * @param priceInfo the new price info
+	 * @param priceInfo
+	 *            the new price info
 	 */
 	public void setPriceInfo(List<PriceInfo> priceInfo) {
 		this.priceInfo = priceInfo;
@@ -210,7 +217,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Sets the currency.
 	 *
-	 * @param currency the new currency
+	 * @param currency
+	 *            the new currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -219,7 +227,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Adds the passenger info.
 	 *
-	 * @param passengerInfo the passenger info
+	 * @param passengerInfo
+	 *            the passenger info
 	 */
 	public void addPassengerInfo(PassengerInfo passengerInfo) {
 		this.passengerInfo.add(passengerInfo);
@@ -228,7 +237,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Adds the passenger segment info.
 	 *
-	 * @param segmentInfo the segment info
+	 * @param segmentInfo
+	 *            the segment info
 	 */
 	public void addPassengerSegmentInfo(PassengerSegmentInfo segmentInfo) {
 		this.passengerSegmentInfo.add(segmentInfo);
@@ -237,18 +247,20 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	/**
 	 * Adds the price info.
 	 *
-	 * @param priceInfo the price info
+	 * @param priceInfo
+	 *            the price info
 	 */
 	public void addPriceInfo(PriceInfo priceInfo) {
 		this.priceInfo.add(priceInfo);
 	}
-	
+
 	/**
 	 * Adds the flight info.
 	 *
-	 * @param flightInfo the flight info
+	 * @param flightInfo
+	 *            the flight info
 	 */
-	public void addFlightInfo(FlightInfoExtended flightInfo){
+	public void addFlightInfo(FlightInfoExtended flightInfo) {
 		this.flightInfo.add(flightInfo);
 	}
 }

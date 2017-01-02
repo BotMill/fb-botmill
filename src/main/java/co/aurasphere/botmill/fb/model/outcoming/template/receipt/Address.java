@@ -43,29 +43,29 @@ public class Address implements Serializable {
 	@NotBlank
 	@SerializedName("street_1")
 	private String street1;
-	
+
 	/** The street 2. */
 	@SerializedName("street_2")
 	private String street2;
-	
+
 	/** The city. */
 	@NotBlank
 	private String city;
-	
+
 	/** The postal code. */
 	@NotBlank
 	@SerializedName("postal_code")
 	private String postalCode;
-	
+
 	/** The state. */
 	@NotBlank
 	private String state;
-	
+
 	/** The country. */
 	@NotBlank
-	@Pattern(regexp="[A-Za-z]{2}", message="{country.pattern.message}")
+	@Pattern(regexp = "[A-Za-z]{2}", message = "{country.pattern.message}")
 	private String country;
-	
+
 	/**
 	 * Gets the street 1.
 	 *
@@ -78,7 +78,8 @@ public class Address implements Serializable {
 	/**
 	 * Sets the street 1.
 	 *
-	 * @param street1 the new street 1
+	 * @param street1
+	 *            the new street 1
 	 */
 	public void setStreet1(String street1) {
 		this.street1 = street1;
@@ -96,7 +97,8 @@ public class Address implements Serializable {
 	/**
 	 * Sets the street 2.
 	 *
-	 * @param street2 the new street 2
+	 * @param street2
+	 *            the new street 2
 	 */
 	public void setStreet2(String street2) {
 		this.street2 = street2;
@@ -114,7 +116,8 @@ public class Address implements Serializable {
 	/**
 	 * Sets the city.
 	 *
-	 * @param city the new city
+	 * @param city
+	 *            the new city
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -132,7 +135,8 @@ public class Address implements Serializable {
 	/**
 	 * Sets the postal code.
 	 *
-	 * @param postalCode the new postal code
+	 * @param postalCode
+	 *            the new postal code
 	 */
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
@@ -150,7 +154,8 @@ public class Address implements Serializable {
 	/**
 	 * Sets the state.
 	 *
-	 * @param state the new state
+	 * @param state
+	 *            the new state
 	 */
 	public void setState(String state) {
 		this.state = state;
@@ -168,10 +173,11 @@ public class Address implements Serializable {
 	/**
 	 * Sets the country.
 	 *
-	 * @param country the new country
+	 * @param country
+	 *            the new country
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+
 }

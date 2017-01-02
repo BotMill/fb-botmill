@@ -106,8 +106,7 @@ public class ListTemplatePayload extends TemplateBasePayload {
 	 * @param buttons
 	 *            the {@link #buttons}.
 	 */
-	public ListTemplatePayload(List<ListTemplateElement> elements,
-			List<Button> buttons) {
+	public ListTemplatePayload(List<ListTemplateElement> elements, List<Button> buttons) {
 		this();
 		this.elements = elements;
 		this.buttons = buttons;

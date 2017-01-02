@@ -36,48 +36,49 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class GenericTemplateElement.
  */
-// TODO: test with generic template element without buttons and generic template without elements (if possible)
-public class GenericTemplateElement implements Serializable{
+// TODO: test with generic template element without buttons and generic template
+// without elements (if possible)
+public class GenericTemplateElement implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The title. */
-	@Size(max=80)
+	@Size(max = 80)
 	@NotBlank
 	private String title;
-	
+
 	/** The item url. */
 	@SerializedName("item_url")
 	private String itemUrl;
-	
+
 	/** The image url. */
 	@SerializedName("image_url")
 	private String imageUrl;
-	
+
 	/** The subtitle. */
-	@Size(max=80)
+	@Size(max = 80)
 	private String subtitle;
-	
+
 	/** The buttons. */
 	@Valid
-	@Size(max=3)
+	@Size(max = 3)
 	private List<Button> buttons;
 
 	/**
 	 * Instantiates a new generic template element.
 	 *
-	 * @param title the title
+	 * @param title
+	 *            the title
 	 */
-	public GenericTemplateElement(String title){
+	public GenericTemplateElement(String title) {
 		this.title = title;
 		this.buttons = new ArrayList<Button>();
 	}
-	
+
 	/**
 	 * Gets the title.
 	 *
@@ -90,7 +91,8 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -108,7 +110,8 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Sets the item url.
 	 *
-	 * @param itemUrl the new item url
+	 * @param itemUrl
+	 *            the new item url
 	 */
 	public void setItemUrl(String itemUrl) {
 		this.itemUrl = itemUrl;
@@ -126,11 +129,12 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Sets the image url.
 	 *
-	 * @param imageUrl the new image url
+	 * @param imageUrl
+	 *            the new image url
 	 */
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-		
+
 	}
 
 	/**
@@ -145,7 +149,8 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Sets the subtitle.
 	 *
-	 * @param subtitle the new subtitle
+	 * @param subtitle
+	 *            the new subtitle
 	 */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
@@ -163,7 +168,8 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Sets the buttons.
 	 *
-	 * @param buttons the new buttons
+	 * @param buttons
+	 *            the new buttons
 	 */
 	public void setButtons(List<Button> buttons) {
 		this.buttons = buttons;
@@ -172,7 +178,8 @@ public class GenericTemplateElement implements Serializable{
 	/**
 	 * Adds the button.
 	 *
-	 * @param button the button
+	 * @param button
+	 *            the button
 	 */
 	public void addButton(Button button) {
 		this.buttons.add(button);

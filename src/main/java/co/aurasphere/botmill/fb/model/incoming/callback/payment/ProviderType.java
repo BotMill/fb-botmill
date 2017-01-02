@@ -23,7 +23,6 @@
  */
 package co.aurasphere.botmill.fb.model.incoming.callback.payment;
 
-
 /**
  * Provider type for a {@link PaymentCredential} object.
  * 
@@ -31,17 +30,17 @@ package co.aurasphere.botmill.fb.model.incoming.callback.payment;
  * 
  */
 public enum ProviderType {
-	
+
 	/**
 	 * The stripe.
 	 */
 	STRIPE,
-	
+
 	/**
 	 * The paypal.
 	 */
 	PAYPAL,
-	
+
 	/**
 	 * The token.
 	 */

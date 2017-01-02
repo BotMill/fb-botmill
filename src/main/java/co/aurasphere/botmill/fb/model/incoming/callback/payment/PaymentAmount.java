@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb.model.incoming.callback.payment;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-
 /**
  * Object that represents the total amount of a transaction for a
  * {@link Payment} callback.
@@ -64,7 +63,8 @@ public class PaymentAmount implements Serializable {
 	/**
 	 * Sets the {@link #currency}.
 	 *
-	 * @param currency the {@link #currency} to set.
+	 * @param currency
+	 *            the {@link #currency} to set.
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -82,7 +82,8 @@ public class PaymentAmount implements Serializable {
 	/**
 	 * Sets the {@link #amount}.
 	 *
-	 * @param amount the {@link #amount} to set.
+	 * @param amount
+	 *            the {@link #amount} to set.
 	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;

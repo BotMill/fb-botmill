@@ -27,7 +27,6 @@ import java.math.BigDecimal;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplateElement;
 
-
 /**
  * Builder for a {@link ReceiptTemplateElement}.
  * 
@@ -56,8 +55,7 @@ public class ReceiptTemplateElementBuilder {
 	 * @param parentBuilder
 	 *            the parent builder of this builder.
 	 */
-	ReceiptTemplateElementBuilder(String title,
-			ReceiptTemplateBuilder parentBuilder) {
+	ReceiptTemplateElementBuilder(String title, ReceiptTemplateBuilder parentBuilder) {
 		this.element = new ReceiptTemplateElement();
 		this.element.setTitle(title);
 		this.parentBuilder = parentBuilder;
@@ -103,7 +101,8 @@ public class ReceiptTemplateElementBuilder {
 	/**
 	 * Sets the currency of price.
 	 * 
-	 * @param currency the currency of price to set.
+	 * @param currency
+	 *            the currency of price to set.
 	 * @return this builder.
 	 */
 	public ReceiptTemplateElementBuilder setCurrency(String currency) {
@@ -113,7 +112,9 @@ public class ReceiptTemplateElementBuilder {
 
 	/**
 	 * Sets the image URL of item.
-	 * @param imageUrl the image URL of item to set.
+	 * 
+	 * @param imageUrl
+	 *            the image URL of item to set.
 	 * @return this builder.
 	 */
 	public ReceiptTemplateElementBuilder setImageUrl(String imageUrl) {

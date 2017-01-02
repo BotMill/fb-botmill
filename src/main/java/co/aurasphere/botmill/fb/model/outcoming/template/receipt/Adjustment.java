@@ -26,33 +26,35 @@ package co.aurasphere.botmill.fb.model.outcoming.template.receipt;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-
 /**
  * The Class Adjustment.
  */
-public class Adjustment implements Serializable{
+public class Adjustment implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The name. */
 	private String name;
-	
-/** The amount. */
+
+	/** The amount. */
 	private BigDecimal amount;
-	
+
 	/**
 	 * Instantiates a new adjustment.
 	 */
-	public Adjustment(){}
-	
+	public Adjustment() {
+	}
+
 	/**
 	 * Instantiates a new adjustment.
 	 *
-	 * @param name the name
-	 * @param amount the amount
+	 * @param name
+	 *            the name
+	 * @param amount
+	 *            the amount
 	 */
-	public Adjustment(String name, BigDecimal amount){
+	public Adjustment(String name, BigDecimal amount) {
 		this.name = name;
 		this.amount = amount;
 	}
@@ -69,7 +71,8 @@ public class Adjustment implements Serializable{
 	/**
 	 * Sets the name.
 	 *
-	 * @param name the new name
+	 * @param name
+	 *            the new name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -84,14 +87,14 @@ public class Adjustment implements Serializable{
 		return amount;
 	}
 
-
 	/**
 	 * Sets the amount.
 	 *
-	 * @param amount the new amount
+	 * @param amount
+	 *            the new amount
 	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
-	
+
 }

@@ -29,11 +29,10 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class PassengerInfo.
  */
-public class PassengerInfo implements Serializable{
+public class PassengerInfo implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -42,11 +41,11 @@ public class PassengerInfo implements Serializable{
 	@NotBlank
 	@SerializedName("passenger_id")
 	private String passengerId;
-	
+
 	/** The ticket number. */
 	@SerializedName("ticket_number")
 	private String ticketNumber;
-	
+
 	/** The name. */
 	@NotBlank
 	private String name;
@@ -54,8 +53,10 @@ public class PassengerInfo implements Serializable{
 	/**
 	 * Instantiates a new passenger info.
 	 *
-	 * @param passengerId the passenger id
-	 * @param name the name
+	 * @param passengerId
+	 *            the passenger id
+	 * @param name
+	 *            the name
 	 */
 	public PassengerInfo(String passengerId, String name) {
 		this.passengerId = passengerId;
@@ -65,9 +66,12 @@ public class PassengerInfo implements Serializable{
 	/**
 	 * Instantiates a new passenger info.
 	 *
-	 * @param passengerId the passenger id
-	 * @param name the name
-	 * @param ticketNumber the ticket number
+	 * @param passengerId
+	 *            the passenger id
+	 * @param name
+	 *            the name
+	 * @param ticketNumber
+	 *            the ticket number
 	 */
 	public PassengerInfo(String passengerId, String name, String ticketNumber) {
 		this(passengerId, name);
@@ -86,7 +90,8 @@ public class PassengerInfo implements Serializable{
 	/**
 	 * Sets the passenger id.
 	 *
-	 * @param passengerId the new passenger id
+	 * @param passengerId
+	 *            the new passenger id
 	 */
 	public void setPassengerId(String passengerId) {
 		this.passengerId = passengerId;
@@ -104,7 +109,8 @@ public class PassengerInfo implements Serializable{
 	/**
 	 * Sets the ticket number.
 	 *
-	 * @param ticketNumber the new ticket number
+	 * @param ticketNumber
+	 *            the new ticket number
 	 */
 	public void setTicketNumber(String ticketNumber) {
 		this.ticketNumber = ticketNumber;
@@ -122,7 +128,8 @@ public class PassengerInfo implements Serializable{
 	/**
 	 * Sets the name.
 	 *
-	 * @param name the new name
+	 * @param name
+	 *            the new name
 	 */
 	public void setName(String name) {
 		this.name = name;

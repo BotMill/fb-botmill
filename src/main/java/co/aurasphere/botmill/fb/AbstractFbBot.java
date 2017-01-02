@@ -27,7 +27,6 @@ import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
- 
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
  * {@link FbBot} handling.
@@ -71,12 +70,15 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	protected void addActionFrame(FbBotMillEvent event, AutoReply reply) {
 		fbBot.addActionFrame(event, reply);
 	}
-	
+
 	/**
 	 * Adds an {@link ActionFrame} to the current bot.
 	 * 
-	 * @param event the {@link FbBotMillEvent} that triggers the ActionFrame.
-	 * @param replies the list of {@link AutoReply} to return when the event is triggered.
+	 * @param event
+	 *            the {@link FbBotMillEvent} that triggers the ActionFrame.
+	 * @param replies
+	 *            the list of {@link AutoReply} to return when the event is
+	 *            triggered.
 	 */
 	protected void addActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		fbBot.addActionFrame(event, replies);

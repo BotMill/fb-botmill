@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.model.userprofile;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Enumeration used for the deserialization of the gender in the user profile.
  * 
@@ -37,13 +36,11 @@ public enum Gender {
 	/**
 	 * The male gender.
 	 */
-	@SerializedName("male")
-	MALE,
+	@SerializedName("male") MALE,
 
 	/**
 	 * The female gender.
 	 */
-	@SerializedName("female")
-	FEMALE;
+	@SerializedName("female") FEMALE;
 
 }

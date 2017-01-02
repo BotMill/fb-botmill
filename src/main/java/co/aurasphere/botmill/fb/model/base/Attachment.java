@@ -50,7 +50,7 @@ public class Attachment implements Serializable {
 	private String title;
 
 	/**
-	 *  The url. 
+	 * The url.
 	 */
 	private String url;
 
@@ -99,7 +99,8 @@ public class Attachment implements Serializable {
 	/**
 	 * Sets the {@link #type}.
 	 *
-	 * @param type the {@link #type} to set.
+	 * @param type
+	 *            the {@link #type} to set.
 	 */
 	public void setType(AttachmentType type) {
 		this.type = type;
@@ -117,7 +118,8 @@ public class Attachment implements Serializable {
 	/**
 	 * Sets the {@link #payload}.
 	 *
-	 * @param payload the {@link #payload} to set.
+	 * @param payload
+	 *            the {@link #payload} to set.
 	 */
 	public void setPayload(Payload payload) {
 		this.payload = payload;
@@ -135,7 +137,8 @@ public class Attachment implements Serializable {
 	/**
 	 * Sets the {@link #title}.
 	 *
-	 * @param title the {@link #title} to set.
+	 * @param title
+	 *            the {@link #title} to set.
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -153,7 +156,8 @@ public class Attachment implements Serializable {
 	/**
 	 * Sets the {@link #url}.
 	 *
-	 * @param url the {@link #url} to set.
+	 * @param url
+	 *            the {@link #url} to set.
 	 */
 	public void setUrl(String url) {
 		this.url = url;

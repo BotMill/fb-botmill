@@ -44,7 +44,6 @@ import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 
-
 /**
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 
@@ -56,8 +55,7 @@ public class FbBotMillBean {
 	/**
 	 * The logger.
 	 */
-	private final static Logger logger = LoggerFactory
-			.getLogger(FbBotMillBean.class);
+	private final static Logger logger = LoggerFactory.getLogger(FbBotMillBean.class);
 
 	/**
 	 * Retrieves a text message from an envelope. It never returns null.
@@ -68,13 +66,13 @@ public class FbBotMillBean {
 	 *         returns null.
 	 */
 	protected String safeGetMessage(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getMessage() != null
-				&& envelope.getMessage().getText() != null && envelope.getMessage().getQuickReply() == null) {
+		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getText() != null
+				&& envelope.getMessage().getQuickReply() == null) {
 			return envelope.getMessage().getText();
 		}
 		return "";
 	}
-	
+
 	/**
 	 * Retrieves a quick reply payload from an envelope. It never returns null.
 	 * 
@@ -84,12 +82,11 @@ public class FbBotMillBean {
 	 *         returns null.
 	 */
 	protected String safeGetQuickReplyPayload(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getMessage() != null 
-				&& envelope.getMessage().getQuickReply() != null 
+		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getQuickReply() != null
 				&& envelope.getMessage().getQuickReply().getPayload() != null) {
 			return envelope.getMessage().getQuickReply().getPayload();
 		}
-		
+
 		return "";
 	}
 
@@ -102,8 +99,7 @@ public class FbBotMillBean {
 	 *         never returns null.
 	 */
 	protected String safeGetPostbackPayload(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getPostback() != null
-				&& envelope.getPostback().getPayload() != null) {
+		if (envelope != null && envelope.getPostback() != null && envelope.getPostback().getPayload() != null) {
 			return envelope.getPostback().getPayload();
 		}
 		return "";
@@ -118,8 +114,7 @@ public class FbBotMillBean {
 	 *         returns null.
 	 */
 	protected String safeGetRecipientId(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getRecipient() != null
-				&& envelope.getRecipient().getId() != null) {
+		if (envelope != null && envelope.getRecipient() != null && envelope.getRecipient().getId() != null) {
 			return envelope.getRecipient().getId();
 		}
 		return "";
@@ -134,8 +129,7 @@ public class FbBotMillBean {
 	 *         returns null.
 	 */
 	protected String safeGetSenderId(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getSender() != null
-				&& envelope.getSender().getId() != null) {
+		if (envelope != null && envelope.getSender() != null && envelope.getSender().getId() != null) {
 			return envelope.getSender().getId();
 		}
 		return "";
@@ -150,30 +144,30 @@ public class FbBotMillBean {
 	 *         otherwise. It never returns null.
 	 */
 	protected User safeGetRecipient(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getRecipient() != null
-				&& envelope.getRecipient().getId() != null) {
+		if (envelope != null && envelope.getRecipient() != null && envelope.getRecipient().getId() != null) {
 			return envelope.getRecipient();
 		}
 		return new User();
 	}
-	
-	
+
 	/**
-	 * Retrieves the location from an envelope. It return nulls if none was retrieved.
+	 * Retrieves the location from an envelope. It return nulls if none was
+	 * retrieved.
+	 * 
 	 * @param envelope
-	 * 			the message envelope
-	 * @return a {@link LocationCoordinates} containing the coordinates that the user sets
-	 * 			from the quick reply location payload.
+	 *            the message envelope
+	 * @return a {@link LocationCoordinates} containing the coordinates that the
+	 *         user sets from the quick reply location payload.
 	 */
 	protected LocationCoordinates getLocationMessage(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getMessage() != null 
-				&& envelope.getMessage().getAttachments() != null 
-				&& envelope.getMessage().getAttachments().get(0) != null 
+		if (envelope != null && envelope.getMessage() != null && envelope.getMessage().getAttachments() != null
+				&& envelope.getMessage().getAttachments().get(0) != null
 				&& envelope.getMessage().getAttachments().get(0).getPayload() != null
 				&& envelope.getMessage().getAttachments().get(0).getPayload() instanceof QuickReplyLocationPayload) {
-		
-				QuickReplyLocationPayload payload = (QuickReplyLocationPayload) envelope.getMessage().getAttachments().get(0).getPayload();
-			
+
+			QuickReplyLocationPayload payload = (QuickReplyLocationPayload) envelope.getMessage().getAttachments()
+					.get(0).getPayload();
+
 			return payload.getCoordinates();
 		}
 		return null;
@@ -188,8 +182,7 @@ public class FbBotMillBean {
 	 *         It never returns null.
 	 */
 	protected User safeGetSender(MessageEnvelope envelope) {
-		if (envelope != null && envelope.getSender() != null
-				&& envelope.getSender().getId() != null) {
+		if (envelope != null && envelope.getSender() != null && envelope.getSender().getId() != null) {
 			return envelope.getSender();
 		}
 		return new User();
@@ -243,7 +236,8 @@ public class FbBotMillBean {
 	/**
 	 * Validates the {@link FbBotMillResponse}.
 	 *
-	 * @param response the response
+	 * @param response
+	 *            the response
 	 * @return true if the response is valid, false otherwise.
 	 */
 	protected boolean validate(FbBotMillResponse response) {
@@ -255,25 +249,23 @@ public class FbBotMillBean {
 		boolean valid = true;
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
-		Set<ConstraintViolation<FbBotMillResponse>> violations = validator
-				.validate(response);
+		Set<ConstraintViolation<FbBotMillResponse>> violations = validator.validate(response);
 		for (ConstraintViolation<FbBotMillResponse> v : violations) {
 			valid = false;
-			logger.error(
-					"FbBotMillResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
-					v.getMessage(), v.getInvalidValue(), v.getRootBean(),
-					v.getPropertyPath());
+			logger.error("FbBotMillResponse validation error. Message: [{}] Value: [{}], Class: [{}], Field: [{}]",
+					v.getMessage(), v.getInvalidValue(), v.getRootBean(), v.getPropertyPath());
 		}
 		return valid;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "FbBotMillBean []";
 	}
-
 
 }

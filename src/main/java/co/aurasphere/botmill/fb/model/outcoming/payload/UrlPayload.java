@@ -47,7 +47,7 @@ public class UrlPayload implements Payload {
 	private String url;
 
 	/**
-	 * Instantiates a new UrlPayload.		
+	 * Instantiates a new UrlPayload.
 	 */
 	public UrlPayload() {
 	}

@@ -28,7 +28,6 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
-
 /**
  * A {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a text message from Facebook's Messenger Platform.
@@ -41,7 +40,8 @@ public class AnyMessageEvent extends FbBotMillBean implements FbBotMillEvent {
 	/**
 	 * Verify event condition.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 * @return true if the incoming callback contains a non-empty, non-null text
 	 *         message, false otherwise.
 	 */
@@ -49,7 +49,9 @@ public class AnyMessageEvent extends FbBotMillBean implements FbBotMillEvent {
 		return eventKind(envelope) == FbBotMillEventType.MESSAGE;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override

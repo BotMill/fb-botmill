@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb.model.incoming;
 import java.io.Serializable;
 import java.util.List;
 
-
 /**
  * The base model of the Facebook's Messenger Platform callback. Used to model
  * all the received callbacks.

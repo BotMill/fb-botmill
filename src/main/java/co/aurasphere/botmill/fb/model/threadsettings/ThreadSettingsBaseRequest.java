@@ -29,7 +29,6 @@ import javax.validation.constraints.NotNull;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Base request for a Thread Setting configuration.
  *
@@ -65,7 +64,8 @@ public abstract class ThreadSettingsBaseRequest implements Serializable {
 	/**
 	 * Sets the {@link #type}.
 	 *
-	 * @param type the {@link #type} to set.
+	 * @param type
+	 *            the {@link #type} to set.
 	 */
 	public void setType(SettingType type) {
 		this.type = type;

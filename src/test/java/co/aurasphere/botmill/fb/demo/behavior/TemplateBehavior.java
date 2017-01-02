@@ -71,19 +71,19 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 
-
 		// Returns a list template when message "list template" is
 		// received. (links are based on facebook's examples).
 		addActionFrame(new MessageEvent("list template"), new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate()
-						.addElement(new ListTemplateElement("Classic T-Shirt Collection").setSubtitle("See all our colors")
-									.addButton(ButtonFactory.createUrlButton("View",
-											"https://peterssendreceiveapp.ngrok.io/collection"))
-									.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
-									.setDefaultAction(ButtonFactory.createDefaultActionButton(
-											"https://peterssendreceiveapp.ngrok.io/shop_collection")))
+						.addElement(
+								new ListTemplateElement("Classic T-Shirt Collection").setSubtitle("See all our colors")
+										.addButton(ButtonFactory.createUrlButton("View",
+												"https://peterssendreceiveapp.ngrok.io/collection"))
+										.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
+										.setDefaultAction(ButtonFactory.createDefaultActionButton(
+												"https://peterssendreceiveapp.ngrok.io/shop_collection")))
 						.addElement(new ListTemplateElement("Classic White T-Shirt")
 								.setSubtitle("100% Cotton, 200% Comfortable")
 								.addButton(ButtonFactory.createUrlButton("Shop Now",
@@ -118,16 +118,14 @@ public class TemplateBehavior extends BaseBehavior {
 				return ReplyFactory.addTextMessageOnly("Text message with quick replies")
 						.addQuickReply("Quick reply 1", "Payload for quick reply 1").build(envelope);
 			}
-		},
-				new AutoReply() {
+		}, new AutoReply() {
 
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addTextMessageOnly("Text message with quick replies")
 						.addQuickReply("Quick reply 1", "Payload for quick reply 1").build(envelope);
 			}
-		},
-				new AutoReply() {
+		}, new AutoReply() {
 
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -143,30 +141,34 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addReceiptTemplate("Donato Rimenti", "15", "EUR", "Visa 1234")
-						.setSummary(new BigDecimal(201), new BigDecimal(10), new BigDecimal(13), new BigDecimal(240)).setMerchantName("Aurasphere co").addElement("Element 1")
-						.setCurrency("EUR").setQuantity(29).setPrice(new BigDecimal(200)).setSubtitle("Element 1 subtitle").endElement()
+						.setSummary(new BigDecimal(201), new BigDecimal(10), new BigDecimal(13), new BigDecimal(240))
+						.setMerchantName("Aurasphere co").addElement("Element 1").setCurrency("EUR").setQuantity(29)
+						.setPrice(new BigDecimal(200)).setSubtitle("Element 1 subtitle").endElement()
 						.setTimestamp("1243").build(envelope);
 			}
 		});
-		
 
-//		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
-//				new AutoReply() {
-//					@Override
-//					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-//						try {
-//							System.out.println(JsonUtils.toJson(envelope).toString());
-//							return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
-//									.addButton(ButtonFactory.createWebViewButton("Title",
-//											"https://www.alvinjayreyes.com", WebViewHeightRatioType.COMPACT))
-//									.setSubtitle("Tell us what you want (call, about, price list, products, services)")
-//									.endElement().build(envelope);
-//						} catch (Exception e) {
-//							e.printStackTrace();
-//						}
-//						return null;
-//					}
-//				});
+		// addActionFrame(new
+		// MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good
+		// day)")),
+		// new AutoReply() {
+		// @Override
+		// public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		// try {
+		// System.out.println(JsonUtils.toJson(envelope).toString());
+		// return ReplyFactory.addGenericTemplate().addElement("Welcome to
+		// TechnoWebHub")
+		// .addButton(ButtonFactory.createWebViewButton("Title",
+		// "https://www.alvinjayreyes.com", WebViewHeightRatioType.COMPACT))
+		// .setSubtitle("Tell us what you want (call, about, price list,
+		// products, services)")
+		// .endElement().build(envelope);
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
+		// return null;
+		// }
+		// });
 
 		addActionFrame(new PostbackPatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")),
 				new AutoReply() {
@@ -187,7 +189,7 @@ public class TemplateBehavior extends BaseBehavior {
 								.addQuickReply("Random Trivia", "randomtriv").build(envelope);
 					}
 				});
-		
+
 		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")),
 				new AutoReply() {
 					@Override
@@ -207,16 +209,19 @@ public class TemplateBehavior extends BaseBehavior {
 								.addQuickReply("Random Trivia", "randomtriv").build(envelope);
 					}
 				});
-		
-//		addActionFrame(new MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)")),
-//				new AutoReply() {
-//					@Override
-//					public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-//						ReplyFactory.addTypingAction(TypingAction.TYPING_ON);
-//						return ReplyFactory.addGenericTemplate().addElement("Welcome to TechnoWebHub")
-//								.addLoginButton("https://www.alvinjayreyes.com").endElement().build(envelope);
-//					}
-//				});
+
+		// addActionFrame(new
+		// MessagePatternEvent(Pattern.compile("(?i:hi)|(?i:hello)|(?i:hey)|(?i:good
+		// day)")),
+		// new AutoReply() {
+		// @Override
+		// public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		// ReplyFactory.addTypingAction(TypingAction.TYPING_ON);
+		// return ReplyFactory.addGenericTemplate().addElement("Welcome to
+		// TechnoWebHub")
+		// .addLoginButton("https://www.alvinjayreyes.com").endElement().build(envelope);
+		// }
+		// });
 
 		addActionFrame(new MessagePatternEvent(Pattern.compile("(?:.*price list.*)|(?:.*list of prices.*)")),
 				new AutoReply() {
@@ -269,7 +274,6 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 
-		
 		addActionFrame(new MessagePatternEvent(Pattern.compile("(?:.*buttonlist.*)")), new AutoReply() {
 
 			@Override
@@ -284,7 +288,6 @@ public class TemplateBehavior extends BaseBehavior {
 
 			}
 		});
-
 
 		addActionFrame(new MessageEvent("Location", false), new AutoReply() {
 			@Override
@@ -349,18 +352,22 @@ public class TemplateBehavior extends BaseBehavior {
 			}
 		});
 
-//		addActionFrame(new MessagePatternEvent(Pattern.compile(".*")), new AutoReply() {
-//
-//			@Override
-//			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-//				return ReplyFactory.addGenericTemplate().addElement("Generic Template Element 1")
-//						.addPostbackButton("postback button", "postback button payload")
-//						.addPhoneNumberButton("phone number button", "+393541247844")
-//						.addUrlButton("web url button", "https://alvinjayreyes.com")
-//						.setSubtitle("Subtitle of element 1").setRedirectUrl("www.alvinjayreyes.com").endElement()
-//						.addQuickReply("Quick Reply 1", "Payload of Quick Reply 1").build(envelope);
-//			}
-//		});
+		// addActionFrame(new MessagePatternEvent(Pattern.compile(".*")), new
+		// AutoReply() {
+		//
+		// @Override
+		// public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		// return ReplyFactory.addGenericTemplate().addElement("Generic Template
+		// Element 1")
+		// .addPostbackButton("postback button", "postback button payload")
+		// .addPhoneNumberButton("phone number button", "+393541247844")
+		// .addUrlButton("web url button", "https://alvinjayreyes.com")
+		// .setSubtitle("Subtitle of element
+		// 1").setRedirectUrl("www.alvinjayreyes.com").endElement()
+		// .addQuickReply("Quick Reply 1", "Payload of Quick Reply
+		// 1").build(envelope);
+		// }
+		// });
 
 		// Returns a text message with quick replies when message
 		// "text message with quick replies" is received.

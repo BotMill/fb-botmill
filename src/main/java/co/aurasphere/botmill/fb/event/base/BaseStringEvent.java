@@ -26,12 +26,10 @@ package co.aurasphere.botmill.fb.event.base;
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
-
 /**
  * The Class BaseStringEvent.
  */
-public abstract class BaseStringEvent extends FbBotMillBean implements
-		FbBotMillEvent {
+public abstract class BaseStringEvent extends FbBotMillBean implements FbBotMillEvent {
 
 	/**
 	 * The expected string.
@@ -46,8 +44,10 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	/**
 	 * Instantiates a new BaseStringEvent.
 	 *
-	 * @param expectedString the {@link #expectedString}.
-	 * @param caseSensitive the {@link #caseSensitive}.
+	 * @param expectedString
+	 *            the {@link #expectedString}.
+	 * @param caseSensitive
+	 *            the {@link #caseSensitive}.
 	 */
 	public BaseStringEvent(String expectedString, boolean caseSensitive) {
 		if (caseSensitive == false && expectedString != null) {
@@ -59,7 +59,8 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	/**
 	 * Instantiates a new BaseStringEvent.
 	 *
-	 * @param expectedString the {@link #expectedString}.
+	 * @param expectedString
+	 *            the {@link #expectedString}.
 	 */
 	public BaseStringEvent(String expectedString) {
 		this.expectedString = expectedString;
@@ -69,7 +70,8 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	/**
 	 * Verify string match.
 	 *
-	 * @param text the string used to check if it matches the event string.
+	 * @param text
+	 *            the string used to check if it matches the event string.
 	 * @return true, if successful
 	 */
 	protected boolean verifyStringMatch(String text) {
@@ -92,8 +94,7 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (caseSensitive ? 1231 : 1237);
-		result = prime * result
-				+ ((expectedString == null) ? 0 : expectedString.hashCode());
+		result = prime * result + ((expectedString == null) ? 0 : expectedString.hashCode());
 		return result;
 	}
 
@@ -121,12 +122,13 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override
 	public String toString() {
-		return "BaseStringEvent [expectedString=" + expectedString
-				+ ", caseSensitive=" + caseSensitive + "]";
+		return "BaseStringEvent [expectedString=" + expectedString + ", caseSensitive=" + caseSensitive + "]";
 	}
 }

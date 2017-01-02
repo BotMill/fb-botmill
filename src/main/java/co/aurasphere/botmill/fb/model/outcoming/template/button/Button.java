@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-
 /**
  * The Class Button.
  */
@@ -40,8 +39,8 @@ public abstract class Button implements Serializable {
 	 * The button type.
 	 */
 	@NotNull
-	protected ButtonType type;	
-	
+	protected ButtonType type;
+
 	/**
 	 * Gets the type.
 	 *
@@ -50,10 +49,12 @@ public abstract class Button implements Serializable {
 	public ButtonType getType() {
 		return type;
 	}
+
 	/**
 	 * Sets the type.
 	 *
-	 * @param type the new type
+	 * @param type
+	 *            the new type
 	 */
 	public void setType(ButtonType type) {
 		this.type = type;

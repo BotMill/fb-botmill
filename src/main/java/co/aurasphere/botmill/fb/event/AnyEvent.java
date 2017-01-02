@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.event;
 
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
-
 /**
  * An {@link FbBotMillEvent} that processes all the incoming callbacks from
  * Facebook Messenger Platform.
@@ -38,7 +37,8 @@ public class AnyEvent implements FbBotMillEvent {
 	/**
 	 * Verify event condition.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 * @return always true, in order to process any incoming callback.
 	 */
 	public boolean verifyEventCondition(MessageEnvelope envelope) {

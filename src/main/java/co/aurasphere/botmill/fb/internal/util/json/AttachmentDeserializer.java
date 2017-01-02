@@ -68,8 +68,8 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 	 * com.google.gson.JsonDeserializer#deserialize(com.google.gson.JsonElement,
 	 * java.lang.reflect.Type, com.google.gson.JsonDeserializationContext)
 	 */
-	public Attachment deserialize(JsonElement json, Type typeOfT,
-			JsonDeserializationContext context) throws JsonParseException {
+	public Attachment deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+			throws JsonParseException {
 
 		Attachment attachment = delegateGson.fromJson(json, Attachment.class);
 		AttachmentType type = attachment.getType();
@@ -87,14 +87,16 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 			payloadClass = QuickReplyLocationPayload.class;
 			break;
 		case FALLBACK:
-			// In case of Fallback attachment the payload will be null so I do nothing.
+			// In case of Fallback attachment the payload will be null so I do
+			// nothing.
 			break;
 		case TEMPLATE:
-			// TODO: this may happen in case of an echo callback. should be handled properly
+			// TODO: this may happen in case of an echo callback. should be
+			// handled properly
 			break;
-//		default:
-//			throw new RuntimeException(
-//					"Template and Fallbacks are not supported as incoming message.");
+		// default:
+		// throw new RuntimeException(
+		// "Template and Fallbacks are not supported as incoming message.");
 		}
 		Payload payload = context.deserialize(payloadjson, payloadClass);
 		attachment.setPayload(payload);

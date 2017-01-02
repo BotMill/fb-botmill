@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
-
 /**
  * Model for the Referral Callback. <br>
  * <br>
@@ -34,8 +33,8 @@ import java.io.Serializable;
  * see <a href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received"
  * >Postback Event</a>). See also the full guide on <a href=
- * "https://developers.facebook.com/docs/messenger-platform/referral-params"
- * >m.me links</a>. <br>
+ * "https://developers.facebook.com/docs/messenger-platform/referral-params" >m.
+ * me links</a>. <br>
  * <br>
  * To start receiving these events you need to subscribe to messaging_referral
  * in the webhook settings for your app. <br>

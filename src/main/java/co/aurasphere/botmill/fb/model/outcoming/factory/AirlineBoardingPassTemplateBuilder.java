@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.Airline
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.BoardingPass;
 
-
 /**
  * A builder for an Airline Boarding Pass Template.
  *
@@ -41,8 +40,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.BoardingPass;
  *      Documentation</a>
  * 
  */
-public class AirlineBoardingPassTemplateBuilder extends
-		AirlineBaseTemplateBuilder {
+public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuilder {
 
 	/**
 	 * The payload of the current builder.
@@ -61,17 +59,15 @@ public class AirlineBoardingPassTemplateBuilder extends
 	 *            For more information see<a href=
 	 *            "https://developers.facebook.com/docs/internationalization#locales"
 	 *            > Facebook's locale support</a>.
-	 *            
+	 * 
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-boardingpass-template"
 	 *      > Facebook's Messenger Platform Airline Boarding Pass Template
 	 *      Documentation</a>
 	 */
 	AirlineBoardingPassTemplateBuilder(String introMessage, String locale) {
-		this.payload = new AirlineBoardingPassTemplatePayload(introMessage,
-				locale);
-		this.messageBuilder = new AttachmentMessageBuilder(
-				AttachmentType.TEMPLATE, this.payload);
+		this.payload = new AirlineBoardingPassTemplatePayload(introMessage, locale);
+		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -90,10 +86,9 @@ public class AirlineBoardingPassTemplateBuilder extends
 	 *            center of the pass. It can't be empty.
 	 * @return a builder for a {@link BoardingPass} object.
 	 */
-	public BoardingPassBuilder addBoardingPass(String passengerName,
-			String pnrNumber, String logoImageUrl, String aboveBarCodeImageUrl) {
-		return new BoardingPassBuilder(this, passengerName, pnrNumber,
-				logoImageUrl, aboveBarCodeImageUrl);
+	public BoardingPassBuilder addBoardingPass(String passengerName, String pnrNumber, String logoImageUrl,
+			String aboveBarCodeImageUrl) {
+		return new BoardingPassBuilder(this, passengerName, pnrNumber, logoImageUrl, aboveBarCodeImageUrl);
 	}
 
 	/**
@@ -104,8 +99,7 @@ public class AirlineBoardingPassTemplateBuilder extends
 	 *            the boarding pass object to add. It can't be null.
 	 * @return this builder.
 	 */
-	public AirlineBoardingPassTemplateBuilder addBoardingPass(
-			BoardingPass boardingPass) {
+	public AirlineBoardingPassTemplateBuilder addBoardingPass(BoardingPass boardingPass) {
 		this.payload.addBoardingPass(boardingPass);
 		return this;
 	}
@@ -127,16 +121,17 @@ public class AirlineBoardingPassTemplateBuilder extends
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineBoardingPassTemplateBuilder addQuickReply(String title,
-			String payload) {
+	public AirlineBoardingPassTemplateBuilder addQuickReply(String title, String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -144,7 +139,8 @@ public class AirlineBoardingPassTemplateBuilder extends
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"

@@ -30,11 +30,10 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 /**
  * The Class PriceInfo.
  */
-public class PriceInfo implements Serializable{
+public class PriceInfo implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -42,18 +41,20 @@ public class PriceInfo implements Serializable{
 	/** The title. */
 	@NotBlank
 	private String title;
-	
+
 	private BigDecimal amount;
-	
+
 	/** The currency. */
-	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
+	@Pattern(regexp = "[A-Z]{3}", message = "{currency.pattern.message}")
 	private String currency;
 
 	/**
 	 * Instantiates a new price info.
 	 *
-	 * @param title the title
-	 * @param amount the amount
+	 * @param title
+	 *            the title
+	 * @param amount
+	 *            the amount
 	 */
 	public PriceInfo(String title, BigDecimal amount) {
 		this.title = title;
@@ -63,9 +64,12 @@ public class PriceInfo implements Serializable{
 	/**
 	 * Instantiates a new price info.
 	 *
-	 * @param title the title
-	 * @param amount the amount
-	 * @param currency the currency
+	 * @param title
+	 *            the title
+	 * @param amount
+	 *            the amount
+	 * @param currency
+	 *            the currency
 	 */
 	public PriceInfo(String title, BigDecimal amount, String currency) {
 		this(title, amount);
@@ -84,7 +88,8 @@ public class PriceInfo implements Serializable{
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -102,7 +107,8 @@ public class PriceInfo implements Serializable{
 	/**
 	 * Sets the amount.
 	 *
-	 * @param amount the new amount
+	 * @param amount
+	 *            the new amount
 	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
@@ -120,7 +126,8 @@ public class PriceInfo implements Serializable{
 	/**
 	 * Sets the currency.
 	 *
-	 * @param currency the new currency
+	 * @param currency
+	 *            the new currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;

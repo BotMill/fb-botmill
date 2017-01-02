@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Model for an account linking callback. <br>
  * <br>

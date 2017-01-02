@@ -37,7 +37,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmen
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PriceInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
-
 /**
  * Builder for an Airline Itinerary Template.
  *
@@ -83,12 +82,10 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *      > Facebook's Messenger Platform Airline Itinerary Template
 	 *      Documentation</a>
 	 */
-	AirlineItineraryTemplateBuilder(String introMessage, String locale,
-			String pnrNumber, BigDecimal totalPrice, String currency) {
-		this.payload = new AirlineItineraryTemplatePayload(introMessage,
-				locale, pnrNumber, totalPrice, currency);
-		this.messageBuilder = new AttachmentMessageBuilder(
-				AttachmentType.TEMPLATE, this.payload);
+	AirlineItineraryTemplateBuilder(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice,
+			String currency) {
+		this.payload = new AirlineItineraryTemplatePayload(introMessage, locale, pnrNumber, totalPrice, currency);
+		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -116,8 +113,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	}
 
 	/**
-	 * Adds a {@link PassengerInfo} object to this template. This
-	 * field is mandatory for this template. There must be at least one element.
+	 * Adds a {@link PassengerInfo} object to this template. This field is
+	 * mandatory for this template. There must be at least one element.
 	 * 
 	 * @param passengerId
 	 *            the passenger ID. It can't be empty.
@@ -127,17 +124,15 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the ticket number. This field is optional.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId,
-			String name, String ticketNumber) {
-		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name,
-				ticketNumber);
+	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId, String name, String ticketNumber) {
+		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name, ticketNumber);
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
 	}
 
 	/**
-	 * Adds a {@link PassengerInfo} object to this template. This
-	 * field is mandatory for this template. There must be at least one element.
+	 * Adds a {@link PassengerInfo} object to this template. This field is
+	 * mandatory for this template. There must be at least one element.
 	 * 
 	 * @param passengerId
 	 *            the passenger ID. It can't be empty.
@@ -145,57 +140,56 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the passenger name. It can't be empty.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId,
-			String name) {
+	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId, String name) {
 		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name);
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
 	}
 
 	/**
-	 * Adds a {@link PassengerInfo} object to this template. This
-	 * field is mandatory for this template. There must be at least one element.
+	 * Adds a {@link PassengerInfo} object to this template. This field is
+	 * mandatory for this template. There must be at least one element.
 	 *
-	 * @param passengerInfo the passenger info
+	 * @param passengerInfo
+	 *            the passenger info
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(
-			PassengerInfo passengerInfo) {
+	public AirlineItineraryTemplateBuilder addPassengerInfo(PassengerInfo passengerInfo) {
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
 	}
 
 	/**
-	 * Adds a {@link PassengerSegmentInfo} object to this
-	 * template. This field is mandatory for this template. There must be at
-	 * least one element.
+	 * Adds a {@link PassengerSegmentInfo} object to this template. This field
+	 * is mandatory for this template. There must be at least one element.
 	 *
-	 * @param segmentId            used to identify a flight segment. It can't be empty and must
+	 * @param segmentId
+	 *            used to identify a flight segment. It can't be empty and must
 	 *            be unique within the itinerary.
-	 * @param passengerId            the passengerId of {@link PassengerInfo} object. It can't be
+	 * @param passengerId
+	 *            the passengerId of {@link PassengerInfo} object. It can't be
 	 *            empty and it must match an actual passenger.
-	 * @param seat            the seat number for the passenger. It can't be empty.
-	 * @param seatType            the seat type for the passenger (e.g. Economy comfort). It
+	 * @param seat
+	 *            the seat number for the passenger. It can't be empty.
+	 * @param seatType
+	 *            the seat type for the passenger (e.g. Economy comfort). It
 	 *            can't be empty.
 	 * @return the passenger segment info builder
 	 */
-	public PassengerSegmentInfoBuilder addPassengerSegmentInfo(
-			String segmentId, String passengerId, String seat, String seatType) {
-		return new PassengerSegmentInfoBuilder(this, segmentId, passengerId,
-				seat, seatType);
+	public PassengerSegmentInfoBuilder addPassengerSegmentInfo(String segmentId, String passengerId, String seat,
+			String seatType) {
+		return new PassengerSegmentInfoBuilder(this, segmentId, passengerId, seat, seatType);
 	}
 
 	/**
-	 * Adds a {@link PassengerSegmentInfo} object to this
-	 * template. This field is mandatory for this template. There must be at
-	 * least one element.
+	 * Adds a {@link PassengerSegmentInfo} object to this template. This field
+	 * is mandatory for this template. There must be at least one element.
 	 * 
 	 * @param segmentInfo
 	 *            the segment info to add.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerSegmentInfo(
-			PassengerSegmentInfo segmentInfo) {
+	public AirlineItineraryTemplateBuilder addPassengerSegmentInfo(PassengerSegmentInfo segmentInfo) {
 		this.payload.addPassengerSegmentInfo(segmentInfo);
 		return this;
 	}
@@ -210,8 +204,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the price amount.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
-			BigDecimal amount) {
+	public AirlineItineraryTemplateBuilder addPriceInfo(String title, BigDecimal amount) {
 		PriceInfo priceInfo = new PriceInfo(title, amount);
 		this.payload.addPriceInfo(priceInfo);
 		return this;
@@ -233,8 +226,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            > Facebook's currency support</a>
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
-			BigDecimal amount, String currency) {
+	public AirlineItineraryTemplateBuilder addPriceInfo(String title, BigDecimal amount, String currency) {
 		PriceInfo priceInfo = new PriceInfo(title, amount, currency);
 		this.payload.addPriceInfo(priceInfo);
 		return this;
@@ -269,10 +261,9 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the travel class. It can't be null.
 	 * @return a builder for the {@link FlightInfoExtended} object.
 	 */
-	public FlightInfoExtendedBuilder addFlightInfo(String flightNumber,
-			String connectionId, String segmentId, TravelClass travelClass) {
-		return new FlightInfoExtendedBuilder(this, flightNumber, connectionId,
-				segmentId, travelClass);
+	public FlightInfoExtendedBuilder addFlightInfo(String flightNumber, String connectionId, String segmentId,
+			TravelClass travelClass) {
+		return new FlightInfoExtendedBuilder(this, flightNumber, connectionId, segmentId, travelClass);
 	}
 
 	/**
@@ -284,8 +275,7 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the flight info to add.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addFlightInfo(
-			FlightInfoExtended flightInfo) {
+	public AirlineItineraryTemplateBuilder addFlightInfo(FlightInfoExtended flightInfo) {
 		this.payload.addFlightInfo(flightInfo);
 		return this;
 	}
@@ -322,16 +312,17 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      >Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineItineraryTemplateBuilder addQuickReply(String title,
-			String payload) {
+	public AirlineItineraryTemplateBuilder addQuickReply(String title, String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -339,7 +330,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"

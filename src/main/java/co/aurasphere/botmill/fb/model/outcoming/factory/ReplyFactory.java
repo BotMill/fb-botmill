@@ -184,11 +184,9 @@ public class ReplyFactory {
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
 	 *      > Facebook's Messenger Receipt Template Documentation</a>
 	 */
-	public static ReceiptTemplateBuilder addAirlineItineraryTemplate(
-			String recipientName, String orderNumber, String currency,
-			String paymentMethod) {
-		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency,
-				paymentMethod);
+	public static ReceiptTemplateBuilder addAirlineItineraryTemplate(String recipientName, String orderNumber,
+			String currency, String paymentMethod) {
+		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency, paymentMethod);
 	}
 
 	/**
@@ -219,11 +217,9 @@ public class ReplyFactory {
 	 *      > Facebook's Messenger Platform Airline Itinerary Template
 	 *      Documentation</a>
 	 */
-	public static AirlineItineraryTemplateBuilder addAirlineItineraryTemplate(
-			String introMessage, String locale, String pnrNumber,
-			BigDecimal totalPrice, String currency) {
-		return new AirlineItineraryTemplateBuilder(introMessage, locale,
-				pnrNumber, totalPrice, currency);
+	public static AirlineItineraryTemplateBuilder addAirlineItineraryTemplate(String introMessage, String locale,
+			String pnrNumber, BigDecimal totalPrice, String currency) {
+		return new AirlineItineraryTemplateBuilder(introMessage, locale, pnrNumber, totalPrice, currency);
 	}
 
 	/**
@@ -248,11 +244,9 @@ public class ReplyFactory {
 	 *      > Facebook's Messenger Platform Airline Checkin Template
 	 *      Documentation</a>
 	 */
-	public static AirlineCheckinTemplateBuilder addAirlineCheckinTemplate(
-			String introMessage, String locale, String pnrNumber,
-			String checkinUrl) {
-		return new AirlineCheckinTemplateBuilder(introMessage, locale,
-				pnrNumber, checkinUrl);
+	public static AirlineCheckinTemplateBuilder addAirlineCheckinTemplate(String introMessage, String locale,
+			String pnrNumber, String checkinUrl) {
+		return new AirlineCheckinTemplateBuilder(introMessage, locale, pnrNumber, checkinUrl);
 	}
 
 	/**
@@ -272,8 +266,8 @@ public class ReplyFactory {
 	 *      > Facebook's Messenger Platform Airline Boarding Pass Template
 	 *      Documentation</a>
 	 */
-	public static AirlineBoardingPassTemplateBuilder addAirlineBoardingPassTemplate(
-			String introMessage, String locale) {
+	public static AirlineBoardingPassTemplateBuilder addAirlineBoardingPassTemplate(String introMessage,
+			String locale) {
 		return new AirlineBoardingPassTemplateBuilder(introMessage, locale);
 	}
 
@@ -300,11 +294,9 @@ public class ReplyFactory {
 	 *      > Facebook's Messenger Platform Airline Flight Update Template
 	 *      Documentation</a>
 	 */
-	public static AirlineFlightUpdateTemplateBuilder addAirlineFlightUpdateTemplate(
-			String introMessage, String locale, String pnrNumber,
-			UpdateType updateType) {
-		return new AirlineFlightUpdateTemplateBuilder(introMessage, locale,
-				pnrNumber, updateType);
+	public static AirlineFlightUpdateTemplateBuilder addAirlineFlightUpdateTemplate(String introMessage, String locale,
+			String pnrNumber, UpdateType updateType) {
+		return new AirlineFlightUpdateTemplateBuilder(introMessage, locale, pnrNumber, updateType);
 	}
 
 	/**
@@ -329,11 +321,9 @@ public class ReplyFactory {
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
 	 *      > Facebook's Messenger Platform Receipt Template Documentation</a>
 	 */
-	public static ReceiptTemplateBuilder addReceiptTemplate(
-			String recipientName, String orderNumber, String currency,
+	public static ReceiptTemplateBuilder addReceiptTemplate(String recipientName, String orderNumber, String currency,
 			String paymentMethod) {
-		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency,
-				paymentMethod);
+		return new ReceiptTemplateBuilder(recipientName, orderNumber, currency, paymentMethod);
 	}
 
 }

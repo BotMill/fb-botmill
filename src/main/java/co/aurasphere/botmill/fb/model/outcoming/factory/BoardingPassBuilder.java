@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.Field;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
-
 /**
  * Builder for a {@link BoardingPass} object.
  * 
@@ -53,20 +52,23 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	/**
 	 * Default constructor. Creates a builder for a {@link BoardingPass} object.
 	 *
-	 * @param parentBuilder            the parent builder of this one. It can't be null. * @param
+	 * @param parentBuilder
+	 *            the parent builder of this one. It can't be null. * @param
 	 *            passengerName the passenger name. It can't be empty.
-	 * @param passengerName the passenger name
-	 * @param pnrNumber            the Passenger Name Record number (Booking Number). It can't be
+	 * @param passengerName
+	 *            the passenger name
+	 * @param pnrNumber
+	 *            the Passenger Name Record number (Booking Number). It can't be
 	 *            empty.
-	 * @param logoImageUrl            the URL of the logo. It can't be empty.
-	 * @param aboveBarCodeImageUrl            the URL of the image to be shown above the bar code in the
+	 * @param logoImageUrl
+	 *            the URL of the logo. It can't be empty.
+	 * @param aboveBarCodeImageUrl
+	 *            the URL of the image to be shown above the bar code in the
 	 *            center of the pass. It can't be empty.
 	 */
-	BoardingPassBuilder(AirlineBoardingPassTemplateBuilder parentBuilder,
-			String passengerName, String pnrNumber, String logoImageUrl,
-			String aboveBarCodeImageUrl) {
-		this.boardingPass = new BoardingPass(passengerName, pnrNumber,
-				logoImageUrl, aboveBarCodeImageUrl);
+	BoardingPassBuilder(AirlineBoardingPassTemplateBuilder parentBuilder, String passengerName, String pnrNumber,
+			String logoImageUrl, String aboveBarCodeImageUrl) {
+		this.boardingPass = new BoardingPass(passengerName, pnrNumber, logoImageUrl, aboveBarCodeImageUrl);
 		this.parentBuilder = parentBuilder;
 	}
 
@@ -162,7 +164,8 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 * Sets the header image URL for the current {@link BoardingPass} object.
 	 * This field is optional.
 	 *
-	 * @param headerImageUrl            the URL of the header image.
+	 * @param headerImageUrl
+	 *            the URL of the header image.
 	 * @return the boarding pass builder
 	 */
 	public BoardingPassBuilder setHeaderImageUrl(String headerImageUrl) {
@@ -174,7 +177,8 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 * Sets the header text for the current {@link BoardingPass} object. This
 	 * field is optional.
 	 *
-	 * @param headerTextField            the text of the header.
+	 * @param headerTextField
+	 *            the text of the header.
 	 * @return the boarding pass builder
 	 */
 	public BoardingPassBuilder setHeaderTextField(String headerTextField) {
@@ -186,7 +190,8 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 * Sets the Aztec or QR code for the current {@link BoardingPass} object.
 	 * This field or the barcode image URL must be set.
 	 *
-	 * @param qrCode            the Aztec or QR code. It can't be empty unless the barcode
+	 * @param qrCode
+	 *            the Aztec or QR code. It can't be empty unless the barcode
 	 *            image URL is set.
 	 * @return the boarding pass builder
 	 * @see #setBarcodeImageUrl(String)
@@ -200,7 +205,8 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 * Sets the URL of the barcode image for the current {@link BoardingPass}
 	 * object. This field or the QR code must be set.
 	 *
-	 * @param barcodeImageUrl            the URL of the barcode image. It can't be empty unless the QR
+	 * @param barcodeImageUrl
+	 *            the URL of the barcode image. It can't be empty unless the QR
 	 *            code is set.
 	 * @return the boarding pass builder
 	 * @see #setQrCode(String)
@@ -218,8 +224,7 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 *            the flight number. It can't be empty.
 	 * @return a builder for the {@link FlightInfo} object.
 	 */
-	public FlightInfoBuilder<BoardingPassBuilder> addFlightInfo(
-			String flightNumber) {
+	public FlightInfoBuilder<BoardingPassBuilder> addFlightInfo(String flightNumber) {
 		return new FlightInfoBuilder<BoardingPassBuilder>(this, flightNumber);
 	}
 

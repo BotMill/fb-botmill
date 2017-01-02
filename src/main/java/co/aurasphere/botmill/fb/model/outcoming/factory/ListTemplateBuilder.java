@@ -32,7 +32,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
 
-
 /**
  * A builder for a List Template.
  *
@@ -61,12 +60,12 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 		this.payload = new ListTemplatePayload();
 		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
-	
+
 	/**
 	 * Sets/Adds a {@link TopElementStyle} to the list template payload.
 	 * 
 	 * @param topElementStyle
-	 * 			the top element style
+	 *            the top element style
 	 * @return this builder
 	 */
 	public ListTemplateBuilder setTopElementStyle(TopElementStyle topElementStyle) {
@@ -96,11 +95,12 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 		this.payload.addElement(element);
 		return this;
 	}
-	
+
 	/**
 	 * Add a {@link Button} to this template.
 	 *
-	 * @param button 			the button to add
+	 * @param button
+	 *            the button to add
 	 * @return this builder.
 	 */
 	public ListTemplateBuilder addButton(Button button) {
@@ -111,8 +111,10 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
@@ -127,7 +129,8 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"

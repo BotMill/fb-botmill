@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 /**
  * The Class ProductInfo.
  */
@@ -39,18 +38,20 @@ public class ProductInfo implements Serializable {
 	/** The title. */
 	@NotBlank
 	private String title;
-	
+
 	/** The value. */
 	@NotBlank
 	private String value;
-	
+
 	/**
 	 * Instantiates a new product info.
 	 *
-	 * @param title the title
-	 * @param value the value
+	 * @param title
+	 *            the title
+	 * @param value
+	 *            the value
 	 */
-	public ProductInfo(String title, String value){
+	public ProductInfo(String title, String value) {
 		this.title = title;
 		this.value = value;
 	}
@@ -67,7 +68,8 @@ public class ProductInfo implements Serializable {
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -85,7 +87,8 @@ public class ProductInfo implements Serializable {
 	/**
 	 * Sets the value.
 	 *
-	 * @param value the new value
+	 * @param value
+	 *            the new value
 	 */
 	public void setValue(String value) {
 		this.value = value;

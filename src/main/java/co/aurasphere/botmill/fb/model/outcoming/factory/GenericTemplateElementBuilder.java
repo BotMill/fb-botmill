@@ -28,7 +28,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
-
 /**
  * Builder for a {@link GenericTemplateElement}.
  * 
@@ -56,8 +55,7 @@ public class GenericTemplateElementBuilder {
 	 * @param parentBuilder
 	 *            the parent builder of this builder.
 	 */
-	GenericTemplateElementBuilder(String title,
-			GenericTemplateBuilder parentBuilder) {
+	GenericTemplateElementBuilder(String title, GenericTemplateBuilder parentBuilder) {
 		this.parentBuilder = parentBuilder;
 		this.element = new GenericTemplateElement(title);
 	}
@@ -77,7 +75,8 @@ public class GenericTemplateElementBuilder {
 	/**
 	 * Sets an image for the current {@link GenericTemplateElement}.
 	 *
-	 * @param imageUrl the image url
+	 * @param imageUrl
+	 *            the image url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder setImage(String imageUrl) {
@@ -89,7 +88,8 @@ public class GenericTemplateElementBuilder {
 	 * Sets an URL for the current {@link GenericTemplateElement}. The URL will
 	 * be used to redirect the user when the element is clicked.
 	 *
-	 * @param itemUrl the item url
+	 * @param itemUrl
+	 *            the item url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder setRedirectUrl(String itemUrl) {
@@ -126,10 +126,8 @@ public class GenericTemplateElementBuilder {
 	 *            the country code, area code and local number.
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addPhoneNumberButton(String title,
-			String phoneNumber) {
-		Button button = ButtonFactory.createPhoneNumberButton(title,
-				phoneNumber);
+	public GenericTemplateElementBuilder addPhoneNumberButton(String title, String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
 		this.element.addButton(button);
 		return this;
 	}
@@ -145,8 +143,7 @@ public class GenericTemplateElementBuilder {
 	 *            the payload to send back when clicked.
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addPostbackButton(String title,
-			String payload) {
+	public GenericTemplateElementBuilder addPostbackButton(String title, String payload) {
 		Button button = ButtonFactory.createPostbackButton(title, payload);
 		this.element.addButton(button);
 		return this;
@@ -164,7 +161,7 @@ public class GenericTemplateElementBuilder {
 		this.element.addButton(button);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a share button on a generic template.
 	 *
@@ -175,11 +172,12 @@ public class GenericTemplateElementBuilder {
 		this.element.addButton(button);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a login button on a generic template.
 	 *
-	 * @param url the url
+	 * @param url
+	 *            the url
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addLoginButton(String url) {
@@ -187,23 +185,25 @@ public class GenericTemplateElementBuilder {
 		this.element.addButton(button);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a logout button on a generic template.
 	 *
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addLogoutButton(){
+	public GenericTemplateElementBuilder addLogoutButton() {
 		Button button = ButtonFactory.createLogoutButton();
 		this.element.addButton(button);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a buy button on a generic template.
 	 * 
-	 * @param payload the payload
-	 * @param paymentSummary the payment summary
+	 * @param payload
+	 *            the payload
+	 * @param paymentSummary
+	 *            the payment summary
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addBuyButton(String payload, PaymentSummary paymentSummary) {

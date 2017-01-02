@@ -33,7 +33,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class ReceiptTemplateElement.
  */
@@ -41,25 +40,25 @@ public class ReceiptTemplateElement implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The title. */
 	@NotBlank
 	private String title;
-	
+
 	/** The subtitle. */
 	private String subtitle;
-	
+
 	/** The quantity. */
 	private int quantity;
-	
+
 	/** The price. */
 	@NotNull
 	private BigDecimal price;
-	
+
 	/** The currency. */
-	@Pattern(regexp="[A-Z]{3}", message="{currency.pattern.message}")
+	@Pattern(regexp = "[A-Z]{3}", message = "{currency.pattern.message}")
 	private String currency;
-	
+
 	/** The image url. */
 	@SerializedName("image_url")
 	private String imageUrl;
@@ -76,7 +75,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -94,7 +94,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the subtitle.
 	 *
-	 * @param subtitle the new subtitle
+	 * @param subtitle
+	 *            the new subtitle
 	 */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
@@ -112,7 +113,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the quantity.
 	 *
-	 * @param quantity the new quantity
+	 * @param quantity
+	 *            the new quantity
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
@@ -130,7 +132,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the price.
 	 *
-	 * @param price the new price
+	 * @param price
+	 *            the new price
 	 */
 	public void setPrice(BigDecimal price) {
 		this.price = price;
@@ -148,7 +151,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the currency.
 	 *
-	 * @param currency the new currency
+	 * @param currency
+	 *            the new currency
 	 */
 	public void setCurrency(String currency) {
 		this.currency = currency;
@@ -166,7 +170,8 @@ public class ReceiptTemplateElement implements Serializable {
 	/**
 	 * Sets the image url.
 	 *
-	 * @param imageUrl the new image url
+	 * @param imageUrl
+	 *            the new image url
 	 */
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;

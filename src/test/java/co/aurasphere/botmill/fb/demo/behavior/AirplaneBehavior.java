@@ -52,8 +52,7 @@ public class AirplaneBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 
-				return ReplyFactory.addAirlineBoardingPassTemplate("TEST TEMPLATE", "en_US")
-						.setThemeColor("#009023")
+				return ReplyFactory.addAirlineBoardingPassTemplate("TEST TEMPLATE", "en_US").setThemeColor("#009023")
 						.addBoardingPass("Passenger 1", "13",
 								"http://seeklogo.com/images/A/Airport-logo-912173495E-seeklogo.com.gif",
 								"http://seeklogo.com/images/A/Airport-logo-912173495E-seeklogo.com.gif")

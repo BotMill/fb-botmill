@@ -23,7 +23,6 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
-
 /**
  * Enum that represents the kinds of updates of a flight.
  * 
@@ -35,13 +34,13 @@ public enum UpdateType {
 	/**
 	 * Flight delay update.
 	 */
-	DELAY, 
-	
+	DELAY,
+
 	/**
 	 * Flight gate change update.
 	 */
-	GATE_CHANGE, 
-	
+	GATE_CHANGE,
+
 	/**
 	 * Flight cancellation update.
 	 */

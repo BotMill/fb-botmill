@@ -23,7 +23,6 @@
  */
 package co.aurasphere.botmill.fb.model.threadsettings;
 
-
 /**
  * Enum that represents the Facebook Thread state.
  *
@@ -38,8 +37,8 @@ public enum ThreadState {
 	/**
 	 * Used for the Get Started Button.
 	 */
-	NEW_THREAD, 
-	
+	NEW_THREAD,
+
 	/**
 	 * Used for the Persistent Menu.
 	 */

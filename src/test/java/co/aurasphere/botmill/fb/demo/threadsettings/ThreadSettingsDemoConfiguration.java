@@ -32,7 +32,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
 
-
 /**
  * Demo of configuring the Thread Settings.
  * 
@@ -54,16 +53,12 @@ public class ThreadSettingsDemoConfiguration {
 
 		// Creates a list of persistent buttons.
 		List<Button> buttons = new ArrayList<Button>();
-		buttons.add(ButtonFactory.createPostbackButton(
-				"Postback Button", "PPB Payload"));
-		buttons.add(ButtonFactory.createUrlButton("URL Button",
-				"http://www.aurasphere.co"));
+		buttons.add(ButtonFactory.createPostbackButton("Postback Button", "PPB Payload"));
+		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.aurasphere.co"));
 
 		// Sets the thread settings.
-		FbBotMillThreadSettingsConfiguration
-				.setGreetingMessage("Hi, welcome to FbBotMill!");
-		FbBotMillThreadSettingsConfiguration
-				.setGetStartedButton("Get Started Button Payload");
+		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
+		FbBotMillThreadSettingsConfiguration.setGetStartedButton("Get Started Button Payload");
 		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
 	}
 

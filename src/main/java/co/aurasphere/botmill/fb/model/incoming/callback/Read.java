@@ -75,7 +75,8 @@ public class Read implements Serializable {
 	/**
 	 * Sets the {@link #watermark}.
 	 *
-	 * @param watermark the {@link #watermark} to set.
+	 * @param watermark
+	 *            the {@link #watermark} to set.
 	 */
 	public void setWatermark(String watermark) {
 		this.watermark = watermark;
@@ -93,7 +94,8 @@ public class Read implements Serializable {
 	/**
 	 * Sets the {@link #seq}.
 	 *
-	 * @param seq the {@link #seq} to set.
+	 * @param seq
+	 *            the {@link #seq} to set.
 	 */
 	public void setSeq(String seq) {
 		this.seq = seq;

@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.Airline
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 
-
 /**
  * A builder for an Airline Checkin Template.
  *
@@ -52,26 +51,27 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	 * Default constructor. Creates a builder for an Airline Flight Update
 	 * Template.
 	 *
-	 * @param introMessage            the message to send before the template. Can't be empty.
-	 * @param locale            the current locale. Can't be empty and must be in format
+	 * @param introMessage
+	 *            the message to send before the template. Can't be empty.
+	 * @param locale
+	 *            the current locale. Can't be empty and must be in format
 	 *            [a-z]{2}_[A-Z]{2}. Locale must be in format [a-z]{2}_[A-Z]{2}.
 	 *            For more information see<a href=
 	 *            "https://developers.facebook.com/docs/internationalization#locales"
 	 *            > Facebook's locale support</a>. param pnrNumber the Passenger
 	 *            Name Record number (Booking Number). It can't be empty.
-	 * @param pnrNumber the pnr number
-	 * @param checkinUrl            the URL for passengers to check-in. It can't be empty.
+	 * @param pnrNumber
+	 *            the pnr number
+	 * @param checkinUrl
+	 *            the URL for passengers to check-in. It can't be empty.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/airline-checkin-template"
 	 *      > Facebook's Messenger Platform Airline Checkin Template
 	 *      Documentation</a>
 	 */
-	AirlineCheckinTemplateBuilder(String introMessage, String locale,
-			String pnrNumber, String checkinUrl) {
-		this.payload = new AirlineCheckinTemplatePayload(introMessage, locale,
-				pnrNumber, checkinUrl);
-		this.messageBuilder = new AttachmentMessageBuilder(
-				AttachmentType.TEMPLATE, this.payload);
+	AirlineCheckinTemplateBuilder(String introMessage, String locale, String pnrNumber, String checkinUrl) {
+		this.payload = new AirlineCheckinTemplatePayload(introMessage, locale, pnrNumber, checkinUrl);
+		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -83,10 +83,8 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	 *            the flight number. It can't be empty.
 	 * @return a builder for the {@link FlightInfo} object.
 	 */
-	public FlightInfoBuilder<AirlineCheckinTemplateBuilder> addFlightInfo(
-			String flightNumber) {
-		return new FlightInfoBuilder<AirlineCheckinTemplateBuilder>(this,
-				flightNumber);
+	public FlightInfoBuilder<AirlineCheckinTemplateBuilder> addFlightInfo(String flightNumber) {
+		return new FlightInfoBuilder<AirlineCheckinTemplateBuilder>(this, flightNumber);
 	}
 
 	/**
@@ -122,16 +120,17 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineCheckinTemplateBuilder addQuickReply(String title,
-			String payload) {
+	public AirlineCheckinTemplateBuilder addQuickReply(String title, String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -139,7 +138,8 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"

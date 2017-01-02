@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
-
 /**
  * Model for a plugin opt-in callback. <br>
  * <br>
@@ -75,7 +74,8 @@ public class Optin implements Serializable {
 	/**
 	 * Sets the {@link #ref}.
 	 *
-	 * @param ref the {@link #ref} to set.
+	 * @param ref
+	 *            the {@link #ref} to set.
 	 */
 	public void setRef(String ref) {
 		this.ref = ref;

@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * An object that represents the shipping address, used by the
  * {@link CheckoutUpdate} class.

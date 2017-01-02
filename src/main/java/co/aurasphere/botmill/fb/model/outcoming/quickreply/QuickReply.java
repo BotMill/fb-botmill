@@ -32,11 +32,10 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class QuickReply.
  */
-public class QuickReply implements Serializable{
+public class QuickReply implements Serializable {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -45,41 +44,44 @@ public class QuickReply implements Serializable{
 	@NotNull
 	@SerializedName("content_type")
 	private QuickReplyType contentType;
-	
+
 	/** The image url. */
 	@SerializedName("image_url")
 	private String imageUrl;
-	
+
 	/** The title. */
-	@Size(max=20)
+	@Size(max = 20)
 	@NotBlank
 	private String title;
-	
+
 	/** The payload. */
-	@Size(max=1000)
+	@Size(max = 1000)
 	private String payload;
 
 	/**
 	 * Instantiates a new quick reply.
 	 *
-	 * @param title 
-	 * 			the title of the quick reply payload
-	 * @param payload the payload itself
+	 * @param title
+	 *            the title of the quick reply payload
+	 * @param payload
+	 *            the payload itself
 	 */
 	public QuickReply(String title, String payload) {
 		this.contentType = QuickReplyType.TEXT;
 		this.title = title;
 		this.payload = payload;
 	}
-	
+
 	/**
 	 * Instantiates a new quick reply with the following parameters.
-	 * @param title 
-	 * 			the title of the quick reply payload
+	 * 
+	 * @param title
+	 *            the title of the quick reply payload
 	 * @param payload
-	 * 			the payload itself
+	 *            the payload itself
 	 * @param imageUrl
-	 * 			the url of the image that needs to be shown along within this quick reply
+	 *            the url of the image that needs to be shown along within this
+	 *            quick reply
 	 */
 	public QuickReply(String title, String payload, String imageUrl) {
 		this.contentType = QuickReplyType.TEXT;
@@ -87,11 +89,12 @@ public class QuickReply implements Serializable{
 		this.payload = payload;
 		this.imageUrl = imageUrl;
 	}
-	
+
 	/**
 	 * Instantiates a new location quick reply.
+	 * 
 	 * @param locationMessage
-	 * 			the location text
+	 *            the location text
 	 */
 	public QuickReply(String locationMessage) {
 		this.contentType = QuickReplyType.LOCATION;
@@ -110,7 +113,8 @@ public class QuickReply implements Serializable{
 	/**
 	 * Sets the payload.
 	 *
-	 * @param payload the new payload
+	 * @param payload
+	 *            the new payload
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
@@ -128,7 +132,8 @@ public class QuickReply implements Serializable{
 	/**
 	 * Sets the content type.
 	 *
-	 * @param contentType the new content type
+	 * @param contentType
+	 *            the new content type
 	 */
 	public void setContentType(QuickReplyType contentType) {
 		this.contentType = contentType;
@@ -146,12 +151,13 @@ public class QuickReply implements Serializable{
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	/**
 	 * Gets the image url.
 	 *
@@ -164,10 +170,11 @@ public class QuickReply implements Serializable{
 	/**
 	 * Sets the image url.
 	 *
-	 * @param imageUrl the new image url
+	 * @param imageUrl
+	 *            the new image url
 	 */
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	
+
 }

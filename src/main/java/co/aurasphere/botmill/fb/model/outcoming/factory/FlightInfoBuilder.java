@@ -29,12 +29,12 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.Airport;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightSchedule;
 
-
 /**
  * Builder for a {@link FlightInfo} object.
  *
  * @author Donato Rimenti
- * @param <T>            the class of the parent builder. Used for casting before returning
+ * @param <T>
+ *            the class of the parent builder. Used for casting before returning
  *            it.
  * 
  */
@@ -79,10 +79,8 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setDepartureAirport(String airportCode, String city,
-			String gate, String terminal) {
-		Airport departureAirport = new Airport(airportCode, city, gate,
-				terminal);
+	public FlightInfoBuilder<T> setDepartureAirport(String airportCode, String city, String gate, String terminal) {
+		Airport departureAirport = new Airport(airportCode, city, gate, terminal);
 		this.flightInfo.setDepartureAirport(departureAirport);
 		return this;
 	}
@@ -132,8 +130,7 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setArrivalAirport(String airportCode, String city, String gate,
-			String terminal) {
+	public FlightInfoBuilder<T> setArrivalAirport(String airportCode, String city, String gate, String terminal) {
 		Airport arrivalAirport = new Airport(airportCode, city, gate, terminal);
 		this.flightInfo.setArrivalAirport(arrivalAirport);
 		return this;
@@ -170,9 +167,8 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	}
 
 	/**
-	 * Sets the {@link FlightSchedule} object for the current
-	 * {@link FlightInfo} object. This field is mandatory for this object and
-	 * can't be null.
+	 * Sets the {@link FlightSchedule} object for the current {@link FlightInfo}
+	 * object. This field is mandatory for this object and can't be null.
 	 * 
 	 * @param departureTime
 	 *            the departure time. It can't be null.
@@ -181,16 +177,14 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 * @return this builder.
 	 */
 	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime, Calendar arrivalTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
-				arrivalTime);
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
 
 	/**
-	 * Sets the {@link FlightSchedule} object for the current
-	 * {@link FlightInfo} object. This field is mandatory for this object and
-	 * can't be null.
+	 * Sets the {@link FlightSchedule} object for the current {@link FlightInfo}
+	 * object. This field is mandatory for this object and can't be null.
 	 * 
 	 * @param departureTime
 	 *            the departure time. It can't be null.
@@ -200,18 +194,15 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the boarding time. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime, Calendar arrivalTime,
-			Calendar boardingTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
-				arrivalTime, boardingTime);
+	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime, Calendar arrivalTime, Calendar boardingTime) {
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime, boardingTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
 
 	/**
-	 * Sets the {@link FlightSchedule} object for the current
-	 * {@link FlightInfo} object. This field is mandatory for this object and
-	 * can't be null.
+	 * Sets the {@link FlightSchedule} object for the current {@link FlightInfo}
+	 * object. This field is mandatory for this object and can't be null.
 	 * 
 	 * @param flightSchedule
 	 *            the flight schedule to set. It can't be null.

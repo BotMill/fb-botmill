@@ -63,7 +63,5 @@ public class PriceList implements Serializable {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-	
-	
 
 }

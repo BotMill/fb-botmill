@@ -30,7 +30,6 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.base.User;
 
-
 /**
  * Object that represents a FbBotMill response.
  * 
@@ -63,7 +62,8 @@ public abstract class FbBotMillResponse implements Serializable {
 	/**
 	 * Sets the {@link #recipient}.
 	 *
-	 * @param recipient the {@link #recipient} to set.
+	 * @param recipient
+	 *            the {@link #recipient} to set.
 	 */
 	public void setRecipient(User recipient) {
 		this.recipient = recipient;

@@ -52,11 +52,11 @@ public class BuyButton extends Button {
 	@NotNull
 	@SerializedName("payment_summary")
 	private PaymentSummary paymentSummary;
-	
+
 	/**
 	 * The button title.
 	 */
-	@Size(max=20)
+	@Size(max = 20)
 	@NotBlank
 	protected String title;
 
@@ -71,7 +71,7 @@ public class BuyButton extends Button {
 	 *            the payment summary
 	 */
 	public BuyButton(ButtonType type, String payload, PaymentSummary paymentSummary) {
-	// TODO: buy button title must be buy
+		// TODO: buy button title must be buy
 		this.title = "buy";
 		this.type = type;
 		this.payload = payload;
@@ -115,7 +115,6 @@ public class BuyButton extends Button {
 	public void setPaymentSummary(PaymentSummary paymentSummary) {
 		this.paymentSummary = paymentSummary;
 	}
-	
 
 	/**
 	 * Gets the title.
@@ -125,11 +124,12 @@ public class BuyButton extends Button {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;

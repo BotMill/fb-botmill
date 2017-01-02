@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * A {@link Payload} which contains a Template.
  * 
@@ -43,7 +42,7 @@ public class TemplateBasePayload implements Payload {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The type of the template content.
 	 */
@@ -63,10 +62,11 @@ public class TemplateBasePayload implements Payload {
 	/**
 	 * Sets the {@link #templateType}.
 	 *
-	 * @param templateType the {@link #templateType} to set.
+	 * @param templateType
+	 *            the {@link #templateType} to set.
 	 */
 	public void setTemplateType(PayloadType templateType) {
 		this.templateType = templateType;
 	}
-	
+
 }

@@ -29,7 +29,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
-
 /**
  * A {@link Message} which contains text.
  * 
@@ -53,7 +52,8 @@ public class TextMessage extends Message {
 	/**
 	 * Instantiates a new TextMessage.
 	 *
-	 * @param text the {@link #text}.
+	 * @param text
+	 *            the {@link #text}.
 	 */
 	public TextMessage(String text) {
 		this.text = text;
@@ -71,10 +71,11 @@ public class TextMessage extends Message {
 	/**
 	 * Sets the {@link #text}.
 	 *
-	 * @param text the {@link #text} to set.
+	 * @param text
+	 *            the {@link #text} to set.
 	 */
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
 }

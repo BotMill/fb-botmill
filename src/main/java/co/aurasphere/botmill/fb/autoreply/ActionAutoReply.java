@@ -28,7 +28,6 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
-
 /**
  * An {@link AutoReply} that replies with a {@link TypingAction}.
  * 
@@ -45,7 +44,8 @@ public class ActionAutoReply extends AutoReply {
 	/**
 	 * Instantiates a new action auto reply.
 	 *
-	 * @param typingAction the {@link #typingAction}.
+	 * @param typingAction
+	 *            the {@link #typingAction}.
 	 */
 	public ActionAutoReply(TypingAction typingAction) {
 		this.typingAction = typingAction;

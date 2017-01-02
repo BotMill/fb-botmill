@@ -29,7 +29,6 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.FbBotMillActionResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 
-
 /**
  * A builder for a response which contains and performs a {@link TypingAction}.
  *
@@ -49,7 +48,8 @@ public class ActionResponseBuilder extends FbBotMillMockableBuilder {
 	/**
 	 * Instantiates a new action response builder.
 	 *
-	 * @param action the {@link #action}.
+	 * @param action
+	 *            the {@link #action}.
 	 */
 	ActionResponseBuilder(TypingAction action) {
 		this.action = action;

@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Address;
 
-
 /**
  * Builder for an {@link Address}.
  * 
@@ -47,7 +46,8 @@ public class AddressBuilder {
 	/**
 	 * Instantiates a new address builder.
 	 *
-	 * @param parentBuilder the {@link #parentBuilder}.
+	 * @param parentBuilder
+	 *            the {@link #parentBuilder}.
 	 */
 	public AddressBuilder(ReceiptTemplateBuilder parentBuilder) {
 		this.parentBuilder = parentBuilder;

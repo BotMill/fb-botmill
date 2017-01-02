@@ -28,12 +28,10 @@ import java.util.regex.Pattern;
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
-
 /**
  * The Class BasePatternEvent.
  */
-public abstract class BasePatternEvent extends FbBotMillBean implements
-		FbBotMillEvent {
+public abstract class BasePatternEvent extends FbBotMillBean implements FbBotMillEvent {
 
 	/**
 	 * The expected pattern.
@@ -43,7 +41,8 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 	/**
 	 * Instantiates a new BasePatternEvent.
 	 *
-	 * @param expectedPattern the {@link #expectedPattern}.
+	 * @param expectedPattern
+	 *            the {@link #expectedPattern}.
 	 */
 	protected BasePatternEvent(Pattern expectedPattern) {
 		this.expectedPattern = expectedPattern;
@@ -52,7 +51,8 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 	/**
 	 * Instantiates a new BasePatternEvent.
 	 *
-	 * @param expectedPattern the {@link #expectedPattern}.
+	 * @param expectedPattern
+	 *            the {@link #expectedPattern}.
 	 */
 	protected BasePatternEvent(String expectedPattern) {
 		this.expectedPattern = Pattern.compile(expectedPattern);
@@ -61,11 +61,13 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 	/**
 	 * Verify pattern match.
 	 *
-	 * @param text the string that we match against the {@link #expectedPattern} object.
+	 * @param text
+	 *            the string that we match against the {@link #expectedPattern}
+	 *            object.
 	 * @return true, if successful
 	 */
 	protected boolean verifyPatternMatch(String text) {
-		if(this.expectedPattern == null){
+		if (this.expectedPattern == null) {
 			return false;
 		}
 		return this.expectedPattern.matcher(text).matches();
@@ -80,8 +82,7 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((expectedPattern == null) ? 0 : expectedPattern.hashCode());
+		result = prime * result + ((expectedPattern == null) ? 0 : expectedPattern.hashCode());
 		return result;
 	}
 
@@ -107,7 +108,9 @@ public abstract class BasePatternEvent extends FbBotMillBean implements
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
 	 */
 	@Override

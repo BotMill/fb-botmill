@@ -34,7 +34,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class WhitelistDomainRequest.
  */
@@ -54,7 +53,7 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	@NotEmpty
 	@SerializedName("whitelisted_domains")
 	private List<String> whiteListedDomains;
-	
+
 	/**
 	 * Instantiates a new whitelist domain request.
 	 */
@@ -63,30 +62,33 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 		this.domainActionType = DomainActionType.ADD;
 		this.type = SettingType.DOMAIN_WHITELISTING;
 	}
-	
+
 	/**
 	 * Instantiates a new whitelist domain request.
 	 *
-	 * @param whiteListedDomains the white listed domains
+	 * @param whiteListedDomains
+	 *            the white listed domains
 	 */
 	public WhitelistDomainRequest(List<String> whiteListedDomains) {
-		this.whiteListedDomains= whiteListedDomains;
+		this.whiteListedDomains = whiteListedDomains;
 		this.domainActionType = DomainActionType.ADD;
 		this.type = SettingType.DOMAIN_WHITELISTING;
 	}
-	
+
 	/**
 	 * Instantiates a new whitelist domain request.
 	 *
-	 * @param whiteListedDomains the white listed domains
-	 * @param domainActionType the domain action type
+	 * @param whiteListedDomains
+	 *            the white listed domains
+	 * @param domainActionType
+	 *            the domain action type
 	 */
 	public WhitelistDomainRequest(List<String> whiteListedDomains, DomainActionType domainActionType) {
-		this.whiteListedDomains= whiteListedDomains;
+		this.whiteListedDomains = whiteListedDomains;
 		this.domainActionType = domainActionType;
 		this.type = SettingType.DOMAIN_WHITELISTING;
 	}
-	
+
 	/**
 	 * Gets the domain action type.
 	 *
@@ -99,7 +101,8 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the domain action type.
 	 *
-	 * @param domainActionType the new domain action type
+	 * @param domainActionType
+	 *            the new domain action type
 	 */
 	public void setDomainActionType(DomainActionType domainActionType) {
 		this.domainActionType = domainActionType;
@@ -117,22 +120,23 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the white listed domains.
 	 *
-	 * @param whiteListedDomains the new white listed domains
+	 * @param whiteListedDomains
+	 *            the new white listed domains
 	 */
 	public void setWhiteListedDomains(List<String> whiteListedDomains) {
 		this.whiteListedDomains = whiteListedDomains;
 	}
-	
+
 	/**
 	 * Adds the white listed domain.
 	 *
-	 * @param domain the domain
+	 * @param domain
+	 *            the domain
 	 * @return the whitelist domain request
 	 */
 	public WhitelistDomainRequest addWhiteListedDomain(String domain) {
 		this.whiteListedDomains.add(domain);
 		return this;
 	}
-	
 
 }

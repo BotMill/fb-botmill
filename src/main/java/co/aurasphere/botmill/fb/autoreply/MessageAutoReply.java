@@ -29,7 +29,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
-
 /**
  * An {@link AutoReply} that replies with a specified message.
  * 
@@ -58,8 +57,7 @@ public class MessageAutoReply extends AutoReply {
 	 * {@inheritDoc} It replies with the message specified in the constructor.
 	 */
 	public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-		return ReplyFactory.addTextMessageOnly(this.replyMessage).build(
-				envelope);
+		return ReplyFactory.addTextMessageOnly(this.replyMessage).build(envelope);
 	}
 
 	/*
@@ -71,8 +69,7 @@ public class MessageAutoReply extends AutoReply {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((replyMessage == null) ? 0 : replyMessage.hashCode());
+		result = prime * result + ((replyMessage == null) ? 0 : replyMessage.hashCode());
 		return result;
 	}
 
@@ -98,7 +95,9 @@ public class MessageAutoReply extends AutoReply {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.autoreply.AutoReply#toString()
 	 */
 	@Override

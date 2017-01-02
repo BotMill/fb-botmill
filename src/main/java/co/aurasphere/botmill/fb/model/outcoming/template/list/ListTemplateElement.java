@@ -36,7 +36,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class ListTemplateElement.
  * 
@@ -66,7 +65,7 @@ public class ListTemplateElement implements Serializable {
 	@Valid
 	@Size(max = 3)
 	private List<Button> buttons;
-	
+
 	/** The default action. */
 	@SerializedName("default_action")
 	private DefaultAction defaultAction;
@@ -83,7 +82,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Sets the default action.
 	 *
-	 * @param defaultAction the new default action
+	 * @param defaultAction
+	 *            the new default action
 	 * @return the list template element
 	 */
 	public ListTemplateElement setDefaultAction(DefaultAction defaultAction) {
@@ -94,7 +94,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Instantiates a new list template element.
 	 *
-	 * @param title the title
+	 * @param title
+	 *            the title
 	 */
 	public ListTemplateElement(String title) {
 		this.title = title;
@@ -113,7 +114,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 * @return the list template element
 	 */
 	public ListTemplateElement setTitle(String title) {
@@ -133,7 +135,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Sets the image url.
 	 *
-	 * @param imageUrl the new image url
+	 * @param imageUrl
+	 *            the new image url
 	 * @return the list template element
 	 */
 	public ListTemplateElement setImageUrl(String imageUrl) {
@@ -154,7 +157,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Sets the subtitle.
 	 *
-	 * @param subtitle the new subtitle
+	 * @param subtitle
+	 *            the new subtitle
 	 * @return the list template element
 	 */
 	public ListTemplateElement setSubtitle(String subtitle) {
@@ -174,7 +178,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Sets the buttons.
 	 *
-	 * @param buttons the new buttons
+	 * @param buttons
+	 *            the new buttons
 	 * @return the list template element
 	 */
 	public ListTemplateElement setButtons(List<Button> buttons) {
@@ -185,7 +190,8 @@ public class ListTemplateElement implements Serializable {
 	/**
 	 * Adds the button.
 	 *
-	 * @param button the button
+	 * @param button
+	 *            the button
 	 * @return the list template element
 	 */
 	public ListTemplateElement addButton(Button button) {

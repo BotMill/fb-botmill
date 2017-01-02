@@ -25,13 +25,13 @@ package co.aurasphere.botmill.fb.internal.util.network;
 
 import co.aurasphere.botmill.fb.FbBotMillContext;
 
-
 /**
  * Utility class that contains the constants used to handle the network
  * communication with Facebook.
  *
  * @author Donato Rimenti
- * @see <a href="https://developers.facebook.com/docs/messenger-platform/quickstart">
+ * @see <a href=
+ *      "https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook's Messenger Platform Documentation</a>
  * 
  */
@@ -51,8 +51,8 @@ public class FbBotMillNetworkConstants {
 	 * GET parameter indicating the verify token from Facebook. Used only during
 	 * WebHook initial registration. Facebook will send a verify token as
 	 * defined during configuration phase. The Servlet will check that the token
-	 * is the same registered in the {@link FbBotMillContext} and, if that's the case,
-	 * proceed with registration.
+	 * is the same registered in the {@link FbBotMillContext} and, if that's the
+	 * case, proceed with registration.
 	 * 
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart">
@@ -89,7 +89,8 @@ public class FbBotMillNetworkConstants {
 	/**
 	 * Facebook's REST path for the Send API.
 	 * 
-	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference">
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference">
 	 *      Facebook's Messenger Send API Documentation</a>
 	 */
 	public static final String FACEBOOK_MESSAGES_URL = "me/messages?access_token=";
@@ -97,7 +98,8 @@ public class FbBotMillNetworkConstants {
 	/**
 	 * Facebook's REST path for the Thread Settings API.
 	 * 
-	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/thread-settings">
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings">
 	 *      Facebook's Messenger Thread Settings Documentation</a>
 	 */
 	public static final String FACEBOOK_THREAD_SETTINGS_URL = "me/thread_settings?access_token=";
@@ -105,7 +107,8 @@ public class FbBotMillNetworkConstants {
 	/**
 	 * Facebook's GET parameters for the User Profile API.
 	 * 
-	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/user-profile"
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/user-profile"
 	 *      >Facebook's Messenger User Profile API Documentation</a>
 	 */
 	public static final String USER_PROFILE_FIELDS = "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=";

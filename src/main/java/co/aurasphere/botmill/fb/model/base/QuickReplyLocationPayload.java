@@ -32,12 +32,12 @@ import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
  * 
  */
 public class QuickReplyLocationPayload implements Payload {
-	
+
 	/**
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The coordinates.
 	 */
@@ -55,7 +55,8 @@ public class QuickReplyLocationPayload implements Payload {
 	/**
 	 * Sets the {@link #coordinates}.
 	 *
-	 * @param coordinates the {@link #coordinates} to set.
+	 * @param coordinates
+	 *            the {@link #coordinates} to set.
 	 */
 	public void setCoordinates(LocationCoordinates coordinates) {
 		this.coordinates = coordinates;

@@ -31,7 +31,7 @@ import co.aurasphere.botmill.fb.FbBotMillPolicy;
  * The Class BaseBehavior.
  */
 public abstract class BaseBehavior extends AbstractFbBot {
-	
+
 	/**
 	 * 
 	 */

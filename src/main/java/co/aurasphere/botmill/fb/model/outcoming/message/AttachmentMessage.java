@@ -51,12 +51,13 @@ public class AttachmentMessage extends Message {
 	/**
 	 * Instantiates a new attachment message.
 	 *
-	 * @param attachment the {@link #attachment}.
+	 * @param attachment
+	 *            the {@link #attachment}.
 	 */
-	public AttachmentMessage(Attachment attachment){
+	public AttachmentMessage(Attachment attachment) {
 		this.attachment = attachment;
 	}
-	
+
 	/**
 	 * Gets the {@link #attachment}.
 	 *
@@ -69,10 +70,11 @@ public class AttachmentMessage extends Message {
 	/**
 	 * Sets the {@link #attachment}.
 	 *
-	 * @param attachment the {@link #attachment} to set.
+	 * @param attachment
+	 *            the {@link #attachment} to set.
 	 */
 	public void setAttachment(Attachment attachment) {
 		this.attachment = attachment;
 	}
-	
+
 }

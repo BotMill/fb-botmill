@@ -61,18 +61,22 @@ public class Summary implements Serializable {
 	/**
 	 * Instantiates a new summary.
 	 *
-	 * @param subtotal the subtotal
-	 * @param shippingCost the shipping cost
-	 * @param totalTax the total tax
-	 * @param totalCost the total cost
+	 * @param subtotal
+	 *            the subtotal
+	 * @param shippingCost
+	 *            the shipping cost
+	 * @param totalTax
+	 *            the total tax
+	 * @param totalCost
+	 *            the total cost
 	 */
-	public Summary(BigDecimal subtotal, BigDecimal shippingCost, BigDecimal totalTax,
-			BigDecimal totalCost) {
+	public Summary(BigDecimal subtotal, BigDecimal shippingCost, BigDecimal totalTax, BigDecimal totalCost) {
 		this.subtotal = subtotal;
 		this.shippingCost = shippingCost;
 		this.totalTax = totalTax;
 		this.totalCost = totalCost;
 	}
+
 	/**
 	 * Gets the subtotal.
 	 *
@@ -85,7 +89,8 @@ public class Summary implements Serializable {
 	/**
 	 * Sets the subtotal.
 	 *
-	 * @param subtotal the new subtotal
+	 * @param subtotal
+	 *            the new subtotal
 	 */
 	public void setSubtotal(BigDecimal subtotal) {
 		this.subtotal = subtotal;
@@ -103,7 +108,8 @@ public class Summary implements Serializable {
 	/**
 	 * Sets the shipping cost.
 	 *
-	 * @param shippingCost the new shipping cost
+	 * @param shippingCost
+	 *            the new shipping cost
 	 */
 	public void setShippingCost(BigDecimal shippingCost) {
 		this.shippingCost = shippingCost;
@@ -121,7 +127,8 @@ public class Summary implements Serializable {
 	/**
 	 * Sets the total tax.
 	 *
-	 * @param totalTax the new total tax
+	 * @param totalTax
+	 *            the new total tax
 	 */
 	public void setTotalTax(BigDecimal totalTax) {
 		this.totalTax = totalTax;
@@ -139,7 +146,8 @@ public class Summary implements Serializable {
 	/**
 	 * Sets the total cost.
 	 *
-	 * @param totalCost the new total cost
+	 * @param totalCost
+	 *            the new total cost
 	 */
 	public void setTotalCost(BigDecimal totalCost) {
 		this.totalCost = totalCost;

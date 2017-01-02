@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Class that contains all the context information used to handle bots and
  * communicate with Facebook. The context is a singleton.
@@ -37,8 +36,8 @@ import java.util.List;
 public class FbBotMillContext {
 
 	/**
-	 * A list of the registered bots in the context. A {@link FbBot} can't
-	 * be used unless it's registered to the context.
+	 * A list of the registered bots in the context. A {@link FbBot} can't be
+	 * used unless it's registered to the context.
 	 */
 	private List<FbBot> registeredBots;
 
@@ -83,8 +82,8 @@ public class FbBotMillContext {
 	}
 
 	/**
-	 * Registers a {@link FbBot} to the context. A bot can't be
-	 * used unless it's registered to the context.
+	 * Registers a {@link FbBot} to the context. A bot can't be used unless it's
+	 * registered to the context.
 	 * 
 	 * @param fbBot
 	 *            the bot to register.
@@ -185,7 +184,9 @@ public class FbBotMillContext {
 	 * @param validationToken
 	 *            the validation token for the Facebook webhook.
 	 * 
-	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/quickstart">Facebook Messenger Platform documentation</a>
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/quickstart">
+	 *      Facebook Messenger Platform documentation</a>
 	 */
 	public void setup(String pageToken, String validationToken) {
 		this.pageToken = pageToken;
@@ -199,9 +200,8 @@ public class FbBotMillContext {
 	 */
 	@Override
 	public String toString() {
-		return "FbBotMillContext [registeredBots=" + registeredBots
-				+ ", validationToken=" + validationToken + ", pageToken="
-				+ pageToken + ", validationEnabled=" + validationEnabled + "]";
+		return "FbBotMillContext [registeredBots=" + registeredBots + ", validationToken=" + validationToken
+				+ ", pageToken=" + pageToken + ", validationEnabled=" + validationEnabled + "]";
 	}
 
 }

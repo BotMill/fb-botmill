@@ -23,10 +23,8 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
-
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
-
 
 /**
  * Builder for a {@link ListTemplateElement}.
@@ -47,8 +45,7 @@ public class ListTemplateElementBuilder {
 	private ListTemplateElement element;
 
 	/**
-	 * Default constructor. Creates a builder for a
-	 * {@link ListTemplateElement}.
+	 * Default constructor. Creates a builder for a {@link ListTemplateElement}.
 	 * 
 	 * @param title
 	 *            the title of the element.
@@ -75,7 +72,8 @@ public class ListTemplateElementBuilder {
 	/**
 	 * Sets an image for the current {@link ListTemplateElement}.
 	 *
-	 * @param imageUrl the image url
+	 * @param imageUrl
+	 *            the image url
 	 * @return this builder.
 	 */
 	public ListTemplateElementBuilder setImage(String imageUrl) {
@@ -85,8 +83,7 @@ public class ListTemplateElementBuilder {
 
 	/**
 	 * Adds a button which redirects to an URL when clicked to the current
-	 * {@link ListTemplateElement}. There can be at most 3 buttons per
-	 * element.
+	 * {@link ListTemplateElement}. There can be at most 3 buttons per element.
 	 * 
 	 * @param title
 	 *            the button label.
@@ -102,8 +99,7 @@ public class ListTemplateElementBuilder {
 
 	/**
 	 * Adds a button with a phone number to the current
-	 * {@link ListTemplateElement}. There can be at most 3 buttons per
-	 * element.
+	 * {@link ListTemplateElement}. There can be at most 3 buttons per element.
 	 * 
 	 * @param title
 	 *            the button label.
@@ -120,8 +116,7 @@ public class ListTemplateElementBuilder {
 
 	/**
 	 * Adds a button which sends a payload back when clicked to the current
-	 * {@link ListTemplateElement}. There can be at most 3 buttons per
-	 * element.
+	 * {@link ListTemplateElement}. There can be at most 3 buttons per element.
 	 * 
 	 * @param title
 	 *            the button label.
@@ -136,8 +131,8 @@ public class ListTemplateElementBuilder {
 	}
 
 	/**
-	 * Adds a button to the current {@link ListTemplateElement}. There can be
-	 * at most 3 buttons per element.
+	 * Adds a button to the current {@link ListTemplateElement}. There can be at
+	 * most 3 buttons per element.
 	 * 
 	 * @param button
 	 *            the button to add.

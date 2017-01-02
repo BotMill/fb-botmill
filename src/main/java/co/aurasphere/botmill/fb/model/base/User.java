@@ -27,7 +27,6 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 /**
  * An object that contains a Facebook's user ID.
  * 
@@ -56,7 +55,8 @@ public class User implements Serializable {
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param id the {@link #id}.
+	 * @param id
+	 *            the {@link #id}.
 	 */
 	public User(String id) {
 		this.id = id;
@@ -74,7 +74,8 @@ public class User implements Serializable {
 	/**
 	 * Sets the {@link #id}.
 	 *
-	 * @param id the {@link #id} to set.
+	 * @param id
+	 *            the {@link #id} to set.
 	 */
 	public void setId(String id) {
 		this.id = id;

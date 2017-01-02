@@ -29,7 +29,6 @@ import javax.validation.constraints.NotNull;
 import co.aurasphere.botmill.fb.model.threadsettings.SettingType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
 
-
 /**
  * Request used for Thread Settings of Text Greeting.
  *
@@ -37,7 +36,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
- *      
+ * 
  * 
  */
 public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {
@@ -57,7 +56,8 @@ public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {
 	/**
 	 * Instantiates a new set greeting text request.
 	 *
-	 * @param greeting the {@link #greeting}.
+	 * @param greeting
+	 *            the {@link #greeting}.
 	 */
 	public SetGreetingTextRequest(String greeting) {
 		this.type = SettingType.GREETING;
@@ -76,7 +76,8 @@ public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the {@link #greeting}.
 	 *
-	 * @param greeting the {@link #greeting} to set.
+	 * @param greeting
+	 *            the {@link #greeting} to set.
 	 */
 	public void setGreeting(Greeting greeting) {
 		this.greeting = greeting;

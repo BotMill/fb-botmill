@@ -38,7 +38,6 @@ import co.aurasphere.botmill.fb.model.incoming.callback.payment.Payment;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * A generic incoming message envelope.
  *

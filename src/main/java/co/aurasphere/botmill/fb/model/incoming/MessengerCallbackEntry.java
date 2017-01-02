@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb.model.incoming;
 import java.io.Serializable;
 import java.util.List;
 
-
 /**
  * Represents a received callback from Facebook's Messenger Platform.
  *

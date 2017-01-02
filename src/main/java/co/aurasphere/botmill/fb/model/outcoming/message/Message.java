@@ -34,7 +34,6 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * An object that represents the content of a {@link FbBotMillMessageResponse}.
  * 
@@ -47,7 +46,7 @@ public abstract class Message implements Serializable {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * The quick replies of this message.
 	 */
@@ -68,7 +67,8 @@ public abstract class Message implements Serializable {
 	/**
 	 * Sets the {@link #quickReplies}.
 	 *
-	 * @param quickReplies the {@link #quickReplies} to set.
+	 * @param quickReplies
+	 *            the {@link #quickReplies} to set.
 	 */
 	public void setQuickReplies(List<QuickReply> quickReplies) {
 		this.quickReplies = quickReplies;

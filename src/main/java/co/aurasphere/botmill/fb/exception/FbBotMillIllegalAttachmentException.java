@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.exception;
 
 import co.aurasphere.botmill.fb.model.base.Attachment;
 
-
 /**
  * Exception used to handle an {@link Attachment} that's not permitted for a
  * response.
@@ -43,13 +42,16 @@ public class FbBotMillIllegalAttachmentException extends IllegalArgumentExceptio
 	/**
 	 * Instantiates a new FbBot illegal attachment exception.
 	 *
-	 * @param message the message.
+	 * @param message
+	 *            the message.
 	 */
 	public FbBotMillIllegalAttachmentException(String message) {
 		super(message);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Throwable#toString()
 	 */
 	@Override

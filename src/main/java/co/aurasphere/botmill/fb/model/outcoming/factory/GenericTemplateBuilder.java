@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.GenericTemplate
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
-
 /**
  * A builder for a Generic Template.
  *
@@ -57,8 +56,7 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	GenericTemplateBuilder() {
 		this.payload = new GenericTemplatePayload();
-		this.messageBuilder = new AttachmentMessageBuilder(
-				AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -87,8 +85,10 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
@@ -103,7 +103,8 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"

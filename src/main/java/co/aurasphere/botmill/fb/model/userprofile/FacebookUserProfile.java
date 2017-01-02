@@ -27,16 +27,15 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Model for the User Profile API. <br>
  * <br>
  * The profile API can be used to query more information about the user, and
  * personalize the experience further. This API is only available after the user
- * initiated the conversation by sending a message or by interacting with a <a
- * href=
- * "https://developers.facebook.com/docs/messenger-platform/plugin-reference"
- * >Web Plugin</a>. <br>
+ * initiated the conversation by sending a message or by interacting with a
+ * <a href=
+ * "https://developers.facebook.com/docs/messenger-platform/plugin-reference" >
+ * Web Plugin</a>. <br>
  * <br>
  * If the conversation was initiated by using a phone number (customer
  * matching]), you will only be able to use this API after the user replied to
@@ -115,7 +114,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #firstName}.
 	 *
-	 * @param firstName the {@link #firstName} to set.
+	 * @param firstName
+	 *            the {@link #firstName} to set.
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -133,7 +133,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #lastName}.
 	 *
-	 * @param lastName the {@link #lastName} to set.
+	 * @param lastName
+	 *            the {@link #lastName} to set.
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -151,7 +152,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #profilePic}.
 	 *
-	 * @param profilePic the {@link #profilePic} to set.
+	 * @param profilePic
+	 *            the {@link #profilePic} to set.
 	 */
 	public void setProfilePic(String profilePic) {
 		this.profilePic = profilePic;
@@ -169,7 +171,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #locale}.
 	 *
-	 * @param locale the {@link #locale} to set.
+	 * @param locale
+	 *            the {@link #locale} to set.
 	 */
 	public void setLocale(String locale) {
 		this.locale = locale;
@@ -187,7 +190,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #timezone}.
 	 *
-	 * @param timezone the {@link #timezone} to set.
+	 * @param timezone
+	 *            the {@link #timezone} to set.
 	 */
 	public void setTimezone(int timezone) {
 		this.timezone = timezone;
@@ -205,7 +209,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #gender}.
 	 *
-	 * @param gender the {@link #gender} to set.
+	 * @param gender
+	 *            the {@link #gender} to set.
 	 */
 	public void setGender(Gender gender) {
 		this.gender = gender;
@@ -223,7 +228,8 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Sets the {@link #isPaymentEnabled}.
 	 *
-	 * @param isPaymentEnabled the {@link #isPaymentEnabled} to set.
+	 * @param isPaymentEnabled
+	 *            the {@link #isPaymentEnabled} to set.
 	 */
 	public void setPaymentEnabled(boolean isPaymentEnabled) {
 		this.isPaymentEnabled = isPaymentEnabled;

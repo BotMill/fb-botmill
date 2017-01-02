@@ -23,7 +23,6 @@
  */
 package co.aurasphere.botmill.fb;
 
-
 /**
  * Enumeration that indicates which policy a {@link FbBot} will use when
  * processing the callback handler chain.

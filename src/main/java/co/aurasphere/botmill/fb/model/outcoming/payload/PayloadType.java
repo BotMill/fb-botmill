@@ -34,18 +34,18 @@ public enum PayloadType {
 	/**
 	 * The button.
 	 */
-	BUTTON, 
-	
+	BUTTON,
+
 	/**
 	 * The generic.
 	 */
-	GENERIC, 
-	
+	GENERIC,
+
 	/**
 	 * The list.
 	 */
-	LIST, 
-	
+	LIST,
+
 	/**
 	 * The receipt.
 	 */
@@ -60,12 +60,12 @@ public enum PayloadType {
 	 * The airline boardingpass.
 	 */
 	AIRLINE_BOARDINGPASS,
-	
+
 	/**
 	 * The airline update.
 	 */
 	AIRLINE_UPDATE,
-	
+
 	/**
 	 * The airline checkin.
 	 */

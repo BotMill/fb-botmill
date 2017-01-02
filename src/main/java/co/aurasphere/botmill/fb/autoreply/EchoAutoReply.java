@@ -27,7 +27,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
-
 /**
  * An {@link AutoReply} that replies with the last received message. Mostly used
  * for testing and demo purposes.
@@ -45,7 +44,9 @@ public class EchoAutoReply extends AutoReply {
 		return ReplyFactory.addTextMessageOnly(lastMessage).build(envelope);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.autoreply.AutoReply#toString()
 	 */
 	@Override

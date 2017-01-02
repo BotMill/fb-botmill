@@ -42,7 +42,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 
-
 /**
  * Main Servlet for FbBotMill framework. This servlet requires an init-param
  * containing the fully qualified name of a class implementing
@@ -57,8 +56,8 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  * documentation with the link below.
  *
  * @author Donato Rimenti
- * @see <a
- *      href="https://developers.facebook.com/docs/messenger-platform/quickstart">
+ * @see <a href=
+ *      "https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook Subscription info</a>
  * 
  */
@@ -67,8 +66,7 @@ public class FbBotMillServlet extends HttpServlet {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory
-			.getLogger(FbBotMillServlet.class);
+	private static final Logger logger = LoggerFactory.getLogger(FbBotMillServlet.class);
 
 	/**
 	 * The serial version UID.
@@ -83,18 +81,18 @@ public class FbBotMillServlet extends HttpServlet {
 	 * ServletException is thrown.
 	 * 
 	 * @throws ServletException
-	 *             if the {@link FbBotDefinition} class is not found in the servlet
-	 *             init-param in web.xml or if can't be load.
+	 *             if the {@link FbBotDefinition} class is not found in the
+	 *             servlet init-param in web.xml or if can't be load.
 	 */
 	@Override
 	public void init() throws ServletException {
 
 		// Tries to get the botDefinitionClass name from the config defined in
 		// web.xml.
-		String botDefinitionClass = getServletConfig().getInitParameter(
-				"bot-definition-class");
+		String botDefinitionClass = getServletConfig().getInitParameter("bot-definition-class");
 		if (botDefinitionClass == null || botDefinitionClass.isEmpty()) {
-			logger.error("Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
+			logger.error(
+					"Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
 			throw new ServletException(
 					"Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
 		}
@@ -102,31 +100,21 @@ public class FbBotMillServlet extends HttpServlet {
 		// Tries to load and instantiate the botDefinitionClass.
 		FbBotDefinition botDefinition = null;
 		try {
-			botDefinition = (FbBotDefinition) this.getClass()
-					.getClassLoader().loadClass(botDefinitionClass)
+			botDefinition = (FbBotDefinition) this.getClass().getClassLoader().loadClass(botDefinitionClass)
 					.newInstance();
 		} catch (ClassNotFoundException e) {
-			logger.error("Error while loading FbBotDefinition class [ "
-					+ botDefinitionClass + " ]", e);
-			throw new ServletException(
-					"Error while loading FbBotDefinition class [ "
-							+ botDefinitionClass + " ]", e);
+			logger.error("Error while loading FbBotDefinition class [ " + botDefinitionClass + " ]", e);
+			throw new ServletException("Error while loading FbBotDefinition class [ " + botDefinitionClass + " ]", e);
 		} catch (ClassCastException e) {
 			logger.error(
-					"Class [ "
-							+ botDefinitionClass
-							+ " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
+					"Class [ " + botDefinitionClass + " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
 					e);
 			throw new ServletException(
-					"Class [ "
-							+ botDefinitionClass
-							+ " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
+					"Class [ " + botDefinitionClass + " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
 					e);
 		} catch (Exception e) {
-			logger.error("Error during instantiation of class [ "
-					+ botDefinitionClass + " ]", e);
-			throw new ServletException("Error during instantiation of class [ "
-					+ botDefinitionClass + " ]", e);
+			logger.error("Error during instantiation of class [ " + botDefinitionClass + " ]", e);
+			throw new ServletException("Error during instantiation of class [ " + botDefinitionClass + " ]", e);
 		}
 
 		// If everything is OK, calls the defineBehavior method of the
@@ -139,44 +127,45 @@ public class FbBotMillServlet extends HttpServlet {
 	 * Specifies how to handle a GET request. GET requests are used by Facebook
 	 * only during the WebHook registration. During this phase, the
 	 * FbBotMillServlet checks that the
-	 * {@link FbBotMillNetworkConstants#HUB_MODE_PARAMETER} value received equals to
-	 * {@link FbBotMillNetworkConstants#HUB_MODE_SUBSCRIBE} and that the
-	 * {@link FbBotMillNetworkConstants#HUB_VERIFY_TOKEN_PARAMETER} value received equals
-	 * to the {@link FbBotMillContext#getValidationToken()}. If that's true, then
-	 * the FbBotMillServlet will reply sending back the value of the
-	 * {@link FbBotMillNetworkConstants#HUB_CHALLENGE_PARAMETER} received, in order to
-	 * confirm the registration, otherwise it will return an error 403.
+	 * {@link FbBotMillNetworkConstants#HUB_MODE_PARAMETER} value received
+	 * equals to {@link FbBotMillNetworkConstants#HUB_MODE_SUBSCRIBE} and that
+	 * the {@link FbBotMillNetworkConstants#HUB_VERIFY_TOKEN_PARAMETER} value
+	 * received equals to the {@link FbBotMillContext#getValidationToken()}. If
+	 * that's true, then the FbBotMillServlet will reply sending back the value
+	 * of the {@link FbBotMillNetworkConstants#HUB_CHALLENGE_PARAMETER}
+	 * received, in order to confirm the registration, otherwise it will return
+	 * an error 403.
 	 *
-	 * @param req the req
-	 * @param resp the resp
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param req
+	 *            the req
+	 * @param resp
+	 *            the resp
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// Retrieves GET parameters.
-		String validationToken = FbBotMillContext.getInstance()
-				.getValidationToken();
+		String validationToken = FbBotMillContext.getInstance().getValidationToken();
 		Map<String, String[]> parameters = req.getParameterMap();
-		String hubMode = safeUnwrapGetParameters(parameters
-				.get(FbBotMillNetworkConstants.HUB_MODE_PARAMETER));
-		String hubToken = safeUnwrapGetParameters(parameters
-				.get(FbBotMillNetworkConstants.HUB_VERIFY_TOKEN_PARAMETER));
-		String hubChallenge = safeUnwrapGetParameters(parameters
-				.get(FbBotMillNetworkConstants.HUB_CHALLENGE_PARAMETER));
+		String hubMode = safeUnwrapGetParameters(parameters.get(FbBotMillNetworkConstants.HUB_MODE_PARAMETER));
+		String hubToken = safeUnwrapGetParameters(parameters.get(FbBotMillNetworkConstants.HUB_VERIFY_TOKEN_PARAMETER));
+		String hubChallenge = safeUnwrapGetParameters(
+				parameters.get(FbBotMillNetworkConstants.HUB_CHALLENGE_PARAMETER));
 
 		// Checks parameters and responds according to that.
-		if (hubMode.equals(FbBotMillNetworkConstants.HUB_MODE_SUBSCRIBE)
-				&& hubToken.equals(validationToken)) {
+		if (hubMode.equals(FbBotMillNetworkConstants.HUB_MODE_SUBSCRIBE) && hubToken.equals(validationToken)) {
 			logger.info("Subscription OK.");
 			resp.setStatus(200);
 			resp.setContentType("text/plain");
 			resp.getWriter().write(hubChallenge);
 		} else {
-			logger.warn("GET received is not a subscription or wrong validation token. Ensure you have set the correct validation token using FbBotMillContext.getInstance().setup(String, String).");
+			logger.warn(
+					"GET received is not a subscription or wrong validation token. Ensure you have set the correct validation token using FbBotMillContext.getInstance().setup(String, String).");
 			resp.sendError(403);
 		}
 	}
@@ -185,17 +174,20 @@ public class FbBotMillServlet extends HttpServlet {
 	 * Specifies how to handle a POST request. It parses the request as a
 	 * {@link MessengerCallback} object. If the request is not a
 	 * MessengerCallback, then the FbBotMillServlet logs an error and does
-	 * nothing, otherwise it will forward the request to all registered bots
-	 * in order to let them process the callbacks.
+	 * nothing, otherwise it will forward the request to all registered bots in
+	 * order to let them process the callbacks.
 	 *
-	 * @param req the req
-	 * @param resp the resp
-	 * @throws ServletException the servlet exception
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @param req
+	 *            the req
+	 * @param resp
+	 *            the resp
+	 * @throws ServletException
+	 *             the servlet exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		logger.trace("POST received!");
 		MessengerCallback callback = null;
@@ -219,10 +211,8 @@ public class FbBotMillServlet extends HttpServlet {
 			for (MessengerCallbackEntry entry : callbackEntries) {
 				List<MessageEnvelope> envelopes = entry.getMessaging();
 				if (envelopes != null) {
-					MessageEnvelope lastEnvelope = envelopes.get(envelopes
-							.size() - 1);
-					for (FbBot bot : FbBotMillContext.getInstance()
-							.getRegisteredBots()) {
+					MessageEnvelope lastEnvelope = envelopes.get(envelopes.size() - 1);
+					for (FbBot bot : FbBotMillContext.getInstance().getRegisteredBots()) {
 						bot.processMessage(lastEnvelope);
 					}
 				}
@@ -251,9 +241,11 @@ public class FbBotMillServlet extends HttpServlet {
 	/**
 	 * Utility method that converts a Reader to a String.
 	 *
-	 * @param reader            the reader to convert.
+	 * @param reader
+	 *            the reader to convert.
 	 * @return a String with the content of the reader.
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	private static String readerToString(Reader reader) throws IOException {
 		char[] arr = new char[8 * 1024];

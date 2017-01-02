@@ -27,10 +27,9 @@ import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
-
 /**
- * Abstract class for the response builders. Defines how a bot should build
- * the {@link FbBotMillResponse} object representing its response.
+ * Abstract class for the response builders. Defines how a bot should build the
+ * {@link FbBotMillResponse} object representing its response.
  * 
  * @author Donato Rimenti
  * 

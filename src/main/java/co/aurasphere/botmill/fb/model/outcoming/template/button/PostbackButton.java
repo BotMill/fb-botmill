@@ -27,7 +27,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 /**
  * The Class PostbackButton.
  */
@@ -45,20 +44,23 @@ public class PostbackButton extends Button {
 	@Size(max = 1000)
 	@NotBlank
 	private String payload;
-	
+
 	/**
 	 * The button title.
 	 */
-	@Size(max=20)
+	@Size(max = 20)
 	@NotBlank
 	protected String title;
 
 	/**
 	 * Instantiates a new postback button.
 	 *
-	 * @param title the title
-	 * @param type the type
-	 * @param payload the payload
+	 * @param title
+	 *            the title
+	 * @param type
+	 *            the type
+	 * @param payload
+	 *            the payload
 	 */
 	public PostbackButton(String title, ButtonType type, String payload) {
 		this.title = title;
@@ -78,12 +80,12 @@ public class PostbackButton extends Button {
 	/**
 	 * Sets the payload.
 	 *
-	 * @param payload the new payload
+	 * @param payload
+	 *            the new payload
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
 	}
-
 
 	/**
 	 * Gets the title.
@@ -93,11 +95,12 @@ public class PostbackButton extends Button {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * Sets the title.
 	 *
-	 * @param title the new title
+	 * @param title
+	 *            the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;

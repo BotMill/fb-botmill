@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInf
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * Model for the Payment Callback. <br>
  * <br>
@@ -67,12 +66,13 @@ import com.google.gson.annotations.SerializedName;
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#decrypting"
  * >detail steps here</a>. After you successfully decoded the credential, you
  * can then integrate with your preferred payment provider to charge the card.
- * You need to return HTTP status of 200 once you finished processing the event.<br>
- * If the payment is a test payment, you will get a dummy tokenized card
- * back with the following dummy information (card_number: 4111111111111111,
- * cvv: 123, expiry month: 11, expiry year: 2020). You can test tokenized
- * payment even if your page/app has not been accepted to beta program. Refers
- * to <a href=
+ * You need to return HTTP status of 200 once you finished processing the event.
+ * <br>
+ * If the payment is a test payment, you will get a dummy tokenized card back
+ * with the following dummy information (card_number: 4111111111111111, cvv:
+ * 123, expiry month: 11, expiry year: 2020). You can test tokenized payment
+ * even if your page/app has not been accepted to beta program. Refers to
+ * <a href=
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#test_payments"
  * >How to Test Payment</a> for details. <br>
  *

@@ -27,7 +27,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmentInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.ProductInfo;
 
-
 /**
  * Builder for a {@link PassengerSegmentInfo} object.
  * 
@@ -65,10 +64,9 @@ public class PassengerSegmentInfoBuilder {
 	 *            the seat type for the passenger (e.g. Economy comfort). It
 	 *            can't be empty.
 	 */
-	PassengerSegmentInfoBuilder(AirlineItineraryTemplateBuilder parentBuilder,
-			String segmentId, String passengerId, String seat, String seatType) {
-		this.segmentInfo = new PassengerSegmentInfo(segmentId, passengerId,
-				seat, seatType);
+	PassengerSegmentInfoBuilder(AirlineItineraryTemplateBuilder parentBuilder, String segmentId, String passengerId,
+			String seat, String seatType) {
+		this.segmentInfo = new PassengerSegmentInfo(segmentId, passengerId, seat, seatType);
 		this.parentBuilder = parentBuilder;
 	}
 

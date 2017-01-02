@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 
-
 /**
  * An interface that represents a builder which uses a {@link FlightInfoBuilder}
  * object to populate its {@link FlightInfo} field.
@@ -42,5 +41,5 @@ public abstract class FlightInfoBuilderDelegator extends AirlineBaseTemplateBuil
 	 *            the flight info to add.
 	 */
 	abstract void addFlightInfo(FlightInfo flightInfo);
-	
+
 }

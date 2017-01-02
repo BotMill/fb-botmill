@@ -57,17 +57,14 @@ public class JsonUtils {
 			GsonBuilder builder = new GsonBuilder();
 
 			// Serializes enums as lower-case.
-			builder.registerTypeHierarchyAdapter(Enum.class,
-					new EnumLowercaseSerializer());
+			builder.registerTypeHierarchyAdapter(Enum.class, new EnumLowercaseSerializer());
 
 			// Serializes calendar in format YYYY-MM-DDThh:mm.
-			builder.registerTypeHierarchyAdapter(Calendar.class,
-					new CalendarSerializer());
+			builder.registerTypeHierarchyAdapter(Calendar.class, new CalendarSerializer());
 
 			// Deserializes payloads from interface.
-			builder.registerTypeAdapter(Attachment.class,
-					new AttachmentDeserializer());
-			
+			builder.registerTypeAdapter(Attachment.class, new AttachmentDeserializer());
+
 			gson = builder.create();
 		}
 		return gson;

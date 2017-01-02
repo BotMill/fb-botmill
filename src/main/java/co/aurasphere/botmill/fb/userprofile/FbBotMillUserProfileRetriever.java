@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb.userprofile;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 
-
 /**
  * Class for handling the retrieval of Facebook user info.
  * 

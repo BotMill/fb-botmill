@@ -35,7 +35,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
 
-
 /**
  * Factory class for building {@link Button} objects.
  * 
@@ -71,13 +70,15 @@ public class ButtonFactory {
 	/**
 	 * Creates a web view button.
 	 *
-	 * @param title            the button label.
-	 * @param url            the URL to whom redirect when clicked.
-	 * @param ratioType            the web view ratio type.
+	 * @param title
+	 *            the button label.
+	 * @param url
+	 *            the URL to whom redirect when clicked.
+	 * @param ratioType
+	 *            the web view ratio type.
 	 * @return the button
 	 */
-	public static Button createWebViewButton(String title, String url,
-			WebViewHeightRatioType ratioType) {
+	public static Button createWebViewButton(String title, String url, WebViewHeightRatioType ratioType) {
 		return new WebUrlButton(title, url, ratioType);
 	}
 
@@ -104,8 +105,7 @@ public class ButtonFactory {
 	 *            the country code, area code and local number.
 	 * @return a {@link PostbackButton}.
 	 */
-	public static Button createPhoneNumberButton(String title,
-			String phoneNumber) {
+	public static Button createPhoneNumberButton(String title, String phoneNumber) {
 		return new PostbackButton(title, ButtonType.PHONE_NUMBER, phoneNumber);
 	}
 
@@ -122,9 +122,12 @@ public class ButtonFactory {
 	/**
 	 * Creates a new Button object.
 	 *
-	 * @param type            the button type
-	 * @param payload            the payload data
-	 * @param paymentSummary            the payment summary that will be displayed.
+	 * @param type
+	 *            the button type
+	 * @param payload
+	 *            the payload data
+	 * @param paymentSummary
+	 *            the payment summary that will be displayed.
 	 * @return a {@link Button}
 	 */
 	public static Button createBuyButton(ButtonType type, String payload, PaymentSummary paymentSummary) {

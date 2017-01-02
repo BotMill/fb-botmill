@@ -23,7 +23,6 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
-
 /**
  * Base class for {@link FbBotMillMockableBuilder} that builds a template.
  * 

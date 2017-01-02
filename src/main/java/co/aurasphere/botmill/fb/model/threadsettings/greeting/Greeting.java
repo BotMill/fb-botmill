@@ -31,7 +31,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
-
 /**
  * Object which represents a Greeting Text for Thread Settings.
  * 

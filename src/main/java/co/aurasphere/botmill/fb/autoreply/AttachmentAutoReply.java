@@ -32,7 +32,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
-
 /**
  * An {@link AutoReply} that replies with a file, video, image or audio
  * attachment.
@@ -45,8 +44,7 @@ public class AttachmentAutoReply extends AutoReply {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory
-			.getLogger(AttachmentAutoReply.class);
+	private static final Logger logger = LoggerFactory.getLogger(AttachmentAutoReply.class);
 
 	/**
 	 * The attachment type. This can only be {@link AttachmentType#FILE},
@@ -94,8 +92,7 @@ public class AttachmentAutoReply extends AutoReply {
 			response = ReplyFactory.addVideoAttachment(url).build(envelope);
 			break;
 		default:
-			String message = "Illegal attachment of type [ "
-					+ attachmentType.name() + " ] for AttachmentAutoReply";
+			String message = "Illegal attachment of type [ " + attachmentType.name() + " ] for AttachmentAutoReply";
 			logger.error(message);
 			throw new FbBotMillIllegalAttachmentException(message);
 		}
@@ -111,8 +108,7 @@ public class AttachmentAutoReply extends AutoReply {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((attachmentType == null) ? 0 : attachmentType.hashCode());
+		result = prime * result + ((attachmentType == null) ? 0 : attachmentType.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
 	}
@@ -148,8 +144,7 @@ public class AttachmentAutoReply extends AutoReply {
 	 */
 	@Override
 	public String toString() {
-		return "AttachmentAutoReply [attachmentType=" + attachmentType
-				+ ", url=" + url + "]";
+		return "AttachmentAutoReply [attachmentType=" + attachmentType + ", url=" + url + "]";
 	}
 
 }

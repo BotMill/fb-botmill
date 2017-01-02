@@ -27,7 +27,6 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
-
 /**
  * An {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a specific text message from Facebook's Messenger Platform.
@@ -40,8 +39,10 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new quick reply message event.
 	 *
-	 * @param expectedPayload the expected payload
-	 * @param caseSensitive the case sensitive
+	 * @param expectedPayload
+	 *            the expected payload
+	 * @param caseSensitive
+	 *            the case sensitive
 	 */
 	public QuickReplyMessageEvent(String expectedPayload, boolean caseSensitive) {
 		super(expectedPayload, caseSensitive);
@@ -50,7 +51,8 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	/**
 	 * Instantiates a new quick reply message event.
 	 *
-	 * @param expectedPayload the expected payload
+	 * @param expectedPayload
+	 *            the expected payload
 	 */
 	public QuickReplyMessageEvent(String expectedPayload) {
 		super(expectedPayload);
@@ -59,7 +61,8 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	/**
 	 * Verify event condition.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 * @return true if the text message received by the callback equals the
 	 *         expected message, false otherwise.
 	 */
@@ -76,5 +79,5 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 	public String toString() {
 		return "QuickReplyMessageEvent [expectedString=" + expectedString + "]";
 	}
-	
+
 }

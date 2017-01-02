@@ -29,11 +29,10 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * The Class FlightInfoExtended.
  */
-public class FlightInfoExtended extends FlightInfo{
+public class FlightInfoExtended extends FlightInfo {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -47,7 +46,7 @@ public class FlightInfoExtended extends FlightInfo{
 	@NotBlank
 	@SerializedName("segment_id")
 	private String segmentId;
-	
+
 	/** The aircraft type. */
 	@SerializedName("aircraft_type")
 	private String aircraftType;
@@ -56,16 +55,20 @@ public class FlightInfoExtended extends FlightInfo{
 	@NotNull
 	@SerializedName("travel_class")
 	private TravelClass travelClass;
-	
+
 	/**
 	 * Instantiates a new flight info extended.
 	 *
-	 * @param flightNumber the flight number
-	 * @param connectionId the connection id
-	 * @param segmentId the segment id
-	 * @param travelClass the travel class
+	 * @param flightNumber
+	 *            the flight number
+	 * @param connectionId
+	 *            the connection id
+	 * @param segmentId
+	 *            the segment id
+	 * @param travelClass
+	 *            the travel class
 	 */
-	public FlightInfoExtended(String flightNumber, String connectionId, String segmentId, TravelClass travelClass){
+	public FlightInfoExtended(String flightNumber, String connectionId, String segmentId, TravelClass travelClass) {
 		super(flightNumber);
 		this.connectionId = connectionId;
 		this.segmentId = segmentId;
@@ -84,7 +87,8 @@ public class FlightInfoExtended extends FlightInfo{
 	/**
 	 * Sets the connection id.
 	 *
-	 * @param connectionId the new connection id
+	 * @param connectionId
+	 *            the new connection id
 	 */
 	public void setConnectionId(String connectionId) {
 		this.connectionId = connectionId;
@@ -102,7 +106,8 @@ public class FlightInfoExtended extends FlightInfo{
 	/**
 	 * Sets the segment id.
 	 *
-	 * @param segmentId the new segment id
+	 * @param segmentId
+	 *            the new segment id
 	 */
 	public void setSegmentId(String segmentId) {
 		this.segmentId = segmentId;
@@ -120,7 +125,8 @@ public class FlightInfoExtended extends FlightInfo{
 	/**
 	 * Sets the aircraft type.
 	 *
-	 * @param aircraftType the new aircraft type
+	 * @param aircraftType
+	 *            the new aircraft type
 	 */
 	public void setAircraftType(String aircraftType) {
 		this.aircraftType = aircraftType;
@@ -138,7 +144,8 @@ public class FlightInfoExtended extends FlightInfo{
 	/**
 	 * Sets the travel class.
 	 *
-	 * @param travelClass the new travel class
+	 * @param travelClass
+	 *            the new travel class
 	 */
 	public void setTravelClass(TravelClass travelClass) {
 		this.travelClass = travelClass;

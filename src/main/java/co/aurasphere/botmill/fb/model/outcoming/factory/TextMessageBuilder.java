@@ -33,7 +33,6 @@ import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 import co.aurasphere.botmill.fb.model.outcoming.message.TextMessage;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
-
 /**
  * A builder for a message that contains only a plain text message.
  * 
@@ -61,8 +60,10 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param title            the quick reply button label. It can't be empty.
-	 * @param payload            the payload sent back when the button is pressed. It can't be
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
 	 *            empty.
 	 * @return this builder.
 	 * @see <a href=
@@ -70,7 +71,7 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
 	public TextMessageBuilder addQuickReply(String title, String payload) {
-		if(this.quickReplies == null){
+		if (this.quickReplies == null) {
 			this.quickReplies = new ArrayList<QuickReply>();
 		}
 		this.quickReplies.add(new QuickReply(title, payload));
@@ -80,20 +81,21 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 	/**
 	 * Adds a {@link QuickReply} to the current object.
 	 *
-	 * @param reply            a quick reply object.
+	 * @param reply
+	 *            a quick reply object.
 	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
 	public TextMessageBuilder addQuickReply(QuickReply reply) {
-		if(this.quickReplies == null){
+		if (this.quickReplies == null) {
 			this.quickReplies = new ArrayList<QuickReply>();
 		}
 		this.quickReplies.add(reply);
 		return this;
 	}
-	
+
 	/**
 	 * 
 	 * Adds a Location {@link QuickReply} to the current object.

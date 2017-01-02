@@ -39,6 +39,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
  * Factory class for building {@link Button} objects.
  * 
  * @author Donato Rimenti
+ * @since 1.0.0
  * 
  */
 public class ButtonFactory {
@@ -64,7 +65,7 @@ public class ButtonFactory {
 	 * @return a {@link DefaultAction}.
 	 */
 	public static DefaultAction createDefaultActionButton(String url) {
-		return new DefaultAction(ButtonType.WEB_URL, url);
+		return new DefaultAction(url);
 	}
 
 	/**
@@ -116,23 +117,20 @@ public class ButtonFactory {
 	 * @return a {@link Button}.
 	 */
 	public static Button createShareButton() {
-		return new ShareButton(ButtonType.ELEMENT_SHARE);
+		return new ShareButton();
 	}
 
 	/**
 	 * Creates a new Button object.
 	 *
-	 * @param type
-	 *            the button type
 	 * @param payload
 	 *            the payload data
 	 * @param paymentSummary
 	 *            the payment summary that will be displayed.
 	 * @return a {@link Button}
 	 */
-	public static Button createBuyButton(ButtonType type, String payload, PaymentSummary paymentSummary) {
-		// TODO: the buy button title must be buy
-		return new BuyButton(ButtonType.PAYMENT, payload, paymentSummary);
+	public static Button createBuyButton(String payload, PaymentSummary paymentSummary) {
+		return new BuyButton(payload, paymentSummary);
 	}
 
 	/**
@@ -144,7 +142,7 @@ public class ButtonFactory {
 	 * @return a {@link Button}
 	 */
 	public static Button createLoginButton(String url) {
-		return new LoginButton(ButtonType.ACCOUNT_LINK, url);
+		return new LoginButton(url);
 	}
 
 	/**
@@ -153,6 +151,6 @@ public class ButtonFactory {
 	 * @return a {@link Button}.
 	 */
 	public static Button createLogoutButton() {
-		return new LogoutButton(ButtonType.ACCOUNT_UNLINK);
+		return new LogoutButton();
 	}
 }

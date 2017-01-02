@@ -23,8 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.list;
 
-import java.io.Serializable;
-
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 
 import com.google.gson.annotations.SerializedName;
@@ -36,12 +35,10 @@ import com.google.gson.annotations.SerializedName;
  * 
  * 
  */
-public class DefaultAction implements Serializable {
+public class DefaultAction extends Button {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	/** The type. */
-	private ButtonType type;
 
 	/** The url. */
 	private String url;
@@ -61,8 +58,6 @@ public class DefaultAction implements Serializable {
 	/**
 	 * Instantiates a new default action.
 	 *
-	 * @param type
-	 *            the type
 	 * @param url
 	 *            the url
 	 * @param messengerExtensions
@@ -72,10 +67,9 @@ public class DefaultAction implements Serializable {
 	 * @param fallbackUrl
 	 *            the fallback url
 	 */
-	public DefaultAction(ButtonType type, String url, String messengerExtensions, String webviewHeightRatio,
+	public DefaultAction(String url, String messengerExtensions, String webviewHeightRatio,
 			String fallbackUrl) {
-		this.type = type;
-		this.url = url;
+		this(url);
 		this.messengerExtensions = messengerExtensions;
 		this.webviewHeightRatio = webviewHeightRatio;
 		this.fallbackUrl = fallbackUrl;
@@ -84,35 +78,12 @@ public class DefaultAction implements Serializable {
 	/**
 	 * Instantiates a new default action.
 	 *
-	 * @param type
-	 *            the type
 	 * @param url
 	 *            the url
 	 */
-	public DefaultAction(ButtonType type, String url) {
-		this.type = type;
+	public DefaultAction(String url) {
+		this.type = ButtonType.WEB_URL;
 		this.url = url;
-	}
-
-	/**
-	 * Gets the type.
-	 *
-	 * @return the type
-	 */
-	public ButtonType getType() {
-		return type;
-	}
-
-	/**
-	 * Sets the type.
-	 *
-	 * @param type
-	 *            the new type
-	 * @return the default action
-	 */
-	public DefaultAction setType(ButtonType type) {
-		this.type = type;
-		return this;
 	}
 
 	/**
@@ -129,11 +100,9 @@ public class DefaultAction implements Serializable {
 	 *
 	 * @param url
 	 *            the new url
-	 * @return the default action
 	 */
-	public DefaultAction setUrl(String url) {
+	public void setUrl(String url) {
 		this.url = url;
-		return this;
 	}
 
 	/**
@@ -150,11 +119,9 @@ public class DefaultAction implements Serializable {
 	 *
 	 * @param messengerExtensions
 	 *            the new messenger extensions
-	 * @return the default action
 	 */
-	public DefaultAction setMessengerExtensions(String messengerExtensions) {
+	public void setMessengerExtensions(String messengerExtensions) {
 		this.messengerExtensions = messengerExtensions;
-		return this;
 	}
 
 	/**
@@ -171,11 +138,9 @@ public class DefaultAction implements Serializable {
 	 *
 	 * @param webviewHeightRatio
 	 *            the new webview height ratio
-	 * @return the default action
 	 */
-	public DefaultAction setWebviewHeightRatio(String webviewHeightRatio) {
+	public void setWebviewHeightRatio(String webviewHeightRatio) {
 		this.webviewHeightRatio = webviewHeightRatio;
-		return this;
 	}
 
 	/**
@@ -192,11 +157,9 @@ public class DefaultAction implements Serializable {
 	 *
 	 * @param fallbackUrl
 	 *            the new fallback url
-	 * @return the default action
 	 */
-	public DefaultAction setFallbackUrl(String fallbackUrl) {
+	public void setFallbackUrl(String fallbackUrl) {
 		this.fallbackUrl = fallbackUrl;
-		return this;
 	}
 
 }

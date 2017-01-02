@@ -1,3 +1,9 @@
 target/
 src/test/java/co/aurasphere/facebot/demo/TestClass.java
 
+/bin/
+
+.classpath
+.settings/org.eclipse.wst.common.component
+.project
+.settings/org.eclipse.wst.common.component

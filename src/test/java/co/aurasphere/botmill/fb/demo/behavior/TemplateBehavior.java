@@ -24,8 +24,6 @@
 package co.aurasphere.botmill.fb.demo.behavior;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
@@ -35,16 +33,12 @@ import co.aurasphere.botmill.fb.event.message.MessageEvent;
 import co.aurasphere.botmill.fb.event.message.MessagePatternEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
-import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
-import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
 /**
  * The Class TemplateBehavior.
@@ -77,34 +71,34 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate()
-						.addElement(
-								new ListTemplateElement("Classic T-Shirt Collection").setSubtitle("See all our colors")
+						.addElement("Classic T-Shirt Collection").setSubtitle("See all our colors")
 										.addButton(ButtonFactory.createUrlButton("View",
 												"https://peterssendreceiveapp.ngrok.io/collection"))
 										.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
 										.setDefaultAction(ButtonFactory.createDefaultActionButton(
-												"https://peterssendreceiveapp.ngrok.io/shop_collection")))
-						.addElement(new ListTemplateElement("Classic White T-Shirt")
+												"https://peterssendreceiveapp.ngrok.io/shop_collection"))
+												.endElement()
+						.addElement("Classic White T-Shirt")
 								.setSubtitle("100% Cotton, 200% Comfortable")
 								.addButton(ButtonFactory.createUrlButton("Shop Now",
 										"https://peterssendreceiveapp.ngrok.io/shop?item=100"))
 								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png")
 								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=100")))
-						.addElement(new ListTemplateElement("Classic Blue T-Shirt")
+										"https://peterssendreceiveapp.ngrok.io/view?item=100")).endElement()
+						.addElement("Classic Blue T-Shirt")
 								.setSubtitle("100% Cotton, 200% Comfortable")
 								.addButton(ButtonFactory.createUrlButton("Shop Now",
 										"https://peterssendreceiveapp.ngrok.io/shop?item=101"))
 								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png")
 								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=101")))
-						.addElement(new ListTemplateElement("Classic Black T-Shirt")
+										"https://peterssendreceiveapp.ngrok.io/view?item=101")).endElement()
+						.addElement("Classic Black T-Shirt")
 								.setSubtitle("100% Cotton, 200% Comfortable")
 								.addButton(ButtonFactory.createUrlButton("Shop Now",
 										"https://peterssendreceiveapp.ngrok.io/shop?item=102"))
 								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png")
 								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=102")))
+										"https://peterssendreceiveapp.ngrok.io/view?item=102")).endElement()
 						.addButton(ButtonFactory.createPostbackButton("View more", "view")).build(envelope);
 			}
 		});
@@ -240,22 +234,22 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate().setTopElementStyle(TopElementStyle.COMPACT)
-						.addElement(new ListTemplateElement("Title1")
+						.addElement("Title1")
 								.setSubtitle("This is a sample sub title for your product")
 								.addButton(ButtonFactory.createPostbackButton("View", "view")).setImageUrl(
-										"https://lh4.ggpht.com/mJDgTDUOtIyHcrb69WM0cpaxFwCNW6f0VQ2ExA7dMKpMDrZ0A6ta64OCX3H-NMdRd20=w300"))
-						.addElement(new ListTemplateElement("Title2")
+										"https://lh4.ggpht.com/mJDgTDUOtIyHcrb69WM0cpaxFwCNW6f0VQ2ExA7dMKpMDrZ0A6ta64OCX3H-NMdRd20=w300").endElement()
+						.addElement("Title2")
 								.setSubtitle("This is a sample sub title for your product")
 								.addButton(ButtonFactory.createPostbackButton("View", "view"))
-								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg"))
-						.addElement(new ListTemplateElement("Title3")
+								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg").endElement()
+						.addElement("Title3")
 								.setSubtitle("This is a sample sub title for your product")
 								.addButton(ButtonFactory.createPostbackButton("View", "view"))
-								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg"))
-						.addElement(new ListTemplateElement("Title4")
+								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg").endElement()
+						.addElement("Title4")
 								.setSubtitle("This is a sample sub title for your product")
 								.addButton(ButtonFactory.createPostbackButton("View", "view"))
-								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg"))
+								.setImageUrl("http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg").endElement()
 						.build(envelope);
 
 			}

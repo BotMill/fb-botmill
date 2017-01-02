@@ -24,6 +24,7 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 
 /**
@@ -76,8 +77,23 @@ public class ListTemplateElementBuilder {
 	 *            the image url
 	 * @return this builder.
 	 */
-	public ListTemplateElementBuilder setImage(String imageUrl) {
+	public ListTemplateElementBuilder setImageUrl(String imageUrl) {
 		element.setImageUrl(imageUrl);
+		return this;
+	}
+
+	/**
+	 * Sets a DefaultAction for the current {@link ListTemplateElement}. You can
+	 * use the {@link ButtonFactory#createDefaultActionButton(String)} method to
+	 * create one.
+	 *
+	 * @param imageUrl
+	 *            the image url
+	 * @return this builder.
+	 */
+	public ListTemplateElementBuilder setDefaultAction(
+			DefaultAction defaultAction) {
+		element.setDefaultAction(defaultAction);
 		return this;
 	}
 
@@ -108,8 +124,10 @@ public class ListTemplateElementBuilder {
 	 *            the country code, area code and local number.
 	 * @return this builder.
 	 */
-	public ListTemplateElementBuilder addPhoneNumberButton(String title, String phoneNumber) {
-		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
+	public ListTemplateElementBuilder addPhoneNumberButton(String title,
+			String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title,
+				phoneNumber);
 		this.element.addButton(button);
 		return this;
 	}
@@ -124,7 +142,8 @@ public class ListTemplateElementBuilder {
 	 *            the payload to send back when clicked.
 	 * @return this builder.
 	 */
-	public ListTemplateElementBuilder addPostbackButton(String title, String payload) {
+	public ListTemplateElementBuilder addPostbackButton(String title,
+			String payload) {
 		Button button = ButtonFactory.createPostbackButton(title, payload);
 		this.element.addButton(button);
 		return this;

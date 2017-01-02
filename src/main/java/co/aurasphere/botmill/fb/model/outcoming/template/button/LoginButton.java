@@ -43,13 +43,11 @@ public class LoginButton extends Button {
 	/**
 	 * Instantiates a new login button.
 	 *
-	 * @param type
-	 *            the type
 	 * @param url
 	 *            the url
 	 */
-	public LoginButton(ButtonType type, String url) {
-		this.type = type;
+	public LoginButton(String url) {
+		this.type = ButtonType.ACCOUNT_LINK;
 		this.url = url;
 	}
 

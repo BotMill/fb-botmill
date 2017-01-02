@@ -24,7 +24,6 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
-import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
@@ -207,7 +206,7 @@ public class GenericTemplateElementBuilder {
 	 * @return this builder.
 	 */
 	public GenericTemplateElementBuilder addBuyButton(String payload, PaymentSummary paymentSummary) {
-		Button button = ButtonFactory.createBuyButton(ButtonType.PAYMENT, payload, paymentSummary);
+		Button button = ButtonFactory.createBuyButton(payload, paymentSummary);
 		this.element.addButton(button);
 		return this;
 	}

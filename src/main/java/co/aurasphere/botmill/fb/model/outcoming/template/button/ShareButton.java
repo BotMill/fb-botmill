@@ -36,12 +36,9 @@ public class ShareButton extends Button {
 
 	/**
 	 * Instantiates a new share button.
-	 *
-	 * @param type
-	 *            the type
 	 */
-	public ShareButton(ButtonType type) {
-		this.type = type;
+	public ShareButton() {
+		this.type = ButtonType.ELEMENT_SHARE;
 	}
 
 }

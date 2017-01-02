@@ -84,11 +84,9 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param defaultAction
 	 *            the new default action
-	 * @return the list template element
 	 */
-	public ListTemplateElement setDefaultAction(DefaultAction defaultAction) {
+	public void setDefaultAction(DefaultAction defaultAction) {
 		this.defaultAction = defaultAction;
-		return this;
 	}
 
 	/**
@@ -116,11 +114,9 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param title
 	 *            the new title
-	 * @return the list template element
 	 */
-	public ListTemplateElement setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
-		return this;
 	}
 
 	/**
@@ -137,12 +133,9 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param imageUrl
 	 *            the new image url
-	 * @return the list template element
 	 */
-	public ListTemplateElement setImageUrl(String imageUrl) {
+	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-		return this;
-
 	}
 
 	/**
@@ -159,11 +152,9 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param subtitle
 	 *            the new subtitle
-	 * @return the list template element
 	 */
-	public ListTemplateElement setSubtitle(String subtitle) {
+	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
-		return this;
 	}
 
 	/**
@@ -180,11 +171,9 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param buttons
 	 *            the new buttons
-	 * @return the list template element
 	 */
-	public ListTemplateElement setButtons(List<Button> buttons) {
+	public void setButtons(List<Button> buttons) {
 		this.buttons = buttons;
-		return this;
 	}
 
 	/**
@@ -192,10 +181,8 @@ public class ListTemplateElement implements Serializable {
 	 *
 	 * @param button
 	 *            the button
-	 * @return the list template element
 	 */
-	public ListTemplateElement addButton(Button button) {
+	public void addButton(Button button) {
 		this.buttons.add(button);
-		return this;
 	}
 }

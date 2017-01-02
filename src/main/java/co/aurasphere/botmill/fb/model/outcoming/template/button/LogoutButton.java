@@ -36,12 +36,9 @@ public class LogoutButton extends Button {
 
 	/**
 	 * Instantiates a new logout button.
-	 *
-	 * @param type
-	 *            the type
 	 */
-	public LogoutButton(ButtonType type) {
-		this.type = type;
+	public LogoutButton() {
+		this.type = ButtonType.ACCOUNT_UNLINK;
 	}
 
 }

@@ -65,7 +65,7 @@ public class Referral implements Serializable {
 	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The source of this referral. Currently, the only possible value is
-	 * “SHORTLINK”.
+	 * "SHORTLINK".
 	 */
 	private String source;
 

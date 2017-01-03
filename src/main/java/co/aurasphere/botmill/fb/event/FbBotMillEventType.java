@@ -28,6 +28,7 @@ package co.aurasphere.botmill.fb.event;
  * Platform.
  *
  * @author Donato Rimenti
+ * @since 1.0.0
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Callbacks Documentation</a>
@@ -86,6 +87,16 @@ public enum FbBotMillEventType {
 	 */
 	PAYMENT,
 
+	/**
+	 * Represents a Quick Reply location callback.
+	 */
+	LOCATION,
+	
+	/**
+	 * Represents messaging_pre_checkouts callback.
+	 */
+	PRE_CHECKOUT,
+	
 	/**
 	 * Represents any of the previous callbacks. Used as utility event.
 	 */

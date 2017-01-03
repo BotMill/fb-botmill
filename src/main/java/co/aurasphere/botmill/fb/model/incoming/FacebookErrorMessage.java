@@ -1,5 +1,4 @@
-/**
- * 
+/*
  * MIT License
  *
  * Copyright (c) 2016 BotMill.io
@@ -30,6 +29,7 @@ import java.io.Serializable;
  * Message which contains a {@link FacebookError}.
  * 
  * @author Donato Rimenti
+ * @since 1.0.0
  * 
  */
 public class FacebookErrorMessage implements Serializable {

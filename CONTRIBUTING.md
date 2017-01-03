@@ -14,6 +14,8 @@ Interested in contributing to our project? We will always be open to your pull r
 - Introduce/Code your heart out to implement your idea.
 - Submit a pull request
 
+If you want to contribute, drop us an email at alvin.reyes@botmill.io OR donato.rimenti@botmill.io
+
 **<h3>Bot Examples</h3>**
 We would really appreciate it if you can share the bots that you made using our framework, just like the many people who ask us to show case theirs.
 

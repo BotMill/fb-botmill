@@ -71,13 +71,14 @@ public class TemplateBehavior extends BaseBehavior {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addListTemplate()
-						.addElement("Classic T-Shirt Collection").setSubtitle("See all our colors")
-										.addButton(ButtonFactory.createUrlButton("View",
-												"https://peterssendreceiveapp.ngrok.io/collection"))
-										.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
-										.setDefaultAction(ButtonFactory.createDefaultActionButton(
-												"https://peterssendreceiveapp.ngrok.io/shop_collection"))
-												.endElement()
+						.addElement("Classic T-Shirt Collection")
+							.setSubtitle("See all our colors")
+								.addButton(ButtonFactory.createUrlButton("View",
+										"https://peterssendreceiveapp.ngrok.io/collection"))
+								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
+								.setDefaultAction(ButtonFactory.createDefaultActionButton(
+										"https://peterssendreceiveapp.ngrok.io/shop_collection"))
+										.endElement()
 						.addElement("Classic White T-Shirt")
 								.setSubtitle("100% Cotton, 200% Comfortable")
 								.addButton(ButtonFactory.createUrlButton("Shop Now",

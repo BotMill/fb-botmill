@@ -87,8 +87,8 @@ public class ListTemplateElementBuilder {
 	 * use the {@link ButtonFactory#createDefaultActionButton(String)} method to
 	 * create one.
 	 *
-	 * @param imageUrl
-	 *            the image url
+	 * @param defaultAction
+	 *            the default action
 	 * @return this builder.
 	 */
 	public ListTemplateElementBuilder setDefaultAction(

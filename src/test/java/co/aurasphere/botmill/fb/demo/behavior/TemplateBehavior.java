@@ -52,7 +52,7 @@ public class TemplateBehavior extends BaseBehavior {
 	 */
 	public void defineBehavior() {
 
-		addActionFrame(new MessageEvent("text message"), new MessageAutoReply("simple text message"));
+		addActionFrame(new MessageEvent("text message"), new MessageAutoReply("työssä, Spanish: Habitación"));
 
 		// Returns a button template when message "button template" is received.
 		addActionFrame(new MessageEvent("button template"), new AutoReply() {

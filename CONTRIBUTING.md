@@ -12,11 +12,20 @@ Interested in contributing to our project? We will always be open to your pull r
 
 If you want to contribute, drop us an email at alvin.reyes@botmill.io OR donato.rimenti@botmill.io.  
 
-Basic Steps if you want to contribute.
+**Basic Steps if you want to contribute.**
+- Forked the master branch to your user repo.
+- Introduce/code your task.
+- Commit your changes with "Resolved #<issueno>"
+- Submit a pull requests. Make sure that you only have 1 single commit for every pull request.  
 
-- Forked our project. 
-- Introduce/code your tasks.
-- Submit a pull requests. Make sure that you only have 1 single commit for every pull request.
+**Pull request and commit messages**  
+- All commits should have a "Resolved #<issueno>" on the message.  
+- All pull request should only have one commit. Multiple commits won't be accepted.  
+- Make sure to put a good message on your commit. This may or may be used as part of the release notes.  
+
+**Important things to note**  
+- All commits will trigger a CI build using your branch. It should pass that before we begin reviewing your code.  
+- All commits should have proper documentation.  
 
 **<h3>Bot Examples</h3>**
 We would really appreciate it if you can share the bots that you made using our framework, just like the many people who ask us to show case theirs.

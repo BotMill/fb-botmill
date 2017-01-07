@@ -24,11 +24,14 @@
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -63,15 +66,20 @@ public class PaymentSummary implements Serializable {
 
 	/** The price list. */
 	@Valid
-	@NotNull
+	@NotEmpty
 	@SerializedName("price_list")
-	private PriceList priceList;
+	private List<PriceLabel> priceList;
 
 	/** The requested user info. */
 	@Valid
 	@NotNull
 	@SerializedName("requested_user_info")
-	private RequestedUserInfo requestedUserInfo;
+	private List<RequestedUserInfo> requestedUserInfo;
+	
+	public PaymentSummary(){
+		this.priceList = new ArrayList<PriceLabel>();
+		this.requestedUserInfo = new ArrayList<RequestedUserInfo>();
+	}
 
 	/**
 	 * Gets the currency.
@@ -154,7 +162,7 @@ public class PaymentSummary implements Serializable {
 	 *
 	 * @return the price list
 	 */
-	public PriceList getPriceList() {
+	public List<PriceLabel> getPriceList() {
 		return priceList;
 	}
 
@@ -164,8 +172,12 @@ public class PaymentSummary implements Serializable {
 	 * @param priceList
 	 *            the new price list
 	 */
-	public void setPriceList(PriceList priceList) {
+	public void setPriceList(List<PriceLabel> priceList) {
 		this.priceList = priceList;
+	}
+	
+	public void addPriceLabel(PriceLabel priceLabel){
+		this.priceList.add(priceLabel);
 	}
 
 	/**
@@ -173,7 +185,7 @@ public class PaymentSummary implements Serializable {
 	 *
 	 * @return the requested user info
 	 */
-	public RequestedUserInfo getRequestedUserInfo() {
+	public List<RequestedUserInfo> getRequestedUserInfo() {
 		return requestedUserInfo;
 	}
 
@@ -183,8 +195,18 @@ public class PaymentSummary implements Serializable {
 	 * @param requestedUserInfo
 	 *            the new requested user info
 	 */
-	public void setRequestedUserInfo(RequestedUserInfo requestedUserInfo) {
+	public void setRequestedUserInfo(List<RequestedUserInfo> requestedUserInfo) {
 		this.requestedUserInfo = requestedUserInfo;
+	}
+	
+	/**
+	 * Adds the requested user info.
+	 *
+	 * @param requestedUserInfo
+	 *            the requested user info to add
+	 */
+	public void addRequestedUserInfo(RequestedUserInfo requestedUserInfo) {
+		this.requestedUserInfo.add(requestedUserInfo);
 	}
 
 }

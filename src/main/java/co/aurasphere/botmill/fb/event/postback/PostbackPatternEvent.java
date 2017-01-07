@@ -25,11 +25,16 @@ package co.aurasphere.botmill.fb.event.postback;
 
 import java.util.regex.Pattern;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BasePatternEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * The Class PostbackPatternEvent.
+ * An {@link FbBotMillEvent} that triggers whenever the users sends a a payload
+ * back by pressing a button or similar that matches a {@link Pattern}.
+ * 
+ * @author Donato Rimenti
+ * 
  */
 public class PostbackPatternEvent extends BasePatternEvent {
 
@@ -37,7 +42,7 @@ public class PostbackPatternEvent extends BasePatternEvent {
 	 * Instantiates a new PostbackPatternEvent.
 	 *
 	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 *            the {@link BasePatternEvent#expectedPattern}.
 	 */
 	public PostbackPatternEvent(Pattern expectedPattern) {
 		super(expectedPattern);
@@ -47,7 +52,7 @@ public class PostbackPatternEvent extends BasePatternEvent {
 	 * Instantiates a new PostbackPatternEvent.
 	 *
 	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 *            the {@link BasePatternEvent#expectedPattern}.
 	 */
 	public PostbackPatternEvent(String expectedPattern) {
 		super(expectedPattern);

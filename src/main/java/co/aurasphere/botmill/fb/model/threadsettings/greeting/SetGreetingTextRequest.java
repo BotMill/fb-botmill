@@ -36,8 +36,6 @@ import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Messenger Platform Thread Settings Documentation</a>
- * 
- * 
  */
 public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {
 

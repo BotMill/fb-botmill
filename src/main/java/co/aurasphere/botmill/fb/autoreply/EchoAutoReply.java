@@ -32,7 +32,6 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
  * for testing and demo purposes.
  * 
  * @author Donato Rimenti
- * 
  */
 public class EchoAutoReply extends AutoReply {
 

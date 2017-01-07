@@ -39,8 +39,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
  * Factory class for building {@link Button} objects.
  * 
  * @author Donato Rimenti
- * @since 1.0.0
- * 
  */
 public class ButtonFactory {
 
@@ -79,7 +77,8 @@ public class ButtonFactory {
 	 *            the web view ratio type.
 	 * @return the button
 	 */
-	public static Button createWebViewButton(String title, String url, WebViewHeightRatioType ratioType) {
+	public static Button createWebViewButton(String title, String url,
+			WebViewHeightRatioType ratioType) {
 		return new WebUrlButton(title, url, ratioType);
 	}
 
@@ -106,7 +105,8 @@ public class ButtonFactory {
 	 *            the country code, area code and local number.
 	 * @return a {@link PostbackButton}.
 	 */
-	public static Button createPhoneNumberButton(String title, String phoneNumber) {
+	public static Button createPhoneNumberButton(String title,
+			String phoneNumber) {
 		return new PostbackButton(title, ButtonType.PHONE_NUMBER, phoneNumber);
 	}
 
@@ -121,7 +121,7 @@ public class ButtonFactory {
 	}
 
 	/**
-	 * Creates a new Button object.
+	 * Creates a new {@link BuyButton} object.
 	 *
 	 * @param payload
 	 *            the payload data
@@ -129,8 +129,20 @@ public class ButtonFactory {
 	 *            the payment summary that will be displayed.
 	 * @return a {@link Button}
 	 */
-	public static Button createBuyButton(String payload, PaymentSummary paymentSummary) {
+	public static Button createBuyButton(String payload,
+			PaymentSummary paymentSummary) {
 		return new BuyButton(payload, paymentSummary);
+	}
+
+	/**
+	 * Creates a new {@link BuyButton} object.
+	 *
+	 * @param payload
+	 *            the payload data.
+	 * @return a builder for the {@link BuyButton}.
+	 */
+	public static BuyButtonBuilder createBuyButton(String payload) {
+		return new BuyButtonBuilder(payload);
 	}
 
 	/**

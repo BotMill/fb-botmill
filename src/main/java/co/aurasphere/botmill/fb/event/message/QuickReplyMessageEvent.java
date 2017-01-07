@@ -32,7 +32,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * contains a specific text message from Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * 
  */
 public class QuickReplyMessageEvent extends BaseStringEvent {
 
@@ -75,6 +74,11 @@ public class QuickReplyMessageEvent extends BaseStringEvent {
 		return message.equals(expectedString);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.event.base.BaseStringEvent#toString()
+	 */
 	@Override
 	public String toString() {
 		return "QuickReplyMessageEvent [expectedString=" + expectedString + "]";

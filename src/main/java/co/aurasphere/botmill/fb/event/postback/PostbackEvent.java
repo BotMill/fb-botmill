@@ -23,11 +23,16 @@
  */
 package co.aurasphere.botmill.fb.event.postback;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * The Class PostbackEvent.
+ * An {@link FbBotMillEvent} that triggers whenever the users sends a a payload
+ * back by pressing a button or similar that matches an exact String.
+ * 
+ * @author Donato Rimenti
+ * 
  */
 public class PostbackEvent extends BaseStringEvent {
 
@@ -35,9 +40,9 @@ public class PostbackEvent extends BaseStringEvent {
 	 * Instantiates a new PostbackEvent.
 	 *
 	 * @param expectedPayload
-	 *            the expectedPayload.
+	 *            the {@link BaseStringEvent#expectedString}.
 	 * @param caseSensitive
-	 *            the {@link #caseSensitive}.
+	 *            the {@link BaseStringEvent#caseSensitive}.
 	 */
 	public PostbackEvent(String expectedPayload, boolean caseSensitive) {
 		super(expectedPayload, caseSensitive);
@@ -47,7 +52,7 @@ public class PostbackEvent extends BaseStringEvent {
 	 * Instantiates a new PostbackEvent.
 	 *
 	 * @param expectedPayload
-	 *            the expectedPayload.
+	 *            the {@link BaseStringEvent#expectedString}.
 	 */
 	public PostbackEvent(String expectedPayload) {
 		super(expectedPayload);
@@ -72,7 +77,8 @@ public class PostbackEvent extends BaseStringEvent {
 	 */
 	@Override
 	public String toString() {
-		return "PostbackEvent [expectedString=" + expectedString + ", caseSensitive=" + caseSensitive + "]";
+		return "PostbackEvent [expectedString=" + expectedString
+				+ ", caseSensitive=" + caseSensitive + "]";
 	}
 
 }

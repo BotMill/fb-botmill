@@ -21,42 +21,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.event.message;
+package co.aurasphere.botmill.fb.test;
 
-import co.aurasphere.botmill.fb.bean.FbBotMillBean;
-import co.aurasphere.botmill.fb.event.FbBotMillEvent;
-import co.aurasphere.botmill.fb.event.FbBotMillEventType;
-import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
+
+import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 
 /**
- * A {@link FbBotMillEvent} that triggers whenever the users sends a text
- * message.
+ * Base class for testing every FbBotMill component that requires a user to send
+ * a message to the bot.
  * 
  * @author Donato Rimenti
- * 
+ * @since 1.1.0
  */
-public class AnyMessageEvent extends FbBotMillBean implements FbBotMillEvent {
-
-	/**
-	 * Verify event condition.
-	 *
-	 * @param envelope
-	 *            the envelope
-	 * @return true if the incoming callback contains a non-empty, non-null text
-	 *         message, false otherwise.
-	 */
-	public final boolean verifyEventCondition(MessageEnvelope envelope) {
-		return eventKind(envelope) == FbBotMillEventType.MESSAGE;
-	}
+public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillTest {
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#testImplementation()
 	 */
-	@Override
-	public String toString() {
-		return "AnyMessageEvent []";
+	protected void testImplementation() throws Exception {
+		// Retrieves the expected replies from the bot.
+		String[] messagesToSend = getMessagesToSend();
+
+		if (messagesToSend != null) {
+			for (String message : messagesToSend) {
+				this.mockMediator.sendTextMessage(message);
+				Object response = monitor.get();
+
+				Assert.assertNotNull(response);
+				Assert.assertThat(response, CoreMatchers
+						.instanceOf(FacebookConfirmationMessage.class));
+			}
+		}
 	}
 
+	/**
+	 * Methods that returns the messages that needs to be sent to the bot in
+	 * order to test it.
+	 *
+	 * @return an array of messages that needs to be sent to the bot in order to
+	 *         test it.
+	 */
+	protected abstract String[] getMessagesToSend();
 }

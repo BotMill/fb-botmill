@@ -30,6 +30,7 @@ public enum PaymentType {
 
 	/** The fixed amount. */
 	FIXED_AMOUNT,
+	
 	/** The flexible amount. */
 	FLEXIBLE_AMOUNT;
 }

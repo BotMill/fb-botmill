@@ -29,12 +29,17 @@ import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
 /**
- * The Class BasePatternEvent.
+ * Base class for a {@link FbBotMillEvent} that triggers when a pattern is
+ * matched.
+ * 
+ * @author Donato Rimenti
+ * 
  */
-public abstract class BasePatternEvent extends FbBotMillBean implements FbBotMillEvent {
+public abstract class BasePatternEvent extends FbBotMillBean implements
+		FbBotMillEvent {
 
 	/**
-	 * The expected pattern.
+	 * The expected pattern to match in order to trigger this event.
 	 */
 	public Pattern expectedPattern;
 
@@ -82,7 +87,8 @@ public abstract class BasePatternEvent extends FbBotMillBean implements FbBotMil
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((expectedPattern == null) ? 0 : expectedPattern.hashCode());
+		result = prime * result
+				+ ((expectedPattern == null) ? 0 : expectedPattern.hashCode());
 		return result;
 	}
 

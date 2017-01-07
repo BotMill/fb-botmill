@@ -25,6 +25,8 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.lang.reflect.Type;
 
+import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
@@ -49,6 +51,12 @@ public class EnumLowercaseSerializer implements JsonSerializer<Enum<?>> {
 	 * @return the json element
 	 */
 	public JsonElement serialize(Enum<?> src, Type typeOfSrc, JsonSerializationContext context) {
+		
+		// Ignore this serializer for enums of class PaymentType.
+		if(src.getDeclaringClass().equals(PaymentType.class)){
+			return context.serialize(src.name());
+		}
+		
 		return context.serialize(src.name().toLowerCase());
 	}
 }

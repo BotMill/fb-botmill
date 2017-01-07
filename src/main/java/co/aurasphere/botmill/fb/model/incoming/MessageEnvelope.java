@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.CheckoutUpdate;
 import co.aurasphere.botmill.fb.model.incoming.callback.DeliveredMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.Optin;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
+import co.aurasphere.botmill.fb.model.incoming.callback.PreCheckout;
 import co.aurasphere.botmill.fb.model.incoming.callback.Read;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.Referral;
@@ -116,6 +117,12 @@ public class MessageEnvelope implements Serializable {
 	 */
 	@SerializedName("checkout_update")
 	private CheckoutUpdate checkoutUpdate;
+
+	/**
+	 * Pre-Checkout update object for messaging_pre_checkouts callback.
+	 */
+	@SerializedName("pre_checkout")
+	private PreCheckout preCheckout;
 
 	/**
 	 * Gets the {@link #sender}.
@@ -343,6 +350,156 @@ public class MessageEnvelope implements Serializable {
 	 */
 	public void setCheckoutUpdate(CheckoutUpdate checkoutUpdate) {
 		this.checkoutUpdate = checkoutUpdate;
+	}
+
+	/**
+	 * Gets the {@link #preCheckout}.
+	 *
+	 * @return the {@link #preCheckout}.
+	 */
+	public PreCheckout getPreCheckout() {
+		return preCheckout;
+	}
+
+	/**
+	 * Sets the {@link #preCheckout}.
+	 *
+	 * @param preCheckout
+	 *            the {@link #preCheckout} to set.
+	 */
+	public void setPreCheckout(PreCheckout preCheckout) {
+		this.preCheckout = preCheckout;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((accountLinking == null) ? 0 : accountLinking.hashCode());
+		result = prime * result
+				+ ((checkoutUpdate == null) ? 0 : checkoutUpdate.hashCode());
+		result = prime * result
+				+ ((delivery == null) ? 0 : delivery.hashCode());
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		result = prime * result + ((optin == null) ? 0 : optin.hashCode());
+		result = prime * result + ((payment == null) ? 0 : payment.hashCode());
+		result = prime * result
+				+ ((postback == null) ? 0 : postback.hashCode());
+		result = prime * result
+				+ ((preCheckout == null) ? 0 : preCheckout.hashCode());
+		result = prime * result + ((read == null) ? 0 : read.hashCode());
+		result = prime * result
+				+ ((recipient == null) ? 0 : recipient.hashCode());
+		result = prime * result
+				+ ((referral == null) ? 0 : referral.hashCode());
+		result = prime * result + ((sender == null) ? 0 : sender.hashCode());
+		result = prime * result
+				+ ((timestamp == null) ? 0 : timestamp.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MessageEnvelope other = (MessageEnvelope) obj;
+		if (accountLinking == null) {
+			if (other.accountLinking != null)
+				return false;
+		} else if (!accountLinking.equals(other.accountLinking))
+			return false;
+		if (checkoutUpdate == null) {
+			if (other.checkoutUpdate != null)
+				return false;
+		} else if (!checkoutUpdate.equals(other.checkoutUpdate))
+			return false;
+		if (delivery == null) {
+			if (other.delivery != null)
+				return false;
+		} else if (!delivery.equals(other.delivery))
+			return false;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		if (optin == null) {
+			if (other.optin != null)
+				return false;
+		} else if (!optin.equals(other.optin))
+			return false;
+		if (payment == null) {
+			if (other.payment != null)
+				return false;
+		} else if (!payment.equals(other.payment))
+			return false;
+		if (postback == null) {
+			if (other.postback != null)
+				return false;
+		} else if (!postback.equals(other.postback))
+			return false;
+		if (preCheckout == null) {
+			if (other.preCheckout != null)
+				return false;
+		} else if (!preCheckout.equals(other.preCheckout))
+			return false;
+		if (read == null) {
+			if (other.read != null)
+				return false;
+		} else if (!read.equals(other.read))
+			return false;
+		if (recipient == null) {
+			if (other.recipient != null)
+				return false;
+		} else if (!recipient.equals(other.recipient))
+			return false;
+		if (referral == null) {
+			if (other.referral != null)
+				return false;
+		} else if (!referral.equals(other.referral))
+			return false;
+		if (sender == null) {
+			if (other.sender != null)
+				return false;
+		} else if (!sender.equals(other.sender))
+			return false;
+		if (timestamp == null) {
+			if (other.timestamp != null)
+				return false;
+		} else if (!timestamp.equals(other.timestamp))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "MessageEnvelope [sender=" + sender + ", recipient=" + recipient
+				+ ", timestamp=" + timestamp + ", message=" + message
+				+ ", postback=" + postback + ", optin=" + optin
+				+ ", accountLinking=" + accountLinking + ", delivery="
+				+ delivery + ", read=" + read + ", referral=" + referral
+				+ ", payment=" + payment + ", checkoutUpdate=" + checkoutUpdate
+				+ ", preCheckout=" + preCheckout + "]";
 	}
 
 }

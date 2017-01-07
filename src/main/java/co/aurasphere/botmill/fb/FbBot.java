@@ -104,7 +104,7 @@ public class FbBot {
 	}
 
 	/**
-	 * Adds an {@link ActionFrame} to this bot with multiple reply
+	 * Adds an {@link ActionFrame} to this bot with multiple reply.
 	 * 
 	 * @param event
 	 *            the {@link FbBotMillEvent} to handle.

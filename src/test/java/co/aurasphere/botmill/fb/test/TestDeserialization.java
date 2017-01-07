@@ -1,5 +1,4 @@
-/**
- * 
+/*
  * MIT License
  *
  * Copyright (c) 2016 BotMill.io
@@ -22,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.facebot.demo;
+package co.aurasphere.botmill.fb.test;
 
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.model.base.Payload;

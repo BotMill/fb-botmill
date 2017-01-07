@@ -31,9 +31,8 @@ import javax.validation.constraints.NotNull;
  * The PriceList Class/Object.
  *
  * @author Alvin Reyes
- * 
  */
-public class PriceList implements Serializable {
+public class PriceLabel implements Serializable {
 
 	/**
 	 * 
@@ -47,6 +46,11 @@ public class PriceList implements Serializable {
 	/** The amount. */
 	@NotNull
 	private String amount;
+	
+	public PriceLabel(String label, String amount){
+		this.label = label;
+		this.amount = amount;
+	}
 
 	public String getLabel() {
 		return label;

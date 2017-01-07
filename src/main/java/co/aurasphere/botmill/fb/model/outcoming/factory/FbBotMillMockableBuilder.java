@@ -25,7 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
-import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
+import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 
 /**
  * Abstract class for a {@link FbBotMillResponseBuilder} that can be populated

@@ -35,9 +35,9 @@ import com.google.gson.annotations.SerializedName;
  * Model class for the Payment Thread Settings.
  * 
  * @author Alvin Reyes
- * @see <a href="https://developers.facebook.com/docs/messenger-platform/thread-
- *      settings/payment">Facebook's Messenger Platform Payment Thread Settings
- *      Documentation</a>
+ * @see <a href=
+ *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+ *      >Facebook's Messenger Platform Payment Thread Settings Documentation</a>
  */
 public class PaymentSettings extends ThreadSettingsBaseRequest {
 
@@ -95,7 +95,8 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the {@link #privacyUrl}.
 	 *
-	 * @param privacyUrl the {@link #privacyUrl} to set.
+	 * @param privacyUrl
+	 *            the {@link #privacyUrl} to set.
 	 */
 	public void setPrivacyUrl(String privacyUrl) {
 		this.privacyUrl = privacyUrl;
@@ -113,7 +114,8 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the {@link #publicKey}.
 	 *
-	 * @param publicKey the {@link #publicKey} to set.
+	 * @param publicKey
+	 *            the {@link #publicKey} to set.
 	 */
 	public void setPublicKey(String publicKey) {
 		this.publicKey = publicKey;
@@ -131,7 +133,8 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the {@link #paymentDevModeAction}.
 	 *
-	 * @param paymentDevModeAction the {@link #paymentDevModeAction} to set.
+	 * @param paymentDevModeAction
+	 *            the {@link #paymentDevModeAction} to set.
 	 */
 	public void setPaymentDevModeAction(
 			PaymentDevModeAction paymentDevModeAction) {
@@ -150,13 +153,16 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 	/**
 	 * Sets the {@link #paymentTesters}.
 	 *
-	 * @param paymentTesters the {@link #paymentTesters} to set.
+	 * @param paymentTesters
+	 *            the {@link #paymentTesters} to set.
 	 */
 	public void setPaymentTesters(List<String> paymentTesters) {
 		this.paymentTesters = paymentTesters;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -176,7 +182,9 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -208,7 +216,9 @@ public class PaymentSettings extends ThreadSettingsBaseRequest {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

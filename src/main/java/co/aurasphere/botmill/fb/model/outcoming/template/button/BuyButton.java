@@ -62,6 +62,19 @@ public class BuyButton extends Button {
 
 	/**
 	 * Instantiates a new buy button.
+	 * 
+	 * @param payload
+	 *            the payload
+	 */
+	public BuyButton(String payload) {
+		// Buy button title must be buy
+		this.title = "buy";
+		this.type = ButtonType.PAYMENT;
+		this.payload = payload;
+	}
+
+	/**
+	 * Instantiates a new buy button.
 	 *
 	 * @param payload
 	 *            the payload
@@ -69,10 +82,7 @@ public class BuyButton extends Button {
 	 *            the payment summary
 	 */
 	public BuyButton(String payload, PaymentSummary paymentSummary) {
-		// Buy button title must be buy
-		this.title = "buy";
-		this.type = ButtonType.PAYMENT;
-		this.payload = payload;
+		this(payload);
 		this.paymentSummary = paymentSummary;
 	}
 

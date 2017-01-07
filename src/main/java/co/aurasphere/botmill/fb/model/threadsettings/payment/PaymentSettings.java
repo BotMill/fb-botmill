@@ -35,8 +35,7 @@ import com.google.gson.annotations.SerializedName;
  * Model class for the Payment Thread Settings.
  * 
  * @author Alvin Reyes
- * @see <a
- *      href=""https://developers.facebook.com/docs/messenger-platform/thread-
+ * @see <a href="https://developers.facebook.com/docs/messenger-platform/thread-
  *      settings/payment">Facebook's Messenger Platform Payment Thread Settings
  *      Documentation</a>
  */

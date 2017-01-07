@@ -29,8 +29,8 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * A {@link FbBotMillEvent} that processes all the incoming callbacks that
- * contains a text message from Facebook's Messenger Platform.
+ * A {@link FbBotMillEvent} that triggers whenever the users sends a text
+ * message.
  * 
  * @author Donato Rimenti
  * 

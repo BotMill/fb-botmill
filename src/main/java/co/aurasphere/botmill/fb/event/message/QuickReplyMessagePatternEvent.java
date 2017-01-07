@@ -35,7 +35,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * Facebook's Messenger Platform.
  * 
  * @author Alvin Reyes
- * 
  */
 public class QuickReplyMessagePatternEvent extends BasePatternEvent {
 
@@ -72,5 +71,16 @@ public class QuickReplyMessagePatternEvent extends BasePatternEvent {
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
 		String message = safeGetQuickReplyPayload(envelope);
 		return expectedPattern.matcher(message).matches();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.event.base.BasePatternEvent#toString()
+	 */
+	@Override
+	public String toString() {
+		return "QuickReplyMessagePatternEvent [expectedPattern="
+				+ expectedPattern + "]";
 	}
 }

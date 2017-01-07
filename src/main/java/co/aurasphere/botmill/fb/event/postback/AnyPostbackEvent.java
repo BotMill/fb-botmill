@@ -25,10 +25,14 @@ package co.aurasphere.botmill.fb.event.postback;
 
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
+import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * The Class AnyPostbackEvent.
+ * A {@link FbBotMillEvent} that triggers whenever the users sends a payload
+ * back by pressing a button or similar.
+ * 
+ * @author Donato Rimenti
  */
 public class AnyPostbackEvent extends FbBotMillBean implements FbBotMillEvent {
 
@@ -40,8 +44,7 @@ public class AnyPostbackEvent extends FbBotMillBean implements FbBotMillEvent {
 	 * aurasphere.botmill.fb.model.incoming.MessageEnvelope)
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
-		String payload = safeGetPostbackPayload(envelope);
-		return !payload.isEmpty();
+		return eventKind(envelope) == FbBotMillEventType.POSTBACK;
 	}
 
 	/*

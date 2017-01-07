@@ -27,17 +27,21 @@ import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
 /**
- * The Class BaseStringEvent.
+ * Base class for a {@link FbBotMillEvent} that triggers when an exact text is
+ * matched, case sensitive or not.
+ * 
+ * @author Donato Rimenti
  */
-public abstract class BaseStringEvent extends FbBotMillBean implements FbBotMillEvent {
+public abstract class BaseStringEvent extends FbBotMillBean implements
+		FbBotMillEvent {
 
 	/**
-	 * The expected string.
+	 * The text to be matched in order to trigger this event.
 	 */
 	protected String expectedString;
 
 	/**
-	 * The case sensitive.
+	 * Whether the match should be case sensitive or not.
 	 */
 	protected boolean caseSensitive;
 
@@ -94,7 +98,8 @@ public abstract class BaseStringEvent extends FbBotMillBean implements FbBotMill
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (caseSensitive ? 1231 : 1237);
-		result = prime * result + ((expectedString == null) ? 0 : expectedString.hashCode());
+		result = prime * result
+				+ ((expectedString == null) ? 0 : expectedString.hashCode());
 		return result;
 	}
 
@@ -129,6 +134,7 @@ public abstract class BaseStringEvent extends FbBotMillBean implements FbBotMill
 	 */
 	@Override
 	public String toString() {
-		return "BaseStringEvent [expectedString=" + expectedString + ", caseSensitive=" + caseSensitive + "]";
+		return "BaseStringEvent [expectedString=" + expectedString
+				+ ", caseSensitive=" + caseSensitive + "]";
 	}
 }

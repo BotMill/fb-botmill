@@ -28,11 +28,10 @@ package co.aurasphere.botmill.fb.event;
  * Platform.
  *
  * @author Donato Rimenti
- * @since 1.0.0
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Callbacks Documentation</a>
- * 
+ *      
  */
 public enum FbBotMillEventType {
 

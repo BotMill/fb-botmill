@@ -25,18 +25,61 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+/**
+ * Factory class for building {@link QuickReply} objects.
+ * 
+ * @author Alvin Reyes
+ */
 public class QuickReplyFactory {
 
-	public static QuickReply addQuickReply(String title, String payload) {
+	/**
+	 * Creates a {@link QuickReply}.
+	 * 
+	 * @param title
+	 *            the {@link QuickReply#title}.
+	 * @param payload
+	 *            the {@link QuickReply#payload}.
+	 * @return a {@link QuickReply} object.
+	 */
+	public static QuickReply createQuickReply(String title, String payload) {
 		return new QuickReply(title, payload);
 	}
 
-	public static QuickReply addQuickReplyLocation(String location) {
+	/**
+	 * Creates a {@link QuickReply} with a location.
+	 * 
+	 * @param location
+	 *            the {@link QuickReply#title}.
+	 * @return a {@link QuickReply} object.
+	 */
+	public static QuickReply createQuickReplyLocation(String location) {
 		return new QuickReply(location);
 	}
 
-	public static QuickReply addQuickReplyLocation(String title, String payload, String imageUrl) {
+	/**
+	 * Creates a {@link QuickReply} with a location.
+	 * 
+	 * @param title
+	 *            the {@link QuickReply#title}.
+	 * @param payload
+	 *            the {@link QuickReply#payload}.
+	 * @param imageUrl
+	 *            the {@link QuickReply#imageUrl}.
+	 * @return a {@link QuickReply} object.
+	 */
+	public static QuickReply createQuickReplyLocation(String title,
+			String payload, String imageUrl) {
 		return new QuickReply(title, payload, imageUrl);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "QuickReplyFactory []";
 	}
 
 }

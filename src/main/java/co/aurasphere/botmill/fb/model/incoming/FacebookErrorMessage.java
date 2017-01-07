@@ -29,7 +29,6 @@ import java.io.Serializable;
  * Message which contains a {@link FacebookError}.
  * 
  * @author Donato Rimenti
- * @since 1.0.0
  * 
  */
 public class FacebookErrorMessage implements Serializable {

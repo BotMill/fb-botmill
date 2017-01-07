@@ -25,11 +25,16 @@ package co.aurasphere.botmill.fb.event.message;
 
 import java.util.regex.Pattern;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BasePatternEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * The Class MessagePatternEvent.
+ * An {@link FbBotMillEvent} that triggers whenever the users sends a text
+ * message that matches a {@link Pattern}.
+ * 
+ * @author Donato Rimenti
+ * 
  */
 public class MessagePatternEvent extends BasePatternEvent {
 
@@ -37,7 +42,7 @@ public class MessagePatternEvent extends BasePatternEvent {
 	 * Instantiates a new MessagePatternEvent.
 	 *
 	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 *            the {@link BasePatternEvent#expectedPattern}.
 	 */
 	public MessagePatternEvent(Pattern expectedPattern) {
 		super(expectedPattern);
@@ -47,7 +52,7 @@ public class MessagePatternEvent extends BasePatternEvent {
 	 * Instantiates a new MessagePatternEvent.
 	 *
 	 * @param expectedPattern
-	 *            the {@link #expectedPattern}.
+	 *            the {@link BasePatternEvent#expectedPattern}.
 	 */
 	public MessagePatternEvent(String expectedPattern) {
 		super(expectedPattern);

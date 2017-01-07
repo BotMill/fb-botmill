@@ -23,11 +23,15 @@
  */
 package co.aurasphere.botmill.fb.event.message;
 
+import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
- * The Class MessageEvent.
+ * An {@link FbBotMillEvent} that triggers whenever the users sends a text
+ * message that matches an exact String.
+ * 
+ * @author Donato Rimenti
  */
 public class MessageEvent extends BaseStringEvent {
 
@@ -35,9 +39,9 @@ public class MessageEvent extends BaseStringEvent {
 	 * Instantiates a new MessageEvent.
 	 *
 	 * @param expectedMessage
-	 *            the message string use to match a user response.
+	 *            the {@link BaseStringEvent#expectedString}.
 	 * @param caseSensitive
-	 *            the flag to set if the checker will be case sensitive or not.
+	 *            the {@link BaseStringEvent#caseSensitive}.
 	 */
 	public MessageEvent(String expectedMessage, boolean caseSensitive) {
 		super(expectedMessage, caseSensitive);
@@ -47,7 +51,7 @@ public class MessageEvent extends BaseStringEvent {
 	 * Instantiates a new MessageEvent.
 	 *
 	 * @param expectedMessage
-	 *            the message string use to match a user response.
+	 *            the {@link BaseStringEvent#expectedString}.
 	 */
 	public MessageEvent(String expectedMessage) {
 		super(expectedMessage);
@@ -72,7 +76,8 @@ public class MessageEvent extends BaseStringEvent {
 	 */
 	@Override
 	public String toString() {
-		return "MessageEvent [expectedString=" + expectedString + ", caseSensitive=" + caseSensitive + "]";
+		return "MessageEvent [expectedString=" + expectedString
+				+ ", caseSensitive=" + caseSensitive + "]";
 	}
 
 }

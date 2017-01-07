@@ -23,29 +23,47 @@
  */
 package co.aurasphere.botmill.fb.event.message;
 
-import java.util.regex.Pattern;
-
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
+import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
-import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
+import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+/**
+ * An {@link FbBotMillEvent} that triggers whenever the users sends a location
+ * using a {@link QuickReply} button.
+ * 
+ * @author Alvin Reyes
+ * 
+ */
 public class LocationEvent extends FbBotMillBean implements FbBotMillEvent {
 
+	/**
+	 * Instantiates a new LocationEvent.
+	 */
 	public LocationEvent() {
 	}
 
 	/**
-	 * This method is called to verify that the message envelop contains the
+	 * This method is called to verify that the message envelope contains the
 	 * payload to verify that we are processing a location input.
 	 * 
 	 * @param envelope
-	 *            the message envelop that contains the location payload.
+	 *            the message envelope that contains the location payload.
 	 * @return true if the text message received from the callback is a
 	 *         location.
 	 */
 	public final boolean verifyEventCondition(MessageEnvelope envelope) {
-		LocationCoordinates locationCoordinates = getLocationMessage(envelope);
-		return (locationCoordinates != null ? true : false);
+		return eventKind(envelope) == FbBotMillEventType.LOCATION;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LocationEvent []";
 	}
 }

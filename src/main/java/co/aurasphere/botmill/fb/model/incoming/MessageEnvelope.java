@@ -43,7 +43,6 @@ import com.google.gson.annotations.SerializedName;
  * A generic incoming message envelope.
  *
  * @author Donato Rimenti
- * @since 1.0.0
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>

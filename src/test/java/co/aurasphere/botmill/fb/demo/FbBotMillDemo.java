@@ -23,12 +23,12 @@
  */
 package co.aurasphere.botmill.fb.demo;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
-
-import co.aurasphere.botmill.fb.demo.behavior.AirplaneBehavior;
-import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.PAGE_TOKEN;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.VALIDATION_TOKEN;
 import co.aurasphere.botmill.fb.FbBotMillContext;
-import co.aurasphere.botmill.fb.test.support.FbBotMillMockMediator;
+import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
+import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 
 /**
  * The Class FbBotMillDemo.

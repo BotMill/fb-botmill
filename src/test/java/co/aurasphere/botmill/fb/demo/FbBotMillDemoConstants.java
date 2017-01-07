@@ -23,21 +23,22 @@
  */
 package co.aurasphere.botmill.fb.demo;
 
-
 /**
- * Put your data here to test the FaceBot framework.
+ * Put your data here to test the FBotMill Framework framework.
  * 
  * @author Donato Rimenti
  */
 public class FbBotMillDemoConstants {
 
 	/** The Constant PAGE_TOKEN. */
-	public static final String PAGE_TOKEN = "EAAIyxesjRBcBAKO7ARTrKn2ZCIHcLwZC2mWuqwNhhVlqK9XEhsMU1iARYRwAZBj6r6fsvD2NDLtz9FLLki0ZBiUIaPfo7LGAhA09NZCKjJVLvvE70siQO9xwHTpZB5dOFYJIIfycxtpSpU3GePk7ErGToxvApHJGsSUQzYZCJr36QZDZD";
+	public static final String PAGE_TOKEN = System.getProperty("PAGE_TOKEN");
 
 	/** The Constant VALIDATION_TOKEN. */
-	public static final String VALIDATION_TOKEN = "123456789";
+	public static final String VALIDATION_TOKEN = System.getProperty("VALIDATION_TOKEN");
 
 	/** The Constant MOCK_FACEBOOK_ID. */
-	public static final String MOCK_FACEBOOK_ID = "1158621824216736";
+	// 	Please check our wiki https://github.com/BotMill/fb-botmill/wiki/Unit-Testing 
+	//	on how to get the mock_facebook_id
+	public static final String MOCK_FACEBOOK_ID = System.getProperty("MOCK_FACEBOOK_ID");
 
 }

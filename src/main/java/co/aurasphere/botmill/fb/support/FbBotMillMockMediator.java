@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.test.support;
+package co.aurasphere.botmill.fb.support;
 
 import java.util.List;
 import java.util.Scanner;
@@ -32,8 +32,6 @@ import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
-import co.aurasphere.botmill.fb.model.outcoming.message.Message;
-import co.aurasphere.botmill.fb.model.outcoming.message.TextMessage;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 /**

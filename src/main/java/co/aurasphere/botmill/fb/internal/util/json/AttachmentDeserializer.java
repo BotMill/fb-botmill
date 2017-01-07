@@ -29,7 +29,16 @@ import co.aurasphere.botmill.fb.model.base.Attachment;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.base.Payload;
 import co.aurasphere.botmill.fb.model.base.QuickReplyLocationPayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
 import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.ButtonTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.GenericTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.ListTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.ReceiptTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.AirlineBoardingPassTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.AirlineCheckinTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.AirlineFlightUpdateTemplatePayload;
+import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.AirlineItineraryTemplatePayload;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,7 +52,6 @@ import com.google.gson.JsonParseException;
  * payload according to the current object.
  * 
  * @author Donato Rimenti
- * 
  */
 public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 
@@ -68,13 +76,13 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 	 * com.google.gson.JsonDeserializer#deserialize(com.google.gson.JsonElement,
 	 * java.lang.reflect.Type, com.google.gson.JsonDeserializationContext)
 	 */
-	public Attachment deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-			throws JsonParseException {
+	public Attachment deserialize(JsonElement json, Type typeOfT,
+			JsonDeserializationContext context) throws JsonParseException {
 
 		Attachment attachment = delegateGson.fromJson(json, Attachment.class);
 		AttachmentType type = attachment.getType();
 		Class<? extends Payload> payloadClass = null;
-		JsonElement payloadjson = json.getAsJsonObject().get("payload");
+		JsonElement payloadJson = json.getAsJsonObject().get("payload");
 
 		switch (type) {
 		case AUDIO:
@@ -91,14 +99,41 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 			// nothing.
 			break;
 		case TEMPLATE:
-			// TODO: this may happen in case of an echo callback. should be
-			// handled properly
+			// In case of a template I need to check which one to instantiate.
+			String payloadTypeString = payloadJson.getAsJsonObject()
+					.get("template_type").getAsString();
+			PayloadType templateType = PayloadType.valueOf(payloadTypeString
+					.toUpperCase());
+
+			switch (templateType) {
+			case AIRLINE_BOARDINGPASS:
+				payloadClass = AirlineBoardingPassTemplatePayload.class;
+				break;
+			case AIRLINE_CHECKIN:
+				payloadClass = AirlineCheckinTemplatePayload.class;
+				break;
+			case AIRLINE_ITINERARY:
+				payloadClass = AirlineItineraryTemplatePayload.class;
+				break;
+			case AIRLINE_UPDATE:
+				payloadClass = AirlineFlightUpdateTemplatePayload.class;
+				break;
+			case BUTTON:
+				payloadClass = ButtonTemplatePayload.class;
+				break;
+			case GENERIC:
+				payloadClass = GenericTemplatePayload.class;
+				break;
+			case LIST:
+				payloadClass = ListTemplatePayload.class;
+				break;
+			case RECEIPT:
+				payloadClass = ReceiptTemplatePayload.class;
+				break;
+			}
 			break;
-		// default:
-		// throw new RuntimeException(
-		// "Template and Fallbacks are not supported as incoming message.");
 		}
-		Payload payload = context.deserialize(payloadjson, payloadClass);
+		Payload payload = context.deserialize(payloadJson, payloadClass);
 		attachment.setPayload(payload);
 		return attachment;
 	}

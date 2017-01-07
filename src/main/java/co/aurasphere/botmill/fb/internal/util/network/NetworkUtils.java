@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -52,9 +53,11 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
+import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
 import co.aurasphere.botmill.fb.model.incoming.FacebookErrorMessage;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
+import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
 /**
  * Class that contains methods that allows FbBotMill to communicate through the
@@ -68,7 +71,14 @@ public class NetworkUtils {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(NetworkUtils.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(NetworkUtils.class);
+
+	/**
+	 * The registered monitors to the {@link FbBotMillContext}.
+	 */
+	private static final List<FbBotMillMonitor> registeredMonitors = FbBotMillContext
+			.getInstance().getRegisteredMonitors();
 
 	/**
 	 * Method used to retrieve a {@link FacebookUserProfile} from an ID using
@@ -80,10 +90,12 @@ public class NetworkUtils {
 	 */
 	public static FacebookUserProfile getUserProfile(String userId) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();
-		HttpGet get = new HttpGet(FbBotMillNetworkConstants.FACEBOOK_BASE_URL + userId
-				+ FbBotMillNetworkConstants.USER_PROFILE_FIELDS + pageToken);
+		HttpGet get = new HttpGet(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ userId + FbBotMillNetworkConstants.USER_PROFILE_FIELDS
+				+ pageToken);
 		String response = send(get);
-		FacebookUserProfile user = JsonUtils.fromJson(response, FacebookUserProfile.class);
+		FacebookUserProfile user = JsonUtils.fromJson(response,
+				FacebookUserProfile.class);
 		return user;
 	}
 
@@ -100,8 +112,10 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpPost post = new HttpPost(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL + pageToken);
+		HttpPost post = new HttpPost(
+				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL
+						+ pageToken);
 		post.setEntity(input);
 		send(post);
 	}
@@ -130,8 +144,10 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpPost post = new HttpPost(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL + pageToken);
+		HttpPost post = new HttpPost(
+				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
+						+ pageToken);
 		post.setEntity(input);
 		send(post);
 	}
@@ -189,16 +205,39 @@ public class NetworkUtils {
 		// Logs the raw JSON for debug purposes.
 		String output = getResponseContent(response);
 		logger.debug("HTTP Status Code: {}", statusCode);
-		logger.debug("Response: {}", output);
+		logger.trace("Raw response: {}", output);
 
+		// If the status code is > 400 there was an error.
 		if (statusCode >= 400) {
-			logger.error("HTTP connection failed with error code {}.", statusCode);
+			logger.error("HTTP connection failed with error code {}.",
+					statusCode);
 
 			// Parses the error message and logs it.
-			FacebookErrorMessage errorMessage = JsonUtils.fromJson(output, FacebookErrorMessage.class);
+			FacebookErrorMessage errorMessage = JsonUtils.fromJson(output,
+					FacebookErrorMessage.class);
 			FacebookError error = errorMessage.getError();
-			logger.error("Error message from Facebook. Message: [{}], Code: [{}], Type: [{}], FbTraceID: [{}].",
-					error.getMessage(), error.getCode(), error.getType(), error.getFbTraceId());
+			logger.error(
+					"Error message from Facebook. Message: [{}], Code: [{}], Type: [{}], FbTraceID: [{}].",
+					error.getMessage(), error.getCode(), error.getType(),
+					error.getFbTraceId());
+
+			// Sends the callback to the registered network monitors.
+			for (FbBotMillMonitor monitor : registeredMonitors) {
+				monitor.onError(errorMessage);
+			}
+		} else {
+			FacebookConfirmationMessage confirmationMessage = JsonUtils
+					.fromJson(output, FacebookConfirmationMessage.class);
+			logger.debug(
+					"Confirmation from Facebook. Recipient ID: [{}], Message ID: [{}], Result Message: [{}]",
+					confirmationMessage.getRecipientId(),
+					confirmationMessage.getMessageId(),
+					confirmationMessage.getResult());
+
+			// Sends the callback to the registered network monitors.
+			for (FbBotMillMonitor monitor : registeredMonitors) {
+				monitor.onConfirmation(confirmationMessage);
+			}
 		}
 		return output;
 	}
@@ -212,10 +251,13 @@ public class NetworkUtils {
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	private static String getResponseContent(HttpResponse response) throws IOException {
+	private static String getResponseContent(HttpResponse response)
+			throws IOException {
 		InputStream inputStream = response.getEntity().getContent();
-		BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-		InputStreamReader inputStreamReader = new InputStreamReader(bufferedInputStream);
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(
+				inputStream);
+		InputStreamReader inputStreamReader = new InputStreamReader(
+				bufferedInputStream);
 		BufferedReader br = new BufferedReader(inputStreamReader);
 		StringBuilder builder = new StringBuilder();
 		String output = null;
@@ -238,8 +280,10 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpDeleteWithBody delete = new HttpDeleteWithBody(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL + pageToken);
+		HttpDeleteWithBody delete = new HttpDeleteWithBody(
+				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
+						+ pageToken);
 		delete.setEntity(input);
 		send(delete);
 	}
@@ -264,8 +308,7 @@ public class NetworkUtils {
 	 */
 	private static boolean validatePageToken(String pageToken) {
 		if (pageToken == null || pageToken.isEmpty()) {
-			logger.error(
-					"FbBotMill validation error: Page token can't be null or empty! Have you called the method FbBotMillContext.getInstance().setup(String, String)?");
+			logger.error("FbBotMill validation error: Page token can't be null or empty! Have you called the method FbBotMillContext.getInstance().setup(String, String)?");
 			return false;
 		}
 		return true;
@@ -331,7 +374,8 @@ public class NetworkUtils {
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	private static String inputStreamToString(InputStream stream) throws IOException {
+	private static String inputStreamToString(InputStream stream)
+			throws IOException {
 		ByteArrayOutputStream result = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
 		int length;
@@ -354,7 +398,8 @@ public class NetworkUtils {
 	 * @param file
 	 *            the file
 	 */
-	public static void postFormDataMessage(String recipient, AttachmentType type, File file) {
+	public static void postFormDataMessage(String recipient,
+			AttachmentType type, File file) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -362,13 +407,16 @@ public class NetworkUtils {
 		}
 
 		// TODO: add checks for valid attachmentTypes (FILE, AUDIO or VIDEO)
-		HttpPost post = new HttpPost(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL + pageToken);
+		HttpPost post = new HttpPost(
+				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL
+						+ pageToken);
 
 		FileBody filedata = new FileBody(file);
-		StringBody recipientPart = new StringBody("{\"id\":\"" + recipient + "\"}", ContentType.MULTIPART_FORM_DATA);
-		StringBody messagePart = new StringBody(
-				"{\"attachment\":{\"type\":\"" + type.name().toLowerCase() + "\", \"payload\":{}}}",
+		StringBody recipientPart = new StringBody("{\"id\":\"" + recipient
+				+ "\"}", ContentType.MULTIPART_FORM_DATA);
+		StringBody messagePart = new StringBody("{\"attachment\":{\"type\":\""
+				+ type.name().toLowerCase() + "\", \"payload\":{}}}",
 				ContentType.MULTIPART_FORM_DATA);
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 		builder.setMode(HttpMultipartMode.STRICT);

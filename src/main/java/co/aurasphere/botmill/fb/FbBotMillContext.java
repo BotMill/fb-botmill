@@ -26,6 +26,8 @@ package co.aurasphere.botmill.fb;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
+
 /**
  * Class that contains all the context information used to handle bots and
  * communicate with Facebook. The context is a singleton.
@@ -74,11 +76,19 @@ public class FbBotMillContext {
 	private boolean validationEnabled;
 
 	/**
+	 * A list of the registered monitors in the context.
+	 * 
+	 * @since 1.1.0
+	 */
+	private List<FbBotMillMonitor> registeredMonitors;
+
+	/**
 	 * Instantiates a new FbBotMillContext. The validator is enabled by default.
 	 */
 	private FbBotMillContext() {
 		this.registeredBots = new ArrayList<FbBot>();
 		this.validationEnabled = true;
+		this.registeredMonitors = new ArrayList<FbBotMillMonitor>();
 	}
 
 	/**
@@ -193,6 +203,28 @@ public class FbBotMillContext {
 		this.validationToken = validationToken;
 	}
 
+	/**
+	 * Registers a monitor to the context. A monitor needs to be
+	 * registered to this context in order to be used.
+	 * 
+	 * @param monitor
+	 *            the monitor to be registered.
+	 * @since 1.1.0
+	 */
+	public void registerMonitor(FbBotMillMonitor monitor) {
+		this.registeredMonitors.add(monitor);
+	}
+
+	/**
+	 * Gets the list of registered monitors to this context.
+	 * 
+	 * @return a list of registered monitors to this context.
+	 * @since 1.1.0
+	 */
+	public List<FbBotMillMonitor> getRegisteredMonitors() {
+		return this.registeredMonitors;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -200,8 +232,9 @@ public class FbBotMillContext {
 	 */
 	@Override
 	public String toString() {
-		return "FbBotMillContext [registeredBots=" + registeredBots + ", validationToken=" + validationToken
-				+ ", pageToken=" + pageToken + ", validationEnabled=" + validationEnabled + "]";
+		return "FbBotMillContext [registeredBots=" + registeredBots
+				+ ", validationToken=" + validationToken + ", pageToken="
+				+ pageToken + ", validationEnabled=" + validationEnabled + "]";
 	}
 
 }

@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.bean;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -43,12 +44,12 @@ import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
+import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
 /**
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 
  * @author Donato Rimenti
- * @since 1.0.0
  * 
  */
 public class FbBotMillBean {
@@ -211,7 +212,7 @@ public class FbBotMillBean {
 		Message message = envelope.getMessage();
 		if (message != null) {
 			if (message instanceof ReceivedMessage) {
-				if(getLocationMessage(envelope) != null){
+				if (getLocationMessage(envelope) != null) {
 					return FbBotMillEventType.LOCATION;
 				}
 				return FbBotMillEventType.MESSAGE;
@@ -275,6 +276,16 @@ public class FbBotMillBean {
 					v.getMessage(), v.getInvalidValue(), v.getRootBean(),
 					v.getPropertyPath());
 		}
+
+		if (valid == false) {
+			// Sends the constraint violations through the callback.
+			List<FbBotMillMonitor> registeredMonitors = FbBotMillContext
+					.getInstance().getRegisteredMonitors();
+			for (FbBotMillMonitor monitor : registeredMonitors) {
+				monitor.onValidationError(response, violations);
+			}
+		}
+
 		return valid;
 	}
 

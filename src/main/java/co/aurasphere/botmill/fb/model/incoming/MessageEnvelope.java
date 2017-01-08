@@ -29,11 +29,11 @@ import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.callback.AccountLinking;
 import co.aurasphere.botmill.fb.model.incoming.callback.CheckoutUpdate;
 import co.aurasphere.botmill.fb.model.incoming.callback.DeliveredMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.Optin;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.PreCheckout;
 import co.aurasphere.botmill.fb.model.incoming.callback.Read;
-import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.Referral;
 import co.aurasphere.botmill.fb.model.incoming.callback.payment.Payment;
 
@@ -74,7 +74,7 @@ public class MessageEnvelope implements Serializable {
 	/**
 	 * Message content for message and message_echoes callback.
 	 */
-	private ReceivedMessage message;
+	private IncomingMessage message;
 
 	/**
 	 * Postback object for messaging_postbacks callback.
@@ -186,7 +186,7 @@ public class MessageEnvelope implements Serializable {
 	 *
 	 * @return the {@link #message}.
 	 */
-	public ReceivedMessage getMessage() {
+	public IncomingMessage getMessage() {
 		return message;
 	}
 
@@ -196,7 +196,7 @@ public class MessageEnvelope implements Serializable {
 	 * @param message
 	 *            the {@link #message} to set.
 	 */
-	public void setMessage(ReceivedMessage message) {
+	public void setMessage(IncomingMessage message) {
 		this.message = message;
 	}
 

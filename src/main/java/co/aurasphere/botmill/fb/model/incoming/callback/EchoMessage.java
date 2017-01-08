@@ -23,11 +23,6 @@
  */
 package co.aurasphere.botmill.fb.model.incoming.callback;
 
-import java.util.List;
-
-import co.aurasphere.botmill.fb.model.base.Attachment;
-import co.aurasphere.botmill.fb.model.outcoming.message.Message;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -57,9 +52,8 @@ import com.google.gson.annotations.SerializedName;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * 
  */
-public class EchoMessage extends Message {
+public class EchoMessage extends IncomingMessage {
 
 	/**
 	 * The serial version UID.
@@ -92,17 +86,6 @@ public class EchoMessage extends Message {
 	 * Sequence number.
 	 */
 	private String seq;
-
-	/**
-	 * Text message.
-	 */
-	private String text;
-
-	// TODO: custom JSON deserializer for legacy attachments and templates
-	/**
-	 * Attachments of the message.
-	 */
-	private List<Attachment> attachments;
 
 	/**
 	 * Checks if is echo.
@@ -199,42 +182,80 @@ public class EchoMessage extends Message {
 		this.seq = seq;
 	}
 
-	/**
-	 * Gets the {@link #text}.
-	 *
-	 * @return the {@link #text}.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#hashCode
+	 * ()
 	 */
-	public String getText() {
-		return text;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((appId == null) ? 0 : appId.hashCode());
+		result = prime * result + (isEcho ? 1231 : 1237);
+		result = prime * result
+				+ ((metadata == null) ? 0 : metadata.hashCode());
+		result = prime * result + ((mid == null) ? 0 : mid.hashCode());
+		result = prime * result + ((seq == null) ? 0 : seq.hashCode());
+		return result;
 	}
 
-	/**
-	 * Sets the {@link #text}.
-	 *
-	 * @param text
-	 *            the {@link #text} to set.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#equals
+	 * (java.lang.Object)
 	 */
-	public void setText(String text) {
-		this.text = text;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EchoMessage other = (EchoMessage) obj;
+		if (appId == null) {
+			if (other.appId != null)
+				return false;
+		} else if (!appId.equals(other.appId))
+			return false;
+		if (isEcho != other.isEcho)
+			return false;
+		if (metadata == null) {
+			if (other.metadata != null)
+				return false;
+		} else if (!metadata.equals(other.metadata))
+			return false;
+		if (mid == null) {
+			if (other.mid != null)
+				return false;
+		} else if (!mid.equals(other.mid))
+			return false;
+		if (seq == null) {
+			if (other.seq != null)
+				return false;
+		} else if (!seq.equals(other.seq))
+			return false;
+		return true;
 	}
 
-	/**
-	 * Gets the {@link #attachments}.
-	 *
-	 * @return the {@link #attachments}.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#toString
+	 * ()
 	 */
-	public List<Attachment> getAttachments() {
-		return attachments;
-	}
-
-	/**
-	 * Sets the {@link #attachments}.
-	 *
-	 * @param attachments
-	 *            the {@link #attachments} to set.
-	 */
-	public void setAttachments(List<Attachment> attachments) {
-		this.attachments = attachments;
+	@Override
+	public String toString() {
+		return "EchoMessage [isEcho=" + isEcho + ", appId=" + appId
+				+ ", metadata=" + metadata + ", mid=" + mid + ", seq=" + seq
+				+ ", text=" + text + ", attachments=" + attachments
+				+ ", quickReply=" + quickReply + "]";
 	}
 
 }

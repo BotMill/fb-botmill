@@ -40,10 +40,10 @@ import co.aurasphere.botmill.fb.model.base.QuickReplyLocationPayload;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
-import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
 /**
@@ -209,7 +209,7 @@ public class FbBotMillBean {
 	 *         type.
 	 */
 	protected FbBotMillEventType eventKind(MessageEnvelope envelope) {
-		Message message = envelope.getMessage();
+		IncomingMessage message = envelope.getMessage();
 		if (message != null) {
 			if (message instanceof ReceivedMessage) {
 				if (getLocationMessage(envelope) != null) {

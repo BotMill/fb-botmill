@@ -23,32 +23,22 @@
  */
 package co.aurasphere.botmill.fb.model.incoming.callback;
 
-import java.util.List;
-
-import co.aurasphere.botmill.fb.model.base.Attachment;
-import co.aurasphere.botmill.fb.model.outcoming.message.Message;
-import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
-
-import com.google.gson.annotations.SerializedName;
-
 /**
  * Model for a received message callback. <br>
  * <br>
  * This callback will occur when a message has been sent to your page. You may
  * receive text messages or messages with attachments (image, audio, video, file
  * or location). Callbacks contain a seq number which can be used to know the
- * sequence of a message in a conversation. Messages are always sent in order.
+ * sequence of a message in a conversation. Messages are always sent in order. <br>
  * <br>
- * <br>
- * You can subscribe to this callback by selecting the message field when
- * <a href=
+ * You can subscribe to this callback by selecting the message field when <a
+ * href=
  * "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  * >setting up</a> your webhook.
  * 
  * @author Donato Rimenti
- * 
  */
-public class ReceivedMessage extends Message {
+public class ReceivedMessage extends IncomingMessage {
 
 	/**
 	 * The serial version UID.
@@ -69,17 +59,6 @@ public class ReceivedMessage extends Message {
 	 * Text of message.
 	 */
 	private String text;
-
-	/**
-	 * Optional custom data provided by the sending app.
-	 */
-	@SerializedName("quick_reply")
-	private QuickReply quickReply;
-
-	/**
-	 * Attachment data.
-	 */
-	private List<Attachment> attachments;
 
 	/**
 	 * Gets the {@link #mid}.
@@ -138,41 +117,69 @@ public class ReceivedMessage extends Message {
 		this.text = text;
 	}
 
-	/**
-	 * Gets the {@link #quickReply}.
-	 *
-	 * @return the {@link #quickReply}.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#hashCode
+	 * ()
 	 */
-	public QuickReply getQuickReply() {
-		return quickReply;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((mid == null) ? 0 : mid.hashCode());
+		result = prime * result + ((seq == null) ? 0 : seq.hashCode());
+		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		return result;
 	}
 
-	/**
-	 * Sets the {@link #quickReply}.
-	 *
-	 * @param quickReply
-	 *            the {@link #quickReply} to set.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#equals
+	 * (java.lang.Object)
 	 */
-	public void setQuickReply(QuickReply quickReply) {
-		this.quickReply = quickReply;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReceivedMessage other = (ReceivedMessage) obj;
+		if (mid == null) {
+			if (other.mid != null)
+				return false;
+		} else if (!mid.equals(other.mid))
+			return false;
+		if (seq == null) {
+			if (other.seq != null)
+				return false;
+		} else if (!seq.equals(other.seq))
+			return false;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
+			return false;
+		return true;
 	}
 
-	/**
-	 * Gets the {@link #attachments}.
-	 *
-	 * @return the {@link #attachments}.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage#toString
+	 * ()
 	 */
-	public List<Attachment> getAttachments() {
-		return attachments;
+	@Override
+	public String toString() {
+		return "ReceivedMessage [mid=" + mid + ", seq=" + seq + ", text="
+				+ text + ", attachments=" + attachments + ", quickReply="
+				+ quickReply + "]";
 	}
 
-	/**
-	 * Sets the {@link #attachments}.
-	 *
-	 * @param attachments
-	 *            the {@link #attachments} to set.
-	 */
-	public void setAttachments(List<Attachment> attachments) {
-		this.attachments = attachments;
-	}
 }

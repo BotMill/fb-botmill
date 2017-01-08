@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.internal.util.json;
 import java.util.Calendar;
 
 import co.aurasphere.botmill.fb.model.base.Attachment;
+import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.Gson;
@@ -76,6 +77,9 @@ public class JsonUtils {
 
 			// Deserializes buttons from interface.
 			builder.registerTypeAdapter(Button.class, new ButtonDeserializer());
+
+			// Deserializes incoming messages from interface.
+			builder.registerTypeAdapter(IncomingMessage.class, new IncomingMessageDeserializer());
 
 			gson = builder.create();
 		}

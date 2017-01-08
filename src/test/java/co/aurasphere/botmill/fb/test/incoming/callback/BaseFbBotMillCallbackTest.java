@@ -23,7 +23,11 @@
  */
 package co.aurasphere.botmill.fb.test.incoming.callback;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
@@ -35,6 +39,30 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
  * @since 1.1.0
  */
 public class BaseFbBotMillCallbackTest {
+
+	/**
+	 * The logger.
+	 */
+	private static final Logger logger = LoggerFactory
+			.getLogger(BaseFbBotMillCallbackTest.class);
+
+	/**
+	 * Logs the testing class.
+	 */
+	@Before
+	public void before() {
+		logger.info("Starting unit tests in class [{}].", this.getClass()
+				.getSimpleName());
+	}
+
+	/**
+	 * Logs the testing class.
+	 */
+	@After
+	public void after() {
+		logger.info("Completed unit tests for class [{}].", this.getClass()
+				.getSimpleName());
+	}
 
 	/**
 	 * Checks that each callback field for the common format is not null.

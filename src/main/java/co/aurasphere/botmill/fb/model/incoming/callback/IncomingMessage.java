@@ -38,6 +38,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Donato Rimenti
  * @since 1.1.0
  */
+public abstract class IncomingMessage implements Serializable {
 
 	/**
 	 * The serial version UID.

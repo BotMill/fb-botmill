@@ -58,6 +58,7 @@ public class HttpDeleteWithBody extends HttpPost {
 	 * 
 	 * @see org.apache.http.client.methods.HttpRequestBase#toString()
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
 		return "HttpDeleteWithBody [headergroup=" + headergroup + ", params="

@@ -173,4 +173,17 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 	private static boolean isEmpty(String string) {
 		return string == null || string.isEmpty();
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.AbstractFbBot#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BaseFbBotMillNetworkTest [mockMediator=" + mockMediator
+				+ ", monitor=" + monitor + ", mockId=" + mockId
+				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken
+				+ ", fbBot=" + fbBot + "]";
+	}
 }

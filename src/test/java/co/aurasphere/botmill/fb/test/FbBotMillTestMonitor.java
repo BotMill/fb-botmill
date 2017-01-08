@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.test;
 
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
@@ -142,6 +143,17 @@ public class FbBotMillTestMonitor implements FbBotMillMonitor {
 			Set<ConstraintViolation<FbBotMillResponse>> constraintViolations) {
 		latch.countDown();
 		result = constraintViolations;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillTestMonitor [latch=" + latch + ", result=" + result
+				+ "]";
 	}
 
 }

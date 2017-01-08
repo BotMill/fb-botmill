@@ -66,4 +66,17 @@ public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest 
 	 *         test it.
 	 */
 	protected abstract String[] getMessagesToSend();
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.AbstractFbBot#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BaseFbBotMillMessageTest [mockMediator=" + mockMediator
+				+ ", monitor=" + monitor + ", mockId=" + mockId
+				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken
+				+ ", fbBot=" + fbBot + "]";
+	}
 }

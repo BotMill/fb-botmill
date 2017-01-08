@@ -113,17 +113,17 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 			return;
 		}
 
-		mockId = System.getProperty(FB_BOTMILL_MOCK_ID_PROPERTY);
-		pageToken = System.getProperty(FB_BOTMILL_PAGE_TOKEN_PROPERTY);
-		webhookToken = System.getProperty(FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY);
+		mockId = System.getenv(FB_BOTMILL_MOCK_ID_PROPERTY);
+		pageToken = System.getenv(FB_BOTMILL_PAGE_TOKEN_PROPERTY);
+		webhookToken = System.getenv(FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY);
 
 		// If one or more properties are null, the tests will be skipped.
 		if (isEmpty(mockId) || isEmpty(pageToken) || isEmpty(webhookToken)) {
 			logger.warn(
-					"One of the testing environment variables is missing. Tests will be skipped. Variables values: [{}={}], [{}={}], [{}={}].",
-					FB_BOTMILL_MOCK_ID_PROPERTY, mockId,
-					FB_BOTMILL_PAGE_TOKEN_PROPERTY, pageToken,
-					FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY, webhookToken);
+					"One of the testing environment variables is missing. Tests will be skipped. Variables missing: [{}={}], [{}={}], [{}={}].",
+					FB_BOTMILL_MOCK_ID_PROPERTY, isEmpty(mockId),
+					FB_BOTMILL_PAGE_TOKEN_PROPERTY, isEmpty(pageToken),
+					FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY, isEmpty(webhookToken));
 			skipAllTests = true;
 		} else if (this.mockMediator == null) {
 			FbBotMillContext.getInstance().setup(pageToken, webhookToken);

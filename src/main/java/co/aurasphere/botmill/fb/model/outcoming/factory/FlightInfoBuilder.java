@@ -79,8 +79,10 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setDepartureAirport(String airportCode, String city, String gate, String terminal) {
-		Airport departureAirport = new Airport(airportCode, city, gate, terminal);
+	public FlightInfoBuilder<T> setDepartureAirport(String airportCode,
+			String city, String gate, String terminal) {
+		Airport departureAirport = new Airport(airportCode, city, gate,
+				terminal);
 		this.flightInfo.setDepartureAirport(departureAirport);
 		return this;
 	}
@@ -96,7 +98,8 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            code in the template. It can't be empty.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setDepartureAirport(String airportCode, String city) {
+	public FlightInfoBuilder<T> setDepartureAirport(String airportCode,
+			String city) {
 		Airport departureAirport = new Airport(airportCode, city);
 		this.flightInfo.setDepartureAirport(departureAirport);
 		return this;
@@ -130,7 +133,8 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setArrivalAirport(String airportCode, String city, String gate, String terminal) {
+	public FlightInfoBuilder<T> setArrivalAirport(String airportCode,
+			String city, String gate, String terminal) {
 		Airport arrivalAirport = new Airport(airportCode, city, gate, terminal);
 		this.flightInfo.setArrivalAirport(arrivalAirport);
 		return this;
@@ -147,7 +151,8 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            code in the template. It can't be empty.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setArrivalAirport(String airportCode, String city) {
+	public FlightInfoBuilder<T> setArrivalAirport(String airportCode,
+			String city) {
 		Airport arrivalAirport = new Airport(airportCode, city);
 		this.flightInfo.setArrivalAirport(arrivalAirport);
 		return this;
@@ -176,8 +181,10 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the arrival time. It can't be null.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime, Calendar arrivalTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime);
+	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime,
+			Calendar arrivalTime) {
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
+				arrivalTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
@@ -194,8 +201,10 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	 *            the boarding time. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime, Calendar arrivalTime, Calendar boardingTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime, boardingTime);
+	public FlightInfoBuilder<T> setFlightSchedule(Calendar departureTime,
+			Calendar arrivalTime, Calendar boardingTime) {
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
+				arrivalTime, boardingTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
@@ -222,6 +231,17 @@ public class FlightInfoBuilder<T extends FlightInfoBuilderDelegator> {
 	public T endFlightInfo() {
 		parentBuilder.addFlightInfo(flightInfo);
 		return parentBuilder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightInfoBuilder [parentBuilder=" + parentBuilder
+				+ ", flightInfo=" + flightInfo + "]";
 	}
 
 }

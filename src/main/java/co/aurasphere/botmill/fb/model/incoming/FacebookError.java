@@ -137,4 +137,69 @@ public class FacebookError implements Serializable {
 		this.fbTraceId = fbTraceId;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result
+				+ ((fbTraceId == null) ? 0 : fbTraceId.hashCode());
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FacebookError other = (FacebookError) obj;
+		if (code == null) {
+			if (other.code != null)
+				return false;
+		} else if (!code.equals(other.code))
+			return false;
+		if (fbTraceId == null) {
+			if (other.fbTraceId != null)
+				return false;
+		} else if (!fbTraceId.equals(other.fbTraceId))
+			return false;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FacebookError [message=" + message + ", type=" + type
+				+ ", code=" + code + ", fbTraceId=" + fbTraceId + "]";
+	}
+
 }

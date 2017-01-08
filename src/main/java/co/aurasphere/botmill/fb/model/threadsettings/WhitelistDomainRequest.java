@@ -83,7 +83,8 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	 * @param domainActionType
 	 *            the domain action type
 	 */
-	public WhitelistDomainRequest(List<String> whiteListedDomains, DomainActionType domainActionType) {
+	public WhitelistDomainRequest(List<String> whiteListedDomains,
+			DomainActionType domainActionType) {
 		this.whiteListedDomains = whiteListedDomains;
 		this.domainActionType = domainActionType;
 		this.type = SettingType.DOMAIN_WHITELISTING;
@@ -132,11 +133,70 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	 *
 	 * @param domain
 	 *            the domain
-	 * @return the whitelist domain request
 	 */
-	public WhitelistDomainRequest addWhiteListedDomain(String domain) {
+	public void addWhiteListedDomain(String domain) {
 		this.whiteListedDomains.add(domain);
-		return this;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime
+				* result
+				+ ((domainActionType == null) ? 0 : domainActionType.hashCode());
+		result = prime
+				* result
+				+ ((whiteListedDomains == null) ? 0 : whiteListedDomains
+						.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		WhitelistDomainRequest other = (WhitelistDomainRequest) obj;
+		if (domainActionType != other.domainActionType)
+			return false;
+		if (whiteListedDomains == null) {
+			if (other.whiteListedDomains != null)
+				return false;
+		} else if (!whiteListedDomains.equals(other.whiteListedDomains))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "WhitelistDomainRequest [domainActionType=" + domainActionType
+				+ ", whiteListedDomains=" + whiteListedDomains + ", type="
+				+ type + "]";
 	}
 
 }

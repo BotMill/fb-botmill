@@ -37,7 +37,6 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
  * A builder for a message that contains only a plain text message.
  * 
  * @author Donato Rimenti
- * 
  */
 public class TextMessageBuilder extends MessageBaseBuilder {
 
@@ -124,6 +123,19 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 		Message message = new TextMessage(messageText);
 		message.setQuickReplies(quickReplies);
 		return new FbBotMillMessageResponse(recipient, message);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.MessageBaseBuilder#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "TextMessageBuilder [messageText=" + messageText
+				+ ", quickReplies=" + quickReplies + "]";
 	}
 
 }

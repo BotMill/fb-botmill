@@ -68,9 +68,11 @@ public class FlightInfoExtendedBuilder {
 	 * @param travelClass
 	 *            the travel class. It can't be null.
 	 */
-	FlightInfoExtendedBuilder(AirlineItineraryTemplateBuilder parentBuilder, String flightNumber, String connectionId,
-			String segmentId, TravelClass travelClass) {
-		this.flightInfo = new FlightInfoExtended(flightNumber, connectionId, segmentId, travelClass);
+	FlightInfoExtendedBuilder(AirlineItineraryTemplateBuilder parentBuilder,
+			String flightNumber, String connectionId, String segmentId,
+			TravelClass travelClass) {
+		this.flightInfo = new FlightInfoExtended(flightNumber, connectionId,
+				segmentId, travelClass);
 		this.parentBuilder = parentBuilder;
 	}
 
@@ -90,9 +92,10 @@ public class FlightInfoExtendedBuilder {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setDepartureAirport(String airportCode, String city, String gate,
-			String terminal) {
-		Airport departureAirport = new Airport(airportCode, city, gate, terminal);
+	public FlightInfoExtendedBuilder setDepartureAirport(String airportCode,
+			String city, String gate, String terminal) {
+		Airport departureAirport = new Airport(airportCode, city, gate,
+				terminal);
 		this.flightInfo.setDepartureAirport(departureAirport);
 		return this;
 	}
@@ -109,7 +112,8 @@ public class FlightInfoExtendedBuilder {
 	 *            code in the template. It can't be empty.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setDepartureAirport(String airportCode, String city) {
+	public FlightInfoExtendedBuilder setDepartureAirport(String airportCode,
+			String city) {
 		Airport departureAirport = new Airport(airportCode, city);
 		this.flightInfo.setDepartureAirport(departureAirport);
 		return this;
@@ -145,7 +149,8 @@ public class FlightInfoExtendedBuilder {
 	 *            the airport terminal. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setArrivalAirport(String airportCode, String city, String gate, String terminal) {
+	public FlightInfoExtendedBuilder setArrivalAirport(String airportCode,
+			String city, String gate, String terminal) {
 		Airport arrivalAirport = new Airport(airportCode, city, gate, terminal);
 		this.flightInfo.setArrivalAirport(arrivalAirport);
 		return this;
@@ -163,7 +168,8 @@ public class FlightInfoExtendedBuilder {
 	 *            code in the template. It can't be empty.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setArrivalAirport(String airportCode, String city) {
+	public FlightInfoExtendedBuilder setArrivalAirport(String airportCode,
+			String city) {
 		Airport arrivalAirport = new Airport(airportCode, city);
 		this.flightInfo.setArrivalAirport(arrivalAirport);
 		return this;
@@ -194,8 +200,10 @@ public class FlightInfoExtendedBuilder {
 	 *            the arrival time. It can't be null.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setFlightSchedule(Calendar departureTime, Calendar arrivalTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime);
+	public FlightInfoExtendedBuilder setFlightSchedule(Calendar departureTime,
+			Calendar arrivalTime) {
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
+				arrivalTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
@@ -213,9 +221,10 @@ public class FlightInfoExtendedBuilder {
 	 *            the boarding time. This field is optional.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setFlightSchedule(Calendar departureTime, Calendar arrivalTime,
-			Calendar boardingTime) {
-		FlightSchedule flightSchedule = new FlightSchedule(departureTime, arrivalTime, boardingTime);
+	public FlightInfoExtendedBuilder setFlightSchedule(Calendar departureTime,
+			Calendar arrivalTime, Calendar boardingTime) {
+		FlightSchedule flightSchedule = new FlightSchedule(departureTime,
+				arrivalTime, boardingTime);
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
@@ -229,7 +238,8 @@ public class FlightInfoExtendedBuilder {
 	 *            the flight schedule to set. It can't be null.
 	 * @return this builder.
 	 */
-	public FlightInfoExtendedBuilder setFlightSchedule(FlightSchedule flightSchedule) {
+	public FlightInfoExtendedBuilder setFlightSchedule(
+			FlightSchedule flightSchedule) {
 		this.flightInfo.setFlightSchedule(flightSchedule);
 		return this;
 	}
@@ -256,6 +266,17 @@ public class FlightInfoExtendedBuilder {
 	public AirlineItineraryTemplateBuilder endFlightInfo() {
 		parentBuilder.addFlightInfo(flightInfo);
 		return parentBuilder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightInfoExtendedBuilder [parentBuilder=" + parentBuilder
+				+ ", flightInfo=" + flightInfo + "]";
 	}
 
 }

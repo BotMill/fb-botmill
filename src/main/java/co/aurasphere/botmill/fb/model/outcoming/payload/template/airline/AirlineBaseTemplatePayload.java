@@ -130,4 +130,71 @@ public class AirlineBaseTemplatePayload extends TemplateBasePayload {
 		this.themeColor = themeColor;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePayload
+	 * #hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((introMessage == null) ? 0 : introMessage.hashCode());
+		result = prime * result + ((locale == null) ? 0 : locale.hashCode());
+		result = prime * result
+				+ ((themeColor == null) ? 0 : themeColor.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePayload
+	 * #equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AirlineBaseTemplatePayload other = (AirlineBaseTemplatePayload) obj;
+		if (introMessage == null) {
+			if (other.introMessage != null)
+				return false;
+		} else if (!introMessage.equals(other.introMessage))
+			return false;
+		if (locale == null) {
+			if (other.locale != null)
+				return false;
+		} else if (!locale.equals(other.locale))
+			return false;
+		if (themeColor == null) {
+			if (other.themeColor != null)
+				return false;
+		} else if (!themeColor.equals(other.themeColor))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePayload
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineBaseTemplatePayload [introMessage=" + introMessage
+				+ ", locale=" + locale + ", themeColor=" + themeColor
+				+ ", templateType=" + templateType + "]";
+	}
+
 }

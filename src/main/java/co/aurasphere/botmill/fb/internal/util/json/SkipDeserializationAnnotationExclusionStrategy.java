@@ -33,7 +33,8 @@ import com.google.gson.FieldAttributes;
  * @author Donato Rimenti
  * 
  */
-final class SkipDeserializationAnnotationExclusionStrategy implements ExclusionStrategy {
+final class SkipDeserializationAnnotationExclusionStrategy implements
+		ExclusionStrategy {
 
 	/*
 	 * (non-Javadoc)
@@ -52,5 +53,15 @@ final class SkipDeserializationAnnotationExclusionStrategy implements ExclusionS
 	 */
 	public boolean shouldSkipClass(Class<?> clazz) {
 		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SkipDeserializationAnnotationExclusionStrategy []";
 	}
 }

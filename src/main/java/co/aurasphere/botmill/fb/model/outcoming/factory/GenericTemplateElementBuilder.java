@@ -54,7 +54,8 @@ public class GenericTemplateElementBuilder {
 	 * @param parentBuilder
 	 *            the parent builder of this builder.
 	 */
-	GenericTemplateElementBuilder(String title, GenericTemplateBuilder parentBuilder) {
+	GenericTemplateElementBuilder(String title,
+			GenericTemplateBuilder parentBuilder) {
 		this.parentBuilder = parentBuilder;
 		this.element = new GenericTemplateElement(title);
 	}
@@ -125,8 +126,10 @@ public class GenericTemplateElementBuilder {
 	 *            the country code, area code and local number.
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addPhoneNumberButton(String title, String phoneNumber) {
-		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
+	public GenericTemplateElementBuilder addPhoneNumberButton(String title,
+			String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title,
+				phoneNumber);
 		this.element.addButton(button);
 		return this;
 	}
@@ -142,7 +145,8 @@ public class GenericTemplateElementBuilder {
 	 *            the payload to send back when clicked.
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addPostbackButton(String title, String payload) {
+	public GenericTemplateElementBuilder addPostbackButton(String title,
+			String payload) {
 		Button button = ButtonFactory.createPostbackButton(title, payload);
 		this.element.addButton(button);
 		return this;
@@ -205,7 +209,8 @@ public class GenericTemplateElementBuilder {
 	 *            the payment summary
 	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addBuyButton(String payload, PaymentSummary paymentSummary) {
+	public GenericTemplateElementBuilder addBuyButton(String payload,
+			PaymentSummary paymentSummary) {
 		Button button = ButtonFactory.createBuyButton(payload, paymentSummary);
 		this.element.addButton(button);
 		return this;
@@ -220,6 +225,17 @@ public class GenericTemplateElementBuilder {
 	public GenericTemplateBuilder endElement() {
 		parentBuilder.addElement(element);
 		return parentBuilder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "GenericTemplateElementBuilder [parentBuilder=" + parentBuilder
+				+ ", element=" + element + "]";
 	}
 
 }

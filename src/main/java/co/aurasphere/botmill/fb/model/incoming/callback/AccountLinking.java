@@ -115,4 +115,59 @@ public class AccountLinking implements Serializable {
 	public void setAuthorizationCode(String authorizationCode) {
 		this.authorizationCode = authorizationCode;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((authorizationCode == null) ? 0 : authorizationCode
+						.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AccountLinking other = (AccountLinking) obj;
+		if (authorizationCode == null) {
+			if (other.authorizationCode != null)
+				return false;
+		} else if (!authorizationCode.equals(other.authorizationCode))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AccountLinking [status=" + status + ", authorizationCode="
+				+ authorizationCode + "]";
+	}
 }

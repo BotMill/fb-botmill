@@ -64,4 +64,14 @@ public class ActionResponseBuilder extends FbBotMillMockableBuilder {
 		return new FbBotMillActionResponse(recipient, action);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ActionResponseBuilder [action=" + action + "]";
+	}
+
 }

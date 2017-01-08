@@ -53,4 +53,14 @@ public abstract class FbBotMillMockableBuilder extends FbBotMillResponseBuilder 
 		}
 		return safeGetSender(envelope);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillMockableBuilder []";
+	}
 }

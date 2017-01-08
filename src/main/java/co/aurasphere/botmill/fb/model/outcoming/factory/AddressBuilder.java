@@ -141,4 +141,15 @@ public class AddressBuilder {
 		return this.parentBuilder;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AddressBuilder [parentBuilder=" + parentBuilder + ", address="
+				+ address + "]";
+	}
+
 }

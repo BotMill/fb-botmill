@@ -163,4 +163,65 @@ public class Attachment implements Serializable {
 		this.url = url;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Attachment other = (Attachment) obj;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		if (type != other.type)
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Attachment [title=" + title + ", url=" + url + ", type=" + type
+				+ ", payload=" + payload + "]";
+	}
+
 }

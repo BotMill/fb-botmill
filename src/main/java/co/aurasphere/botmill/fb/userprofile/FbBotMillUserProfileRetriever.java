@@ -30,9 +30,14 @@ import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
  * Class for handling the retrieval of Facebook user info.
  * 
  * @author Donato Rimenti
- * 
  */
 public class FbBotMillUserProfileRetriever {
+
+	/**
+	 * Instantiates a new FbBotMillUserProfileRetriever.
+	 */
+	private FbBotMillUserProfileRetriever() {
+	}
 
 	/**
 	 * Retrieves a {@link FacebookUserProfile} object containing the info for
@@ -44,6 +49,16 @@ public class FbBotMillUserProfileRetriever {
 	 */
 	public static FacebookUserProfile getUser(String userId) {
 		return NetworkUtils.getUserProfile(userId);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillUserProfileRetriever []";
 	}
 
 }

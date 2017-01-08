@@ -82,10 +82,12 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *      > Facebook's Messenger Platform Airline Itinerary Template
 	 *      Documentation</a>
 	 */
-	AirlineItineraryTemplateBuilder(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice,
-			String currency) {
-		this.payload = new AirlineItineraryTemplatePayload(introMessage, locale, pnrNumber, totalPrice, currency);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+	AirlineItineraryTemplateBuilder(String introMessage, String locale,
+			String pnrNumber, BigDecimal totalPrice, String currency) {
+		this.payload = new AirlineItineraryTemplatePayload(introMessage,
+				locale, pnrNumber, totalPrice, currency);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -124,8 +126,10 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the ticket number. This field is optional.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId, String name, String ticketNumber) {
-		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name, ticketNumber);
+	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId,
+			String name, String ticketNumber) {
+		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name,
+				ticketNumber);
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
 	}
@@ -140,7 +144,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the passenger name. It can't be empty.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId, String name) {
+	public AirlineItineraryTemplateBuilder addPassengerInfo(String passengerId,
+			String name) {
 		PassengerInfo passengerInfo = new PassengerInfo(passengerId, name);
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
@@ -154,7 +159,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the passenger info
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerInfo(PassengerInfo passengerInfo) {
+	public AirlineItineraryTemplateBuilder addPassengerInfo(
+			PassengerInfo passengerInfo) {
 		this.payload.addPassengerInfo(passengerInfo);
 		return this;
 	}
@@ -176,9 +182,10 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            can't be empty.
 	 * @return the passenger segment info builder
 	 */
-	public PassengerSegmentInfoBuilder addPassengerSegmentInfo(String segmentId, String passengerId, String seat,
-			String seatType) {
-		return new PassengerSegmentInfoBuilder(this, segmentId, passengerId, seat, seatType);
+	public PassengerSegmentInfoBuilder addPassengerSegmentInfo(
+			String segmentId, String passengerId, String seat, String seatType) {
+		return new PassengerSegmentInfoBuilder(this, segmentId, passengerId,
+				seat, seatType);
 	}
 
 	/**
@@ -189,7 +196,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the segment info to add.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPassengerSegmentInfo(PassengerSegmentInfo segmentInfo) {
+	public AirlineItineraryTemplateBuilder addPassengerSegmentInfo(
+			PassengerSegmentInfo segmentInfo) {
 		this.payload.addPassengerSegmentInfo(segmentInfo);
 		return this;
 	}
@@ -204,7 +212,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the price amount.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPriceInfo(String title, BigDecimal amount) {
+	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
+			BigDecimal amount) {
 		PriceInfo priceInfo = new PriceInfo(title, amount);
 		this.payload.addPriceInfo(priceInfo);
 		return this;
@@ -226,7 +235,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            > Facebook's currency support</a>
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addPriceInfo(String title, BigDecimal amount, String currency) {
+	public AirlineItineraryTemplateBuilder addPriceInfo(String title,
+			BigDecimal amount, String currency) {
 		PriceInfo priceInfo = new PriceInfo(title, amount, currency);
 		this.payload.addPriceInfo(priceInfo);
 		return this;
@@ -261,9 +271,10 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the travel class. It can't be null.
 	 * @return a builder for the {@link FlightInfoExtended} object.
 	 */
-	public FlightInfoExtendedBuilder addFlightInfo(String flightNumber, String connectionId, String segmentId,
-			TravelClass travelClass) {
-		return new FlightInfoExtendedBuilder(this, flightNumber, connectionId, segmentId, travelClass);
+	public FlightInfoExtendedBuilder addFlightInfo(String flightNumber,
+			String connectionId, String segmentId, TravelClass travelClass) {
+		return new FlightInfoExtendedBuilder(this, flightNumber, connectionId,
+				segmentId, travelClass);
 	}
 
 	/**
@@ -275,7 +286,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *            the flight info to add.
 	 * @return this builder.
 	 */
-	public AirlineItineraryTemplateBuilder addFlightInfo(FlightInfoExtended flightInfo) {
+	public AirlineItineraryTemplateBuilder addFlightInfo(
+			FlightInfoExtended flightInfo) {
 		this.payload.addFlightInfo(flightInfo);
 		return this;
 	}
@@ -322,7 +334,8 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      >Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineItineraryTemplateBuilder addQuickReply(String title, String payload) {
+	public AirlineItineraryTemplateBuilder addQuickReply(String title,
+			String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -355,6 +368,19 @@ public class AirlineItineraryTemplateBuilder extends FlightInfoBuilderDelegator 
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineItineraryTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

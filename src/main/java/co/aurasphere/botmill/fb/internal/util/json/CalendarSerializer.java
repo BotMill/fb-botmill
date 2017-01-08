@@ -63,14 +63,30 @@ public class CalendarSerializer implements JsonSerializer<Calendar> {
 	 *            the context
 	 * @return the json element
 	 */
-	public JsonElement serialize(Calendar src, Type typeOfSrc, JsonSerializationContext context) {
+	public JsonElement serialize(Calendar src, Type typeOfSrc,
+			JsonSerializationContext context) {
 		int year = src.get(Calendar.YEAR);
-		String month = this.formatter.format(Double.valueOf(src.get(Calendar.MONTH) + 1));
-		String day = this.formatter.format(Double.valueOf(src.get(Calendar.DAY_OF_MONTH)));
-		String hour = this.formatter.format(Double.valueOf(src.get(Calendar.HOUR_OF_DAY)));
-		String minute = this.formatter.format(Double.valueOf(src.get(Calendar.MINUTE)));
-		String formattedDate = year + "-" + month + "-" + day + "T" + hour + ":" + minute;
+		String month = this.formatter.format(Double.valueOf(src
+				.get(Calendar.MONTH) + 1));
+		String day = this.formatter.format(Double.valueOf(src
+				.get(Calendar.DAY_OF_MONTH)));
+		String hour = this.formatter.format(Double.valueOf(src
+				.get(Calendar.HOUR_OF_DAY)));
+		String minute = this.formatter.format(Double.valueOf(src
+				.get(Calendar.MINUTE)));
+		String formattedDate = year + "-" + month + "-" + day + "T" + hour
+				+ ":" + minute;
 
 		return context.serialize(formattedDate);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CalendarSerializer [formatter=" + formatter + "]";
 	}
 }

@@ -75,7 +75,8 @@ public class FlightSchedule implements Serializable {
 	 * @param boardingTime
 	 *            the boarding time
 	 */
-	public FlightSchedule(Calendar departureTime, Calendar arrivalTime, Calendar boardingTime) {
+	public FlightSchedule(Calendar departureTime, Calendar arrivalTime,
+			Calendar boardingTime) {
 		this(departureTime, arrivalTime);
 		this.boardingTime = boardingTime;
 	}
@@ -135,6 +136,68 @@ public class FlightSchedule implements Serializable {
 	 */
 	public void setArrivalTime(Calendar arrivalTime) {
 		this.arrivalTime = arrivalTime;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((arrivalTime == null) ? 0 : arrivalTime.hashCode());
+		result = prime * result
+				+ ((boardingTime == null) ? 0 : boardingTime.hashCode());
+		result = prime * result
+				+ ((departureTime == null) ? 0 : departureTime.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FlightSchedule other = (FlightSchedule) obj;
+		if (arrivalTime == null) {
+			if (other.arrivalTime != null)
+				return false;
+		} else if (!arrivalTime.equals(other.arrivalTime))
+			return false;
+		if (boardingTime == null) {
+			if (other.boardingTime != null)
+				return false;
+		} else if (!boardingTime.equals(other.boardingTime))
+			return false;
+		if (departureTime == null) {
+			if (other.departureTime != null)
+				return false;
+		} else if (!departureTime.equals(other.departureTime))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightSchedule [boardingTime=" + boardingTime
+				+ ", departureTime=" + departureTime + ", arrivalTime="
+				+ arrivalTime + "]";
 	}
 
 }

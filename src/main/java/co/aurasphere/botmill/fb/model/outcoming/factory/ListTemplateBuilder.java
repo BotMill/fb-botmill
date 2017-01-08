@@ -58,7 +58,8 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	ListTemplateBuilder() {
 		this.payload = new ListTemplatePayload();
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -68,7 +69,8 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	 *            the top element style
 	 * @return this builder
 	 */
-	public ListTemplateBuilder setTopElementStyle(TopElementStyle topElementStyle) {
+	public ListTemplateBuilder setTopElementStyle(
+			TopElementStyle topElementStyle) {
 		this.payload.setTopElementStyle(topElementStyle);
 		return this;
 	}
@@ -146,5 +148,18 @@ public class ListTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "ListTemplateBuilder [payload=" + payload + ", messageBuilder="
+				+ messageBuilder + "]";
 	}
 }

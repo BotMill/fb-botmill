@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/facebot/src/test/java/co/aurasphere/botmill/fb/test/button/PaymentThreadSettingsTest.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
+<booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
+<stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
+<stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="co.aurasphere.botmill.fb.test.button.PaymentThreadSettingsTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="facebot"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DMOCK_FACEBOOK_ID=1545768135449437 -DPAGE_TOKEN=EAAZAIWTDpV08BAAymZCKwxoQsNZAKkRlZCUoLBWayQrTyya6eBpcuYfeZBqDpSvkPyj9kQES5eK7X8uvQqKFaJaZBEAIMVvqLoxkbqWcs3c2MEBYzb3biglmU3jYunSmoufhO4yDUSdLj74xodym24YEICcZBvz4gxv7J6Gmx1w1AZDZD -DVALIDATION_TOKEN=giorno_giovanna"/>
+</launchConfiguration>

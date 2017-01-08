@@ -81,4 +81,54 @@ public class FbBotMillMessageResponse extends FbBotMillResponse {
 		this.message = message;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse#equals(java
+	 * .lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FbBotMillMessageResponse other = (FbBotMillMessageResponse) obj;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillMessageResponse [message=" + message + ", recipient="
+				+ recipient + "]";
+	}
+
 }

@@ -184,4 +184,77 @@ public class GenericTemplateElement implements Serializable {
 	public void addButton(Button button) {
 		this.buttons.add(button);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((buttons == null) ? 0 : buttons.hashCode());
+		result = prime * result
+				+ ((imageUrl == null) ? 0 : imageUrl.hashCode());
+		result = prime * result + ((itemUrl == null) ? 0 : itemUrl.hashCode());
+		result = prime * result
+				+ ((subtitle == null) ? 0 : subtitle.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GenericTemplateElement other = (GenericTemplateElement) obj;
+		if (buttons == null) {
+			if (other.buttons != null)
+				return false;
+		} else if (!buttons.equals(other.buttons))
+			return false;
+		if (imageUrl == null) {
+			if (other.imageUrl != null)
+				return false;
+		} else if (!imageUrl.equals(other.imageUrl))
+			return false;
+		if (itemUrl == null) {
+			if (other.itemUrl != null)
+				return false;
+		} else if (!itemUrl.equals(other.itemUrl))
+			return false;
+		if (subtitle == null) {
+			if (other.subtitle != null)
+				return false;
+		} else if (!subtitle.equals(other.subtitle))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "GenericTemplateElement [title=" + title + ", itemUrl="
+				+ itemUrl + ", imageUrl=" + imageUrl + ", subtitle=" + subtitle
+				+ ", buttons=" + buttons + "]";
+	}
 }

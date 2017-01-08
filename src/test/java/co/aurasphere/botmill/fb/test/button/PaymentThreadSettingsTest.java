@@ -28,7 +28,7 @@ import java.util.List;
 
 import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentDevModeAction;
 import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillTest;
+import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
 /**
@@ -37,7 +37,7 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
  * @author Donato Rimenti
  * @date Jan 6, 2017
  */
-public class PaymentThreadSettingsTest extends BaseFbBotMillTest {
+public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 
 	/*
 	 * (non-Javadoc)

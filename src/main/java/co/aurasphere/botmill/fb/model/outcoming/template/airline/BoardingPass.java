@@ -114,7 +114,8 @@ public class BoardingPass implements Serializable {
 	 * @param aboveBarCodeImageUrl
 	 *            the above bar code image url
 	 */
-	public BoardingPass(String passengerName, String pnrNumber, String logoImageUrl, String aboveBarCodeImageUrl) {
+	public BoardingPass(String passengerName, String pnrNumber,
+			String logoImageUrl, String aboveBarCodeImageUrl) {
 		this.passengerName = passengerName;
 		this.pnrNumber = pnrNumber;
 		this.logoImageUrl = logoImageUrl;
@@ -388,5 +389,139 @@ public class BoardingPass implements Serializable {
 	 */
 	public void addSecondaryField(Field field) {
 		this.secondaryFields.add(field);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((aboveBarCodeImageUrl == null) ? 0 : aboveBarCodeImageUrl
+						.hashCode());
+		result = prime * result
+				+ ((auxiliaryFields == null) ? 0 : auxiliaryFields.hashCode());
+		result = prime * result
+				+ ((barcodeImageUrl == null) ? 0 : barcodeImageUrl.hashCode());
+		result = prime * result
+				+ ((flightInfo == null) ? 0 : flightInfo.hashCode());
+		result = prime * result
+				+ ((headerImageUrl == null) ? 0 : headerImageUrl.hashCode());
+		result = prime * result
+				+ ((headerTextField == null) ? 0 : headerTextField.hashCode());
+		result = prime * result
+				+ ((logoImageUrl == null) ? 0 : logoImageUrl.hashCode());
+		result = prime * result
+				+ ((passengerName == null) ? 0 : passengerName.hashCode());
+		result = prime * result
+				+ ((pnrNumber == null) ? 0 : pnrNumber.hashCode());
+		result = prime * result + ((qrCode == null) ? 0 : qrCode.hashCode());
+		result = prime * result + ((seat == null) ? 0 : seat.hashCode());
+		result = prime * result
+				+ ((secondaryFields == null) ? 0 : secondaryFields.hashCode());
+		result = prime * result
+				+ ((travelClass == null) ? 0 : travelClass.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BoardingPass other = (BoardingPass) obj;
+		if (aboveBarCodeImageUrl == null) {
+			if (other.aboveBarCodeImageUrl != null)
+				return false;
+		} else if (!aboveBarCodeImageUrl.equals(other.aboveBarCodeImageUrl))
+			return false;
+		if (auxiliaryFields == null) {
+			if (other.auxiliaryFields != null)
+				return false;
+		} else if (!auxiliaryFields.equals(other.auxiliaryFields))
+			return false;
+		if (barcodeImageUrl == null) {
+			if (other.barcodeImageUrl != null)
+				return false;
+		} else if (!barcodeImageUrl.equals(other.barcodeImageUrl))
+			return false;
+		if (flightInfo == null) {
+			if (other.flightInfo != null)
+				return false;
+		} else if (!flightInfo.equals(other.flightInfo))
+			return false;
+		if (headerImageUrl == null) {
+			if (other.headerImageUrl != null)
+				return false;
+		} else if (!headerImageUrl.equals(other.headerImageUrl))
+			return false;
+		if (headerTextField == null) {
+			if (other.headerTextField != null)
+				return false;
+		} else if (!headerTextField.equals(other.headerTextField))
+			return false;
+		if (logoImageUrl == null) {
+			if (other.logoImageUrl != null)
+				return false;
+		} else if (!logoImageUrl.equals(other.logoImageUrl))
+			return false;
+		if (passengerName == null) {
+			if (other.passengerName != null)
+				return false;
+		} else if (!passengerName.equals(other.passengerName))
+			return false;
+		if (pnrNumber == null) {
+			if (other.pnrNumber != null)
+				return false;
+		} else if (!pnrNumber.equals(other.pnrNumber))
+			return false;
+		if (qrCode == null) {
+			if (other.qrCode != null)
+				return false;
+		} else if (!qrCode.equals(other.qrCode))
+			return false;
+		if (seat == null) {
+			if (other.seat != null)
+				return false;
+		} else if (!seat.equals(other.seat))
+			return false;
+		if (secondaryFields == null) {
+			if (other.secondaryFields != null)
+				return false;
+		} else if (!secondaryFields.equals(other.secondaryFields))
+			return false;
+		if (travelClass != other.travelClass)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BoardingPass [passengerName=" + passengerName + ", pnrNumber="
+				+ pnrNumber + ", travelClass=" + travelClass + ", seat=" + seat
+				+ ", auxiliaryFields=" + auxiliaryFields + ", secondaryFields="
+				+ secondaryFields + ", logoImageUrl=" + logoImageUrl
+				+ ", headerImageUrl=" + headerImageUrl + ", headerTextField="
+				+ headerTextField + ", qrCode=" + qrCode + ", barcodeImageUrl="
+				+ barcodeImageUrl + ", aboveBarCodeImageUrl="
+				+ aboveBarCodeImageUrl + ", flightInfo=" + flightInfo + "]";
 	}
 }

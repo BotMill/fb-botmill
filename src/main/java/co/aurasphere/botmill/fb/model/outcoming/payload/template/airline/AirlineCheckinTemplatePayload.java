@@ -39,7 +39,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class AirlineCheckinTemplatePayload.
  */
-public class AirlineCheckinTemplatePayload extends AirlineBasePnrNumberTemplatePayload {
+public class AirlineCheckinTemplatePayload extends
+		AirlineBasePnrNumberTemplatePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -67,7 +68,8 @@ public class AirlineCheckinTemplatePayload extends AirlineBasePnrNumberTemplateP
 	 * @param checkinUrl
 	 *            the checkin url
 	 */
-	public AirlineCheckinTemplatePayload(String introMessage, String locale, String pnrNumber, String checkinUrl) {
+	public AirlineCheckinTemplatePayload(String introMessage, String locale,
+			String pnrNumber, String checkinUrl) {
 		super(introMessage, locale, pnrNumber);
 		this.flightInfo = new ArrayList<FlightInfo>();
 		this.checkinUrl = checkinUrl;
@@ -126,5 +128,63 @@ public class AirlineCheckinTemplatePayload extends AirlineBasePnrNumberTemplateP
 	 */
 	public void addFlightInfo(FlightInfo flightInfo) {
 		this.flightInfo.add(flightInfo);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((checkinUrl == null) ? 0 : checkinUrl.hashCode());
+		result = prime * result
+				+ ((flightInfo == null) ? 0 : flightInfo.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AirlineCheckinTemplatePayload other = (AirlineCheckinTemplatePayload) obj;
+		if (checkinUrl == null) {
+			if (other.checkinUrl != null)
+				return false;
+		} else if (!checkinUrl.equals(other.checkinUrl))
+			return false;
+		if (flightInfo == null) {
+			if (other.flightInfo != null)
+				return false;
+		} else if (!flightInfo.equals(other.flightInfo))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineCheckinTemplatePayload [flightInfo=" + flightInfo
+				+ ", checkinUrl=" + checkinUrl + ", templateType="
+				+ templateType + "]";
 	}
 }

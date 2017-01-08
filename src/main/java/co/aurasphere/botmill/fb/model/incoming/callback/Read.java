@@ -100,4 +100,56 @@ public class Read implements Serializable {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((seq == null) ? 0 : seq.hashCode());
+		result = prime * result
+				+ ((watermark == null) ? 0 : watermark.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Read other = (Read) obj;
+		if (seq == null) {
+			if (other.seq != null)
+				return false;
+		} else if (!seq.equals(other.seq))
+			return false;
+		if (watermark == null) {
+			if (other.watermark != null)
+				return false;
+		} else if (!watermark.equals(other.watermark))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Read [watermark=" + watermark + ", seq=" + seq + "]";
+	}
 }

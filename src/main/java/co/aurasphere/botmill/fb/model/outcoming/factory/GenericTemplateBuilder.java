@@ -56,7 +56,8 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	GenericTemplateBuilder() {
 		this.payload = new GenericTemplatePayload();
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -120,5 +121,18 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "GenericTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 }

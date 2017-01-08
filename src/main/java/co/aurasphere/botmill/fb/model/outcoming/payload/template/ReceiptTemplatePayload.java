@@ -336,4 +336,124 @@ public class ReceiptTemplatePayload extends TemplateBasePayload {
 		this.adjustments.add(adjustment);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result
+				+ ((adjustments == null) ? 0 : adjustments.hashCode());
+		result = prime * result
+				+ ((currency == null) ? 0 : currency.hashCode());
+		result = prime * result
+				+ ((elements == null) ? 0 : elements.hashCode());
+		result = prime * result
+				+ ((merchantName == null) ? 0 : merchantName.hashCode());
+		result = prime * result
+				+ ((orderNumber == null) ? 0 : orderNumber.hashCode());
+		result = prime * result
+				+ ((orderUrl == null) ? 0 : orderUrl.hashCode());
+		result = prime * result
+				+ ((paymentMethod == null) ? 0 : paymentMethod.hashCode());
+		result = prime * result
+				+ ((recipientName == null) ? 0 : recipientName.hashCode());
+		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
+		result = prime * result
+				+ ((timestamp == null) ? 0 : timestamp.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReceiptTemplatePayload other = (ReceiptTemplatePayload) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (adjustments == null) {
+			if (other.adjustments != null)
+				return false;
+		} else if (!adjustments.equals(other.adjustments))
+			return false;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		if (elements == null) {
+			if (other.elements != null)
+				return false;
+		} else if (!elements.equals(other.elements))
+			return false;
+		if (merchantName == null) {
+			if (other.merchantName != null)
+				return false;
+		} else if (!merchantName.equals(other.merchantName))
+			return false;
+		if (orderNumber == null) {
+			if (other.orderNumber != null)
+				return false;
+		} else if (!orderNumber.equals(other.orderNumber))
+			return false;
+		if (orderUrl == null) {
+			if (other.orderUrl != null)
+				return false;
+		} else if (!orderUrl.equals(other.orderUrl))
+			return false;
+		if (paymentMethod == null) {
+			if (other.paymentMethod != null)
+				return false;
+		} else if (!paymentMethod.equals(other.paymentMethod))
+			return false;
+		if (recipientName == null) {
+			if (other.recipientName != null)
+				return false;
+		} else if (!recipientName.equals(other.recipientName))
+			return false;
+		if (summary == null) {
+			if (other.summary != null)
+				return false;
+		} else if (!summary.equals(other.summary))
+			return false;
+		if (timestamp == null) {
+			if (other.timestamp != null)
+				return false;
+		} else if (!timestamp.equals(other.timestamp))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ReceiptTemplatePayload [recipientName=" + recipientName
+				+ ", merchantName=" + merchantName + ", orderNumber="
+				+ orderNumber + ", currency=" + currency + ", paymentMethod="
+				+ paymentMethod + ", timestamp=" + timestamp + ", orderUrl="
+				+ orderUrl + ", elements=" + elements + ", address=" + address
+				+ ", summary=" + summary + ", adjustments=" + adjustments
+				+ ", templateType=" + templateType + "]";
+	}
+
 }

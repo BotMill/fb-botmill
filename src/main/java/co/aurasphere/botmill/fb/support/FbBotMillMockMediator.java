@@ -50,9 +50,9 @@ public class FbBotMillMockMediator {
 
 	/**
 	 * The mocked page-scoped user ID used as recipient. For more informations
-	 * on how to find yours, read on the
-	 * <a href ="https://github.com/BotMill/fb-botmill/wiki/Unit-Testing">
-	 * official GitHub wiki</a>.
+	 * on how to find yours, read on the <a href
+	 * ="https://github.com/BotMill/fb-botmill/wiki/Unit-Testing"> official
+	 * GitHub wiki</a>.
 	 */
 	private static String facebookMockId;
 
@@ -95,7 +95,8 @@ public class FbBotMillMockMediator {
 	 *            a list of {@link FbBotDefinition} to register.
 	 * @return single instance of FbBotMillMockMediator
 	 */
-	public static FbBotMillMockMediator getInstance(String facebookMockId, FbBotDefinition... fbBotDefinitions) {
+	public static FbBotMillMockMediator getInstance(String facebookMockId,
+			FbBotDefinition... fbBotDefinitions) {
 		if (instance == null) {
 			instance = new FbBotMillMockMediator();
 		}
@@ -145,7 +146,8 @@ public class FbBotMillMockMediator {
 	 *            the class to instantiate.
 	 * @return a {@link FbBotDefinition}.
 	 */
-	private static FbBotDefinition instantiateClass(Class<? extends FbBotDefinition> klass) {
+	private static FbBotDefinition instantiateClass(
+			Class<? extends FbBotDefinition> klass) {
 		FbBotDefinition definition = null;
 		try {
 			definition = klass.newInstance();
@@ -206,8 +208,8 @@ public class FbBotMillMockMediator {
 		MessageEnvelope envelope = new MessageEnvelope();
 		QuickReply quickReply = new QuickReply("Sample", payload);
 		ReceivedMessage message = new ReceivedMessage();
+		message.setQuickReply(quickReply);
 		envelope.setMessage(message);
-		envelope.getMessage().setQuickReply(quickReply);
 
 		System.out.println("Sending quickReply: " + payload);
 		forward(envelope);
@@ -237,9 +239,9 @@ public class FbBotMillMockMediator {
 	public void interactiveTest() {
 		// Prints instructions.
 		System.out.println("Starting interactive test...");
-		System.out.printf(
-				"Type your message or '%s<YOUR_PAYLOAD>' to send a message or a payload to the bot. Type '%s' to stop the interactive test.\n",
-				PAYLOAD_MARKER, STOP_MARKER);
+		System.out
+				.printf("Type your message or '%s<YOUR_PAYLOAD>' to send a message or a payload to the bot. Type '%s' to stop the interactive test.\n",
+						PAYLOAD_MARKER, STOP_MARKER);
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
 			System.out.print("Your input: ");
@@ -283,6 +285,16 @@ public class FbBotMillMockMediator {
 	 */
 	public static String getFacebookMockId() {
 		return facebookMockId;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillMockMediator []";
 	}
 
 }

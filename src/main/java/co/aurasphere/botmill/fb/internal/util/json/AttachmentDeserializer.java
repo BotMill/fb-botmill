@@ -138,4 +138,14 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 		return attachment;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AttachmentDeserializer []";
+	}
+
 }

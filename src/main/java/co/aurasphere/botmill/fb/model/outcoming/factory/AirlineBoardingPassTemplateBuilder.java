@@ -40,7 +40,8 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.BoardingPass;
  *      Documentation</a>
  * 
  */
-public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuilder {
+public class AirlineBoardingPassTemplateBuilder extends
+		AirlineBaseTemplateBuilder {
 
 	/**
 	 * The payload of the current builder.
@@ -66,8 +67,10 @@ public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuild
 	 *      Documentation</a>
 	 */
 	AirlineBoardingPassTemplateBuilder(String introMessage, String locale) {
-		this.payload = new AirlineBoardingPassTemplatePayload(introMessage, locale);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+		this.payload = new AirlineBoardingPassTemplatePayload(introMessage,
+				locale);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -86,9 +89,10 @@ public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuild
 	 *            center of the pass. It can't be empty.
 	 * @return a builder for a {@link BoardingPass} object.
 	 */
-	public BoardingPassBuilder addBoardingPass(String passengerName, String pnrNumber, String logoImageUrl,
-			String aboveBarCodeImageUrl) {
-		return new BoardingPassBuilder(this, passengerName, pnrNumber, logoImageUrl, aboveBarCodeImageUrl);
+	public BoardingPassBuilder addBoardingPass(String passengerName,
+			String pnrNumber, String logoImageUrl, String aboveBarCodeImageUrl) {
+		return new BoardingPassBuilder(this, passengerName, pnrNumber,
+				logoImageUrl, aboveBarCodeImageUrl);
 	}
 
 	/**
@@ -99,7 +103,8 @@ public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuild
 	 *            the boarding pass object to add. It can't be null.
 	 * @return this builder.
 	 */
-	public AirlineBoardingPassTemplateBuilder addBoardingPass(BoardingPass boardingPass) {
+	public AirlineBoardingPassTemplateBuilder addBoardingPass(
+			BoardingPass boardingPass) {
 		this.payload.addBoardingPass(boardingPass);
 		return this;
 	}
@@ -131,7 +136,8 @@ public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuild
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineBoardingPassTemplateBuilder addQuickReply(String title, String payload) {
+	public AirlineBoardingPassTemplateBuilder addQuickReply(String title,
+			String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -164,6 +170,19 @@ public class AirlineBoardingPassTemplateBuilder extends AirlineBaseTemplateBuild
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineBoardingPassTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

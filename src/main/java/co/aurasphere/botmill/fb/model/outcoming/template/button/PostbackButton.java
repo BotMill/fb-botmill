@@ -106,4 +106,62 @@ public class PostbackButton extends Button {
 		this.title = title;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#hashCode
+	 * ()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#equals
+	 * (java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PostbackButton other = (PostbackButton) obj;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "PostbackButton [payload=" + payload + ", title=" + title
+				+ ", type=" + type + "]";
+	}
+
 }

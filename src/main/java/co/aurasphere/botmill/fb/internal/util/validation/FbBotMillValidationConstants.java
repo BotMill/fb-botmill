@@ -28,9 +28,15 @@ package co.aurasphere.botmill.fb.internal.util.validation;
  * validations.
  * 
  * @author Donato Rimenti
- * 
  */
 public class FbBotMillValidationConstants {
+
+	/**
+	 * Instantiates a new FbBotMillValidationConstants.
+	 */
+	// TODO: fix javadoc
+	private FbBotMillValidationConstants() {
+	}
 
 	/** The Constant BUTTON_TITLE_MAX_LENGTH. */
 	public static final int BUTTON_TITLE_MAX_LENGTH = 20;
@@ -80,5 +86,15 @@ public class FbBotMillValidationConstants {
 	 * Thread Settings max length of greeting text message.
 	 */
 	public static final int THREAD_SETTINGS_GREETING_MESSAGE_MAX_LENGTH = 160;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillValidationConstants []";
+	}
 
 }

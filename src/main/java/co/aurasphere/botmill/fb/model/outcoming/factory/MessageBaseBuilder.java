@@ -40,4 +40,16 @@ public abstract class MessageBaseBuilder extends FbBotMillMockableBuilder {
 	 */
 	protected List<QuickReply> quickReplies;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "MessageBaseBuilder [quickReplies=" + quickReplies + "]";
+	}
+
 }

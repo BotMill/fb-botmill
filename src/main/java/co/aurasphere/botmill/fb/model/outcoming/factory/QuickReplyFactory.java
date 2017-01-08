@@ -33,6 +33,12 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 public class QuickReplyFactory {
 
 	/**
+	 * Instantiates a new QuickReplyFactory.
+	 */
+	private QuickReplyFactory() {
+	}
+
+	/**
 	 * Creates a {@link QuickReply}.
 	 * 
 	 * @param title

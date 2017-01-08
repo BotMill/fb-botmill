@@ -66,9 +66,11 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 *            the URL of the image to be shown above the bar code in the
 	 *            center of the pass. It can't be empty.
 	 */
-	BoardingPassBuilder(AirlineBoardingPassTemplateBuilder parentBuilder, String passengerName, String pnrNumber,
-			String logoImageUrl, String aboveBarCodeImageUrl) {
-		this.boardingPass = new BoardingPass(passengerName, pnrNumber, logoImageUrl, aboveBarCodeImageUrl);
+	BoardingPassBuilder(AirlineBoardingPassTemplateBuilder parentBuilder,
+			String passengerName, String pnrNumber, String logoImageUrl,
+			String aboveBarCodeImageUrl) {
+		this.boardingPass = new BoardingPass(passengerName, pnrNumber,
+				logoImageUrl, aboveBarCodeImageUrl);
 		this.parentBuilder = parentBuilder;
 	}
 
@@ -224,7 +226,8 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	 *            the flight number. It can't be empty.
 	 * @return a builder for the {@link FlightInfo} object.
 	 */
-	public FlightInfoBuilder<BoardingPassBuilder> addFlightInfo(String flightNumber) {
+	public FlightInfoBuilder<BoardingPassBuilder> addFlightInfo(
+			String flightNumber) {
 		return new FlightInfoBuilder<BoardingPassBuilder>(this, flightNumber);
 	}
 
@@ -261,6 +264,20 @@ public class BoardingPassBuilder extends FlightInfoBuilderDelegator {
 	@Deprecated
 	FbBotMillResponse build(MessageEnvelope envelope) {
 		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "BoardingPassBuilder [parentBuilder=" + parentBuilder
+				+ ", boardingPass=" + boardingPass + ", messageBuilder="
+				+ messageBuilder + "]";
 	}
 
 }

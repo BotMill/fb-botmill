@@ -32,8 +32,8 @@ import com.google.gson.annotations.SerializedName;
  * <br>
  * The profile API can be used to query more information about the user, and
  * personalize the experience further. This API is only available after the user
- * initiated the conversation by sending a message or by interacting with a
- * <a href=
+ * initiated the conversation by sending a message or by interacting with a <a
+ * href=
  * "https://developers.facebook.com/docs/messenger-platform/plugin-reference" >
  * Web Plugin</a>. <br>
  * <br>
@@ -233,6 +233,84 @@ public class FacebookUserProfile implements Serializable {
 	 */
 	public void setPaymentEnabled(boolean isPaymentEnabled) {
 		this.isPaymentEnabled = isPaymentEnabled;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + (isPaymentEnabled ? 1231 : 1237);
+		result = prime * result
+				+ ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((locale == null) ? 0 : locale.hashCode());
+		result = prime * result
+				+ ((profilePic == null) ? 0 : profilePic.hashCode());
+		result = prime * result + timezone;
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FacebookUserProfile other = (FacebookUserProfile) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (gender != other.gender)
+			return false;
+		if (isPaymentEnabled != other.isPaymentEnabled)
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (locale == null) {
+			if (other.locale != null)
+				return false;
+		} else if (!locale.equals(other.locale))
+			return false;
+		if (profilePic == null) {
+			if (other.profilePic != null)
+				return false;
+		} else if (!profilePic.equals(other.profilePic))
+			return false;
+		if (timezone != other.timezone)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FacebookUserProfile [firstName=" + firstName + ", lastName="
+				+ lastName + ", profilePic=" + profilePic + ", locale="
+				+ locale + ", timezone=" + timezone + ", gender=" + gender
+				+ ", isPaymentEnabled=" + isPaymentEnabled + "]";
 	}
 
 }

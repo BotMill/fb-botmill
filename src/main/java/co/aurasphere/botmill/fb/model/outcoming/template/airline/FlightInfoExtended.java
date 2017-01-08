@@ -68,7 +68,8 @@ public class FlightInfoExtended extends FlightInfo {
 	 * @param travelClass
 	 *            the travel class
 	 */
-	public FlightInfoExtended(String flightNumber, String connectionId, String segmentId, TravelClass travelClass) {
+	public FlightInfoExtended(String flightNumber, String connectionId,
+			String segmentId, TravelClass travelClass) {
 		super(flightNumber);
 		this.connectionId = connectionId;
 		this.segmentId = segmentId;
@@ -149,5 +150,77 @@ public class FlightInfoExtended extends FlightInfo {
 	 */
 	public void setTravelClass(TravelClass travelClass) {
 		this.travelClass = travelClass;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo#
+	 * hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((aircraftType == null) ? 0 : aircraftType.hashCode());
+		result = prime * result
+				+ ((connectionId == null) ? 0 : connectionId.hashCode());
+		result = prime * result
+				+ ((segmentId == null) ? 0 : segmentId.hashCode());
+		result = prime * result
+				+ ((travelClass == null) ? 0 : travelClass.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo#
+	 * equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FlightInfoExtended other = (FlightInfoExtended) obj;
+		if (aircraftType == null) {
+			if (other.aircraftType != null)
+				return false;
+		} else if (!aircraftType.equals(other.aircraftType))
+			return false;
+		if (connectionId == null) {
+			if (other.connectionId != null)
+				return false;
+		} else if (!connectionId.equals(other.connectionId))
+			return false;
+		if (segmentId == null) {
+			if (other.segmentId != null)
+				return false;
+		} else if (!segmentId.equals(other.segmentId))
+			return false;
+		if (travelClass != other.travelClass)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo#
+	 * toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightInfoExtended [connectionId=" + connectionId
+				+ ", segmentId=" + segmentId + ", aircraftType=" + aircraftType
+				+ ", travelClass=" + travelClass + "]";
 	}
 }

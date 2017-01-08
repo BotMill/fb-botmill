@@ -35,7 +35,7 @@ import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
  * @author Donato Rimenti
  * @since 1.1.0
  */
-public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillTest {
+public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest {
 
 	/*
 	 * (non-Javadoc)

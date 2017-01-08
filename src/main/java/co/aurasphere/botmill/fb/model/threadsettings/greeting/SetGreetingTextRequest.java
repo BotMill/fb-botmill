@@ -80,4 +80,57 @@ public class SetGreetingTextRequest extends ThreadSettingsBaseRequest {
 	public void setGreeting(Greeting greeting) {
 		this.greeting = greeting;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((greeting == null) ? 0 : greeting.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SetGreetingTextRequest other = (SetGreetingTextRequest) obj;
+		if (greeting == null) {
+			if (other.greeting != null)
+				return false;
+		} else if (!greeting.equals(other.greeting))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "SetGreetingTextRequest [greeting=" + greeting + ", type="
+				+ type + "]";
+	}
 }

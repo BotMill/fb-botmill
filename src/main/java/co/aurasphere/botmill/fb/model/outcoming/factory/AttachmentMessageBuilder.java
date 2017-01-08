@@ -126,4 +126,15 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 		return new FbBotMillMessageResponse(recipient, message);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AttachmentMessageBuilder [attachment=" + attachment
+				+ ", quickReplies=" + quickReplies + "]";
+	}
+
 }

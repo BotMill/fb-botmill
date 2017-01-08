@@ -89,4 +89,57 @@ public class PaymentAmount implements Serializable {
 		this.amount = amount;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
+		result = prime * result
+				+ ((currency == null) ? 0 : currency.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PaymentAmount other = (PaymentAmount) obj;
+		if (amount == null) {
+			if (other.amount != null)
+				return false;
+		} else if (!amount.equals(other.amount))
+			return false;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PaymentAmount [currency=" + currency + ", amount=" + amount
+				+ "]";
+	}
+
 }

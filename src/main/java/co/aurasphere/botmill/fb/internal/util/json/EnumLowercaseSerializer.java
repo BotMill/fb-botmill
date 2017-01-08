@@ -50,13 +50,24 @@ public class EnumLowercaseSerializer implements JsonSerializer<Enum<?>> {
 	 *            the context
 	 * @return the json element
 	 */
-	public JsonElement serialize(Enum<?> src, Type typeOfSrc, JsonSerializationContext context) {
-		
+	public JsonElement serialize(Enum<?> src, Type typeOfSrc,
+			JsonSerializationContext context) {
+
 		// Ignore this serializer for enums of class PaymentType.
-		if(src.getDeclaringClass().equals(PaymentType.class)){
+		if (src.getDeclaringClass().equals(PaymentType.class)) {
 			return context.serialize(src.name());
 		}
-		
+
 		return context.serialize(src.name().toLowerCase());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "EnumLowercaseSerializer []";
 	}
 }

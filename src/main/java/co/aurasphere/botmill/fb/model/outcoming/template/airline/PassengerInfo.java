@@ -134,4 +134,64 @@ public class PassengerInfo implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((passengerId == null) ? 0 : passengerId.hashCode());
+		result = prime * result
+				+ ((ticketNumber == null) ? 0 : ticketNumber.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PassengerInfo other = (PassengerInfo) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (passengerId == null) {
+			if (other.passengerId != null)
+				return false;
+		} else if (!passengerId.equals(other.passengerId))
+			return false;
+		if (ticketNumber == null) {
+			if (other.ticketNumber != null)
+				return false;
+		} else if (!ticketNumber.equals(other.ticketNumber))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PassengerInfo [passengerId=" + passengerId + ", ticketNumber="
+				+ ticketNumber + ", name=" + name + "]";
+	}
 }

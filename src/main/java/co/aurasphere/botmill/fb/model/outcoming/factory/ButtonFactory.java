@@ -43,6 +43,12 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
 public class ButtonFactory {
 
 	/**
+	 * Instantiates a new ButtonFactory.
+	 */
+	private ButtonFactory() {
+	}
+
+	/**
 	 * Creates a button which redirects to an URL when clicked.
 	 * 
 	 * @param title
@@ -164,5 +170,15 @@ public class ButtonFactory {
 	 */
 	public static Button createLogoutButton() {
 		return new LogoutButton();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ButtonFactory []";
 	}
 }

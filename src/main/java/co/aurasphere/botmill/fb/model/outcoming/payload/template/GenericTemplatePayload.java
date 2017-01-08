@@ -108,4 +108,51 @@ public class GenericTemplatePayload extends TemplateBasePayload {
 	public void addElement(GenericTemplateElement element) {
 		this.elements.add(element);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((elements == null) ? 0 : elements.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GenericTemplatePayload other = (GenericTemplatePayload) obj;
+		if (elements == null) {
+			if (other.elements != null)
+				return false;
+		} else if (!elements.equals(other.elements))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "GenericTemplatePayload [elements=" + elements
+				+ ", templateType=" + templateType + "]";
+	}
 }

@@ -149,4 +149,75 @@ public class FlightInfo implements Serializable {
 		this.flightSchedule = flightSchedule;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((arrivalAirport == null) ? 0 : arrivalAirport.hashCode());
+		result = prime
+				* result
+				+ ((departureAirport == null) ? 0 : departureAirport.hashCode());
+		result = prime * result
+				+ ((flightNumber == null) ? 0 : flightNumber.hashCode());
+		result = prime * result
+				+ ((flightSchedule == null) ? 0 : flightSchedule.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FlightInfo other = (FlightInfo) obj;
+		if (arrivalAirport == null) {
+			if (other.arrivalAirport != null)
+				return false;
+		} else if (!arrivalAirport.equals(other.arrivalAirport))
+			return false;
+		if (departureAirport == null) {
+			if (other.departureAirport != null)
+				return false;
+		} else if (!departureAirport.equals(other.departureAirport))
+			return false;
+		if (flightNumber == null) {
+			if (other.flightNumber != null)
+				return false;
+		} else if (!flightNumber.equals(other.flightNumber))
+			return false;
+		if (flightSchedule == null) {
+			if (other.flightSchedule != null)
+				return false;
+		} else if (!flightSchedule.equals(other.flightSchedule))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightInfo [flightNumber=" + flightNumber
+				+ ", departureAirport=" + departureAirport
+				+ ", arrivalAirport=" + arrivalAirport + ", flightSchedule="
+				+ flightSchedule + "]";
+	}
+
 }

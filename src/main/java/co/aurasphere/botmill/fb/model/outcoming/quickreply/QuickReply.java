@@ -177,4 +177,67 @@ public class QuickReply implements Serializable {
 		this.imageUrl = imageUrl;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((contentType == null) ? 0 : contentType.hashCode());
+		result = prime * result
+				+ ((imageUrl == null) ? 0 : imageUrl.hashCode());
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		QuickReply other = (QuickReply) obj;
+		if (contentType != other.contentType)
+			return false;
+		if (imageUrl == null) {
+			if (other.imageUrl != null)
+				return false;
+		} else if (!imageUrl.equals(other.imageUrl))
+			return false;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "QuickReply [contentType=" + contentType + ", imageUrl="
+				+ imageUrl + ", title=" + title + ", payload=" + payload + "]";
+	}
+
 }

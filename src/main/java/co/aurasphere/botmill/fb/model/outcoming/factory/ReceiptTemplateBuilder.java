@@ -66,13 +66,15 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/receipt-template"
 	 *      > Facebook's Messenger Platform Generic Receipt Documentation</a>
 	 */
-	ReceiptTemplateBuilder(String recipientName, String orderNumber, String currency, String paymentMethod) {
+	ReceiptTemplateBuilder(String recipientName, String orderNumber,
+			String currency, String paymentMethod) {
 		this.payload = new ReceiptTemplatePayload();
 		this.payload.setRecipientName(recipientName);
 		this.payload.setOrderNumber(orderNumber);
 		this.payload.setCurrency(currency);
 		this.payload.setPaymentMethod(paymentMethod);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -191,9 +193,10 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 	 *            the total cost.
 	 * @return this builder.
 	 */
-	public ReceiptTemplateBuilder setSummary(BigDecimal subtotal, BigDecimal shippingCost, BigDecimal totalTax,
-			BigDecimal totalCost) {
-		Summary summary = new Summary(subtotal, shippingCost, totalTax, totalCost);
+	public ReceiptTemplateBuilder setSummary(BigDecimal subtotal,
+			BigDecimal shippingCost, BigDecimal totalTax, BigDecimal totalCost) {
+		Summary summary = new Summary(subtotal, shippingCost, totalTax,
+				totalCost);
 		return this.setSummary(summary);
 	}
 
@@ -264,6 +267,19 @@ public class ReceiptTemplateBuilder extends TemplateBaseBuilder {
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "ReceiptTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

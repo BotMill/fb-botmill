@@ -41,7 +41,8 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
  *      Documentation</a>
  * 
  */
-public class AirlineFlightUpdateTemplateBuilder extends FlightInfoBuilderDelegator {
+public class AirlineFlightUpdateTemplateBuilder extends
+		FlightInfoBuilderDelegator {
 
 	/**
 	 * The payload managed by this builder.
@@ -72,9 +73,12 @@ public class AirlineFlightUpdateTemplateBuilder extends FlightInfoBuilderDelegat
 	 *      > Facebook's Messenger Platform Airline Flight Update Template
 	 *      Documentation</a>
 	 */
-	AirlineFlightUpdateTemplateBuilder(String introMessage, String locale, String pnrNumber, UpdateType updateType) {
-		this.payload = new AirlineFlightUpdateTemplatePayload(introMessage, locale, pnrNumber, updateType);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+	AirlineFlightUpdateTemplateBuilder(String introMessage, String locale,
+			String pnrNumber, UpdateType updateType) {
+		this.payload = new AirlineFlightUpdateTemplatePayload(introMessage,
+				locale, pnrNumber, updateType);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -85,8 +89,10 @@ public class AirlineFlightUpdateTemplateBuilder extends FlightInfoBuilderDelegat
 	 *            the flight number.
 	 * @return a builder for the {@link FlightInfo} object.
 	 */
-	public FlightInfoBuilder<AirlineFlightUpdateTemplateBuilder> addFlightInfo(String flightNumber) {
-		return new FlightInfoBuilder<AirlineFlightUpdateTemplateBuilder>(this, flightNumber);
+	public FlightInfoBuilder<AirlineFlightUpdateTemplateBuilder> addFlightInfo(
+			String flightNumber) {
+		return new FlightInfoBuilder<AirlineFlightUpdateTemplateBuilder>(this,
+				flightNumber);
 	}
 
 	/**
@@ -131,7 +137,8 @@ public class AirlineFlightUpdateTemplateBuilder extends FlightInfoBuilderDelegat
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineFlightUpdateTemplateBuilder addQuickReply(String title, String payload) {
+	public AirlineFlightUpdateTemplateBuilder addQuickReply(String title,
+			String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -164,6 +171,19 @@ public class AirlineFlightUpdateTemplateBuilder extends FlightInfoBuilderDelegat
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineFlightUpdateTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

@@ -41,4 +41,16 @@ public class ShareButton extends Button {
 		this.type = ButtonType.ELEMENT_SHARE;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "ShareButton [type=" + type + "]";
+	}
+
 }

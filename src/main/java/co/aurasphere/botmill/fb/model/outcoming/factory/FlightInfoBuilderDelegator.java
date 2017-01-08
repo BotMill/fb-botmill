@@ -32,7 +32,8 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
  * @author Donato Rimenti
  * 
  */
-public abstract class FlightInfoBuilderDelegator extends AirlineBaseTemplateBuilder {
+public abstract class FlightInfoBuilderDelegator extends
+		AirlineBaseTemplateBuilder {
 
 	/**
 	 * Adds a flight info object to the builder's payload.
@@ -41,5 +42,18 @@ public abstract class FlightInfoBuilderDelegator extends AirlineBaseTemplateBuil
 	 *            the flight info to add.
 	 */
 	abstract void addFlightInfo(FlightInfo flightInfo);
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "FlightInfoBuilderDelegator [messageBuilder=" + messageBuilder
+				+ "]";
+	}
 
 }

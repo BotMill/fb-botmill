@@ -89,4 +89,14 @@ public class ButtonDeserializer implements JsonDeserializer<Button> {
 		return context.deserialize(json, buttonClass);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ButtonDeserializer []";
+	}
+
 }

@@ -32,7 +32,8 @@ import co.aurasphere.botmill.fb.model.base.Attachment;
  * @author Donato Rimenti
  * 
  */
-public class FbBotMillIllegalAttachmentException extends IllegalArgumentException {
+public class FbBotMillIllegalAttachmentException extends
+		IllegalArgumentException {
 
 	/**
 	 * The serial version UID.

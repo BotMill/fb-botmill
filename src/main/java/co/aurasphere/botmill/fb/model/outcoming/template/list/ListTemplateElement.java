@@ -185,4 +185,78 @@ public class ListTemplateElement implements Serializable {
 	public void addButton(Button button) {
 		this.buttons.add(button);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((buttons == null) ? 0 : buttons.hashCode());
+		result = prime * result
+				+ ((defaultAction == null) ? 0 : defaultAction.hashCode());
+		result = prime * result
+				+ ((imageUrl == null) ? 0 : imageUrl.hashCode());
+		result = prime * result
+				+ ((subtitle == null) ? 0 : subtitle.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ListTemplateElement other = (ListTemplateElement) obj;
+		if (buttons == null) {
+			if (other.buttons != null)
+				return false;
+		} else if (!buttons.equals(other.buttons))
+			return false;
+		if (defaultAction == null) {
+			if (other.defaultAction != null)
+				return false;
+		} else if (!defaultAction.equals(other.defaultAction))
+			return false;
+		if (imageUrl == null) {
+			if (other.imageUrl != null)
+				return false;
+		} else if (!imageUrl.equals(other.imageUrl))
+			return false;
+		if (subtitle == null) {
+			if (other.subtitle != null)
+				return false;
+		} else if (!subtitle.equals(other.subtitle))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ListTemplateElement [title=" + title + ", imageUrl=" + imageUrl
+				+ ", subtitle=" + subtitle + ", buttons=" + buttons
+				+ ", defaultAction=" + defaultAction + "]";
+	}
 }

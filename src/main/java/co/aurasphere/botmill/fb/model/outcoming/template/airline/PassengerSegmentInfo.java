@@ -81,7 +81,8 @@ public class PassengerSegmentInfo implements Serializable {
 	 * @param seatType
 	 *            the seat type
 	 */
-	public PassengerSegmentInfo(String segmentId, String passengerId, String seat, String seatType) {
+	public PassengerSegmentInfo(String segmentId, String passengerId,
+			String seat, String seatType) {
 		this.productInfo = new ArrayList<ProductInfo>();
 		this.segmentId = segmentId;
 		this.passengerId = passengerId;
@@ -192,6 +193,82 @@ public class PassengerSegmentInfo implements Serializable {
 	 */
 	public void addProductInfo(ProductInfo productInfo) {
 		this.productInfo.add(productInfo);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((passengerId == null) ? 0 : passengerId.hashCode());
+		result = prime * result
+				+ ((productInfo == null) ? 0 : productInfo.hashCode());
+		result = prime * result + ((seat == null) ? 0 : seat.hashCode());
+		result = prime * result
+				+ ((seatType == null) ? 0 : seatType.hashCode());
+		result = prime * result
+				+ ((segmentId == null) ? 0 : segmentId.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PassengerSegmentInfo other = (PassengerSegmentInfo) obj;
+		if (passengerId == null) {
+			if (other.passengerId != null)
+				return false;
+		} else if (!passengerId.equals(other.passengerId))
+			return false;
+		if (productInfo == null) {
+			if (other.productInfo != null)
+				return false;
+		} else if (!productInfo.equals(other.productInfo))
+			return false;
+		if (seat == null) {
+			if (other.seat != null)
+				return false;
+		} else if (!seat.equals(other.seat))
+			return false;
+		if (seatType == null) {
+			if (other.seatType != null)
+				return false;
+		} else if (!seatType.equals(other.seatType))
+			return false;
+		if (segmentId == null) {
+			if (other.segmentId != null)
+				return false;
+		} else if (!segmentId.equals(other.segmentId))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PassengerSegmentInfo [segmentId=" + segmentId
+				+ ", passengerId=" + passengerId + ", seat=" + seat
+				+ ", seatType=" + seatType + ", productInfo=" + productInfo
+				+ "]";
 	}
 
 }

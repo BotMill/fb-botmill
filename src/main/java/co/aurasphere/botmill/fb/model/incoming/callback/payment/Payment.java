@@ -66,13 +66,12 @@ import com.google.gson.annotations.SerializedName;
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#decrypting"
  * >detail steps here</a>. After you successfully decoded the credential, you
  * can then integrate with your preferred payment provider to charge the card.
- * You need to return HTTP status of 200 once you finished processing the event.
- * <br>
+ * You need to return HTTP status of 200 once you finished processing the event. <br>
  * If the payment is a test payment, you will get a dummy tokenized card back
  * with the following dummy information (card_number: 4111111111111111, cvv:
  * 123, expiry month: 11, expiry year: 2020). You can test tokenized payment
- * even if your page/app has not been accepted to beta program. Refers to
- * <a href=
+ * even if your page/app has not been accepted to beta program. Refers to <a
+ * href=
  * "https://developers.facebook.com/docs/messenger-platform/complete-guide/payments#test_payments"
  * >How to Test Payment</a> for details. <br>
  *
@@ -220,6 +219,83 @@ public class Payment implements Serializable {
 	 */
 	public void setShippingOptionId(String shippingOptionId) {
 		this.shippingOptionId = shippingOptionId;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		result = prime
+				* result
+				+ ((paymentCredential == null) ? 0 : paymentCredential
+						.hashCode());
+		result = prime
+				* result
+				+ ((requestedUserInfo == null) ? 0 : requestedUserInfo
+						.hashCode());
+		result = prime
+				* result
+				+ ((shippingOptionId == null) ? 0 : shippingOptionId.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		if (amount == null) {
+			if (other.amount != null)
+				return false;
+		} else if (!amount.equals(other.amount))
+			return false;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		if (paymentCredential == null) {
+			if (other.paymentCredential != null)
+				return false;
+		} else if (!paymentCredential.equals(other.paymentCredential))
+			return false;
+		if (requestedUserInfo != other.requestedUserInfo)
+			return false;
+		if (shippingOptionId == null) {
+			if (other.shippingOptionId != null)
+				return false;
+		} else if (!shippingOptionId.equals(other.shippingOptionId))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Payment [payload=" + payload + ", requestedUserInfo="
+				+ requestedUserInfo + ", paymentCredential="
+				+ paymentCredential + ", amount=" + amount
+				+ ", shippingOptionId=" + shippingOptionId + "]";
 	}
 
 }

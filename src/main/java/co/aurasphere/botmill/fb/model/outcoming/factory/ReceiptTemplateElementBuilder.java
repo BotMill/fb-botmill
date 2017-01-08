@@ -55,7 +55,8 @@ public class ReceiptTemplateElementBuilder {
 	 * @param parentBuilder
 	 *            the parent builder of this builder.
 	 */
-	ReceiptTemplateElementBuilder(String title, ReceiptTemplateBuilder parentBuilder) {
+	ReceiptTemplateElementBuilder(String title,
+			ReceiptTemplateBuilder parentBuilder) {
 		this.element = new ReceiptTemplateElement();
 		this.element.setTitle(title);
 		this.parentBuilder = parentBuilder;
@@ -131,6 +132,17 @@ public class ReceiptTemplateElementBuilder {
 	public ReceiptTemplateBuilder endElement() {
 		this.parentBuilder.addElement(this.element);
 		return parentBuilder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ReceiptTemplateElementBuilder [parentBuilder=" + parentBuilder
+				+ ", element=" + element + "]";
 	}
 
 }

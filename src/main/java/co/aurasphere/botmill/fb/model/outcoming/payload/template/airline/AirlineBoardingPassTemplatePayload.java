@@ -36,7 +36,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class AirlineBoardingPassTemplatePayload.
  */
-public class AirlineBoardingPassTemplatePayload extends AirlineBaseTemplatePayload {
+public class AirlineBoardingPassTemplatePayload extends
+		AirlineBaseTemplatePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -93,6 +94,56 @@ public class AirlineBoardingPassTemplatePayload extends AirlineBaseTemplatePaylo
 	 */
 	public void addBoardingPass(BoardingPass boardingPass) {
 		this.boardingPass.add(boardingPass);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((boardingPass == null) ? 0 : boardingPass.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AirlineBoardingPassTemplatePayload other = (AirlineBoardingPassTemplatePayload) obj;
+		if (boardingPass == null) {
+			if (other.boardingPass != null)
+				return false;
+		} else if (!boardingPass.equals(other.boardingPass))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineBoardingPassTemplatePayload [boardingPass="
+				+ boardingPass + ", templateType=" + templateType + "]";
 	}
 
 }

@@ -172,7 +172,7 @@ public class FacebookConfirmationMessage implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "MessengerConfirmationMessage [recipientId=" + recipientId
+		return "FacebookConfirmationMessage [recipientId=" + recipientId
 				+ ", messageId=" + messageId + ", result=" + result + "]";
 	}
 

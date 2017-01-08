@@ -35,7 +35,6 @@ import com.google.gson.GsonBuilder;
  * Utility class for handling JSON serialization and deserialization.
  * 
  * @author Donato Rimenti
- * 
  */
 public class JsonUtils {
 
@@ -43,6 +42,12 @@ public class JsonUtils {
 	 * Gson which handles the JSON conversion.
 	 */
 	private static Gson gson;
+
+	/**
+	 * Instantiates a new JsonUtils.
+	 */
+	private JsonUtils() {
+	}
 
 	/**
 	 * Initializes the current Gson object if null and returns it. The Gson
@@ -58,14 +63,17 @@ public class JsonUtils {
 			GsonBuilder builder = new GsonBuilder();
 
 			// Serializes enums as lower-case.
-			builder.registerTypeHierarchyAdapter(Enum.class, new EnumLowercaseSerializer());
+			builder.registerTypeHierarchyAdapter(Enum.class,
+					new EnumLowercaseSerializer());
 
 			// Serializes calendar in format YYYY-MM-DDThh:mm.
-			builder.registerTypeHierarchyAdapter(Calendar.class, new CalendarSerializer());
+			builder.registerTypeHierarchyAdapter(Calendar.class,
+					new CalendarSerializer());
 
 			// Deserializes payloads from interface.
-			builder.registerTypeAdapter(Attachment.class, new AttachmentDeserializer());
-			
+			builder.registerTypeAdapter(Attachment.class,
+					new AttachmentDeserializer());
+
 			// Deserializes buttons from interface.
 			builder.registerTypeAdapter(Button.class, new ButtonDeserializer());
 
@@ -102,6 +110,16 @@ public class JsonUtils {
 	 */
 	public static String toJson(Object src) {
 		return getGson().toJson(src);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "JsonUtils []";
 	}
 
 }

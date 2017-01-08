@@ -105,4 +105,56 @@ public class Postback implements Serializable {
 	public void setReferral(Referral referral) {
 		this.referral = referral;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		result = prime * result
+				+ ((referral == null) ? 0 : referral.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Postback other = (Postback) obj;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		if (referral == null) {
+			if (other.referral != null)
+				return false;
+		} else if (!referral.equals(other.referral))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Postback [payload=" + payload + ", referral=" + referral + "]";
+	}
 }

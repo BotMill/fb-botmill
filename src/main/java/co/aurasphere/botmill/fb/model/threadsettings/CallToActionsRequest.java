@@ -28,9 +28,12 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
+
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -74,7 +77,8 @@ public class CallToActionsRequest extends ThreadSettingsBaseRequest {
 	 * @param callToActions
 	 *            the {@link #callToActions}.
 	 */
-	public CallToActionsRequest(ThreadState threadState, List<Button> callToActions) {
+	public CallToActionsRequest(ThreadState threadState,
+			List<Button> callToActions) {
 		this.type = SettingType.CALL_TO_ACTIONS;
 		this.threadState = threadState;
 		this.callToActions = callToActions;
@@ -116,6 +120,57 @@ public class CallToActionsRequest extends ThreadSettingsBaseRequest {
 	 */
 	public void setCallToActions(List<Button> callToActions) {
 		this.callToActions = callToActions;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((callToActions == null) ? 0 : callToActions.hashCode());
+		result = prime * result
+				+ ((threadState == null) ? 0 : threadState.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CallToActionsRequest other = (CallToActionsRequest) obj;
+		if (callToActions == null) {
+			if (other.callToActions != null)
+				return false;
+		} else if (!callToActions.equals(other.callToActions))
+			return false;
+		if (threadState != other.threadState)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CallToActionsRequest [threadState=" + threadState
+				+ ", callToActions=" + callToActions + ", type=" + type + "]";
 	}
 
 }

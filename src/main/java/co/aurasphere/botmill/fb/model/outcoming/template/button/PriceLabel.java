@@ -46,8 +46,8 @@ public class PriceLabel implements Serializable {
 	/** The amount. */
 	@NotNull
 	private String amount;
-	
-	public PriceLabel(String label, String amount){
+
+	public PriceLabel(String label, String amount) {
 		this.label = label;
 		this.amount = amount;
 	}
@@ -66,6 +66,57 @@ public class PriceLabel implements Serializable {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
+		result = prime * result + ((label == null) ? 0 : label.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PriceLabel other = (PriceLabel) obj;
+		if (amount == null) {
+			if (other.amount != null)
+				return false;
+		} else if (!amount.equals(other.amount))
+			return false;
+		if (label == null) {
+			if (other.label != null)
+				return false;
+		} else if (!label.equals(other.label))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PriceLabel [label=" + label + ", amount=" + amount + "]";
 	}
 
 }

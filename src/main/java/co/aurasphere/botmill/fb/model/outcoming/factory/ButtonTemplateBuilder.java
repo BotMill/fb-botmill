@@ -57,7 +57,8 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	ButtonTemplateBuilder(String text) {
 		this.payload = new ButtonTemplatePayload(text);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -86,8 +87,10 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 *            a phone number.
 	 * @return this builder.
 	 */
-	public ButtonTemplateBuilder addPhoneNumberButton(String title, String phoneNumber) {
-		Button button = ButtonFactory.createPhoneNumberButton(title, phoneNumber);
+	public ButtonTemplateBuilder addPhoneNumberButton(String title,
+			String phoneNumber) {
+		Button button = ButtonFactory.createPhoneNumberButton(title,
+				phoneNumber);
 		this.payload.addButton(button);
 		return this;
 	}
@@ -126,6 +129,17 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ButtonTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

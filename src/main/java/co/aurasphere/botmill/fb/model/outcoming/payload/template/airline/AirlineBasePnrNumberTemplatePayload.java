@@ -30,7 +30,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class AirlineBasePnrNumberTemplatePayload.
  */
-public abstract class AirlineBasePnrNumberTemplatePayload extends AirlineBaseTemplatePayload {
+public abstract class AirlineBasePnrNumberTemplatePayload extends
+		AirlineBaseTemplatePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -50,7 +51,8 @@ public abstract class AirlineBasePnrNumberTemplatePayload extends AirlineBaseTem
 	 * @param pnrNumber
 	 *            the pnr number
 	 */
-	public AirlineBasePnrNumberTemplatePayload(String introMessage, String locale, String pnrNumber) {
+	public AirlineBasePnrNumberTemplatePayload(String introMessage,
+			String locale, String pnrNumber) {
 		super(introMessage, locale);
 		this.pnrNumber = pnrNumber;
 	}
@@ -78,6 +80,56 @@ public abstract class AirlineBasePnrNumberTemplatePayload extends AirlineBaseTem
 	 */
 	public void setPnrNumber(String pnrNumber) {
 		this.pnrNumber = pnrNumber;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((pnrNumber == null) ? 0 : pnrNumber.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AirlineBasePnrNumberTemplatePayload other = (AirlineBasePnrNumberTemplatePayload) obj;
+		if (pnrNumber == null) {
+			if (other.pnrNumber != null)
+				return false;
+		} else if (!pnrNumber.equals(other.pnrNumber))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBaseTemplatePayload#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineBasePnrNumberTemplatePayload [pnrNumber=" + pnrNumber
+				+ ", templateType=" + templateType + "]";
 	}
 
 }

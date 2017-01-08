@@ -67,8 +67,8 @@ public class DefaultAction extends Button {
 	 * @param fallbackUrl
 	 *            the fallback url
 	 */
-	public DefaultAction(String url, String messengerExtensions, String webviewHeightRatio,
-			String fallbackUrl) {
+	public DefaultAction(String url, String messengerExtensions,
+			String webviewHeightRatio, String fallbackUrl) {
 		this(url);
 		this.messengerExtensions = messengerExtensions;
 		this.webviewHeightRatio = webviewHeightRatio;
@@ -160,6 +160,85 @@ public class DefaultAction extends Button {
 	 */
 	public void setFallbackUrl(String fallbackUrl) {
 		this.fallbackUrl = fallbackUrl;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#hashCode
+	 * ()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((fallbackUrl == null) ? 0 : fallbackUrl.hashCode());
+		result = prime
+				* result
+				+ ((messengerExtensions == null) ? 0 : messengerExtensions
+						.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime
+				* result
+				+ ((webviewHeightRatio == null) ? 0 : webviewHeightRatio
+						.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#equals
+	 * (java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DefaultAction other = (DefaultAction) obj;
+		if (fallbackUrl == null) {
+			if (other.fallbackUrl != null)
+				return false;
+		} else if (!fallbackUrl.equals(other.fallbackUrl))
+			return false;
+		if (messengerExtensions == null) {
+			if (other.messengerExtensions != null)
+				return false;
+		} else if (!messengerExtensions.equals(other.messengerExtensions))
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		if (webviewHeightRatio == null) {
+			if (other.webviewHeightRatio != null)
+				return false;
+		} else if (!webviewHeightRatio.equals(other.webviewHeightRatio))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "DefaultAction [url=" + url + ", messengerExtensions="
+				+ messengerExtensions + ", webviewHeightRatio="
+				+ webviewHeightRatio + ", fallbackUrl=" + fallbackUrl
+				+ ", type=" + type + "]";
 	}
 
 }

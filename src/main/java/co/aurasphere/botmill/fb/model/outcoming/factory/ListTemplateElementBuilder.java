@@ -173,4 +173,15 @@ public class ListTemplateElementBuilder {
 		return parentBuilder;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ListTemplateElementBuilder [parentBuilder=" + parentBuilder
+				+ ", element=" + element + "]";
+	}
+
 }

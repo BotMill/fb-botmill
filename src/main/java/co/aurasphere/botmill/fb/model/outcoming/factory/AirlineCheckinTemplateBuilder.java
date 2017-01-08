@@ -69,9 +69,12 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	 *      > Facebook's Messenger Platform Airline Checkin Template
 	 *      Documentation</a>
 	 */
-	AirlineCheckinTemplateBuilder(String introMessage, String locale, String pnrNumber, String checkinUrl) {
-		this.payload = new AirlineCheckinTemplatePayload(introMessage, locale, pnrNumber, checkinUrl);
-		this.messageBuilder = new AttachmentMessageBuilder(AttachmentType.TEMPLATE, this.payload);
+	AirlineCheckinTemplateBuilder(String introMessage, String locale,
+			String pnrNumber, String checkinUrl) {
+		this.payload = new AirlineCheckinTemplatePayload(introMessage, locale,
+				pnrNumber, checkinUrl);
+		this.messageBuilder = new AttachmentMessageBuilder(
+				AttachmentType.TEMPLATE, this.payload);
 	}
 
 	/**
@@ -83,8 +86,10 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	 *            the flight number. It can't be empty.
 	 * @return a builder for the {@link FlightInfo} object.
 	 */
-	public FlightInfoBuilder<AirlineCheckinTemplateBuilder> addFlightInfo(String flightNumber) {
-		return new FlightInfoBuilder<AirlineCheckinTemplateBuilder>(this, flightNumber);
+	public FlightInfoBuilder<AirlineCheckinTemplateBuilder> addFlightInfo(
+			String flightNumber) {
+		return new FlightInfoBuilder<AirlineCheckinTemplateBuilder>(this,
+				flightNumber);
 	}
 
 	/**
@@ -130,7 +135,8 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
 	 */
-	public AirlineCheckinTemplateBuilder addQuickReply(String title, String payload) {
+	public AirlineCheckinTemplateBuilder addQuickReply(String title,
+			String payload) {
 		this.messageBuilder.addQuickReply(title, payload);
 		return this;
 	}
@@ -163,6 +169,19 @@ public class AirlineCheckinTemplateBuilder extends FlightInfoBuilderDelegator {
 	@Override
 	public FbBotMillResponse build(MessageEnvelope envelope) {
 		return this.messageBuilder.build(envelope);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.AirlineBaseTemplateBuilder
+	 * #toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineCheckinTemplateBuilder [payload=" + payload
+				+ ", messageBuilder=" + messageBuilder + "]";
 	}
 
 }

@@ -158,4 +158,70 @@ public class Airport implements Serializable {
 	public void setGate(String gate) {
 		this.gate = gate;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((airportCode == null) ? 0 : airportCode.hashCode());
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((gate == null) ? 0 : gate.hashCode());
+		result = prime * result
+				+ ((terminal == null) ? 0 : terminal.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Airport other = (Airport) obj;
+		if (airportCode == null) {
+			if (other.airportCode != null)
+				return false;
+		} else if (!airportCode.equals(other.airportCode))
+			return false;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (gate == null) {
+			if (other.gate != null)
+				return false;
+		} else if (!gate.equals(other.gate))
+			return false;
+		if (terminal == null) {
+			if (other.terminal != null)
+				return false;
+		} else if (!terminal.equals(other.terminal))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Airport [airportCode=" + airportCode + ", city=" + city
+				+ ", terminal=" + terminal + ", gate=" + gate + "]";
+	}
 }

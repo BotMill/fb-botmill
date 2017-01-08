@@ -133,4 +133,62 @@ public class Referral implements Serializable {
 		this.type = type;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ref == null) ? 0 : ref.hashCode());
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Referral other = (Referral) obj;
+		if (ref == null) {
+			if (other.ref != null)
+				return false;
+		} else if (!ref.equals(other.ref))
+			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Referral [ref=" + ref + ", source=" + source + ", type=" + type
+				+ "]";
+	}
+
 }

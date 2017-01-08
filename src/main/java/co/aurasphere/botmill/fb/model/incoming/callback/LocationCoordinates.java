@@ -63,7 +63,8 @@ public class LocationCoordinates implements Serializable {
 	/**
 	 * Sets the {@link #latitude}.
 	 *
-	 * @param latitude the {@link #latitude} to set.
+	 * @param latitude
+	 *            the {@link #latitude} to set.
 	 */
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
@@ -81,13 +82,16 @@ public class LocationCoordinates implements Serializable {
 	/**
 	 * Sets the {@link #longitude}.
 	 *
-	 * @param longitude the {@link #longitude} to set.
+	 * @param longitude
+	 *            the {@link #longitude} to set.
 	 */
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -101,7 +105,9 @@ public class LocationCoordinates implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -126,7 +132,9 @@ public class LocationCoordinates implements Serializable {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

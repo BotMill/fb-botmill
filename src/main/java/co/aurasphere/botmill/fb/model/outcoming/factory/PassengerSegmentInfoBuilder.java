@@ -64,9 +64,10 @@ public class PassengerSegmentInfoBuilder {
 	 *            the seat type for the passenger (e.g. Economy comfort). It
 	 *            can't be empty.
 	 */
-	PassengerSegmentInfoBuilder(AirlineItineraryTemplateBuilder parentBuilder, String segmentId, String passengerId,
-			String seat, String seatType) {
-		this.segmentInfo = new PassengerSegmentInfo(segmentId, passengerId, seat, seatType);
+	PassengerSegmentInfoBuilder(AirlineItineraryTemplateBuilder parentBuilder,
+			String segmentId, String passengerId, String seat, String seatType) {
+		this.segmentInfo = new PassengerSegmentInfo(segmentId, passengerId,
+				seat, seatType);
 		this.parentBuilder = parentBuilder;
 	}
 
@@ -96,6 +97,17 @@ public class PassengerSegmentInfoBuilder {
 	public AirlineItineraryTemplateBuilder endPassengerSegmentInfo() {
 		parentBuilder.addPassengerSegmentInfo(segmentInfo);
 		return parentBuilder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PassengerSegmentInfoBuilder [parentBuilder=" + parentBuilder
+				+ ", segmentInfo=" + segmentInfo + "]";
 	}
 
 }

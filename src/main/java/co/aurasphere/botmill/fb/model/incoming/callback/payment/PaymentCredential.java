@@ -217,4 +217,94 @@ public class PaymentCredential implements Serializable {
 		this.fbPaymentId = fbPaymentId;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((chargeId == null) ? 0 : chargeId.hashCode());
+		result = prime * result
+				+ ((fbPaymentId == null) ? 0 : fbPaymentId.hashCode());
+		result = prime * result
+				+ ((providerType == null) ? 0 : providerType.hashCode());
+		result = prime
+				* result
+				+ ((tokenExpiryMonth == null) ? 0 : tokenExpiryMonth.hashCode());
+		result = prime * result
+				+ ((tokenExpiryYear == null) ? 0 : tokenExpiryYear.hashCode());
+		result = prime * result
+				+ ((tokenizedCard == null) ? 0 : tokenizedCard.hashCode());
+		result = prime * result
+				+ ((tokenizedCvv == null) ? 0 : tokenizedCvv.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PaymentCredential other = (PaymentCredential) obj;
+		if (chargeId == null) {
+			if (other.chargeId != null)
+				return false;
+		} else if (!chargeId.equals(other.chargeId))
+			return false;
+		if (fbPaymentId == null) {
+			if (other.fbPaymentId != null)
+				return false;
+		} else if (!fbPaymentId.equals(other.fbPaymentId))
+			return false;
+		if (providerType != other.providerType)
+			return false;
+		if (tokenExpiryMonth == null) {
+			if (other.tokenExpiryMonth != null)
+				return false;
+		} else if (!tokenExpiryMonth.equals(other.tokenExpiryMonth))
+			return false;
+		if (tokenExpiryYear == null) {
+			if (other.tokenExpiryYear != null)
+				return false;
+		} else if (!tokenExpiryYear.equals(other.tokenExpiryYear))
+			return false;
+		if (tokenizedCard == null) {
+			if (other.tokenizedCard != null)
+				return false;
+		} else if (!tokenizedCard.equals(other.tokenizedCard))
+			return false;
+		if (tokenizedCvv == null) {
+			if (other.tokenizedCvv != null)
+				return false;
+		} else if (!tokenizedCvv.equals(other.tokenizedCvv))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PaymentCredential [providerType=" + providerType
+				+ ", chargeId=" + chargeId + ", tokenizedCard=" + tokenizedCard
+				+ ", tokenizedCvv=" + tokenizedCvv + ", tokenExpiryMonth="
+				+ tokenExpiryMonth + ", tokenExpiryYear=" + tokenExpiryYear
+				+ ", fbPaymentId=" + fbPaymentId + "]";
+	}
+
 }

@@ -46,4 +46,14 @@ public abstract class FbBotMillResponseBuilder extends FbBotMillBean {
 	 */
 	abstract FbBotMillResponse build(MessageEnvelope envelope);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillResponseBuilder []";
+	}
+
 }

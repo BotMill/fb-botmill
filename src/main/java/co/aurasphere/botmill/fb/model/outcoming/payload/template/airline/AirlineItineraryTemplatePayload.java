@@ -46,7 +46,8 @@ import com.google.gson.annotations.SerializedName;
 /**
  * The Class AirlineItineraryTemplatePayload.
  */
-public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplatePayload {
+public class AirlineItineraryTemplatePayload extends
+		AirlineBasePnrNumberTemplatePayload {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -106,8 +107,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	 * @param currency
 	 *            the currency
 	 */
-	public AirlineItineraryTemplatePayload(String introMessage, String locale, String pnrNumber, BigDecimal totalPrice,
-			String currency) {
+	public AirlineItineraryTemplatePayload(String introMessage, String locale,
+			String pnrNumber, BigDecimal totalPrice, String currency) {
 		super(introMessage, locale, pnrNumber);
 		this.totalPrice = totalPrice;
 		this.currency = currency;
@@ -158,7 +159,8 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	 * @param passengerSegmentInfo
 	 *            the new passenger segment info
 	 */
-	public void setPassengerSegmentInfo(List<PassengerSegmentInfo> passengerSegmentInfo) {
+	public void setPassengerSegmentInfo(
+			List<PassengerSegmentInfo> passengerSegmentInfo) {
 		this.passengerSegmentInfo = passengerSegmentInfo;
 	}
 
@@ -262,5 +264,109 @@ public class AirlineItineraryTemplatePayload extends AirlineBasePnrNumberTemplat
 	 */
 	public void addFlightInfo(FlightInfoExtended flightInfo) {
 		this.flightInfo.add(flightInfo);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((basePrice == null) ? 0 : basePrice.hashCode());
+		result = prime * result
+				+ ((currency == null) ? 0 : currency.hashCode());
+		result = prime * result
+				+ ((flightInfo == null) ? 0 : flightInfo.hashCode());
+		result = prime * result
+				+ ((passengerInfo == null) ? 0 : passengerInfo.hashCode());
+		result = prime
+				* result
+				+ ((passengerSegmentInfo == null) ? 0 : passengerSegmentInfo
+						.hashCode());
+		result = prime * result
+				+ ((priceInfo == null) ? 0 : priceInfo.hashCode());
+		result = prime * result + ((tax == null) ? 0 : tax.hashCode());
+		result = prime * result
+				+ ((totalPrice == null) ? 0 : totalPrice.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AirlineItineraryTemplatePayload other = (AirlineItineraryTemplatePayload) obj;
+		if (basePrice == null) {
+			if (other.basePrice != null)
+				return false;
+		} else if (!basePrice.equals(other.basePrice))
+			return false;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		if (flightInfo == null) {
+			if (other.flightInfo != null)
+				return false;
+		} else if (!flightInfo.equals(other.flightInfo))
+			return false;
+		if (passengerInfo == null) {
+			if (other.passengerInfo != null)
+				return false;
+		} else if (!passengerInfo.equals(other.passengerInfo))
+			return false;
+		if (passengerSegmentInfo == null) {
+			if (other.passengerSegmentInfo != null)
+				return false;
+		} else if (!passengerSegmentInfo.equals(other.passengerSegmentInfo))
+			return false;
+		if (priceInfo == null) {
+			if (other.priceInfo != null)
+				return false;
+		} else if (!priceInfo.equals(other.priceInfo))
+			return false;
+		if (tax == null) {
+			if (other.tax != null)
+				return false;
+		} else if (!tax.equals(other.tax))
+			return false;
+		if (totalPrice == null) {
+			if (other.totalPrice != null)
+				return false;
+		} else if (!totalPrice.equals(other.totalPrice))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.
+	 * AirlineBasePnrNumberTemplatePayload#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineItineraryTemplatePayload [flightInfo=" + flightInfo
+				+ ", passengerInfo=" + passengerInfo
+				+ ", passengerSegmentInfo=" + passengerSegmentInfo
+				+ ", priceInfo=" + priceInfo + ", basePrice=" + basePrice
+				+ ", tax=" + tax + ", totalPrice=" + totalPrice + ", currency="
+				+ currency + ", templateType=" + templateType + "]";
 	}
 }

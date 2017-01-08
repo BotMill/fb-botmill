@@ -96,7 +96,8 @@ public class WebUrlButton extends Button {
 	 * @param ratioType
 	 *            the ratio type
 	 */
-	public WebUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
+	public WebUrlButton(String title, String url,
+			WebViewHeightRatioType ratioType) {
 		this.title = title;
 		this.url = url;
 		this.type = ButtonType.WEB_URL;
@@ -139,6 +140,82 @@ public class WebUrlButton extends Button {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#hashCode
+	 * ()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result
+				+ ((fallBackUrl == null) ? 0 : fallBackUrl.hashCode());
+		result = prime * result + (messengerExtension ? 1231 : 1237);
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime
+				* result
+				+ ((webviewHeightRatio == null) ? 0 : webviewHeightRatio
+						.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#equals
+	 * (java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		WebUrlButton other = (WebUrlButton) obj;
+		if (fallBackUrl == null) {
+			if (other.fallBackUrl != null)
+				return false;
+		} else if (!fallBackUrl.equals(other.fallBackUrl))
+			return false;
+		if (messengerExtension != other.messengerExtension)
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		if (webviewHeightRatio != other.webviewHeightRatio)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "WebUrlButton [url=" + url + ", webviewHeightRatio="
+				+ webviewHeightRatio + ", fallBackUrl=" + fallBackUrl
+				+ ", messengerExtension=" + messengerExtension + ", title="
+				+ title + ", type=" + type + "]";
 	}
 
 }

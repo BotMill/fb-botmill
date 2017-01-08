@@ -41,4 +41,16 @@ public class LogoutButton extends Button {
 		this.type = ButtonType.ACCOUNT_UNLINK;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.botmill.fb.model.outcoming.template.button.Button#toString
+	 * ()
+	 */
+	@Override
+	public String toString() {
+		return "LogoutButton [type=" + type + "]";
+	}
+
 }

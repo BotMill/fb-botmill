@@ -131,6 +131,11 @@ public class PaymentSummaryBuilder {
 		return parentBuilder.build();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "PaymentSummaryBuilder [paymentSummary=" + paymentSummary

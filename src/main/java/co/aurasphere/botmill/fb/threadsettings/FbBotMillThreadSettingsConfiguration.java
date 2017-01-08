@@ -53,22 +53,30 @@ import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Thread Settings Documentation</a>
- * 
  */
 public class FbBotMillThreadSettingsConfiguration {
 
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(FbBotMillThreadSettingsConfiguration.class);
-	
+	private static final Logger logger = LoggerFactory
+			.getLogger(FbBotMillThreadSettingsConfiguration.class);
+
+	/**
+	 * Instantiates a new FbBotMillThreadSettingsConfiguration.
+	 */
+	private FbBotMillThreadSettingsConfiguration() {
+	}
+
 	/**
 	 * This method is used to add any payment settings needed.
 	 * 
-	 * @param paymentSettings the payment settings object.
+	 * @param paymentSettings
+	 *            the payment settings object.
 	 * 
-	 * @see <a href="https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
- 	 *	     >Payments settings</a>
+	 * @see <a
+	 *      href="https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Payments settings</a>
 	 */
 	public static void addPaymentSettings(PaymentSettings paymentSettings) {
 		if (paymentSettings == null) {
@@ -77,7 +85,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		}
 		NetworkUtils.postThreadSetting(paymentSettings);
 	}
-	
+
 	/**
 	 * Sets the greeting message for the bot. The Greeting Text is only rendered
 	 * the first time the user interacts with a the Page on Messenger.
@@ -117,7 +125,8 @@ public class FbBotMillThreadSettingsConfiguration {
 		Button button = new PostbackButton(null, null, payload);
 		List<Button> buttonList = new ArrayList<Button>();
 		buttonList.add(button);
-		CallToActionsRequest request = new CallToActionsRequest(ThreadState.NEW_THREAD, buttonList);
+		CallToActionsRequest request = new CallToActionsRequest(
+				ThreadState.NEW_THREAD, buttonList);
 		NetworkUtils.postThreadSetting(request);
 	}
 
@@ -127,7 +136,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * @see #setGetStartedButton(String)
 	 */
 	public static void deleteGetStartedButton() {
-		CallToActionsRequest request = new CallToActionsRequest(ThreadState.NEW_THREAD, null);
+		CallToActionsRequest request = new CallToActionsRequest(
+				ThreadState.NEW_THREAD, null);
 		NetworkUtils.delete(request);
 	}
 
@@ -149,11 +159,11 @@ public class FbBotMillThreadSettingsConfiguration {
 	 */
 	public static void setPersistentMenu(List<Button> buttons) {
 		if (buttons == null || buttons.isEmpty() || buttons.size() > 5) {
-			logger.error(
-					"FbBotMill validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
+			logger.error("FbBotMill validation error: Persistent Menu Buttons can't be null or empty and must be less than 5!");
 			return;
 		}
-		CallToActionsRequest request = new CallToActionsRequest(ThreadState.EXISTING_THREAD, buttons);
+		CallToActionsRequest request = new CallToActionsRequest(
+				ThreadState.EXISTING_THREAD, buttons);
 		NetworkUtils.postThreadSetting(request);
 	}
 
@@ -164,7 +174,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * 
 	 */
 	public static void deletePersistentMenu() {
-		CallToActionsRequest request = new CallToActionsRequest(ThreadState.EXISTING_THREAD, null);
+		CallToActionsRequest request = new CallToActionsRequest(
+				ThreadState.EXISTING_THREAD, null);
 		NetworkUtils.delete(request);
 	}
 
@@ -175,7 +186,8 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *            the list of domains in String.
 	 */
 	public static void setWhiteListDomains(List<String> whiteListDomains) {
-		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains);
+		WhitelistDomainRequest request = new WhitelistDomainRequest(
+				whiteListDomains);
 		NetworkUtils.postThreadSetting(request);
 	}
 
@@ -199,8 +211,19 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *            the list of domains that needs to be removed.
 	 */
 	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
-		WhitelistDomainRequest request = new WhitelistDomainRequest(whiteListDomains, DomainActionType.REMOVE);
+		WhitelistDomainRequest request = new WhitelistDomainRequest(
+				whiteListDomains, DomainActionType.REMOVE);
 		NetworkUtils.postThreadSetting(request);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillThreadSettingsConfiguration []";
 	}
 
 }

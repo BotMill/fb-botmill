@@ -75,8 +75,8 @@ public class PaymentSummary implements Serializable {
 	@NotNull
 	@SerializedName("requested_user_info")
 	private List<RequestedUserInfo> requestedUserInfo;
-	
-	public PaymentSummary(){
+
+	public PaymentSummary() {
 		this.priceList = new ArrayList<PriceLabel>();
 		this.requestedUserInfo = new ArrayList<RequestedUserInfo>();
 	}
@@ -175,8 +175,8 @@ public class PaymentSummary implements Serializable {
 	public void setPriceList(List<PriceLabel> priceList) {
 		this.priceList = priceList;
 	}
-	
-	public void addPriceLabel(PriceLabel priceLabel){
+
+	public void addPriceLabel(PriceLabel priceLabel) {
 		this.priceList.add(priceLabel);
 	}
 
@@ -198,7 +198,7 @@ public class PaymentSummary implements Serializable {
 	public void setRequestedUserInfo(List<RequestedUserInfo> requestedUserInfo) {
 		this.requestedUserInfo = requestedUserInfo;
 	}
-	
+
 	/**
 	 * Adds the requested user info.
 	 *
@@ -207,6 +207,85 @@ public class PaymentSummary implements Serializable {
 	 */
 	public void addRequestedUserInfo(RequestedUserInfo requestedUserInfo) {
 		this.requestedUserInfo.add(requestedUserInfo);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((currency == null) ? 0 : currency.hashCode());
+		result = prime * result + (isTestPayment ? 1231 : 1237);
+		result = prime * result
+				+ ((merchantName == null) ? 0 : merchantName.hashCode());
+		result = prime * result
+				+ ((paymentType == null) ? 0 : paymentType.hashCode());
+		result = prime * result
+				+ ((priceList == null) ? 0 : priceList.hashCode());
+		result = prime
+				* result
+				+ ((requestedUserInfo == null) ? 0 : requestedUserInfo
+						.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PaymentSummary other = (PaymentSummary) obj;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		if (isTestPayment != other.isTestPayment)
+			return false;
+		if (merchantName == null) {
+			if (other.merchantName != null)
+				return false;
+		} else if (!merchantName.equals(other.merchantName))
+			return false;
+		if (paymentType != other.paymentType)
+			return false;
+		if (priceList == null) {
+			if (other.priceList != null)
+				return false;
+		} else if (!priceList.equals(other.priceList))
+			return false;
+		if (requestedUserInfo == null) {
+			if (other.requestedUserInfo != null)
+				return false;
+		} else if (!requestedUserInfo.equals(other.requestedUserInfo))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PaymentSummary [currency=" + currency + ", isTestPayment="
+				+ isTestPayment + ", paymentType=" + paymentType
+				+ ", merchantName=" + merchantName + ", priceList=" + priceList
+				+ ", requestedUserInfo=" + requestedUserInfo + "]";
 	}
 
 }

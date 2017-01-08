@@ -31,4 +31,15 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
  */
 public abstract class AirlineBaseTemplateBuilder extends TemplateBaseBuilder {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.fb.bean.FbBotMillBean#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AirlineBaseTemplateBuilder [messageBuilder=" + messageBuilder
+				+ "]";
+	}
+
 }

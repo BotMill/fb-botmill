@@ -34,18 +34,19 @@ import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 
 /**
- * A base test class for the FbBotMill framework, using for the common setup.
+ * Base class for testing every FbBotMill component that requires Facebook
+ * communication.
  * 
  * @author Donato Rimenti
  * @since 1.1.0
  */
-public abstract class BaseFbBotMillTest extends AbstractFbBot {
+public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 
 	/**
 	 * The logger.
 	 */
 	protected static final Logger logger = LoggerFactory
-			.getLogger(BaseFbBotMillTest.class);
+			.getLogger(BaseFbBotMillNetworkTest.class);
 
 	/**
 	 * The name of the environment property for the Facebook's app-scoped user

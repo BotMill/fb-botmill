@@ -13,17 +13,17 @@ The FB-BotMill can be imported as a dependency via Maven.
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
 	  <artifactId>fb-botmill</artifactId>
-	  <version>1.0.0</version>
+	  <version>1.1.0</version>
 	</dependency>
 
 Gradle
     
-    compile 'co.aurasphere.botmill:fb-botmill:1.0.0'
+    compile 'co.aurasphere.botmill:fb-botmill:1.1.0'
 
 Grovvy
 
     @Grapes( 
-        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='1.0.0') 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='1.1.0') 
     )
     
 Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 
@@ -120,7 +120,5 @@ Here's what you can expect coming up in the next updates:
 
 - Payments
 - File Attachments
-- Rasa NLU/NLP Plugin
-- Tons of Examples
 
-<sub>Copyright (c) 2016 BotMill.io</sub>
+<sub>Copyright (c) 2016-2017 BotMill.io</sub>

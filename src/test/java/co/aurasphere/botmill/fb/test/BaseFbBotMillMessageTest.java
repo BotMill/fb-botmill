@@ -48,6 +48,9 @@ public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest 
 
 		if (messagesToSend != null) {
 			for (String message : messagesToSend) {
+				logger.debug(
+						"Testing the bot by sending message [{}] in test class [{}]",
+						message, this.getClass().getSimpleName());
 				this.mockMediator.sendTextMessage(message);
 				Object response = monitor.get();
 

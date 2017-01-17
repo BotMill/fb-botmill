@@ -23,52 +23,42 @@
  */
 package co.aurasphere.botmill.fb.autoreply;
 
-import co.aurasphere.botmill.fb.bean.FbBotMillBean;
-import co.aurasphere.botmill.fb.event.FbBotMillEvent;
-import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
 /**
- * A class that represents an automatic reply to an event. AutoReply are used in
- * conjuction with {@link FbBotMillEvent} in order to handle an Facebook's
- * Messenger Platform callback automatically, using the delegation design
- * pattern.
+ * An {@link AutoReply} whose reply is defined by a Java 8 Lambda function.
  * 
  * @author Donato Rimenti
+ * @since 1.2.0
  */
-public abstract class AutoReply extends FbBotMillBean implements Reply {
+public class LambdaAutoReply extends AutoReply {
 
 	/**
-	 * Method which defines the reply flow.
-	 * 
-	 * @param envelope
-	 *            the current callback message
+	 * A lambda which represents how to reply to this message.
 	 */
-	public void reply(MessageEnvelope envelope) {
-		FbBotMillResponse response = createResponse(envelope);
-		if (response != null) {
-			// If the response is valid, replies to it.
-			if (validate(response)) {
-				NetworkUtils.postJsonMessage(response);
-			}
-		}
+	private Reply lambda;
+
+	/**
+	 * Instantiates a new LambdaAutoReply.
+	 *
+	 * @param lambda
+	 *            the {@link #lambda}.
+	 */
+	public LambdaAutoReply(Reply lambda) {
+		this.lambda = lambda;
 	}
-	
-	/* (non-Javadoc)
-	 * @see co.aurasphere.botmill.fb.autoreply.Reply#createResponse(co.aurasphere.botmill.fb.model.incoming.MessageEnvelope)
-	 */
-	public abstract FbBotMillResponse createResponse(MessageEnvelope envelope);
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see java.lang.Object#toString()
+	 * @see
+	 * co.aurasphere.botmill.fb.autoreply.AutoReply#createResponse(co.aurasphere
+	 * .botmill.fb.model.incoming.MessageEnvelope)
 	 */
 	@Override
-	public String toString() {
-		return "AutoReply []";
+	public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+		return lambda.createResponse(envelope);
 	}
-
 
 }

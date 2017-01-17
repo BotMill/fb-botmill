@@ -37,7 +37,6 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
  * attachment.
  * 
  * @author Donato Rimenti
- * 
  */
 public class AttachmentAutoReply extends AutoReply {
 

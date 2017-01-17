@@ -203,6 +203,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		request.addWhiteListedDomain(domain);
 		NetworkUtils.postThreadSetting(request);
 	}
+	// TODO: method for removing just a whitelisted domain is missing. Implement.
 
 	/**
 	 * Removes a list of domains that are currently "white listed".

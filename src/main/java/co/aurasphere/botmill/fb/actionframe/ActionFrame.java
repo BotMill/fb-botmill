@@ -88,7 +88,7 @@ public class ActionFrame {
 	 * @param event
 	 *            the {@link #event}.
 	 * @param replies
-	 *            the list of {@link #reply}.
+	 *            the {@link #replies}.
 	 */
 	public ActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		this.event = event;

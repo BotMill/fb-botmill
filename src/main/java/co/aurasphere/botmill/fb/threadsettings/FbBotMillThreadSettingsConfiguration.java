@@ -32,6 +32,8 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.botmill.fb.model.threadsettings.CallToActionsRequest;
@@ -39,6 +41,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.DomainActionType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadState;
 import co.aurasphere.botmill.fb.model.threadsettings.WhitelistDomainRequest;
 import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextRequest;
+import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentDevModeAction;
 import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
 
 /**
@@ -73,7 +76,6 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * 
 	 * @param paymentSettings
 	 *            the payment settings object.
-	 * 
 	 * @see <a
 	 *      href="https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Payments settings</a>
@@ -171,7 +173,6 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * Removes the current Persistent Menu.
 	 * 
 	 * @see #setPersistentMenu(List)
-	 * 
 	 */
 	public static void deletePersistentMenu() {
 		CallToActionsRequest request = new CallToActionsRequest(
@@ -180,40 +181,207 @@ public class FbBotMillThreadSettingsConfiguration {
 	}
 
 	/**
-	 * Add a list of domains that needs to be "white listed".
+	 * Adds a list of domains that needs to be "white listed".
 	 *
 	 * @param whiteListDomains
 	 *            the list of domains in String.
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/domain-whitelisting"
+	 *      >Facebook's Messenger Platform Domain Whitelisting Thread Settings
+	 *      Documentation</a>
 	 */
 	public static void setWhiteListDomains(List<String> whiteListDomains) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest(
-				whiteListDomains);
+				whiteListDomains, DomainActionType.ADD);
 		NetworkUtils.postThreadSetting(request);
 	}
 
 	/**
-	 * Add a single domain on the list of domains that needs to be
+	 * Adds a single domain on the list of domains that needs to be
 	 * "white listed".
 	 *
 	 * @param domain
-	 *            the domain that needs to be "white listed"
+	 *            the domain that needs to be "white listed".
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/domain-whitelisting"
+	 *      >Facebook's Messenger Platform Domain Whitelisting Thread Settings
+	 *      Documentation</a>
 	 */
 	public static void addWhiteListDomain(String domain) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest();
 		request.addWhiteListedDomain(domain);
+		request.setDomainActionType(DomainActionType.ADD);
 		NetworkUtils.postThreadSetting(request);
 	}
-	// TODO: method for removing just a whitelisted domain is missing. Implement.
+	
+	/**
+	 * Removes a single domain on the list of domains that needs to be
+	 * "white listed".
+	 *
+	 * @param domain
+	 *            the domain that needs to be removed.
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/domain-whitelisting"
+	 *      >Facebook's Messenger Platform Domain Whitelisting Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void deleteWhiteListDomain(String domain) {
+		WhitelistDomainRequest request = new WhitelistDomainRequest();
+		request.addWhiteListedDomain(domain);
+		request.setDomainActionType(DomainActionType.REMOVE);
+		NetworkUtils.postThreadSetting(request);
+	}
 
 	/**
 	 * Removes a list of domains that are currently "white listed".
 	 *
 	 * @param whiteListDomains
 	 *            the list of domains that needs to be removed.
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/domain-whitelisting"
+	 *      >Facebook's Messenger Platform Domain Whitelisting Thread Settings
+	 *      Documentation</a>
 	 */
 	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest(
 				whiteListDomains, DomainActionType.REMOVE);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Adds a list of testers for payments. You can add payment test users so
+	 * that their credit card won't be charged during your development. Once
+	 * added, it will impact both Buy Button and Webview Extension integrations,
+	 * any payment send to these users will be a dummy charge. If you are only
+	 * testing {@link BuyButton}, consider using the
+	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * testing.
+	 * 
+	 * @param paymentTestersIds
+	 *            the testers app-scoped IDs to add to the testers list.
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void addPaymentsTesters(List<String> paymentTestersIds) {
+		PaymentSettings request = new PaymentSettings();
+		request.setPaymentTesters(paymentTestersIds);
+		request.setPaymentDevModeAction(PaymentDevModeAction.ADD);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Adds a single tester for payments. You can add payment test users so that
+	 * their credit card won't be charged during your development. Once added,
+	 * it will impact both Buy Button and Webview Extension integrations, any
+	 * payment send to these users will be a dummy charge. If you are only
+	 * testing {@link BuyButton}, consider using the
+	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * testing.
+	 * 
+	 * @param paymentTesterId
+	 *            the tester app-scoped ID to add to the testers list.
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void addPaymentsTester(String paymentTesterId) {
+		PaymentSettings request = new PaymentSettings();
+		List<String> paymentTestersIds = new ArrayList<String>();
+		request.setPaymentTesters(paymentTestersIds);
+		request.setPaymentDevModeAction(PaymentDevModeAction.ADD);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Removes a single tester for payments. You can add payment test users so
+	 * that their credit card won't be charged during your development. Once
+	 * added, it will impact both Buy Button and Webview Extension integrations,
+	 * any payment send to these users will be a dummy charge. If you are only
+	 * testing {@link BuyButton}, consider using the
+	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * testing.
+	 * 
+	 * @param paymentTesterId
+	 *            the tester app-scoped ID to remove from the testers list.
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void removePaymentsTester(String paymentTesterId) {
+		PaymentSettings request = new PaymentSettings();
+		List<String> paymentTestersIds = new ArrayList<String>();
+		request.setPaymentTesters(paymentTestersIds);
+		request.setPaymentDevModeAction(PaymentDevModeAction.REMOVE);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Removes a list of testers for payments. You can add payment test users so
+	 * that their credit card won't be charged during your development. Once
+	 * added, it will impact both Buy Button and Webview Extension integrations,
+	 * any payment send to these users will be a dummy charge. If you are only
+	 * testing {@link BuyButton}, consider using the
+	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * testing.
+	 * 
+	 * @param paymentTestersIds
+	 *            the testers app-scoped IDs to remove from the testers list.
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void removePaymentsTesters(List<String> paymentTestersIds) {
+		PaymentSettings request = new PaymentSettings();
+		request.setPaymentTesters(paymentTestersIds);
+		request.setPaymentDevModeAction(PaymentDevModeAction.REMOVE);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Sets the payment public key. The payment_public_key is used to encrypt
+	 * sensitive payment data sent to you.
+	 * 
+	 * @param publicKey
+	 *            the public key to set.
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/payments-reference#encryption_key"
+	 *      >Facebook's Messenger Platform Creating Encryption Documentation</a>
+	 */
+	public static void setPaymentsPublicKey(String publicKey) {
+		PaymentSettings request = new PaymentSettings();
+		request.setPrivacyUrl(publicKey);
+		NetworkUtils.postThreadSetting(request);
+	}
+
+	/**
+	 * Sets the payment privacy Url. The payment_privacy_url will appear in
+	 * Facebook's payment dialogs and people will be able to view these terms.
+	 * 
+	 * @param privacyUrl
+	 *            the privacy Url to set.
+	 * @since 1.2.0
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
+	 *      >Facebook's Messenger Platform Payments Thread Settings
+	 *      Documentation</a>
+	 */
+	public static void setPaymentsPrivacyUrl(String privacyUrl) {
+		PaymentSettings request = new PaymentSettings();
+		request.setPrivacyUrl(privacyUrl);
 		NetworkUtils.postThreadSetting(request);
 	}
 

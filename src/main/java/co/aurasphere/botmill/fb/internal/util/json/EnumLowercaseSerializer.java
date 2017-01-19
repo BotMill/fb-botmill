@@ -35,7 +35,6 @@ import com.google.gson.JsonSerializer;
  * Class that serializes an Enum as its lowercase name.
  * 
  * @author Donato Rimenti
- * 
  */
 public class EnumLowercaseSerializer implements JsonSerializer<Enum<?>> {
 
@@ -43,12 +42,12 @@ public class EnumLowercaseSerializer implements JsonSerializer<Enum<?>> {
 	 * Serializes an Enum as its lowercase name.
 	 *
 	 * @param src
-	 *            the src
+	 *            the src.
 	 * @param typeOfSrc
-	 *            the type of src
+	 *            the type of src.
 	 * @param context
-	 *            the context
-	 * @return the json element
+	 *            the context.
+	 * @return the json element.
 	 */
 	public JsonElement serialize(Enum<?> src, Type typeOfSrc,
 			JsonSerializationContext context) {

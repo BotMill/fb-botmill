@@ -23,6 +23,8 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.payload;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Enum that represents the all available payloads.
  * 
@@ -34,40 +36,48 @@ public enum PayloadType {
 	/**
 	 * The button.
 	 */
+	@SerializedName("button")
 	BUTTON,
 
 	/**
 	 * The generic.
 	 */
+	@SerializedName("generic")
 	GENERIC,
 
 	/**
 	 * The list.
 	 */
+	@SerializedName("list")
 	LIST,
 
 	/**
 	 * The receipt.
 	 */
+	@SerializedName("receipt")
 	RECEIPT,
 
 	/**
 	 * The airline itinerary.
 	 */
+	@SerializedName("airline_itinerary")
 	AIRLINE_ITINERARY,
 
 	/**
 	 * The airline boardingpass.
 	 */
+	@SerializedName("airline_boardingpass")
 	AIRLINE_BOARDINGPASS,
 
 	/**
 	 * The airline update.
 	 */
+	@SerializedName("airline_update")
 	AIRLINE_UPDATE,
 
 	/**
 	 * The airline checkin.
 	 */
+	@SerializedName("airline_checkin")
 	AIRLINE_CHECKIN;
 }

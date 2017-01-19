@@ -23,6 +23,8 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * The Enum for WebViewHeightRatioType.
  *
@@ -32,19 +34,31 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 public enum ButtonType {
 
 	/** The web url. */
+	@SerializedName("web_url")
 	WEB_URL,
+	
 	/** The postback. */
+	@SerializedName("postback")
 	POSTBACK,
+	
 	/** The phone number. */
+	@SerializedName("phone_number")
 	PHONE_NUMBER,
+	
 	/** The element share. */
+	@SerializedName("element_share")
 	ELEMENT_SHARE,
 
 	/** The account link. */
+	@SerializedName("account_link")
 	ACCOUNT_LINK,
+	
 	/** The account unlink. */
+	@SerializedName("account_unlink")
 	ACCOUNT_UNLINK,
+	
 	/** The payment. */
+	@SerializedName("payment")
 	PAYMENT;
 
 }

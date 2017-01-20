@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.test;
 
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;

@@ -213,7 +213,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		request.setDomainActionType(DomainActionType.ADD);
 		NetworkUtils.postThreadSetting(request);
 	}
-	
+
 	/**
 	 * Removes a single domain on the list of domains that needs to be
 	 * "white listed".
@@ -254,7 +254,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * added, it will impact both Buy Button and Webview Extension integrations,
 	 * any payment send to these users will be a dummy charge. If you are only
 	 * testing {@link BuyButton}, consider using the
-	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
 	 * 
 	 * @param paymentTestersIds
@@ -278,7 +278,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * it will impact both Buy Button and Webview Extension integrations, any
 	 * payment send to these users will be a dummy charge. If you are only
 	 * testing {@link BuyButton}, consider using the
-	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
 	 * 
 	 * @param paymentTesterId
@@ -303,7 +303,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * added, it will impact both Buy Button and Webview Extension integrations,
 	 * any payment send to these users will be a dummy charge. If you are only
 	 * testing {@link BuyButton}, consider using the
-	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
 	 * 
 	 * @param paymentTesterId
@@ -328,7 +328,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * added, it will impact both Buy Button and Webview Extension integrations,
 	 * any payment send to these users will be a dummy charge. If you are only
 	 * testing {@link BuyButton}, consider using the
-	 * {@link PaymentSummary#setTestPayment()} flag which is simpler for
+	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
 	 * 
 	 * @param paymentTestersIds

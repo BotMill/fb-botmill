@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.test.button;
+package co.aurasphere.botmill.fb.test.threadsettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +32,9 @@ import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
 /**
- * Test class for the Payment Thread Settings.
+ * Test class for the {@link FbBotMillThreadSettingsConfiguration}.
  * 
  * @author Donato Rimenti
- * @date Jan 6, 2017
  */
 public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 
@@ -46,7 +45,6 @@ public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 	 */
 	public void defineBehavior() {
 		// Does nothing.
-
 	}
 
 	/*
@@ -56,6 +54,13 @@ public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 	 */
 	@Override
 	protected void testImplementation() throws Exception {
+		testPaymentThreadSettings();
+	}
+
+	/**
+	 * Tests the Payment Thread Settings.
+	 */
+	private void testPaymentThreadSettings() {
 		List<String> testers = new ArrayList<String>();
 		testers.add(mockId);
 		PaymentSettings settings = new PaymentSettings();
@@ -72,7 +77,7 @@ public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 	 */
 	@Override
 	protected boolean skipTest() {
-		return true;
+		return false;
 	}
 
 }

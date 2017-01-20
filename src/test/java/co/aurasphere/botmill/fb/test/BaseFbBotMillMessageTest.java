@@ -37,6 +37,12 @@ import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
  */
 public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest {
 
+	/**
+	 * Constant used to reply to the test with the message received with this
+	 * value at the end.
+	 */
+	private static final String OK_STRING = "_OK";
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -69,6 +75,20 @@ public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest 
 	 *         test it.
 	 */
 	protected abstract String[] getMessagesToSend();
+
+	/**
+	 * Method used to get the response back from the bot during testing. The
+	 * response got back is equal to the message sent to the bot with
+	 * {@value #OK_STRING} at the end.
+	 * 
+	 * @param messageToSend
+	 *            the message sent to the bot.
+	 * @return the messageToSend, uppercased with a trailing {@value #OK_STRING}
+	 *         .
+	 */
+	protected String getTestOkBotReply(String messageToSend) {
+		return messageToSend.toUpperCase().concat(OK_STRING);
+	}
 
 	/*
 	 * (non-Javadoc)

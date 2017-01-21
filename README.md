@@ -52,7 +52,7 @@ To complete your first bot, all you have to do is write the definition class. Th
  
       public void defineBehavior() {
      	// Setting my tokens from Facebook (page token and validation token for webhook).
-		FbBotMillContext.java.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
+		FbBotMillContext.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
 
      	// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
 	  	addActionFrame(new MessageEvent("Hi"),

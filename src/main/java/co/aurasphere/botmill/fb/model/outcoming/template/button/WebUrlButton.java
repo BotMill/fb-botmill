@@ -76,9 +76,6 @@ public class WebUrlButton extends Button {
 	 *            shorter than 20 characters.
 	 * @param url
 	 *            the button URL. It can't be null or empty.
-	 * @throws IllegalArgumentException
-	 *             if title is null, empty or longer than 1000 characters or if
-	 *             URL is null or empty.
 	 */
 	public WebUrlButton(String title, String url) {
 		this.title = title;

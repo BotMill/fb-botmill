@@ -41,13 +41,11 @@ import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
  * @since 1.1.0
  */
 public class BuyButtonTest extends BaseFbBotMillMessageTest {
-	
 
 	/**
 	 * The message to send in order to test this component.
 	 */
 	private static final String MESSAGE_TO_SEND = "test_buy_button";
-
 
 	/*
 	 * (non-Javadoc)
@@ -86,10 +84,12 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 	 */
 	@Override
 	public String[] getMessagesToSend() {
-		return new String[]{MESSAGE_TO_SEND};
+		return new String[] { MESSAGE_TO_SEND };
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#skipTest()
 	 */
 	@Override

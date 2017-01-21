@@ -23,6 +23,9 @@
  */
 package co.aurasphere.botmill.fb.test.incoming.callback;
 
+import java.util.List;
+
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -31,6 +34,9 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
 
 /**
  * Base class for testing every FbBotMill callback.
@@ -83,6 +89,52 @@ public class BaseFbBotMillCallbackTest {
 		Assert.assertNotNull(callback.getEntry().get(0).getMessaging().get(0));
 
 		return callback.getEntry().get(0).getMessaging().get(0);
+	}
+
+	/**
+	 * Checks that an object is not null and an instance of class T.
+	 * 
+	 * @param object
+	 *            the object to check.
+	 * @param T
+	 *            the expected type of T.
+	 * @return a casted object of type T.
+	 */
+	@SuppressWarnings("unchecked")
+	protected <T> T assertInstanceOf(Object object, Class<T> T) {
+		Assert.assertNotNull(object);
+		Assert.assertThat(object, IsInstanceOf.instanceOf(T));
+		return (T) object;
+	}
+
+	/**
+	 * Checks that a {@link PostbackButton} is well formed.
+	 * 
+	 * @param button
+	 *            the button to check.
+	 * @param title
+	 *            the button title.
+	 * @param payload
+	 *            the button payload.
+	 */
+	protected void checkPostbackButtonWellFormed(Button button, String title,
+			String payload) {
+		PostbackButton pButton = assertInstanceOf(button, PostbackButton.class);
+		Assert.assertEquals(ButtonType.POSTBACK, pButton.getType());
+		Assert.assertEquals(title, pButton.getTitle());
+		Assert.assertEquals(payload, pButton.getPayload());
+	}
+
+	/**
+	 * Checks that a list is not null and has a fixed size.
+	 * 
+	 * @param list the list to check.
+	 * @param size the size of the list.
+	 */
+	@SuppressWarnings("rawtypes")
+	protected void assertListOfSize(int size, List list) {
+		Assert.assertNotNull(list);
+		Assert.assertEquals(size, list.size());
 	}
 
 	/*

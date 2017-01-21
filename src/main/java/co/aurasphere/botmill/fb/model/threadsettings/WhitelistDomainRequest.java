@@ -59,7 +59,6 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	 */
 	public WhitelistDomainRequest() {
 		this.whiteListedDomains = new ArrayList<String>();
-		this.domainActionType = DomainActionType.ADD;
 		this.type = SettingType.DOMAIN_WHITELISTING;
 	}
 
@@ -71,7 +70,6 @@ public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 	 */
 	public WhitelistDomainRequest(List<String> whiteListedDomains) {
 		this.whiteListedDomains = whiteListedDomains;
-		this.domainActionType = DomainActionType.ADD;
 		this.type = SettingType.DOMAIN_WHITELISTING;
 	}
 

@@ -75,8 +75,8 @@ public class JsonUtils {
 			builder.registerTypeAdapter(Attachment.class,
 					new AttachmentDeserializer());
 
-			// Deserializes buttons from interface.
-			builder.registerTypeAdapter(Button.class, new ButtonDeserializer());
+			// Serializes/deserializes buttons from interface.
+			builder.registerTypeAdapter(Button.class, new ButtonSerializer());
 
 			// Deserializes incoming messages from interface.
 			builder.registerTypeAdapter(IncomingMessage.class, new IncomingMessageDeserializer());

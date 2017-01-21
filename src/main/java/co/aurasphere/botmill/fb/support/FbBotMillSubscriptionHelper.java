@@ -21,44 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.model.outcoming.template.button;
-
-import com.google.gson.annotations.SerializedName;
+package co.aurasphere.botmill.fb.support;
 
 /**
- * The Enum for WebViewHeightRatioType.
- *
- * @author Alvin Reyes
+ * Helper class for registering and validating a page against Facebook.
  * 
+ * @author Donato Rimenti
+ * @since 1.2.0
  */
-public enum ButtonType {
-
-	/** The web url. */
-	@SerializedName("web_url")
-	WEB_URL,
+public class FbBotMillSubscriptionHelper {
 	
-	/** The postback. */
-	@SerializedName("postback")
-	POSTBACK,
-	
-	/** The phone number. */
-	@SerializedName("phone_number")
-	PHONE_NUMBER,
-	
-	/** The element share. */
-	@SerializedName("element_share")
-	ELEMENT_SHARE,
-
-	/** The account link. */
-	@SerializedName("account_link")
-	ACCOUNT_LINK,
-	
-	/** The account unlink. */
-	@SerializedName("account_unlink")
-	ACCOUNT_UNLINK,
-	
-	/** The payment. */
-	@SerializedName("payment")
-	PAYMENT;
-
+ // TODO
 }

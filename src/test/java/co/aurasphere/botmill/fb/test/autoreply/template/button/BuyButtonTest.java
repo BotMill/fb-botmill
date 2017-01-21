@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.test.button;
+package co.aurasphere.botmill.fb.test.autoreply.template.button;
 
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.message.MessageEvent;
@@ -42,6 +42,11 @@ import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
  */
 public class BuyButtonTest extends BaseFbBotMillMessageTest {
 
+	/**
+	 * The message to send in order to test this component.
+	 */
+	private static final String MESSAGE_TO_SEND = "test_buy_button";
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -49,7 +54,7 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 	 */
 	public void defineBehavior() {
 
-		addActionFrame(new MessageEvent("test_buy_button"), new AutoReply() {
+		addActionFrame(new MessageEvent(MESSAGE_TO_SEND), new AutoReply() {
 
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -79,15 +84,17 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 	 */
 	@Override
 	public String[] getMessagesToSend() {
-		return new String[] { "test_buy_button" };
+		return new String[] { MESSAGE_TO_SEND };
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#skipTest()
 	 */
 	@Override
 	protected boolean skipTest() {
-		return true;
+		return false;
 	}
 
 }

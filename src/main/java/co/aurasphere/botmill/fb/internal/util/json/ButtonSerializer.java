@@ -38,15 +38,31 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
 /**
- * Custom deserializer for an {@link Button}. Instantiates the correct button
- * from interface.
+ * Custom serializer/deserializer for an {@link Button}. Instantiates the
+ * correct button from interface.
  * 
  * @author Donato Rimenti
  * @since 1.1.0
  */
-public class ButtonDeserializer implements JsonDeserializer<Button> {
+public class ButtonSerializer implements JsonSerializer<Button>,
+		JsonDeserializer<Button> {
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.google.gson.JsonSerializer#serialize(java.lang.Object,
+	 * java.lang.reflect.Type, com.google.gson.JsonSerializationContext)
+	 */
+	public JsonElement serialize(Button src, Type typeOfSrc,
+			JsonSerializationContext context) {
+		ButtonType buttonType = src.getType();
+		Class<?> buttonClass = getButtonClass(buttonType);
+		return context.serialize(src, buttonClass);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -57,36 +73,40 @@ public class ButtonDeserializer implements JsonDeserializer<Button> {
 	 */
 	public Button deserialize(JsonElement json, Type typeOfT,
 			JsonDeserializationContext context) throws JsonParseException {
-
 		String buttonTypeString = json.getAsJsonObject().get("type")
 				.getAsString();
 		ButtonType buttonType = ButtonType.valueOf(buttonTypeString
 				.toUpperCase());
-		Class<? extends Button> buttonClass = null;
-		switch (buttonType) {
-		case ACCOUNT_LINK:
-			buttonClass = LoginButton.class;
-			break;
-		case ACCOUNT_UNLINK:
-			buttonClass = LogoutButton.class;
-			break;
-		case ELEMENT_SHARE:
-			buttonClass = ShareButton.class;
-			break;
-		case PAYMENT:
-			buttonClass = BuyButton.class;
-			break;
-		case PHONE_NUMBER:
-			buttonClass = PostbackButton.class;
-			break;
-		case POSTBACK:
-			buttonClass = PostbackButton.class;
-			break;
-		case WEB_URL:
-			buttonClass = WebUrlButton.class;
-			break;
-		}
+		Class<?> buttonClass = getButtonClass(buttonType);
 		return context.deserialize(json, buttonClass);
+	}
+
+	/**
+	 * Utility method for getting a button class from the {@link ButtonType}.
+	 * 
+	 * @param type
+	 *            the button type.
+	 * @return the button class for that type.
+	 */
+	private Class<?> getButtonClass(ButtonType type) {
+		switch (type) {
+		case ACCOUNT_LINK:
+			return LoginButton.class;
+		case ACCOUNT_UNLINK:
+			return LogoutButton.class;
+		case ELEMENT_SHARE:
+			return ShareButton.class;
+		case PAYMENT:
+			return BuyButton.class;
+		case PHONE_NUMBER:
+			return PostbackButton.class;
+		case POSTBACK:
+			return PostbackButton.class;
+		case WEB_URL:
+			return WebUrlButton.class;
+		}
+		// This will never happen.
+		return null;
 	}
 
 	/*
@@ -96,7 +116,7 @@ public class ButtonDeserializer implements JsonDeserializer<Button> {
 	 */
 	@Override
 	public String toString() {
-		return "ButtonDeserializer []";
+		return "ButtonSerializer []";
 	}
 
 }

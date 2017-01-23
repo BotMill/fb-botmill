@@ -30,35 +30,37 @@ Other ways to import, visit Maven central repo [site](http://search.maven.org/#s
 
 Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
-     <servlet>
-		  <servlet-name>myFbBot</servlet-name>
-		  <servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
-		  <init-param>
-			  <param-name>bot-definition-class</param-name>
-			  <param-value>com.mypackage.MyFbBotDefinitionClass</param-value>
-		  </init-param>
-		  <load-on-startup>0</load-on-startup>
-	  </servlet>
-	  <servlet-mapping>
-		  <servlet-name>myFbBot</servlet-name>
-		  <url-pattern>/myFbBot</url-pattern>
-	  </servlet-mapping>
+```xml
+<servlet>
+	<servlet-name>myFbBot</servlet-name>
+	<servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
+	<init-param>
+		<param-name>bot-definition-class</param-name>
+		<param-value>com.mypackage.MyFbBotDefinitionClass</param-value>
+	</init-param>
+	<load-on-startup>0</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>myFbBot</servlet-name>
+	<url-pattern>/myFbBot</url-pattern>
+</servlet-mapping>
+```
 
 This will register a servlet named myFbBot to the path /myFbBot. The bot-definition-class parameters is a class that implements the FbBotDefinition interface or extends the AbstractFbBot class.
 
 To complete your first bot, all you have to do is write the definition class. This class will describe your bot behavior. Here's an example:
 
-    public class MyFbBotDefinitionClass extends AbstractFbBot {
- 
-      public void defineBehavior() {
-     	// Setting my tokens from Facebook (page token and validation token for webhook).
+```java
+public class MyFbBotDefinitionClass extends AbstractFbBot {
+	public void defineBehavior() {
+		// Setting my tokens from Facebook (page token and validation token for webhook).
 		FbBotMillContext.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
-
-     	// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
-	  	addActionFrame(new MessageEvent("Hi"),
-				  new MessageAutoReply("Hello World!"));
-      }
-    }
+		// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
+		addActionFrame(new MessageEvent("Hi"),
+		new MessageAutoReply("Hello World!"));
+	}
+}
+```
 
 Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
 

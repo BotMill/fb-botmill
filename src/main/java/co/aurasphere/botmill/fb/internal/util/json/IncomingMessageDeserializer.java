@@ -25,14 +25,14 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.lang.reflect.Type;
 
-import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
-import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
-import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+
+import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
+import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 
 /**
  * Custom deserializer for an {@link IncomingMessage}. Instantiates the correct
@@ -53,7 +53,8 @@ public class IncomingMessageDeserializer implements
 	 */
 	public IncomingMessage deserialize(JsonElement json, Type typeOfT,
 			JsonDeserializationContext context) throws JsonParseException {
-		boolean isEcho = json.getAsJsonObject().get("is_echo").getAsBoolean();
+		JsonElement isEchoElement = json.getAsJsonObject().get("is_echo");
+		boolean isEcho = isEchoElement != null ? isEchoElement.getAsBoolean() : false;
 		Class<? extends IncomingMessage> incomingMessageClass = null;
 		if (isEcho == true) {
 			incomingMessageClass = EchoMessage.class;

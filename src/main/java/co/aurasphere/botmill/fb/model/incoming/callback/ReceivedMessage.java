@@ -56,11 +56,6 @@ public class ReceivedMessage extends IncomingMessage {
 	private String seq;
 
 	/**
-	 * Text of message.
-	 */
-	private String text;
-
-	/**
 	 * Gets the {@link #mid}.
 	 *
 	 * @return the {@link #mid}.
@@ -96,25 +91,6 @@ public class ReceivedMessage extends IncomingMessage {
 	 */
 	public void setSeq(String seq) {
 		this.seq = seq;
-	}
-
-	/**
-	 * Gets the {@link #text}.
-	 *
-	 * @return the {@link #text}.
-	 */
-	public String getText() {
-		return text;
-	}
-
-	/**
-	 * Sets the {@link #text}.
-	 *
-	 * @param text
-	 *            the {@link #text} to set.
-	 */
-	public void setText(String text) {
-		this.text = text;
 	}
 
 	/*

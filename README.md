@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/BotMill/fb-botmill.svg?branch=master)](https://travis-ci.org/BotMill/fb-botmill)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/co.aurasphere.botmill/fb-botmill/badge.svg?style=blue)](https://maven-badges.herokuapp.com/maven-central/co.aurasphere.botmill/fb-botmill)
 [![Javadocs](http://www.javadoc.io/badge/co.aurasphere.botmill/fb-botmill.svg)](http://www.javadoc.io/doc/co.aurasphere.botmill/fb-botmill)
+[![Gitter](https://badges.gitter.im/BotMill/fb-botmill.svg)](https://gitter.im/BotMill/fb-botmill?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # FB-BotMill - Tools to Mill Facebook Bots
 FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 
@@ -30,35 +31,37 @@ Other ways to import, visit Maven central repo [site](http://search.maven.org/#s
 
 Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
 
-     <servlet>
-		  <servlet-name>myFbBot</servlet-name>
-		  <servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
-		  <init-param>
-			  <param-name>bot-definition-class</param-name>
-			  <param-value>com.mypackage.MyFbBotDefinitionClass</param-value>
-		  </init-param>
-		  <load-on-startup>0</load-on-startup>
-	  </servlet>
-	  <servlet-mapping>
-		  <servlet-name>myFbBot</servlet-name>
-		  <url-pattern>/myFbBot</url-pattern>
-	  </servlet-mapping>
+```xml
+<servlet>
+	<servlet-name>myFbBot</servlet-name>
+	<servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
+	<init-param>
+		<param-name>bot-definition-class</param-name>
+		<param-value>com.mypackage.MyFbBotDefinitionClass</param-value>
+	</init-param>
+	<load-on-startup>0</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>myFbBot</servlet-name>
+	<url-pattern>/myFbBot</url-pattern>
+</servlet-mapping>
+```
 
 This will register a servlet named myFbBot to the path /myFbBot. The bot-definition-class parameters is a class that implements the FbBotDefinition interface or extends the AbstractFbBot class.
 
 To complete your first bot, all you have to do is write the definition class. This class will describe your bot behavior. Here's an example:
 
-    public class MyFbBotDefinitionClass extends AbstractFbBot {
- 
-      public void defineBehavior() {
-     	// Setting my tokens from Facebook (page token and validation token for webhook).
-		FbBotMillContext.java.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
-
-     	// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
-	  	addActionFrame(new MessageEvent("Hi"),
-				  new MessageAutoReply("Hello World!"));
-      }
-    }
+```java
+public class MyFbBotDefinitionClass extends AbstractFbBot {
+	public void defineBehavior() {
+		// Setting my tokens from Facebook (page token and validation token for webhook).
+		FbBotMillContext.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
+		// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
+		addActionFrame(new MessageEvent("Hi"),
+		new MessageAutoReply("Hello World!"));
+	}
+}
+```
 
 Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
 

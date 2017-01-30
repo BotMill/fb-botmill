@@ -8,12 +8,12 @@
 			<Pattern>%d{HH:mm:ss.SSS, Europe/Rome} %-5level [%thread][%logger{0}] %m%n</Pattern>
 		</encoder>
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>INFO</level>
+			<level>DEBUG</level>
 		</filter>
 	</appender>
 
 	<!-- Loggers -->
-	<logger name="co.aurasphere.botmill" level="INFO">
+	<logger name="co.aurasphere.botmill" level="DEBUG">
 		<appender-ref ref="consoleAppender" />
 	</logger>
 

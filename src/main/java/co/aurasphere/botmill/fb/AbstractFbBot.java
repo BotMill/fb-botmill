@@ -77,8 +77,16 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		this.buildAnnotatedBehaviour();
 	}
 	
+	/**
+	 * This is the method to define the behaviour of the bot.
+	 * As of the introduction of the Annotation based configuration, 
+	 * this is overriden on the supertype level. 
+	 * 
+	 * The method can still be overriden by a concrete Bot class and use
+	 * to define behaviour.
+	 */
 	@Override
-	public void defineBehavior() {}
+	public void defineBehavior() {} 
 
 	/**
 	 * Adds an {@link ActionFrame} to the current bot.
@@ -116,7 +124,8 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 
 	/**
-	 * Builds the annotated behaviour
+	 * This is the private method that gets called to
+	 * invoke the annotated methods to build the behaviours
 	 */
 	private void buildAnnotatedBehaviour() {
 		Method[] methods = this.getClass().getMethods();

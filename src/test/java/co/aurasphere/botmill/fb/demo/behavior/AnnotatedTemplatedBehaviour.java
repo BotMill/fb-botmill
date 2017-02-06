@@ -39,12 +39,12 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
  */
 public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 	
-	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", casesensitive = true)
+	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", caseSensitive = true)
 	public void replyText() {
 		reply(new MessageAutoReply("simple text message"));
 	}
 	
-	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", casesensitive = false)
+	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
 	public void replyWithButtonTemplate() {
 		reply(new AutoReply() {
 			@Override
@@ -57,7 +57,7 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 		});
 	}
 	
-	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="list template", casesensitive = false)
+	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="list template", caseSensitive = false)
 	public void replyWithLisTemplate() {
 		reply(new AutoReply() {
 			@Override
@@ -97,7 +97,7 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 		});
 	}
 	
-	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="quick replies", casesensitive = false)
+	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="quick replies", caseSensitive = false)
 	public void replywithQuickReplies() {
 		reply(new AutoReply() {
 
@@ -123,7 +123,7 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 		});
 	}
 	
-	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="receipt template", casesensitive = true)
+	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="receipt template", caseSensitive = true)
 	public void replyWithReceiptTemplate() {
 		reply(new AutoReply() {
 			@Override

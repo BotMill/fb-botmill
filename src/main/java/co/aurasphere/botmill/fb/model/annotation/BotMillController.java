@@ -18,9 +18,9 @@ public @interface BotMillController {
 	String text() default "";
 	String pattern() default "";
 	String payload() default "";
-	String quickpayload() default "";
-	String quickpayloadpattern() default "";
+	String quickReplyPayload() default "";
+	String quickRepltPayloadPattern() default "";
 	String postback() default "";
-	String postbackpattern() default "";
-	boolean casesensitive() default false;
+	String postbackPattern() default "";
+	boolean caseSensitive() default false;
 }

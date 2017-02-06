@@ -169,7 +169,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 */
 	private FbBotMillEvent toEventActionFrame(BotMillController botMillController)
 			throws FbBotMillControllerEventMisMatchException {
-		boolean caseSensitive = botMillController.casesensitive();
+		boolean caseSensitive = botMillController.caseSensitive();
 		switch (botMillController.eventType()) {
 		case MESSAGE:
 			if (!botMillController.text().equals("")) {
@@ -190,20 +190,20 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 				throw new FbBotMillControllerEventMisMatchException("postback attribute missing");
 			}
 		case POSTBACK_PATTERN:
-			if (!botMillController.postbackpattern().equals("")) {
-				return new PostbackPatternEvent(botMillController.postbackpattern());
+			if (!botMillController.postbackPattern().equals("")) {
+				return new PostbackPatternEvent(botMillController.postbackPattern());
 			}else {
 				throw new FbBotMillControllerEventMisMatchException("postback pattern attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE:
-			if (!botMillController.quickpayload().equals("")) {
-				return new QuickReplyMessageEvent(botMillController.quickpayload());
+			if (!botMillController.quickReplyPayload().equals("")) {
+				return new QuickReplyMessageEvent(botMillController.quickReplyPayload());
 			}else {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE_PATTERN:
-			if (!botMillController.quickpayloadpattern().equals("")) {
-				return new QuickReplyMessagePatternEvent(botMillController.quickpayloadpattern());
+			if (!botMillController.quickRepltPayloadPattern().equals("")) {
+				return new QuickReplyMessagePatternEvent(botMillController.quickRepltPayloadPattern());
 			}else {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload pattern attribute missing");
 			}

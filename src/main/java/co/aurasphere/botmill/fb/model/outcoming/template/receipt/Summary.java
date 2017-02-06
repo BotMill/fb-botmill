@@ -30,8 +30,10 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * The Class Summary.
+ * 
+ * @author Alvin Reyes
  */
-// TODO: two decimal digits with "." as separator
+
 public class Summary implements Serializable {
 
 	/** The Constant serialVersionUID. */

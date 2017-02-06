@@ -35,6 +35,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * The Class ReceiptTemplateElement.
+ * 
+ * @author Alvin Reyes
  */
 public class ReceiptTemplateElement implements Serializable {
 

@@ -28,6 +28,8 @@ import java.math.BigDecimal;
 
 /**
  * The Class Adjustment.
+ * 
+ * @author Alvin Reyes
  */
 public class Adjustment implements Serializable {
 

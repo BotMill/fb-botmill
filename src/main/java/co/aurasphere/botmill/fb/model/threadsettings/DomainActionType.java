@@ -25,6 +25,8 @@ package co.aurasphere.botmill.fb.model.threadsettings;
 
 /**
  * The Enum DomainActionType.
+ * 
+ * @author Alvin Reyes
  */
 public enum DomainActionType {
 

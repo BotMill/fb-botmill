@@ -23,9 +23,25 @@
  */
 package co.aurasphere.botmill.fb;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
+import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
+import co.aurasphere.botmill.fb.event.message.LocationEvent;
+import co.aurasphere.botmill.fb.event.message.MessageEvent;
+import co.aurasphere.botmill.fb.event.message.MessagePatternEvent;
+import co.aurasphere.botmill.fb.event.message.QuickReplyMessageEvent;
+import co.aurasphere.botmill.fb.event.message.QuickReplyMessagePatternEvent;
+import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
+import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
+import co.aurasphere.botmill.fb.exception.FbBotMillControllerEventMisMatchException;
+import co.aurasphere.botmill.fb.model.annotation.BotMillController;
 
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
@@ -37,9 +53,20 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 public abstract class AbstractFbBot implements FbBotDefinition {
 
 	/**
+	 * The logger.
+	 */
+	private static final Logger logger = LoggerFactory
+			.getLogger(AbstractFbBot.class);
+	
+	/**
 	 * The {@link FbBot} object handled by this class.
 	 */
 	protected FbBot fbBot;
+
+	/**
+	 * The {@link FbBotMillEvent} object created by this class for each annotated method.
+	 */
+	protected FbBotMillEvent event;
 
 	/**
 	 * Base constructor. Instantiates a {@link FbBot} and registers it to the
@@ -47,6 +74,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 */
 	public AbstractFbBot() {
 		this.fbBot = new FbBot();
+		this.buildAnnotatedBehaviour();
 	}
 
 	/**
@@ -82,6 +110,87 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 */
 	protected void addActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		fbBot.addActionFrame(event, replies);
+	}
+
+	/**
+	 * Builds the annotated behaviour
+	 */
+	protected void buildAnnotatedBehaviour() {
+		Method[] methods = this.getClass().getMethods();
+		for (Method method : methods) {
+			if (method.isAnnotationPresent(BotMillController.class)) {
+				try {
+					BotMillController botMillController = method.getAnnotation(BotMillController.class);
+					event = toEventActionFrame(botMillController);
+					method.invoke(this);
+				} catch (FbBotMillControllerEventMisMatchException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+					logger.error(e.getMessage());
+				}
+			}
+		}
+	}
+
+	/**
+	 * Reply.
+	 *
+	 * @param reply the reply
+	 */
+	protected void reply(AutoReply reply) {
+		fbBot.addActionFrame(event, reply);
+	}
+
+	/**
+	 * To event action frame.
+	 *
+	 * @param botMillController the bot mill controller
+	 * @return the fb bot mill event
+	 * @throws FbBotMillControllerEventMisMatchException the fb bot mill controller event mis match exception
+	 */
+	private FbBotMillEvent toEventActionFrame(BotMillController botMillController)
+			throws FbBotMillControllerEventMisMatchException {
+		boolean caseSensitive = botMillController.casesensitive();
+		switch (botMillController.eventType()) {
+		case MESSAGE:
+			if (!botMillController.text().equals("")) {
+				return new MessageEvent(botMillController.text(), caseSensitive);
+			} else {
+				throw new FbBotMillControllerEventMisMatchException("text attribute missing");
+			}
+		case MESSAGE_PATTERN:
+			if (!botMillController.pattern().equals("")) {
+				return new MessagePatternEvent(botMillController.pattern());
+			}else {
+				throw new FbBotMillControllerEventMisMatchException("pattern attribute missing");
+			}
+		case POSTBACK:
+			if (!botMillController.postback().equals("")) {
+				return new PostbackEvent(botMillController.postback());
+			}else {
+				throw new FbBotMillControllerEventMisMatchException("postback attribute missing");
+			}
+		case POSTBACK_PATTERN:
+			if (!botMillController.postbackpattern().equals("")) {
+				return new PostbackPatternEvent(botMillController.postbackpattern());
+			}else {
+				throw new FbBotMillControllerEventMisMatchException("postback pattern attribute missing");
+			}
+		case QUICK_REPLY_MESSAGE:
+			if (!botMillController.quickpayload().equals("")) {
+				return new QuickReplyMessageEvent(botMillController.quickpayload());
+			}else {
+				throw new FbBotMillControllerEventMisMatchException("quickpayload attribute missing");
+			}
+		case QUICK_REPLY_MESSAGE_PATTERN:
+			if (!botMillController.quickpayloadpattern().equals("")) {
+				return new QuickReplyMessagePatternEvent(botMillController.quickpayloadpattern());
+			}else {
+				throw new FbBotMillControllerEventMisMatchException("quickpayload pattern attribute missing");
+			}
+		case LOCATION:
+			return new LocationEvent();
+		default:
+			return new AnyEvent();
+		}
 	}
 
 	/*

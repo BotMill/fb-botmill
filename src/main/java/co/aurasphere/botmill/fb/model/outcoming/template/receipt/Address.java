@@ -33,6 +33,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * The Class Address.
+ * 
+ * @author Alvin Reyes
  */
 public class Address implements Serializable {
 

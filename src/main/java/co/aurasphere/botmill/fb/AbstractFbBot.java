@@ -154,7 +154,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	/**
 	 * This method is used to create multiple replies.
 	 *
-	 * @param reply the reply
+	 * @param replies the set of replies in a form of a var-args
 	 */
 	protected void reply(AutoReply... replies) {
 		fbBot.addActionFrame(event, replies);

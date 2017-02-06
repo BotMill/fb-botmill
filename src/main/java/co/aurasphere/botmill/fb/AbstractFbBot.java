@@ -76,6 +76,9 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		this.fbBot = new FbBot();
 		this.buildAnnotatedBehaviour();
 	}
+	
+	@Override
+	public void defineBehavior() {}
 
 	/**
 	 * Adds an {@link ActionFrame} to the current bot.
@@ -115,7 +118,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	/**
 	 * Builds the annotated behaviour
 	 */
-	protected void buildAnnotatedBehaviour() {
+	private void buildAnnotatedBehaviour() {
 		Method[] methods = this.getClass().getMethods();
 		for (Method method : methods) {
 			if (method.isAnnotationPresent(BotMillController.class)) {
@@ -131,12 +134,21 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 
 	/**
-	 * Reply.
+	 * This method is used to create a reply.
 	 *
 	 * @param reply the reply
 	 */
 	protected void reply(AutoReply reply) {
 		fbBot.addActionFrame(event, reply);
+	}
+	
+	/**
+	 * This method is used to create multiple replies.
+	 *
+	 * @param reply the reply
+	 */
+	protected void reply(AutoReply... replies) {
+		fbBot.addActionFrame(event, replies);
 	}
 
 	/**
@@ -188,8 +200,10 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 			}
 		case LOCATION:
 			return new LocationEvent();
-		default:
+		case ANY:
 			return new AnyEvent();
+		default:
+			throw new FbBotMillControllerEventMisMatchException("Unsupported Event Type: " + botMillController.eventType());
 		}
 	}
 

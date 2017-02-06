@@ -27,6 +27,7 @@ import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.PAGE_TOKEN;
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.VALIDATION_TOKEN;
 import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.demo.behavior.AnnotatedTemplatedBehaviour;
 import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 

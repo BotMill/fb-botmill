@@ -1,6 +1,6 @@
 target/
 /bin/
-
+.settings/
 .classpath
 .settings/org.eclipse.wst.common.component
 .project

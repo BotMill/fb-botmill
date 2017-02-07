@@ -135,7 +135,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 					BotMillController botMillController = method.getAnnotation(BotMillController.class);
 					event = toEventActionFrame(botMillController);
 					method.invoke(this);
-				} catch (FbBotMillControllerEventMisMatchException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				} catch (Exception e) {
 					logger.error(e.getMessage());
 				}
 			}

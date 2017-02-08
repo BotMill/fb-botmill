@@ -146,11 +146,11 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		
 		try {
 			fbPageToken = ((prop.getProperty("fb.page.token").equals("")
-					|| prop.getProperty("fb.page.token").indexOf("<PAGE_TOKEN>") == 0) ? System.getProperty("PAGE_TOKEN")
+					|| prop.getProperty("fb.page.token").indexOf("<PAGE_TOKEN>") == 0) ? System.getenv("PAGE_TOKEN")
 							: prop.getProperty("fb.page.token"));
 
 			fbValidationToken = ((prop.getProperty("fb.validation.token").equals("")
-					|| prop.getProperty("fb.validation.token").indexOf("<VALIDATION_TOKEN>") == 0) ? System.getProperty("VALIDATION_TOKEN")
+					|| prop.getProperty("fb.validation.token").indexOf("<VALIDATION_TOKEN>") == 0) ? System.getenv("VALIDATION_TOKEN")
 							: prop.getProperty("fb.validation.token"));
 		} catch (Exception e) {
 			logger.error("Make sure that fb.page.token and fb.validation.token properties exist on the property file");

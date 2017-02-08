@@ -21,31 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo;
-
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
-
-import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
-import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
+package co.aurasphere.botmill.fb.exception;
 
 /**
- * The Class FbBotMillDemo.
+ * The Class FbBotMillControllerEventMisMatchException.
+ * 
+ * @author Alvin P. Reyes
  */
-public class FbBotMillDemo {
+public class FbBotMillMissingConfigurationException extends Exception {
+	/**
+	 * The serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The main method.
+	 * Instantiates a new FbBot illegal attachment exception.
 	 *
-	 * @param args
-	 *            the arguments
+	 * @param message
+	 *            the message.
 	 */
-	public static void main(String[] args) {
+	public FbBotMillMissingConfigurationException(String message) {
+		super(message);
+	}
 
-		// Instantiating the testing framework and starting the interactive
-		// test.
-		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(getFacebookMockId(),
-				TemplateBehavior.class);
-		mediator.interactiveTest();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Throwable#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillControllerEventMisMatchException []";
 	}
 
 }

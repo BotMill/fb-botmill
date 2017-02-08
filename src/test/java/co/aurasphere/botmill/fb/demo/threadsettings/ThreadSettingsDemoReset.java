@@ -23,7 +23,7 @@
  */
 package co.aurasphere.botmill.fb.demo.threadsettings;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
 
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
@@ -44,7 +44,7 @@ public class ThreadSettingsDemoReset {
 	 */
 	public static void main(String[] args) {
 		// Configuration.
-		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
+		FbBotMillContext.getInstance().setup(getFbPageToken(), getFbValidationToken());
 
 		FbBotMillThreadSettingsConfiguration.deleteGetStartedButton();
 		FbBotMillThreadSettingsConfiguration.deletePersistentMenu();

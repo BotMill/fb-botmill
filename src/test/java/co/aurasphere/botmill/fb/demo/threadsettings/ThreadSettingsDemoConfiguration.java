@@ -30,7 +30,7 @@ import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.*;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
 
 /**
  * Demo of configuring the Thread Settings.
@@ -49,7 +49,7 @@ public class ThreadSettingsDemoConfiguration {
 	 */
 	public static void main(String[] args) {
 		// Configuration.
-		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
+		FbBotMillContext.getInstance().setup(getFbPageToken(), getFbValidationToken());
 
 		// Creates a list of persistent buttons.
 		List<Button> buttons = new ArrayList<Button>();

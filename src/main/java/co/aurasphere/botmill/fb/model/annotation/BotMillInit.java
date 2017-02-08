@@ -30,8 +30,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import co.aurasphere.botmill.fb.event.FbBotMillEventType;
-
 /**
  * The Interface BotMillController.
  * 
@@ -41,71 +39,8 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 @Target(ElementType.METHOD)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BotMillController {
+public @interface BotMillInit {
 	
-	/**
-	 * Event type.
-	 *
-	 * @return the fb bot mill event type
-	 */
-	FbBotMillEventType eventType() default FbBotMillEventType.MESSAGE;
-	
-	/**
-	 * Text.
-	 *
-	 * @return the string
-	 */
-	String text() default "";
-	
-	/**
-	 * Pattern.
-	 *
-	 * @return the string
-	 */
-	String pattern() default "";
-	
-	/**
-	 * Payload.
-	 *
-	 * @return the string
-	 */
-	String payload() default "";
-	
-	/**
-	 * Quick reply payload.
-	 *
-	 * @return the string
-	 */
-	String quickReplyPayload() default "";
-	
-	/**
-	 * Quick replt payload pattern.
-	 *
-	 * @return the string
-	 */
-	String quickRepltPayloadPattern() default "";
-	
-	/**
-	 * Postback.
-	 *
-	 * @return the string
-	 */
-	String postback() default "";
-	
-	/**
-	 * Postback pattern.
-	 *
-	 * @return the string
-	 */
-	String postbackPattern() default "";
-	
-	/**
-	 * Case sensitive.
-	 *
-	 * @return true, if successful
-	 */
-	boolean caseSensitive() default false;
-
 	/**
 	 * Meta.
 	 *

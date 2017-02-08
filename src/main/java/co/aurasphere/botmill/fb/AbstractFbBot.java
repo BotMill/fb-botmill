@@ -23,12 +23,10 @@
  */
 package co.aurasphere.botmill.fb;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.AnyEvent;
@@ -41,7 +39,11 @@ import co.aurasphere.botmill.fb.event.message.QuickReplyMessagePatternEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
 import co.aurasphere.botmill.fb.exception.FbBotMillControllerEventMisMatchException;
+import co.aurasphere.botmill.fb.exception.FbBotMillMissingConfigurationException;
+import co.aurasphere.botmill.fb.internal.util.properties.PropertiesUtil;
 import co.aurasphere.botmill.fb.model.annotation.BotMillController;
+import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
+
 
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
@@ -55,16 +57,23 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory
-			.getLogger(AbstractFbBot.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(AbstractFbBot.class);
+	private static final String FB_BOTMILL_PROPERTIES_FILENAME = "botmill.properties";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROP = "fb.page.token";
+	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP = "fb.validation.token";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROPERTY = "PAGE_TOKEN";
+	private static final String FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY = "VALIDATION_TOKEN";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER = "<PAGE_TOKEN>";
+	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER = "<VALIDATION_TOKEN>";
+
 	/**
 	 * The {@link FbBot} object handled by this class.
 	 */
 	protected FbBot fbBot;
 
 	/**
-	 * The {@link FbBotMillEvent} object created by this class for each annotated method.
+	 * The {@link FbBotMillEvent} object created by this class for each
+	 * annotated method.
 	 */
 	protected FbBotMillEvent event;
 
@@ -73,20 +82,30 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * context.
 	 */
 	public AbstractFbBot() {
+
+		// Initialize the FbBot Object.
 		this.fbBot = new FbBot();
-		this.buildAnnotatedBehaviour();
+
+		try {
+			this.buildFbBotMillConfig();
+			this.buildAnnotatedInitBehaviour();
+			this.buildAnnotatedBehaviour();
+		} catch (FbBotMillMissingConfigurationException e) {
+			logger.error(e.getMessage());
+			System.exit(0);
+		}
 	}
-	
+
 	/**
-	 * This is the method to define the behaviour of the bot.
-	 * As of the introduction of the Annotation based configuration, 
-	 * this is overriden on the supertype level. 
+	 * This is the method to define the behaviour of the bot. As of the
+	 * introduction of the Annotation based configuration, this is overriden on
+	 * the supertype level.
 	 * 
-	 * The method can still be overriden by a concrete Bot class and use
-	 * to define behaviour.
+	 * The method can still be overriden by a concrete Bot class and use to
+	 * define behaviour.
 	 */
 	@Override
-	public void defineBehavior() {} 
+	public void defineBehavior() {}
 
 	/**
 	 * Adds an {@link ActionFrame} to the current bot.
@@ -124,11 +143,59 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	}
 
 	/**
-	 * This is the private method that gets called to
-	 * invoke the annotated methods to build the behaviours
+	 * This builds the config from the classpath botmill.properties.
+	 */
+	private void buildFbBotMillConfig() throws FbBotMillMissingConfigurationException {
+		Properties prop = PropertiesUtil.load(FB_BOTMILL_PROPERTIES_FILENAME);
+		
+		String fbPageToken;
+		String fbValidationToken;
+		
+		try {
+			fbPageToken = ((prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP).equals("")
+					|| prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP).indexOf(FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER) == 0) ? System.getenv(FB_BOTMILL_PAGE_TOKEN_PROPERTY)
+							: prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP));
+
+			fbValidationToken = ((prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP).equals("")
+					|| prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP).indexOf(FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER) == 0) ? System.getenv(FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY)
+							: prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP));
+		} catch (Exception e) {
+			logger.error("Make sure that fb.page.token and fb.validation.token properties exist on the property file");
+			return;
+		}
+
+		if (fbPageToken == null || fbValidationToken == null) {
+			logger.error("FB-BotMill Configuration is missing (botmill.properties). "
+					+ "Please check if the appropriate property values are configured correctly.");
+		}
+
+		// Everything goes well, initialize the setup.
+		FbBotMillContext.getInstance().setup(fbPageToken,fbValidationToken);
+	}
+
+	/**
+	 * Builds the annotated init behaviour.
+	 */
+	private void buildAnnotatedInitBehaviour() {
+		Method[] methods = this.getClass().getMethods();
+		for (Method method : methods) {
+			if (method.isAnnotationPresent(BotMillInit.class)) {
+				try {
+					method.invoke(this);
+				} catch (Exception e) {
+					logger.error(e.getMessage());
+				}
+			}
+		}
+	}
+
+	/**
+	 * This is the private method that gets called to invoke the annotated
+	 * methods to build the behaviours
 	 */
 	private void buildAnnotatedBehaviour() {
 		Method[] methods = this.getClass().getMethods();
+
 		for (Method method : methods) {
 			if (method.isAnnotationPresent(BotMillController.class)) {
 				try {
@@ -145,16 +212,18 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	/**
 	 * This method is used to create a reply.
 	 *
-	 * @param reply the reply
+	 * @param reply
+	 *            the reply
 	 */
 	protected void reply(AutoReply reply) {
 		fbBot.addActionFrame(event, reply);
 	}
-	
+
 	/**
 	 * This method is used to create multiple replies.
 	 *
-	 * @param replies the set of replies in a form of a var-args
+	 * @param replies
+	 *            the set of replies in a form of a var-args
 	 */
 	protected void reply(AutoReply... replies) {
 		fbBot.addActionFrame(event, replies);
@@ -163,9 +232,11 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	/**
 	 * To event action frame.
 	 *
-	 * @param botMillController the bot mill controller
+	 * @param botMillController
+	 *            the bot mill controller
 	 * @return the fb bot mill event
-	 * @throws FbBotMillControllerEventMisMatchException the fb bot mill controller event mis match exception
+	 * @throws FbBotMillControllerEventMisMatchException
+	 *             the fb bot mill controller event mis match exception
 	 */
 	private FbBotMillEvent toEventActionFrame(BotMillController botMillController)
 			throws FbBotMillControllerEventMisMatchException {
@@ -180,31 +251,31 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		case MESSAGE_PATTERN:
 			if (!botMillController.pattern().equals("")) {
 				return new MessagePatternEvent(botMillController.pattern());
-			}else {
+			} else {
 				throw new FbBotMillControllerEventMisMatchException("pattern attribute missing");
 			}
 		case POSTBACK:
 			if (!botMillController.postback().equals("")) {
 				return new PostbackEvent(botMillController.postback());
-			}else {
+			} else {
 				throw new FbBotMillControllerEventMisMatchException("postback attribute missing");
 			}
 		case POSTBACK_PATTERN:
 			if (!botMillController.postbackPattern().equals("")) {
 				return new PostbackPatternEvent(botMillController.postbackPattern());
-			}else {
+			} else {
 				throw new FbBotMillControllerEventMisMatchException("postback pattern attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE:
 			if (!botMillController.quickReplyPayload().equals("")) {
 				return new QuickReplyMessageEvent(botMillController.quickReplyPayload());
-			}else {
+			} else {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE_PATTERN:
 			if (!botMillController.quickRepltPayloadPattern().equals("")) {
 				return new QuickReplyMessagePatternEvent(botMillController.quickRepltPayloadPattern());
-			}else {
+			} else {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload pattern attribute missing");
 			}
 		case LOCATION:
@@ -212,7 +283,8 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		case ANY:
 			return new AnyEvent();
 		default:
-			throw new FbBotMillControllerEventMisMatchException("Unsupported Event Type: " + botMillController.eventType());
+			throw new FbBotMillControllerEventMisMatchException(
+					"Unsupported Event Type: " + botMillController.eventType());
 		}
 	}
 

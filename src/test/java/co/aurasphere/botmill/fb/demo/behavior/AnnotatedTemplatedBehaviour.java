@@ -24,26 +24,46 @@
 package co.aurasphere.botmill.fb.demo.behavior;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.annotation.BotMillController;
+import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
+
 
 /**
  * The Class TemplateBehavior.
  */
 public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 	
+	@BotMillInit
+	public void initialize() {
+
+		List<Button> buttons = new ArrayList<Button>();
+		buttons.add(ButtonFactory.createPostbackButton("Postback Button", "PPB Payload"));
+		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.aurasphere.co"));
+
+		// Sets the thread settings.
+		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
+		FbBotMillThreadSettingsConfiguration.setGetStartedButton("Get Started Button Payload");
+		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
+	}
+	
 	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", caseSensitive = true)
 	public void replyText() {
 		reply(new MessageAutoReply("simple text message"));
 	}
-	
+
 	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
 	public void replyWithButtonTemplate() {
 		reply(new AutoReply() {
@@ -56,7 +76,7 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 			}
 		});
 	}
-	
+
 	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="list template", caseSensitive = false)
 	public void replyWithLisTemplate() {
 		reply(new AutoReply() {
@@ -100,7 +120,6 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="quick replies", caseSensitive = false)
 	public void replywithQuickReplies() {
 		reply(new AutoReply() {
-
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addTextMessageOnly("Text message with quick replies")

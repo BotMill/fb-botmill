@@ -21,32 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo;
+package co.aurasphere.botmill.fb.model.annotation;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
-
-import co.aurasphere.botmill.fb.demo.behavior.AnnotatedTemplatedBehaviour;
-import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
-import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * The Class FbBotMillDemo.
+ * The Interface BotMillController.
+ * 
+ * @author Alvin P. Reyes
  */
-public class FbBotMillDemo {
-
+@Documented
+@Target(ElementType.METHOD)
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BotMillInit {
+	
 	/**
-	 * The main method.
+	 * Meta.
 	 *
-	 * @param args
-	 *            the arguments
+	 * @return the string
 	 */
-	public static void main(String[] args) {
-
-		// Instantiating the testing framework and starting the interactive
-		// test.
-		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(MOCK_FACEBOOK_ID,
-				TemplateBehavior.class);
-		mediator.interactiveTest();
-	}
-
+	String meta() default ""; // random text to indicate the purpose.
 }

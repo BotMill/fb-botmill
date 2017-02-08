@@ -21,32 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo;
+package co.aurasphere.botmill.fb.internal.util.properties;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
+import java.util.Properties;
 
-import co.aurasphere.botmill.fb.demo.behavior.AnnotatedTemplatedBehaviour;
-import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
-import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
+import co.aurasphere.botmill.fb.exception.FbBotMillMissingConfigurationException;
 
 /**
- * The Class FbBotMillDemo.
+ * The Class PropertiesUtil.
+ * 
+ * @author Alvin P. Reyes
  */
-public class FbBotMillDemo {
+public class PropertiesUtil {
 
+	/** The properties. */
+	private static Properties properties = new Properties();
+	
 	/**
-	 * The main method.
+	 * Load the property values from the properties file into the class loader. 
 	 *
-	 * @param args
-	 *            the arguments
+	 * @param propertiesPath the properties path. 
+	 * @return the properties
+	 * @throws FbBotMillMissingConfigurationException the fb bot mill missing configuration exception
 	 */
-	public static void main(String[] args) {
-
-		// Instantiating the testing framework and starting the interactive
-		// test.
-		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(MOCK_FACEBOOK_ID,
-				TemplateBehavior.class);
-		mediator.interactiveTest();
-	}
-
+	public static Properties load(String propertiesPath) throws FbBotMillMissingConfigurationException {
+		try {
+			properties.load(PropertiesUtil.class.getClassLoader().getResourceAsStream(propertiesPath));
+		} catch (Exception e) {
+			throw new FbBotMillMissingConfigurationException("Missing configuration file (botmill.properties)");
+		}
+		return properties;
+	}	
 }

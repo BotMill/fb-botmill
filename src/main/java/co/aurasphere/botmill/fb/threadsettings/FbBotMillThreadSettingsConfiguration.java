@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
@@ -124,7 +125,7 @@ public class FbBotMillThreadSettingsConfiguration {
 			logger.error("FbBotMill validation error: Get Started Button payload can't be null or empty!");
 			return;
 		}
-		Button button = new PostbackButton(null, null, payload);
+		Button button = new PostbackButton(null, ButtonType.POSTBACK, payload);
 		List<Button> buttonList = new ArrayList<Button>();
 		buttonList.add(button);
 		CallToActionsRequest request = new CallToActionsRequest(

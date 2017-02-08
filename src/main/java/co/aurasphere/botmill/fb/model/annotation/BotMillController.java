@@ -32,6 +32,7 @@ import java.lang.annotation.Target;
 
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Interface BotMillController.
  * 
@@ -105,4 +106,11 @@ public @interface BotMillController {
 	 * @return true, if successful
 	 */
 	boolean caseSensitive() default false;
+
+	/**
+	 * Meta.
+	 *
+	 * @return the string
+	 */
+	String meta() default ""; // random text to indicate the purpose.
 }

@@ -23,9 +23,8 @@
  */
 package co.aurasphere.botmill.fb.demo;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
 
-import co.aurasphere.botmill.fb.demo.behavior.AnnotatedTemplatedBehaviour;
 import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 
@@ -44,7 +43,7 @@ public class FbBotMillDemo {
 
 		// Instantiating the testing framework and starting the interactive
 		// test.
-		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(MOCK_FACEBOOK_ID,
+		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(getFacebookMockId(),
 				TemplateBehavior.class);
 		mediator.interactiveTest();
 	}

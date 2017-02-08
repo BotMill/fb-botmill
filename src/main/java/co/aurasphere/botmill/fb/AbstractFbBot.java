@@ -58,6 +58,13 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * The logger.
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(AbstractFbBot.class);
+	private static final String FB_BOTMILL_PROPERTIES_FILENAME = "botmill.properties";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROP = "fb.page.token";
+	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP = "fb.validation.token";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROPERTY = "PAGE_TOKEN";
+	private static final String FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY = "VALIDATION_TOKEN";
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER = "<PAGE_TOKEN>";
+	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER = "<VALIDATION_TOKEN>";
 
 	/**
 	 * The {@link FbBot} object handled by this class.
@@ -139,19 +146,19 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * This builds the config from the classpath botmill.properties.
 	 */
 	private void buildFbBotMillConfig() throws FbBotMillMissingConfigurationException {
-		Properties prop = PropertiesUtil.load("botmill.properties");
+		Properties prop = PropertiesUtil.load(FB_BOTMILL_PROPERTIES_FILENAME);
 		
 		String fbPageToken;
 		String fbValidationToken;
 		
 		try {
-			fbPageToken = ((prop.getProperty("fb.page.token").equals("")
-					|| prop.getProperty("fb.page.token").indexOf("<PAGE_TOKEN>") == 0) ? System.getenv("PAGE_TOKEN")
-							: prop.getProperty("fb.page.token"));
+			fbPageToken = ((prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP).equals("")
+					|| prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP).indexOf(FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER) == 0) ? System.getenv(FB_BOTMILL_PAGE_TOKEN_PROPERTY)
+							: prop.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP));
 
-			fbValidationToken = ((prop.getProperty("fb.validation.token").equals("")
-					|| prop.getProperty("fb.validation.token").indexOf("<VALIDATION_TOKEN>") == 0) ? System.getenv("VALIDATION_TOKEN")
-							: prop.getProperty("fb.validation.token"));
+			fbValidationToken = ((prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP).equals("")
+					|| prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP).indexOf(FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER) == 0) ? System.getenv(FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY)
+							: prop.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP));
 		} catch (Exception e) {
 			logger.error("Make sure that fb.page.token and fb.validation.token properties exist on the property file");
 			return;
@@ -162,10 +169,8 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 					+ "Please check if the appropriate property values are configured correctly.");
 		}
 
-
 		// Everything goes well, initialize the setup.
-		FbBotMillContext.getInstance().setup(fbPageToken,
-				fbValidationToken);
+		FbBotMillContext.getInstance().setup(fbPageToken,fbValidationToken);
 	}
 
 	/**

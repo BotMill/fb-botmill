@@ -165,7 +165,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 		}
 
 		if (fbPageToken == null || fbValidationToken == null) {
-			throw new FbBotMillMissingConfigurationException("FB-BotMill Configuration is missing (botmill.properties). "
+			logger.error("FB-BotMill Configuration is missing (botmill.properties). "
 					+ "Please check if the appropriate property values are configured correctly.");
 		}
 

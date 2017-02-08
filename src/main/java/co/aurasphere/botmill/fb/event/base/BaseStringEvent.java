@@ -56,6 +56,8 @@ public abstract class BaseStringEvent extends FbBotMillBean implements
 	public BaseStringEvent(String expectedString, boolean caseSensitive) {
 		if (caseSensitive == false && expectedString != null) {
 			this.expectedString = expectedString.toLowerCase();
+		}else {
+			this.expectedString = expectedString;
 		}
 		this.caseSensitive = caseSensitive;
 	}

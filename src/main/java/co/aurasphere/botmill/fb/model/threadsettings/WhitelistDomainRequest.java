@@ -36,6 +36,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * The Class WhitelistDomainRequest.
+ * 
+ * @author Alvin Reyes
  */
 public class WhitelistDomainRequest extends ThreadSettingsBaseRequest {
 

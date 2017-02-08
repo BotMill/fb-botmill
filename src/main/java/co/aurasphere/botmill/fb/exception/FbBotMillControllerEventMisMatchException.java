@@ -21,37 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo;
-
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.PAGE_TOKEN;
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.VALIDATION_TOKEN;
-import co.aurasphere.botmill.fb.FbBotMillContext;
-import co.aurasphere.botmill.fb.demo.behavior.AnnotatedTemplatedBehaviour;
-import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
-import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
+package co.aurasphere.botmill.fb.exception;
 
 /**
- * The Class FbBotMillDemo.
+ * The Class FbBotMillControllerEventMisMatchException.
  */
-public class FbBotMillDemo {
+public class FbBotMillControllerEventMisMatchException extends Exception {
+	/**
+	 * The serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The main method.
+	 * Instantiates a new FbBot illegal attachment exception.
 	 *
-	 * @param args
-	 *            the arguments
+	 * @param message
+	 *            the message.
 	 */
-	public static void main(String[] args) {
+	public FbBotMillControllerEventMisMatchException(String message) {
+		super(message);
+	}
 
-		// Configuration.
-		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
-
-		// Instantiating the testing framework and starting the interactive
-		// test.
-		FbBotMillMockMediator mediator = FbBotMillMockMediator.getInstance(MOCK_FACEBOOK_ID,
-				TemplateBehavior.class);
-		mediator.interactiveTest();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Throwable#toString()
+	 */
+	@Override
+	public String toString() {
+		return "FbBotMillControllerEventMisMatchException []";
 	}
 
 }

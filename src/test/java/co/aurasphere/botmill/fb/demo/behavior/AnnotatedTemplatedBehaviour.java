@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.model.annotation.BotMillController;
 import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
+import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
@@ -64,6 +65,28 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 		reply(new MessageAutoReply("simple text message"));
 	}
 
+	@BotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
+	public void initialGreeting() {
+		System.out.println(">>>>>");
+		reply(new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
+			}
+		}, new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				String greetingMessage = "Hey There! ";
+				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+			}
+		}, new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.addTextMessageOnly("Ready for some dosage of Trivia?")
+						.addQuickReply("Random Trivia", "randomtriv").build(envelope);
+			}
+		});
+	}
 	@BotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
 	public void replyWithButtonTemplate() {
 		reply(new AutoReply() {

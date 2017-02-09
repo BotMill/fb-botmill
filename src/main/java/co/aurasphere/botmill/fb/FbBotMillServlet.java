@@ -236,6 +236,8 @@ public class FbBotMillServlet extends HttpServlet {
 				}
 			}
 		}
+		//	Always set to ok.
+		resp.setStatus(HttpServletResponse.SC_OK);
 	}
 
 	/**

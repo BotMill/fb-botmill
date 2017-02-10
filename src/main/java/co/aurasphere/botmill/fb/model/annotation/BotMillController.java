@@ -83,7 +83,7 @@ public @interface BotMillController {
 	 *
 	 * @return the string
 	 */
-	String quickRepltPayloadPattern() default "";
+	String quickReplyPayloadPattern() default "";
 	
 	/**
 	 * Postback.

@@ -25,6 +25,8 @@ package co.aurasphere.botmill.fb;
 
 import java.lang.reflect.Method;
 import java.util.Properties;
+import java.util.regex.Pattern;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
@@ -82,7 +84,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * context.
 	 */
 	public AbstractFbBot() {
-
+		logger.info("AbstractFbot - Start Initialize");
 		// Initialize the FbBot Object.
 		this.fbBot = new FbBot();
 
@@ -94,6 +96,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 			logger.error(e.getMessage());
 			System.exit(0);
 		}
+		logger.info("AbstractFbot - End Initialize");
 	}
 
 	/**
@@ -241,6 +244,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	private FbBotMillEvent toEventActionFrame(BotMillController botMillController)
 			throws FbBotMillControllerEventMisMatchException {
 		boolean caseSensitive = botMillController.caseSensitive();
+
 		switch (botMillController.eventType()) {
 		case MESSAGE:
 			if (!botMillController.text().equals("")) {
@@ -250,7 +254,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 			}
 		case MESSAGE_PATTERN:
 			if (!botMillController.pattern().equals("")) {
-				return new MessagePatternEvent(botMillController.pattern());
+				return new MessagePatternEvent(Pattern.compile(botMillController.pattern()));
 			} else {
 				throw new FbBotMillControllerEventMisMatchException("pattern attribute missing");
 			}
@@ -262,7 +266,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 			}
 		case POSTBACK_PATTERN:
 			if (!botMillController.postbackPattern().equals("")) {
-				return new PostbackPatternEvent(botMillController.postbackPattern());
+				return new PostbackPatternEvent(Pattern.compile(botMillController.postbackPattern()));
 			} else {
 				throw new FbBotMillControllerEventMisMatchException("postback pattern attribute missing");
 			}
@@ -273,8 +277,8 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE_PATTERN:
-			if (!botMillController.quickRepltPayloadPattern().equals("")) {
-				return new QuickReplyMessagePatternEvent(botMillController.quickRepltPayloadPattern());
+			if (!botMillController.quickReplyPayloadPattern().equals("")) {
+				return new QuickReplyMessagePatternEvent(Pattern.compile(botMillController.quickReplyPayloadPattern()));
 			} else {
 				throw new FbBotMillControllerEventMisMatchException("quickpayload pattern attribute missing");
 			}

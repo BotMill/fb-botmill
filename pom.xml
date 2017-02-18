@@ -38,7 +38,7 @@
 		<url>https://github.com/BotMill/fb-botmill</url>
 		<connection>scm:git:git://github.com/BotMill/fb-botmill.git</connection>
 		<developerConnection>scm:git:git@github.com:BotMill/fb-botmill.git</developerConnection>
-		<tag>fb-botmill-1.2.0</tag>
+		<tag>fb-botmill-1.2.1</tag>
 	</scm>
 	<distributionManagement>
 		<snapshotRepository>

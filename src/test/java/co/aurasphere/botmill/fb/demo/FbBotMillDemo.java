@@ -24,7 +24,6 @@
 package co.aurasphere.botmill.fb.demo;
 
 import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
-
 import co.aurasphere.botmill.fb.demo.behavior.TemplateBehavior;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 

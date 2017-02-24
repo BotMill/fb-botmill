@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.support;
 import java.util.List;
 import java.util.Scanner;
 
+import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.FbBotMillContext;
@@ -96,7 +97,7 @@ public class FbBotMillMockMediator {
 	 * @return single instance of FbBotMillMockMediator
 	 */
 	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			FbBotDefinition... fbBotDefinitions) {
+			BotDefinition... fbBotDefinitions) {
 		if (instance == null) {
 			instance = new FbBotMillMockMediator();
 		}
@@ -104,8 +105,8 @@ public class FbBotMillMockMediator {
 		FbBotMillMockMediator.facebookMockId = facebookMockId;
 
 		if (fbBotDefinitions != null) {
-			for (FbBotDefinition f : fbBotDefinitions) {
-				f.defineBehavior();
+			for (BotDefinition f : fbBotDefinitions) {
+				f.defineBehaviour();
 			}
 		}
 		return instance;
@@ -121,9 +122,8 @@ public class FbBotMillMockMediator {
 	 *            a list of classes implementing {@link FbBotDefinition}.
 	 * @return single instance of FbBotMillMockMediator
 	 */
-	@SafeVarargs
 	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			Class<? extends FbBotDefinition>... fbBotDefinitions) {
+			Class<? extends BotDefinition>... fbBotDefinitions) {
 		if (instance == null) {
 			instance = new FbBotMillMockMediator();
 		}
@@ -131,9 +131,9 @@ public class FbBotMillMockMediator {
 		FbBotMillMockMediator.facebookMockId = facebookMockId;
 
 		if (fbBotDefinitions != null) {
-			for (Class<? extends FbBotDefinition> f : fbBotDefinitions) {
-				FbBotDefinition definition = instantiateClass(f);
-				definition.defineBehavior();
+			for (Class<? extends BotDefinition> f : fbBotDefinitions) {
+				BotDefinition definition = instantiateClass(f);
+				definition.defineBehaviour();
 			}
 		}
 		return instance;
@@ -146,9 +146,9 @@ public class FbBotMillMockMediator {
 	 *            the class to instantiate.
 	 * @return a {@link FbBotDefinition}.
 	 */
-	private static FbBotDefinition instantiateClass(
-			Class<? extends FbBotDefinition> klass) {
-		FbBotDefinition definition = null;
+	private static BotDefinition instantiateClass(
+			Class<? extends BotDefinition> klass) {
+		BotDefinition definition = null;
 		try {
 			definition = klass.newInstance();
 		} catch (InstantiationException e) {

@@ -306,7 +306,7 @@ public class NetworkUtils {
 	 * @return true if the token is not null or empty, false otherwise.
 	 */
 	private static boolean validatePageToken(String pageToken) {
-		if (pageToken == null || pageToken.equals("")) {
+		if (pageToken == null || "".equals(pageToken)) {
 			logger.error("FbBotMill validation error: Page token can't be null or empty! Have you called the method FbBotMillContext.getInstance().setup(String, String)?");
 			return false;
 		}
@@ -338,7 +338,6 @@ public class NetworkUtils {
 	 * @return {@link String}
 	 */
 	public static String get(String url) {
-		System.out.println(url);
 		HttpGet get = new HttpGet(url);
 		return send(get);
 	}

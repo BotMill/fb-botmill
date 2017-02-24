@@ -100,7 +100,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *      >Facebook's Greeting Text Documentation</a>
 	 */
 	public static void setGreetingMessage(String message) {
-		if (message == null || message.equals("")) {
+		if (message == null || "".equals(message)) {
 			logger.error("FbBotMill validation error: Greeting message can't be null or empty!");
 			return;
 		}

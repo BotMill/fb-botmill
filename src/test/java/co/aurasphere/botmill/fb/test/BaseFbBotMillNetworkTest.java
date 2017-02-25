@@ -28,6 +28,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
@@ -130,6 +132,7 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 			monitor = new FbBotMillTestMonitor();
 			FbBotMillContext.getInstance().registerMonitor(monitor);
 		}
+		
 	}
 
 	/**

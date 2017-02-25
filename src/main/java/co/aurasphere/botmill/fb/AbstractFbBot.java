@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb;
 
+import co.aurasphere.botmill.common.BotDefinition;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
@@ -34,7 +35,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
  * @author Donato Rimenti
  * 
  */
-public abstract class AbstractFbBot implements FbBotDefinition {
+public abstract class AbstractFbBot implements BotDefinition {
 
 	/**
 	 * The {@link FbBot} object handled by this class.

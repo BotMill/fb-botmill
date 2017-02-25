@@ -29,13 +29,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.common.base.BotMillServlet;
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -61,7 +61,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  *      Facebook Subscription info</a>
  * 
  */
-public class FbBotMillServlet extends HttpServlet {
+public class FbBotMillServlet extends BotMillServlet {
 
 	/**
 	 * The logger.
@@ -254,25 +254,6 @@ public class FbBotMillServlet extends HttpServlet {
 			return "";
 		}
 		return parameter[0];
-	}
-
-	/**
-	 * Utility method that converts a Reader to a String.
-	 *
-	 * @param reader
-	 *            the reader to convert.
-	 * @return a String with the content of the reader.
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	private static String readerToString(Reader reader) throws IOException {
-		char[] arr = new char[8 * 1024];
-		StringBuilder buffer = new StringBuilder();
-		int numCharsRead;
-		while ((numCharsRead = reader.read(arr, 0, arr.length)) != -1) {
-			buffer.append(arr, 0, numCharsRead);
-		}
-		return buffer.toString();
 	}
 
 	/*

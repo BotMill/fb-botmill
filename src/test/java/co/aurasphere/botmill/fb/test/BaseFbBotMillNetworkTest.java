@@ -29,6 +29,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
@@ -131,6 +132,7 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 			monitor = new FbBotMillTestMonitor();
 			FbBotMillContext.getInstance().registerMonitor(monitor);
 		}
+		
 	}
 
 	/**
@@ -171,7 +173,7 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 	 * @return true if the String is null or empty, false otherwise.
 	 */
 	private static boolean isEmpty(String string) {
-		return string == null || string.isEmpty();
+		return string == null || "".equals(string);
 	}
 
 	/*

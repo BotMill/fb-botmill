@@ -29,6 +29,9 @@ import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import co.aurasphere.botmill.core.BotDefinition;
+import co.aurasphere.botmill.core.BotMillSession;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.AnyEvent;
@@ -46,7 +49,6 @@ import co.aurasphere.botmill.fb.internal.util.properties.PropertiesUtil;
 import co.aurasphere.botmill.fb.model.annotation.BotMillController;
 import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
 
-
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
  * {@link FbBot} handling.
@@ -54,24 +56,41 @@ import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
  * @author Donato Rimenti
  * 
  */
-public abstract class AbstractFbBot implements FbBotDefinition {
+public abstract class AbstractFbBot implements BotDefinition {
 
 	/**
 	 * The logger.
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(AbstractFbBot.class);
+	
+	/** The Constant FB_BOTMILL_PROPERTIES_FILENAME. */
 	private static final String FB_BOTMILL_PROPERTIES_FILENAME = "botmill.properties";
+	
+	/** The Constant FB_BOTMILL_PAGE_TOKEN_PROP. */
 	private static final String FB_BOTMILL_PAGE_TOKEN_PROP = "fb.page.token";
+	
+	/** The Constant FB_BOTMILL_VALIDATION_TOKEN_PROP. */
 	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP = "fb.validation.token";
+	
+	/** The Constant FB_BOTMILL_PAGE_TOKEN_PROPERTY. */
 	private static final String FB_BOTMILL_PAGE_TOKEN_PROPERTY = "PAGE_TOKEN";
+	
+	/** The Constant FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY. */
 	private static final String FB_BOTMILL_WEBHOOK_TOKEN_PROPERTY = "VALIDATION_TOKEN";
+	
+	/** The Constant FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER. */
 	private static final String FB_BOTMILL_PAGE_TOKEN_PROP_PHOLDER = "<PAGE_TOKEN>";
+	
+	/** The Constant FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER. */
 	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP_PHOLDER = "<VALIDATION_TOKEN>";
 
 	/**
 	 * The {@link FbBot} object handled by this class.
 	 */
 	protected FbBot fbBot;
+	
+	/** The bot mill session. */
+	private BotMillSession botMillSession;
 
 	/**
 	 * The {@link FbBotMillEvent} object created by this class for each
@@ -107,8 +126,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 * The method can still be overriden by a concrete Bot class and use to
 	 * define behaviour.
 	 */
-	@Override
-	public void defineBehavior() {}
+	public void defineBehaviour() {};
 
 	/**
 	 * Adds an {@link ActionFrame} to the current bot.
@@ -147,6 +165,8 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 
 	/**
 	 * This builds the config from the classpath botmill.properties.
+	 *
+	 * @throws FbBotMillMissingConfigurationException the fb bot mill missing configuration exception
 	 */
 	private void buildFbBotMillConfig() throws FbBotMillMissingConfigurationException {
 		Properties prop = PropertiesUtil.load(FB_BOTMILL_PROPERTIES_FILENAME);
@@ -174,6 +194,9 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 
 		// Everything goes well, initialize the setup.
 		FbBotMillContext.getInstance().setup(fbPageToken,fbValidationToken);
+		
+		//	Create the botmill session.
+		botMillSession = BotMillSession.getInstance();
 	}
 
 	/**
@@ -194,7 +217,7 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 
 	/**
 	 * This is the private method that gets called to invoke the annotated
-	 * methods to build the behaviours
+	 * methods to build the behaviours.
 	 */
 	private void buildAnnotatedBehaviour() {
 		Method[] methods = this.getClass().getMethods();
@@ -230,6 +253,15 @@ public abstract class AbstractFbBot implements FbBotDefinition {
 	 */
 	protected void reply(AutoReply... replies) {
 		fbBot.addActionFrame(event, replies);
+	}
+	
+	/**
+	 * Bot mill session.
+	 *
+	 * @return the bot mill session
+	 */
+	protected final BotMillSession botMillSession() {
+		return this.botMillSession;
 	}
 
 	/**

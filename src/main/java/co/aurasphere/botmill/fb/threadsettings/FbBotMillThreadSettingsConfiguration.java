@@ -100,7 +100,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *      >Facebook's Greeting Text Documentation</a>
 	 */
 	public static void setGreetingMessage(String message) {
-		if (message == null || message.isEmpty()) {
+		if (message == null || "".equals(message)) {
 			logger.error("FbBotMill validation error: Greeting message can't be null or empty!");
 			return;
 		}
@@ -121,7 +121,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *      >Facebook's Get Started Button Documentation</a>
 	 */
 	public static void setGetStartedButton(String payload) {
-		if (payload == null || payload.isEmpty()) {
+		if (payload == null || "".equals(payload)) {
 			logger.error("FbBotMill validation error: Get Started Button payload can't be null or empty!");
 			return;
 		}

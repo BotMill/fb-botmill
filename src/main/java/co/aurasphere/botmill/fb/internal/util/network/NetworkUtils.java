@@ -30,7 +30,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.http.Header;
@@ -307,7 +306,7 @@ public class NetworkUtils {
 	 * @return true if the token is not null or empty, false otherwise.
 	 */
 	private static boolean validatePageToken(String pageToken) {
-		if (pageToken == null || pageToken.isEmpty()) {
+		if (pageToken == null || "".equals(pageToken)) {
 			logger.error("FbBotMill validation error: Page token can't be null or empty! Have you called the method FbBotMillContext.getInstance().setup(String, String)?");
 			return false;
 		}
@@ -339,7 +338,6 @@ public class NetworkUtils {
 	 * @return {@link String}
 	 */
 	public static String get(String url) {
-		System.out.println(url);
 		HttpGet get = new HttpGet(url);
 		return send(get);
 	}
@@ -356,7 +354,7 @@ public class NetworkUtils {
 		StringEntity input = null;
 		try {
 			String json = JsonUtils.toJson(object);
-			input = new StringEntity(json, StandardCharsets.UTF_8);
+			input = new StringEntity(json, "UTF-8");
 			input.setContentType("application/json");
 			logger.debug("Request: {}", inputStreamToString(input.getContent()));
 		} catch (Exception e) {

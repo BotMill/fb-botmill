@@ -28,7 +28,6 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.fb.exception.FbBotMillMissingConfigurationException;
 import co.aurasphere.botmill.fb.internal.util.properties.PropertiesUtil;
 
-// TODO: Auto-generated Javadoc
 /**
  * Put your data here to test the FBotMill Framework framework.
  * 

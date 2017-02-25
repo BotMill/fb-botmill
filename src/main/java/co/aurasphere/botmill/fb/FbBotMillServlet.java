@@ -61,6 +61,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  *      Facebook Subscription info</a>
  * 
  */
+@Deprecated
 public class FbBotMillServlet extends HttpServlet {
 
 	/**
@@ -92,7 +93,7 @@ public class FbBotMillServlet extends HttpServlet {
 		// web.xml.
 		String botDefinitionClass = getServletConfig().getInitParameter(
 				"bot-definition-class");
-		if (botDefinitionClass == null || botDefinitionClass.isEmpty()) {
+		if (botDefinitionClass == null) {
 			logger.error("Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
 			throw new ServletException(
 					"Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");

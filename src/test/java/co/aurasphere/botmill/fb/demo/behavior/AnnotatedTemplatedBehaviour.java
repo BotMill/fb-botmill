@@ -67,7 +67,6 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 
 	@BotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
 	public void initialGreeting() {
-		System.out.println(">>>>>");
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {

@@ -3,7 +3,7 @@
 [![Javadocs](http://www.javadoc.io/badge/co.aurasphere.botmill/fb-botmill.svg)](http://www.javadoc.io/doc/co.aurasphere.botmill/fb-botmill)
 [![Gitter](https://badges.gitter.im/BotMill/fb-botmill.svg)](https://gitter.im/BotMill/fb-botmill?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# FB-BotMill - Tools to Mill Facebook Bots
+# FB-BotMill - Awesome Framework to Build Facebook Bots
 FB-BotMill is designed to ease the process of developing, designing and running bots that exist inside Facebook. 
 
 It provides a semantic Java API that can be imported on your Java EE Project to send and receive messages from Facebook so that developers can focus on developing the actual application instead of dealing with Facebook API endpoints.

@@ -33,7 +33,7 @@ import java.lang.annotation.Target;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 
 /**
- * The Interface BotMillController.
+ * The Interface FbBotMillController.
  * 
  * @author Alvin P. Reyes
  */
@@ -41,7 +41,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 @Target(ElementType.METHOD)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BotMillController {
+public @interface FbBotMillController {
 	
 	/**
 	 * Event type.

@@ -31,7 +31,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The Interface BotMillController.
+ * The Interface FbBotMillInit.
  * 
  * @author Alvin P. Reyes
  */
@@ -39,7 +39,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BotMillInit {
+public @interface FbBotMillInit {
 	
 	/**
 	 * Meta.

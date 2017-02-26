@@ -46,8 +46,8 @@ import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
 import co.aurasphere.botmill.fb.exception.FbBotMillControllerEventMisMatchException;
 import co.aurasphere.botmill.fb.exception.FbBotMillMissingConfigurationException;
 import co.aurasphere.botmill.fb.internal.util.properties.PropertiesUtil;
-import co.aurasphere.botmill.fb.model.annotation.BotMillController;
-import co.aurasphere.botmill.fb.model.annotation.BotMillInit;
+import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
+import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
 
 /**
  * Base {@link FbBotDefinition} implementation that takes care of the
@@ -205,7 +205,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 	private void buildAnnotatedInitBehaviour() {
 		Method[] methods = this.getClass().getMethods();
 		for (Method method : methods) {
-			if (method.isAnnotationPresent(BotMillInit.class)) {
+			if (method.isAnnotationPresent(FbBotMillInit.class)) {
 				try {
 					method.invoke(this);
 				} catch (Exception e) {
@@ -223,9 +223,9 @@ public abstract class AbstractFbBot implements BotDefinition {
 		Method[] methods = this.getClass().getMethods();
 
 		for (Method method : methods) {
-			if (method.isAnnotationPresent(BotMillController.class)) {
+			if (method.isAnnotationPresent(FbBotMillController.class)) {
 				try {
-					BotMillController botMillController = method.getAnnotation(BotMillController.class);
+					FbBotMillController botMillController = method.getAnnotation(FbBotMillController.class);
 					event = toEventActionFrame(botMillController);
 					method.invoke(this);
 				} catch (Exception e) {
@@ -273,7 +273,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 	 * @throws FbBotMillControllerEventMisMatchException
 	 *             the fb bot mill controller event mis match exception
 	 */
-	private FbBotMillEvent toEventActionFrame(BotMillController botMillController)
+	private FbBotMillEvent toEventActionFrame(FbBotMillController botMillController)
 			throws FbBotMillControllerEventMisMatchException {
 		boolean caseSensitive = botMillController.caseSensitive();
 

@@ -28,7 +28,7 @@ import java.util.List;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 /**
- * Base class for a {@link FbBotMillMockableBuilder} that builds a message.
+ * Base class for a {@link BotMillResponseBuilder} that builds a message.
  * 
  * @author Donato Rimenti
  * 
@@ -44,8 +44,8 @@ public abstract class MessageBaseBuilder extends FbBotMillResponseBuilder {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
-	 * #toString()
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.TemplateBaseBuilder#
+	 * toString()
 	 */
 	@Override
 	public String toString() {

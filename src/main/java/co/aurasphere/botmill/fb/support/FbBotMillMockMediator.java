@@ -71,19 +71,19 @@ public class FbBotMillMockMediator {
 
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and a list of {@link FbBotDefinition}.
+	 * and a list of {@link BotDefinition}.
 	 *
 	 * @param facebookMockId
 	 *            the {@link #facebookMockId}.
-	 * @param fbBotDefinitions
-	 *            a list of {@link FbBotDefinition} to register.
+	 * @param botDefinitions
+	 *            a list of {@link BotDefinition} to register.
 	 */
 	public FbBotMillMockMediator(String facebookMockId,
-			BotDefinition... fbBotDefinitions) {
+			BotDefinition... botDefinitions) {
 		this.facebookMockId = facebookMockId;
 
-		if (fbBotDefinitions != null) {
-			for (BotDefinition f : fbBotDefinitions) {
+		if (botDefinitions != null) {
+			for (BotDefinition f : botDefinitions) {
 				f.defineBehaviour();
 			}
 		}
@@ -91,20 +91,20 @@ public class FbBotMillMockMediator {
 
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and instantiates and registers a list of {@link FbBotDefinition} classes.
+	 * and instantiates and registers a list of {@link BotDefinition} classes.
 	 *
 	 * @param facebookMockId
 	 *            the {@link #facebookMockId}.
-	 * @param fbBotDefinitions
-	 *            a list of classes implementing {@link FbBotDefinition}.
+	 * @param botDefinitions
+	 *            a list of classes implementing {@link BotDefinition}.
 	 */
 	@SafeVarargs
 	public FbBotMillMockMediator(String facebookMockId,
-			Class<? extends BotDefinition>... fbBotDefinitions) {
+			Class<? extends BotDefinition>... botDefinitions) {
 		this.facebookMockId = facebookMockId;
 
-		if (fbBotDefinitions != null) {
-			for (Class<? extends BotDefinition> f : fbBotDefinitions) {
+		if (botDefinitions != null) {
+			for (Class<? extends BotDefinition> f : botDefinitions) {
 				BotDefinition definition = instantiateClass(f);
 				definition.defineBehaviour();
 			}
@@ -112,11 +112,11 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Utility method that instantiates a {@link FbBotDefinition} class.
+	 * Utility method that instantiates a {@link BotDefinition} class.
 	 * 
 	 * @param klass
 	 *            the class to instantiate.
-	 * @return a {@link FbBotDefinition}.
+	 * @return a {@link BotDefinition}.
 	 */
 	private static BotDefinition instantiateClass(
 			Class<? extends BotDefinition> klass) {

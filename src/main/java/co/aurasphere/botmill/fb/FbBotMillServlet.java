@@ -44,7 +44,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 /**
  * Main Servlet for FbBotMill framework. This servlet requires an init-param
  * containing the fully qualified name of a class implementing
- * {@link FbBotDefinition} in which the initial configuration is done. If not
+ * {@link BotDefinition} in which the initial configuration is done. If not
  * such class is found or can't be loaded, a ServletException is thrown during
  * initialization.
  * 

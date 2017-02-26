@@ -26,6 +26,8 @@ package co.aurasphere.botmill.fb.demo.behavior;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
+import co.aurasphere.botmill.core.base.Bot;
+import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.message.LocationEvent;
@@ -43,15 +45,18 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
 /**
  * The Class TemplateBehavior.
  */
-public class TemplateBehavior extends BaseBehavior {
+@Bot
+public class TemplateBehavior extends AbstractFbBot {
 
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
 	 */
 	public void defineBehavior() {
-
+		
 		addActionFrame(new MessageEvent("text message"), new MessageAutoReply("simple text message"));
 
 		// Returns a button template when message "button template" is received.

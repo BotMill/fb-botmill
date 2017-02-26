@@ -23,9 +23,7 @@
  */
 package co.aurasphere.botmill.fb.demo.userprofile;
 
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.MOCK_FACEBOOK_ID;
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.PAGE_TOKEN;
-import static co.aurasphere.botmill.fb.demo.FbBotMillDemoConstants.VALIDATION_TOKEN;
+import static co.aurasphere.botmill.fb.demo.FbBotMillDemoData.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +47,8 @@ public class UserProfileRetrieverDemo {
 	 *            the arguments
 	 */
 	public static void main(String[] args) {
-		FbBotMillContext.getInstance().setup(PAGE_TOKEN, VALIDATION_TOKEN);
-		FacebookUserProfile user = FbBotMillUserProfileRetriever.getUser(MOCK_FACEBOOK_ID);
+		FbBotMillContext.getInstance().setup(getFbPageToken(), getFbValidationToken());
+		FacebookUserProfile user = FbBotMillUserProfileRetriever.getUser(getFacebookMockId());
 		logger.info("----------- Retrieved user -----------");
 		logger.info("Name: " + user.getFirstName());
 		logger.info("Surname: " + user.getLastName());

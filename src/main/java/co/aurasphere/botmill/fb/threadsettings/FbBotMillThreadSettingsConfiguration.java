@@ -29,9 +29,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.botmill.common.BotDefinition;
+import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
@@ -99,7 +100,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *      >Facebook's Greeting Text Documentation</a>
 	 */
 	public static void setGreetingMessage(String message) {
-		if (message == null || message.isEmpty()) {
+		if (message == null || "".equals(message)) {
 			logger.error("FbBotMill validation error: Greeting message can't be null or empty!");
 			return;
 		}
@@ -120,11 +121,11 @@ public class FbBotMillThreadSettingsConfiguration {
 	 *      >Facebook's Get Started Button Documentation</a>
 	 */
 	public static void setGetStartedButton(String payload) {
-		if (payload == null || payload.isEmpty()) {
+		if (payload == null || "".equals(payload)) {
 			logger.error("FbBotMill validation error: Get Started Button payload can't be null or empty!");
 			return;
 		}
-		Button button = new PostbackButton(null, null, payload);
+		Button button = new PostbackButton(null, ButtonType.POSTBACK, payload);
 		List<Button> buttonList = new ArrayList<Button>();
 		buttonList.add(button);
 		CallToActionsRequest request = new CallToActionsRequest(

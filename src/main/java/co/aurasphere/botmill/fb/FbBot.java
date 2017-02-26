@@ -26,7 +26,7 @@ package co.aurasphere.botmill.fb;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.botmill.common.BotMillPolicy;
+import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;

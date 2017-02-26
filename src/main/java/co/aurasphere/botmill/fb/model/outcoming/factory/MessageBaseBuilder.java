@@ -33,7 +33,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
  * @author Donato Rimenti
  * 
  */
-public abstract class MessageBaseBuilder extends FbBotMillMockableBuilder {
+public abstract class MessageBaseBuilder extends FbBotMillResponseBuilder {
 
 	/**
 	 * The quick replies of this message. It's initialized lazily.

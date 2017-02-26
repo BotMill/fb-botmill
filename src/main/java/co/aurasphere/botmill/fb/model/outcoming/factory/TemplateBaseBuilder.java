@@ -28,7 +28,7 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
  * 
  * @author Donato Rimenti
  */
-public abstract class TemplateBaseBuilder extends FbBotMillMockableBuilder {
+public abstract class TemplateBaseBuilder extends FbBotMillResponseBuilder {
 
 	/**
 	 * The delegated builder for a message containing a template.

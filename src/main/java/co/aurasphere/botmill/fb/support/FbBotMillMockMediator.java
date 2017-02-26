@@ -29,6 +29,7 @@ import java.util.Scanner;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
@@ -97,6 +98,7 @@ public class FbBotMillMockMediator {
 	 * @param fbBotDefinitions
 	 *            a list of classes implementing {@link FbBotDefinition}.
 	 */
+	@SafeVarargs
 	public FbBotMillMockMediator(String facebookMockId,
 			Class<? extends BotDefinition>... fbBotDefinitions) {
 		this.facebookMockId = facebookMockId;
@@ -142,8 +144,10 @@ public class FbBotMillMockMediator {
 
 		body.setText(message);
 		envelope.setMessage(body);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending message: " + message);
+		System.out.println("Sending message: [" + message + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}
@@ -161,8 +165,10 @@ public class FbBotMillMockMediator {
 
 		postback.setPayload(payload);
 		envelope.setPostback(postback);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending payload: " + payload);
+		System.out.println("Sending payload: [" + payload + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}
@@ -177,11 +183,14 @@ public class FbBotMillMockMediator {
 	public void sendQuickReplyPayload(String payload) {
 		MessageEnvelope envelope = new MessageEnvelope();
 		QuickReply quickReply = new QuickReply("Sample", payload);
+
 		ReceivedMessage message = new ReceivedMessage();
 		message.setQuickReply(quickReply);
 		envelope.setMessage(message);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending quickReply: " + payload);
+		System.out.println("Sending quick reply: [" + message + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}

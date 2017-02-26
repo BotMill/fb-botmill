@@ -52,7 +52,7 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 	 * 
 	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
 	 */
-	public void defineBehavior() {
+	public void defineBehaviour() {
 
 		addActionFrame(new MessageEvent(MESSAGE_TO_SEND), new AutoReply() {
 

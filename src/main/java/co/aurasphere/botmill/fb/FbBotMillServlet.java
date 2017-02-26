@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.base.BotMillServlet;
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;

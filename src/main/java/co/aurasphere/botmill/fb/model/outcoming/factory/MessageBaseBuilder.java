@@ -28,7 +28,7 @@ import java.util.List;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 /**
- * Base class for a {@link BotMillResponseBuilder} that builds a message.
+ * Base class for a {@link FbBotMillResponseBuilder} that builds a message.
  * 
  * @author Donato Rimenti
  * 

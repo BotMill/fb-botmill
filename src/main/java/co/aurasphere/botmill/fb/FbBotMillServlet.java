@@ -61,7 +61,6 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  *      Facebook Subscription info</a>
  * 
  */
-@Deprecated
 public class FbBotMillServlet extends HttpServlet {
 
 	/**

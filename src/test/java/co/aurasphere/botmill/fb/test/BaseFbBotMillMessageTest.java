@@ -99,7 +99,6 @@ public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest 
 	public String toString() {
 		return "BaseFbBotMillMessageTest [mockMediator=" + mockMediator
 				+ ", monitor=" + monitor + ", mockId=" + mockId
-				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken
-				+ ", fbBot=" + fbBot + "]";
+				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken + "]";
 	}
 }

@@ -184,7 +184,6 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 	public String toString() {
 		return "BaseFbBotMillNetworkTest [mockMediator=" + mockMediator
 				+ ", monitor=" + monitor + ", mockId=" + mockId
-				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken
-				+ ", fbBot=" + fbBot + "]";
+				+ ", pageToken=" + pageToken + ", webhookToken=" + webhookToken + "]";
 	}
 }

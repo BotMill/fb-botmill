@@ -50,7 +50,7 @@ import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
 
 /**
- * Base {@link FbBotDefinition} implementation that takes care of the
+ * Base {@link BotDefinition} implementation that takes care of the
  * {@link FbBot} handling.
  * 
  * @author Donato Rimenti

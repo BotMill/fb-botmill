@@ -21,13 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo.behavior;
+package co.aurasphere.botmill.fb.test.autoreply.template;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
@@ -39,13 +38,14 @@ import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
 
 /**
  * The Class TemplateBehavior.
  */
-public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
+public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 	
 	@FbBotMillInit
 	public void initialize() {
@@ -176,6 +176,23 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 						.setTimestamp("1243").build(envelope);
 			}
 		});
+	}
+	
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest#getMessagesToSend()
+	 */
+	@Override
+	protected String[] getMessagesToSend() {
+		return new String[]{"receipt template", "hi"};
+	}
+
+	/* (non-Javadoc)
+	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#skipTest()
+	 */
+	@Override
+	protected boolean skipTest() {
+		// TODO Auto-generated method stub
+		return false;
 	}
  
 }

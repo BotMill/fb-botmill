@@ -127,8 +127,8 @@ public class GenericTemplateBuilder extends TemplateBaseBuilder {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
-	 * #toString()
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.TemplateBaseBuilder#
+	 * toString()
 	 */
 	@Override
 	public String toString() {

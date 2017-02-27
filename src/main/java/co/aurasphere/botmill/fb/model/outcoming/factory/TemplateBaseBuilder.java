@@ -24,11 +24,11 @@
 package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 /**
- * Base class for {@link FbBotMillMockableBuilder} that builds a template.
+ * Base class for {@link FbBotMillResponseBuilder} that builds a template.
  * 
  * @author Donato Rimenti
  */
-public abstract class TemplateBaseBuilder extends FbBotMillMockableBuilder {
+public abstract class TemplateBaseBuilder extends FbBotMillResponseBuilder {
 
 	/**
 	 * The delegated builder for a message containing a template.
@@ -39,8 +39,8 @@ public abstract class TemplateBaseBuilder extends FbBotMillMockableBuilder {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * co.aurasphere.botmill.fb.model.outcoming.factory.FbBotMillMockableBuilder
-	 * #toString()
+	 * co.aurasphere.botmill.fb.model.outcoming.factory.TemplateBaseBuilder#
+	 * toString()
 	 */
 	@Override
 	public String toString() {

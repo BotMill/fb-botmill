@@ -38,7 +38,7 @@ import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
  *      > Facebook's Messenger Platform Sender Actions Documentation</a>
  * 
  */
-public class ActionResponseBuilder extends FbBotMillMockableBuilder {
+public class ActionResponseBuilder extends FbBotMillResponseBuilder {
 
 	/**
 	 * The action to perform.

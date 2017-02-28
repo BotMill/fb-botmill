@@ -65,11 +65,10 @@ public class AccountLinking implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * May be linked or unlinked.
 	 */
-	private String status;
+	private AccountLinkingStatus status;
 
 	/**
 	 * Value of pass-through authorization_code provided in the Linking Account
@@ -83,7 +82,7 @@ public class AccountLinking implements Serializable {
 	 *
 	 * @return the {@link #status}.
 	 */
-	public String getStatus() {
+	public AccountLinkingStatus getStatus() {
 		return status;
 	}
 
@@ -93,7 +92,7 @@ public class AccountLinking implements Serializable {
 	 * @param status
 	 *            the {@link #status} to set.
 	 */
-	public void setStatus(String status) {
+	public void setStatus(AccountLinkingStatus status) {
 		this.status = status;
 	}
 

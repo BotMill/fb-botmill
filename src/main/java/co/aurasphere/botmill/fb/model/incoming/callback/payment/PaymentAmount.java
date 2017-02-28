@@ -45,7 +45,6 @@ public class PaymentAmount implements Serializable {
 	 */
 	private String currency;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * Total amount.
 	 */

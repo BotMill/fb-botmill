@@ -24,6 +24,7 @@
 package co.aurasphere.botmill.fb.model.incoming;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -47,11 +48,10 @@ public class MessengerCallbackEntry implements Serializable {
 	 */
 	private String id;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * Time of update (epoch time in milliseconds).
 	 */
-	private String time;
+	private Calendar time;
 
 	/**
 	 * A list of {@link MessageEnvelope} that contains all the callback details.
@@ -82,7 +82,7 @@ public class MessengerCallbackEntry implements Serializable {
 	 *
 	 * @return the {@link #time}.
 	 */
-	public String getTime() {
+	public Calendar getTime() {
 		return time;
 	}
 
@@ -92,7 +92,7 @@ public class MessengerCallbackEntry implements Serializable {
 	 * @param time
 	 *            the {@link #time} to set.
 	 */
-	public void setTime(String time) {
+	public void setTime(Calendar time) {
 		this.time = time;
 	}
 

@@ -24,6 +24,7 @@
 package co.aurasphere.botmill.fb.model.incoming;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.callback.AccountLinking;
@@ -65,11 +66,10 @@ public class MessageEnvelope implements Serializable {
 	 */
 	private User recipient;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The message timestamp.
 	 */
-	private String timestamp;
+	private Calendar timestamp;
 
 	/**
 	 * Message content for message and message_echoes callback.
@@ -167,7 +167,7 @@ public class MessageEnvelope implements Serializable {
 	 *
 	 * @return the {@link #timestamp}.
 	 */
-	public String getTimestamp() {
+	public Calendar getTimestamp() {
 		return timestamp;
 	}
 
@@ -177,7 +177,7 @@ public class MessageEnvelope implements Serializable {
 	 * @param timestamp
 	 *            the {@link #timestamp} to set.
 	 */
-	public void setTimestamp(String timestamp) {
+	public void setTimestamp(Calendar timestamp) {
 		this.timestamp = timestamp;
 	}
 

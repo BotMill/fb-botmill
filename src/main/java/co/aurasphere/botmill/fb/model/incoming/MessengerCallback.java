@@ -43,11 +43,10 @@ public class MessengerCallback implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The type of callback. This always evaluates to "page".
 	 */
-	private String object;
+	private MessengerCallbackObject object;
 
 	/**
 	 * A list of {@link MessengerCallbackEntry} for the current callback
@@ -60,7 +59,7 @@ public class MessengerCallback implements Serializable {
 	 *
 	 * @return the {@link #object}.
 	 */
-	public String getObject() {
+	public MessengerCallbackObject getObject() {
 		return object;
 	}
 
@@ -70,7 +69,7 @@ public class MessengerCallback implements Serializable {
 	 * @param object
 	 *            the {@link #object} to set.
 	 */
-	public void setObject(String object) {
+	public void setObject(MessengerCallbackObject object) {
 		this.object = object;
 	}
 

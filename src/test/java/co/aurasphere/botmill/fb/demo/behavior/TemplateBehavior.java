@@ -26,7 +26,7 @@ package co.aurasphere.botmill.fb.demo.behavior;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
-import co.aurasphere.botmill.core.base.Bot;
+import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;

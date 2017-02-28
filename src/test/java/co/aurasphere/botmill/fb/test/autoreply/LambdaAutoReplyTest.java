@@ -47,9 +47,10 @@ public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
+	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehaviour()
 	 */
-	public void defineBehavior() {
+	@Override
+	public void defineBehaviour() {
 		// This cannot be tested with a real lambda since the project is
 		// compiled in 1.5, but this test is equivalent.
 		addActionFrame(new MessageEvent(MESSAGE_TO_SEND), new LambdaAutoReply(
@@ -62,7 +63,6 @@ public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
 					}
 				}));
 	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

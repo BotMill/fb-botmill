@@ -24,18 +24,18 @@
 package co.aurasphere.botmill.fb;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.core.BotDefinition;
+import co.aurasphere.botmill.core.base.BotMillServlet;
 import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -45,7 +45,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 /**
  * Main Servlet for FbBotMill framework. This servlet requires an init-param
  * containing the fully qualified name of a class implementing
- * {@link FbBotDefinition} in which the initial configuration is done. If not
+ * {@link BotDefinition} in which the initial configuration is done. If not
  * such class is found or can't be loaded, a ServletException is thrown during
  * initialization.
  * 
@@ -61,7 +61,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  *      Facebook Subscription info</a>
  * 
  */
-public class FbBotMillServlet extends HttpServlet {
+public class FbBotMillServlet extends BotMillServlet {
 
 	/**
 	 * The logger.
@@ -73,65 +73,6 @@ public class FbBotMillServlet extends HttpServlet {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Initializes the FbBotMillServlet. The initialization will try to load the
-	 * class implementing {@link FbBotDefinition} passed has an init-param in
-	 * the web.xml. If the class is found and correctly loaded, the method
-	 * {@link FbBotDefinition#defineBehavior()} is called, otherwise a
-	 * ServletException is thrown.
-	 * 
-	 * @throws ServletException
-	 *             if the {@link FbBotDefinition} class is not found in the
-	 *             servlet init-param in web.xml or if can't be load.
-	 */
-	@Override
-	public void init() throws ServletException {
-
-		// Tries to get the botDefinitionClass name from the config defined in
-		// web.xml.
-		String botDefinitionClass = getServletConfig().getInitParameter(
-				"bot-definition-class");
-		if (botDefinitionClass == null) {
-			logger.error("Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
-			throw new ServletException(
-					"Bot definition class not found in web.xml. Make sure to add the fully qualified name of the a class implementing co.aurasphere.botmill.fb.FbBotDefinition as an init-param of the FbBotMillServlet.");
-		}
-
-		// Tries to load and instantiate the botDefinitionClass.
-		FbBotDefinition botDefinition = null;
-		try {
-			botDefinition = (FbBotDefinition) this.getClass().getClassLoader()
-					.loadClass(botDefinitionClass).newInstance();
-		} catch (ClassNotFoundException e) {
-			logger.error("Error while loading FbBotDefinition class [ "
-					+ botDefinitionClass + " ]", e);
-			throw new ServletException(
-					"Error while loading FbBotDefinition class [ "
-							+ botDefinitionClass + " ]", e);
-		} catch (ClassCastException e) {
-			logger.error(
-					"Class [ "
-							+ botDefinitionClass
-							+ " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
-					e);
-			throw new ServletException(
-					"Class [ "
-							+ botDefinitionClass
-							+ " ] does not implement co.aurasphere.botmill.fb.FbBotDefinition",
-					e);
-		} catch (Exception e) {
-			logger.error("Error during instantiation of class [ "
-					+ botDefinitionClass + " ]", e);
-			throw new ServletException("Error during instantiation of class [ "
-					+ botDefinitionClass + " ]", e);
-		}
-
-		// If everything is OK, calls the defineBehavior method of the
-		// botDefinitionClass.
-		botDefinition.defineBehavior();
-		logger.info("FbBotMillServlet configuration OK.");
-	}
 
 	/**
 	 * Specifies how to handle a GET request. GET requests are used by Facebook
@@ -156,6 +97,7 @@ public class FbBotMillServlet extends HttpServlet {
 	 *             Signals that an I/O exception has occurred.
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
@@ -256,25 +198,6 @@ public class FbBotMillServlet extends HttpServlet {
 			return "";
 		}
 		return parameter[0];
-	}
-
-	/**
-	 * Utility method that converts a Reader to a String.
-	 *
-	 * @param reader
-	 *            the reader to convert.
-	 * @return a String with the content of the reader.
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	private static String readerToString(Reader reader) throws IOException {
-		char[] arr = new char[8 * 1024];
-		StringBuilder buffer = new StringBuilder();
-		int numCharsRead;
-		while ((numCharsRead = reader.read(arr, 0, arr.length)) != -1) {
-			buffer.append(arr, 0, numCharsRead);
-		}
-		return buffer.toString();
 	}
 
 	/*

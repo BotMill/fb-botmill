@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.demo.behavior;
+package co.aurasphere.botmill.fb.test.autoreply.template;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -47,8 +47,8 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
  * The Class TemplateBehavior.
  */
 @Bot
-public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
-	
+public class AnnotatedTemplatedBehaviourTest extends AbstractFbBot {
+
 	@FbBotMillInit
 	public void initialize() {
 
@@ -179,5 +179,6 @@ public class AnnotatedTemplatedBehaviour extends AbstractFbBot {
 			}
 		});
 	}
+	
  
 }

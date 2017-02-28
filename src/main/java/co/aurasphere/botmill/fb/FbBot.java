@@ -25,6 +25,8 @@ package co.aurasphere.botmill.fb;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
@@ -54,27 +56,27 @@ public class FbBot {
 	/**
 	 * The policy this bot follows when processing the callback handler list.
 	 */
-	private FbBotMillPolicy fbBotMillPolicy;
+	private BotMillPolicy botMillPolicy;
 
 	/**
 	 * Instantiates a new FbBot with a default policy of
-	 * {@link FbBotMillPolicy#FIRST_ONLY}.
+	 * {@link BotMillPolicy#FIRST_ONLY}.
 	 */
 	public FbBot() {
-		this(FbBotMillPolicy.FIRST_ONLY);
+		this(BotMillPolicy.FIRST_ONLY);
 	}
 
 	/**
 	 * Instantiates a new FbBot.
 	 *
-	 * @param fbBotMillPolicy
-	 *            the {@link #fbBotMillPolicy}.
+	 * @param botMillPolicy
+	 *            the {@link #botMillPolicy}.
 	 */
-	public FbBot(FbBotMillPolicy fbBotMillPolicy) {
-		if (fbBotMillPolicy == null) {
-			fbBotMillPolicy = FbBotMillPolicy.FIRST_ONLY;
+	public FbBot(BotMillPolicy botMillPolicy) {
+		if (botMillPolicy == null) {
+			botMillPolicy = BotMillPolicy.FIRST_ONLY;
 		}
-		this.fbBotMillPolicy = fbBotMillPolicy;
+		this.botMillPolicy = botMillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
 		FbBotMillContext.getInstance().register(this);
 	}
@@ -119,10 +121,10 @@ public class FbBot {
 	/**
 	 * Checks if there's any registered {@link FbBotMillEvent} for the incoming
 	 * callback. If there's any, then the callback is handled. The chain will be
-	 * processed according to the {@link FbBotMillPolicy} followed by this bot.
-	 * If the policy is {@link FbBotMillPolicy#FIRST_ONLY}, the chain will be
+	 * processed according to the {@link BotMillPolicy} followed by this bot.
+	 * If the policy is {@link BotMillPolicy#FIRST_ONLY}, the chain will be
 	 * processed until the first callback matches. Otherwise, if the policy is
-	 * {@link FbBotMillPolicy#PROCESS_ALL}, all the chain will always be
+	 * {@link BotMillPolicy#PROCESS_ALL}, all the chain will always be
 	 * processed.
 	 * 
 	 * @param envelope
@@ -133,11 +135,11 @@ public class FbBot {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
 			if (f.getReplies() != null && f.getReplies().length > 0) {
-				if (f.processMultipleReply(envelope) && this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+				if (f.processMultipleReply(envelope) && this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
 					break;
 				}
 			} else {
-				if (f.process(envelope) && this.fbBotMillPolicy.equals(FbBotMillPolicy.FIRST_ONLY)) {
+				if (f.process(envelope) && this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
 					break;
 				}
 			}
@@ -154,7 +156,7 @@ public class FbBot {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((actionFrameList == null) ? 0 : actionFrameList.hashCode());
-		result = prime * result + ((fbBotMillPolicy == null) ? 0 : fbBotMillPolicy.hashCode());
+		result = prime * result + ((botMillPolicy == null) ? 0 : botMillPolicy.hashCode());
 		return result;
 	}
 
@@ -177,7 +179,7 @@ public class FbBot {
 				return false;
 		} else if (!actionFrameList.equals(other.actionFrameList))
 			return false;
-		if (fbBotMillPolicy != other.fbBotMillPolicy)
+		if (botMillPolicy != other.botMillPolicy)
 			return false;
 		return true;
 	}
@@ -189,7 +191,7 @@ public class FbBot {
 	 */
 	@Override
 	public String toString() {
-		return "FbBot [actionFrameList=" + actionFrameList + ", policy=" + fbBotMillPolicy + "]";
+		return "FbBot [actionFrameList=" + actionFrameList + ", policy=" + botMillPolicy + "]";
 	}
 
 }

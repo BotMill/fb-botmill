@@ -29,7 +29,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.botmill.fb.FbBotDefinition;
+import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
@@ -49,7 +49,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
  * Class which handles the configuration of the Facebook Messenger Platform
  * Thread Settings (for more informations, see the link below). The methods of
  * this class needs to be called only once and thus shouldn't be put on the
- * class that implements {@link FbBotDefinition}. The best way of handling the
+ * class that implements {@link BotDefinition}. The best way of handling the
  * configuration would be defining your own class with a main method and put the
  * call on it.
  *

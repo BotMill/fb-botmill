@@ -28,8 +28,8 @@ import java.util.Scanner;
 
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.FbBot;
-import co.aurasphere.botmill.fb.FbBotDefinition;
 import co.aurasphere.botmill.fb.FbBotMillContext;
+import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
@@ -44,18 +44,12 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 public class FbBotMillMockMediator {
 
 	/**
-	 * Indicates where the mock are enabled or not. The mocks are enabled as
-	 * soon as one of the getInstance methods of this class is called.
-	 */
-	private static boolean mockEnabled;
-
-	/**
 	 * The mocked page-scoped user ID used as recipient. For more informations
 	 * on how to find yours, read on the <a href
 	 * ="https://github.com/BotMill/fb-botmill/wiki/Unit-Testing"> official
 	 * GitHub wiki</a>.
 	 */
-	private static String facebookMockId;
+	private String facebookMockId;
 
 	/**
 	 * The string that should be matched at the beginning of an input in order
@@ -76,75 +70,53 @@ public class FbBotMillMockMediator {
 	private static final String STOP_MARKER = "stop";
 
 	/**
-	 * The instance.
-	 */
-	private static FbBotMillMockMediator instance;
-
-	/**
-	 * Instantiates a new face bot mock mediator.
-	 */
-	private FbBotMillMockMediator() {
-	}
-
-	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and a list of {@link FbBotDefinition}.
+	 * and a list of {@link BotDefinition}.
 	 *
 	 * @param facebookMockId
 	 *            the {@link #facebookMockId}.
-	 * @param fbBotDefinitions
-	 *            a list of {@link FbBotDefinition} to register.
-	 * @return single instance of FbBotMillMockMediator
+	 * @param botDefinitions
+	 *            a list of {@link BotDefinition} to register.
 	 */
-	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			BotDefinition... fbBotDefinitions) {
-		if (instance == null) {
-			instance = new FbBotMillMockMediator();
-		}
-		FbBotMillMockMediator.mockEnabled = true;
-		FbBotMillMockMediator.facebookMockId = facebookMockId;
+	public FbBotMillMockMediator(String facebookMockId,
+			BotDefinition... botDefinitions) {
+		this.facebookMockId = facebookMockId;
 
-		if (fbBotDefinitions != null) {
-			for (BotDefinition f : fbBotDefinitions) {
+		if (botDefinitions != null) {
+			for (BotDefinition f : botDefinitions) {
 				f.defineBehaviour();
 			}
 		}
-		return instance;
 	}
 
 	/**
 	 * Constructor that registers a mocked page-scoped user ID as a recipient
-	 * and instantiates and registers a list of {@link FbBotDefinition} classes.
+	 * and instantiates and registers a list of {@link BotDefinition} classes.
 	 *
 	 * @param facebookMockId
 	 *            the {@link #facebookMockId}.
-	 * @param fbBotDefinitions
-	 *            a list of classes implementing {@link FbBotDefinition}.
-	 * @return single instance of FbBotMillMockMediator
+	 * @param botDefinitions
+	 *            a list of classes implementing {@link BotDefinition}.
 	 */
-	public static FbBotMillMockMediator getInstance(String facebookMockId,
-			Class<? extends BotDefinition>... fbBotDefinitions) {
-		if (instance == null) {
-			instance = new FbBotMillMockMediator();
-		}
-		FbBotMillMockMediator.mockEnabled = true;
-		FbBotMillMockMediator.facebookMockId = facebookMockId;
+	@SafeVarargs
+	public FbBotMillMockMediator(String facebookMockId,
+			Class<? extends BotDefinition>... botDefinitions) {
+		this.facebookMockId = facebookMockId;
 
-		if (fbBotDefinitions != null) {
-			for (Class<? extends BotDefinition> f : fbBotDefinitions) {
+		if (botDefinitions != null) {
+			for (Class<? extends BotDefinition> f : botDefinitions) {
 				BotDefinition definition = instantiateClass(f);
 				definition.defineBehaviour();
 			}
 		}
-		return instance;
 	}
 
 	/**
-	 * Utility method that instantiates a {@link FbBotDefinition} class.
+	 * Utility method that instantiates a {@link BotDefinition} class.
 	 * 
 	 * @param klass
 	 *            the class to instantiate.
-	 * @return a {@link FbBotDefinition}.
+	 * @return a {@link BotDefinition}.
 	 */
 	private static BotDefinition instantiateClass(
 			Class<? extends BotDefinition> klass) {
@@ -172,8 +144,10 @@ public class FbBotMillMockMediator {
 
 		body.setText(message);
 		envelope.setMessage(body);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending message: " + message);
+		System.out.println("Sending message: [" + message + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}
@@ -191,8 +165,10 @@ public class FbBotMillMockMediator {
 
 		postback.setPayload(payload);
 		envelope.setPostback(postback);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending payload: " + payload);
+		System.out.println("Sending payload: [" + payload + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}
@@ -207,11 +183,14 @@ public class FbBotMillMockMediator {
 	public void sendQuickReplyPayload(String payload) {
 		MessageEnvelope envelope = new MessageEnvelope();
 		QuickReply quickReply = new QuickReply("Sample", payload);
+
 		ReceivedMessage message = new ReceivedMessage();
 		message.setQuickReply(quickReply);
 		envelope.setMessage(message);
+		envelope.setSender(new User(facebookMockId));
 
-		System.out.println("Sending quickReply: " + payload);
+		System.out.println("Sending quick reply: [" + message + "] as user : ["
+				+ facebookMockId + "].");
 		forward(envelope);
 		System.out.println("Sent!");
 	}
@@ -270,21 +249,48 @@ public class FbBotMillMockMediator {
 	}
 
 	/**
-	 * Checks if is mock enabled.
-	 *
-	 * @return the {@link #mockEnabled}.
-	 */
-	public static boolean isMockEnabled() {
-		return mockEnabled;
-	}
-
-	/**
 	 * Gets the {@link #facebookMockId}.
 	 *
 	 * @return the {@link #facebookMockId}.
 	 */
-	public static String getFacebookMockId() {
+	public String getFacebookMockId() {
 		return facebookMockId;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((facebookMockId == null) ? 0 : facebookMockId.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FbBotMillMockMediator other = (FbBotMillMockMediator) obj;
+		if (facebookMockId == null) {
+			if (other.facebookMockId != null)
+				return false;
+		} else if (!facebookMockId.equals(other.facebookMockId))
+			return false;
+		return true;
 	}
 
 	/*
@@ -294,7 +300,7 @@ public class FbBotMillMockMediator {
 	 */
 	@Override
 	public String toString() {
-		return "FbBotMillMockMediator []";
+		return "FbBotMillMockMediator [facebookMockId=" + facebookMockId + "]";
 	}
 
 }

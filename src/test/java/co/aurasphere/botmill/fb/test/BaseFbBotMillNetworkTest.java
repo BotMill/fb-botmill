@@ -126,7 +126,7 @@ public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
 			skipAllTests = true;
 		} else if (this.mockMediator == null) {
 			FbBotMillContext.getInstance().setup(pageToken, webhookToken);
-			this.mockMediator = FbBotMillMockMediator.getInstance(mockId, this);
+			this.mockMediator = new FbBotMillMockMediator(mockId, this);
 			monitor = new FbBotMillTestMonitor();
 			FbBotMillContext.getInstance().registerMonitor(monitor);
 		}

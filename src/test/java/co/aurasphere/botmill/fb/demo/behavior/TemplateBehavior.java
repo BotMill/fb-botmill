@@ -47,8 +47,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
  */
 @Bot
 public class TemplateBehavior extends AbstractFbBot {
-
-	
 	
 	/*
 	 * (non-Javadoc)

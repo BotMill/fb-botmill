@@ -25,7 +25,7 @@ package co.aurasphere.botmill.fb.autoreply;
 
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
-import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
+import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
@@ -50,7 +50,7 @@ public abstract class AutoReply extends FbBotMillBean implements Reply {
 		if (response != null) {
 			// If the response is valid, replies to it.
 			if (validate(response)) {
-				NetworkUtils.postJsonMessage(response);
+				FbBotMillNetworkController.postJsonMessage(response);
 			}
 		}
 	}

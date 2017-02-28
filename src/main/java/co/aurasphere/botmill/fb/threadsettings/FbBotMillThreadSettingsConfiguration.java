@@ -30,7 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.core.BotDefinition;
-import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
+import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
@@ -86,7 +86,7 @@ public class FbBotMillThreadSettingsConfiguration {
 			logger.error("FbBotMill validation error: Payment Settings can't be null or empty!");
 			return;
 		}
-		NetworkUtils.postThreadSetting(paymentSettings);
+		FbBotMillNetworkController.postThreadSetting(paymentSettings);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class FbBotMillThreadSettingsConfiguration {
 			return;
 		}
 		SetGreetingTextRequest request = new SetGreetingTextRequest(message);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		buttonList.add(button);
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.NEW_THREAD, buttonList);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void deleteGetStartedButton() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.NEW_THREAD, null);
-		NetworkUtils.delete(request);
+		FbBotMillNetworkController.delete(request);
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		}
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, buttons);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void deletePersistentMenu() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, null);
-		NetworkUtils.delete(request);
+		FbBotMillNetworkController.delete(request);
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void setWhiteListDomains(List<String> whiteListDomains) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest(
 				whiteListDomains, DomainActionType.ADD);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		WhitelistDomainRequest request = new WhitelistDomainRequest();
 		request.addWhiteListedDomain(domain);
 		request.setDomainActionType(DomainActionType.ADD);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		WhitelistDomainRequest request = new WhitelistDomainRequest();
 		request.addWhiteListedDomain(domain);
 		request.setDomainActionType(DomainActionType.REMOVE);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void deleteWhiteListDomains(List<String> whiteListDomains) {
 		WhitelistDomainRequest request = new WhitelistDomainRequest(
 				whiteListDomains, DomainActionType.REMOVE);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		PaymentSettings request = new PaymentSettings();
 		request.setPaymentTesters(paymentTestersIds);
 		request.setPaymentDevModeAction(PaymentDevModeAction.ADD);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		List<String> paymentTestersIds = new ArrayList<String>();
 		request.setPaymentTesters(paymentTestersIds);
 		request.setPaymentDevModeAction(PaymentDevModeAction.ADD);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		List<String> paymentTestersIds = new ArrayList<String>();
 		request.setPaymentTesters(paymentTestersIds);
 		request.setPaymentDevModeAction(PaymentDevModeAction.REMOVE);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -344,7 +344,7 @@ public class FbBotMillThreadSettingsConfiguration {
 		PaymentSettings request = new PaymentSettings();
 		request.setPaymentTesters(paymentTestersIds);
 		request.setPaymentDevModeAction(PaymentDevModeAction.REMOVE);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -365,7 +365,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void setPaymentsPublicKey(String publicKey) {
 		PaymentSettings request = new PaymentSettings();
 		request.setPrivacyUrl(publicKey);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void setPaymentsPrivacyUrl(String privacyUrl) {
 		PaymentSettings request = new PaymentSettings();
 		request.setPrivacyUrl(privacyUrl);
-		NetworkUtils.postThreadSetting(request);
+		FbBotMillNetworkController.postThreadSetting(request);
 	}
 
 	/*

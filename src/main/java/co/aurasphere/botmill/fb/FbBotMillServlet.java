@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.base.BotMillServlet;
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
+import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
@@ -188,7 +188,7 @@ public class FbBotMillServlet extends BotMillServlet {
 
 		// Parses the request as a MessengerCallback.
 		try {
-			callback = JsonUtils.fromJson(json, MessengerCallback.class);
+			callback = FbBotMillJsonUtils.fromJson(json, MessengerCallback.class);
 		} catch (Exception e) {
 			logger.error("Error during MessengerCallback parsing: ", e);
 			return;

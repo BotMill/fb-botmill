@@ -52,7 +52,7 @@ import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
 import co.aurasphere.botmill.core.internal.util.network.HttpDeleteWithBody;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
+import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
@@ -95,7 +95,7 @@ public class FbBotMillNetworkController {
 				.get(FbBotMillNetworkConstants.FACEBOOK_BASE_URL + userId
 						+ FbBotMillNetworkConstants.USER_PROFILE_FIELDS
 						+ pageToken);
-		FacebookUserProfile user = JsonUtils.fromJson(response.getResponse(),
+		FacebookUserProfile user = FbBotMillJsonUtils.fromJson(response.getResponse(),
 				FacebookUserProfile.class);
 		return user;
 	}
@@ -187,7 +187,7 @@ public class FbBotMillNetworkController {
 		if (response.isError()) {
 
 			// Parses the error message and logs it.
-			FacebookErrorMessage errorMessage = JsonUtils.fromJson(output,
+			FacebookErrorMessage errorMessage = FbBotMillJsonUtils.fromJson(output,
 					FacebookErrorMessage.class);
 			FacebookError error = errorMessage.getError();
 			logger.error(
@@ -200,7 +200,7 @@ public class FbBotMillNetworkController {
 				monitor.onError(errorMessage);
 			}
 		} else {
-			FacebookConfirmationMessage confirmationMessage = JsonUtils
+			FacebookConfirmationMessage confirmationMessage = FbBotMillJsonUtils
 					.fromJson(output, FacebookConfirmationMessage.class);
 			logger.debug(
 					"Confirmation from Facebook. Recipient ID: [{}], Message ID: [{}], Result Message: [{}]",
@@ -272,7 +272,7 @@ public class FbBotMillNetworkController {
 	private static StringEntity toStringEntity(Object object) {
 		StringEntity input = null;
 		try {
-			String json = JsonUtils.toJson(object);
+			String json = FbBotMillJsonUtils.toJson(object);
 			input = new StringEntity(json, "UTF-8");
 			input.setContentType("application/json");
 			logger.debug("Request: {}", inputStreamToString(input.getContent()));

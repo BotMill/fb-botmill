@@ -38,7 +38,7 @@ import com.google.gson.GsonBuilder;
  * 
  * @author Donato Rimenti
  */
-public class JsonUtils {
+public class FbBotMillJsonUtils {
 
 	/**
 	 * Gson which handles the JSON conversion.
@@ -48,7 +48,7 @@ public class JsonUtils {
 	/**
 	 * Instantiates a new JsonUtils.
 	 */
-	private JsonUtils() {
+	private FbBotMillJsonUtils() {
 	}
 
 	/**

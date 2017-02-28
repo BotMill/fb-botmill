@@ -26,7 +26,7 @@ package co.aurasphere.botmill.fb.test.incoming.callback;
 import org.junit.Assert;
 import org.junit.Test;
 
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
+import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.model.base.Attachment;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -52,7 +52,7 @@ public class EchoCallbackTest extends BaseFbBotMillCallbackTest {
 	public void testEchoWithListTemplate() {
 		// Tests the echo with a List Template.
 		String echoListTemplatejson = "{\"object\":\"page\",\"entry\":[{\"id\":\"1423903854504468\",\"time\":1483578465379,\"messaging\":[{\"sender\":{\"id\":\"****\"},\"recipient\":{\"id\":\"****\"},\"timestamp\":1483578464765,\"message\":{\"is_echo\":true,\"app_id\":****,\"mid\":\"mid.1483578464765:ed1fe23f35\",\"seq\":785209,\"attachments\":[{\"title\":\"Title1, Title2, Title3, Title4\",\"url\":\"https://www.facebook.com/commerce/update/\",\"type\":\"template\",\"payload\":{\"template_type\":\"list\",\"sharable\":false,\"elements\":[{\"title\":\"Title1\",\"item_url\":\"http://www.alvinjayreyes.com/\",\"image_url\":\"http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg\",\"subtitle\":\"This is a sample sub title for your product\",\"buttons\":[{\"type\":\"postback\",\"title\":\"View\",\"payload\":\"view\"}],\"default_action\":{\"type\":\"web_url\",\"url\":\"http://www.alvinjayreyes.com/\"}},{\"title\":\"Title2\",\"item_url\":\"http://www.alvinjayreyes.com/\",\"image_url\":\"http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg\",\"subtitle\":\"This is a sample sub title for your product\",\"buttons\":[{\"type\":\"postback\",\"title\":\"View\",\"payload\":\"view\"}],\"default_action\":{\"type\":\"web_url\",\"url\":\"http://www.alvinjayreyes.com/\"}},{\"title\":\"Title3\",\"item_url\":\"http://www.alvinjayreyes.com/\",\"image_url\":\"http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg\",\"subtitle\":\"This is a sample sub title for your product\",\"buttons\":[{\"type\":\"postback\",\"title\":\"View\",\"payload\":\"view\"}],\"default_action\":{\"type\":\"web_url\",\"url\":\"http://www.alvinjayreyes.com/\"}},{\"title\":\"Title4\",\"item_url\":\"http://www.alvinjayreyes.com/\",\"image_url\":\"http://blog.domainmonkee.com/wp-content/uploads/2014/05/url.jpg\",\"subtitle\":\"This is a sample sub title for your product\",\"buttons\":[{\"type\":\"postback\",\"title\":\"View\",\"payload\":\"view\"}],\"default_action\":{\"type\":\"web_url\",\"url\":\"http://www.alvinjayreyes.com/\"}}],\"buttons\":[{\"type\":\"postback\",\"title\":\"Just Sample\",\"payload\":\"Yes\"}]}}]}}]}]}";
-		MessengerCallback callback = JsonUtils.fromJson(echoListTemplatejson,
+		MessengerCallback callback = FbBotMillJsonUtils.fromJson(echoListTemplatejson,
 				MessengerCallback.class);
 
 		MessageEnvelope messageEnvelope = checkCallbackWellFormed(callback);

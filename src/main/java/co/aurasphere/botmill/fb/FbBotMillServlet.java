@@ -204,7 +204,7 @@ public class FbBotMillServlet extends BotMillServlet {
 					if (envelopes != null) {
 						MessageEnvelope lastEnvelope = envelopes.get(envelopes
 								.size() - 1);
-						for (AbstractFbBot bot : FbBotMillContext.getInstance()
+						for (FbBot bot : FbBotMillContext.getInstance()
 								.getRegisteredBots()) {
 							bot.processMessage(lastEnvelope);
 						}

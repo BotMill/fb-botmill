@@ -29,7 +29,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.botmill.fb.AbstractFbBot;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
 
@@ -40,7 +40,7 @@ import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
  * @author Donato Rimenti
  * @since 1.1.0
  */
-public abstract class BaseFbBotMillNetworkTest extends AbstractFbBot {
+public abstract class BaseFbBotMillNetworkTest extends FbBot {
 
 	/**
 	 * The logger.

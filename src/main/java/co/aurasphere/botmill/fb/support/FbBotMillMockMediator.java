@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import co.aurasphere.botmill.core.BotDefinition;
-import co.aurasphere.botmill.fb.AbstractFbBot;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -202,8 +202,8 @@ public class FbBotMillMockMediator {
 	 *            the envelope to forward.
 	 */
 	public void forward(MessageEnvelope envelope) {
-		List<AbstractFbBot> bots = FbBotMillContext.getInstance().getRegisteredBots();
-		for (AbstractFbBot b : bots) {
+		List<FbBot> bots = FbBotMillContext.getInstance().getRegisteredBots();
+		for (FbBot b : bots) {
 			b.processMessage(envelope);
 		}
 	}

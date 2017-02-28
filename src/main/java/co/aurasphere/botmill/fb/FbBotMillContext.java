@@ -38,10 +38,10 @@ import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 public class FbBotMillContext {
 
 	/**
-	 * A list of the registered bots in the context. A {@link AbstractFbBot} 
+	 * A list of the registered bots in the context. A {@link FbBot} 
 	 * can't be used unless it's registered to the context.
 	 */
-	private List<AbstractFbBot> registeredBots;
+	private List<FbBot> registeredBots;
 
 	/**
 	 * The validation token used for the Facebook webhook. For more informations
@@ -86,19 +86,19 @@ public class FbBotMillContext {
 	 * Instantiates a new FbBotMillContext. The validator is enabled by default.
 	 */
 	private FbBotMillContext() {
-		this.registeredBots = new ArrayList<AbstractFbBot>();
+		this.registeredBots = new ArrayList<FbBot>();
 		this.validationEnabled = true;
 		this.registeredMonitors = new ArrayList<FbBotMillMonitor>();
 	}
 
 	/**
-	 * Registers an {@link AbstractFbBot} to the context. A bot can't be used
+	 * Registers an {@link FbBot} to the context. A bot can't be used
 	 * unless it's registered to the context.
 	 * 
 	 * @param fbBot
 	 *            the bot to register.
 	 */
-	void register(AbstractFbBot fbBot) {
+	void register(FbBot fbBot) {
 		if (fbBot != null) {
 			this.registeredBots.add(fbBot);
 		}
@@ -121,7 +121,7 @@ public class FbBotMillContext {
 	 *
 	 * @return the {@link #registeredBots}.
 	 */
-	public List<AbstractFbBot> getRegisteredBots() {
+	public List<FbBot> getRegisteredBots() {
 		return this.registeredBots;
 	}
 

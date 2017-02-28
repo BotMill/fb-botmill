@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.core.BotMillSession;
+import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchException;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.AnyEvent;
@@ -45,7 +46,6 @@ import co.aurasphere.botmill.fb.event.message.QuickReplyMessageEvent;
 import co.aurasphere.botmill.fb.event.message.QuickReplyMessagePatternEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
 import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
-import co.aurasphere.botmill.fb.exception.FbBotMillControllerEventMisMatchException;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -56,13 +56,13 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * @author Donato Rimenti
  * 
  */
-public abstract class AbstractFbBot implements BotDefinition {
+public abstract class FbBot implements BotDefinition {
 
 	/**
 	 * The logger.
 	 */
 	private static final Logger logger = LoggerFactory
-			.getLogger(AbstractFbBot.class);
+			.getLogger(FbBot.class);
 
 	/**
 	 * A list of registered {@link FbBotMillEvent} for the current bot.
@@ -91,7 +91,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 	 * @param botmillPolicy
 	 *            the policy this bot should follow.
 	 */
-	public AbstractFbBot(BotMillPolicy botmillPolicy) {
+	public FbBot(BotMillPolicy botmillPolicy) {
 		logger.debug("AbstractFbot - Start Initialize");
 		this.botMillPolicy = botmillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
@@ -109,7 +109,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
 	 */
-	public AbstractFbBot() {
+	public FbBot() {
 		this(BotMillPolicy.FIRST_ONLY);
 	}
 
@@ -233,12 +233,12 @@ public abstract class AbstractFbBot implements BotDefinition {
 	 * @param botMillController
 	 *            the bot mill controller
 	 * @return the fb bot mill event
-	 * @throws FbBotMillControllerEventMisMatchException
+	 * @throws BotMillEventMismatchException
 	 *             the fb bot mill controller event mis match exception
 	 */
 	private FbBotMillEvent toEventActionFrame(
 			FbBotMillController botMillController)
-			throws FbBotMillControllerEventMisMatchException {
+			throws BotMillEventMismatchException {
 		boolean caseSensitive = botMillController.caseSensitive();
 
 		switch (botMillController.eventType()) {
@@ -246,7 +246,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 			if (!botMillController.text().equals("")) {
 				return new MessageEvent(botMillController.text(), caseSensitive);
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"text attribute missing");
 			}
 		case MESSAGE_PATTERN:
@@ -254,14 +254,14 @@ public abstract class AbstractFbBot implements BotDefinition {
 				return new MessagePatternEvent(
 						Pattern.compile(botMillController.pattern()));
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"pattern attribute missing");
 			}
 		case POSTBACK:
 			if (!botMillController.postback().equals("")) {
 				return new PostbackEvent(botMillController.postback());
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"postback attribute missing");
 			}
 		case POSTBACK_PATTERN:
@@ -269,7 +269,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 				return new PostbackPatternEvent(
 						Pattern.compile(botMillController.postbackPattern()));
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"postback pattern attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE:
@@ -277,7 +277,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 				return new QuickReplyMessageEvent(
 						botMillController.quickReplyPayload());
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"quickpayload attribute missing");
 			}
 		case QUICK_REPLY_MESSAGE_PATTERN:
@@ -286,7 +286,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 						Pattern.compile(botMillController
 								.quickReplyPayloadPattern()));
 			} else {
-				throw new FbBotMillControllerEventMisMatchException(
+				throw new BotMillEventMismatchException(
 						"quickpayload pattern attribute missing");
 			}
 		case LOCATION:
@@ -294,7 +294,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 		case ANY:
 			return new AnyEvent();
 		default:
-			throw new FbBotMillControllerEventMisMatchException(
+			throw new BotMillEventMismatchException(
 					"Unsupported Event Type: " + botMillController.eventType());
 		}
 	}
@@ -361,7 +361,7 @@ public abstract class AbstractFbBot implements BotDefinition {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AbstractFbBot other = (AbstractFbBot) obj;
+		FbBot other = (FbBot) obj;
 		if (actionFrameList == null) {
 			if (other.actionFrameList != null)
 				return false;

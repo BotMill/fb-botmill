@@ -65,9 +65,7 @@ public class EchoCallbackTest extends BaseFbBotMillCallbackTest {
 		Assert.assertEquals("****", echoMessage.getAppId());
 		Assert.assertEquals("mid.1483578464765:ed1fe23f35",
 				echoMessage.getMid());
-		Assert.assertEquals("785209", echoMessage.getSeq()); // TODO: datatype
-																// check on this
-																// field (INT)
+		Assert.assertEquals("785209", echoMessage.getSeq()); 
 
 		super.assertListOfSize(1, echoMessage.getAttachments());
 

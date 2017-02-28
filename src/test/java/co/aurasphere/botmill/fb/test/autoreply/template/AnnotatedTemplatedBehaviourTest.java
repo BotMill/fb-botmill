@@ -191,7 +191,6 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 	 */
 	@Override
 	protected boolean skipTest() {
-		// TODO Auto-generated method stub
 		return false;
 	}
  

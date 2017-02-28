@@ -1,5 +1,5 @@
 /*
- * MIT License
+BaseFbBotMillNetworkTest * MIT License
  *
  * Copyright (c) 2016 BotMill.io
  * 
@@ -28,7 +28,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.fb.AbstractFbBot;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;

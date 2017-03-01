@@ -27,6 +27,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.aurasphere.botmill.core.annotation.Bot;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
@@ -45,8 +47,9 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
 /**
  * The Class TemplateBehavior.
  */
+@Bot
 public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
-	
+
 	@FbBotMillInit
 	public void initialize() {
 

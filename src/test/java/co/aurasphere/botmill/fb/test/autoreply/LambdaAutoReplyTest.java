@@ -47,8 +47,9 @@ public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
+	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehaviour()
 	 */
+	@Override
 	public void defineBehaviour() {
 		// This cannot be tested with a real lambda since the project is
 		// compiled in 1.5, but this test is equivalent.
@@ -62,7 +63,6 @@ public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
 					}
 				}));
 	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

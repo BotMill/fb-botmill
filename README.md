@@ -116,12 +116,12 @@ FB-BotMill supports this Facebook Messenger Platform components:
 	- Domain whitelisting
 - User Profile retrieving
 - Web View and Extensions
+- Payments
 	
 **<h3>Coming next</h3>**
 
 Here's what you can expect coming up in the next updates:
 
-- Payments
 - File Attachments
 
 <sub>Copyright (c) 2016-2017 BotMill.io</sub>

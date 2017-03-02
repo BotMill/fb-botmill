@@ -24,6 +24,7 @@
 package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -64,7 +65,6 @@ public class DeliveredMessage implements Serializable {
 	 */
 	private List<String> mids;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * All messages before this timestamp where seen.<br>
 	 * <br>
@@ -76,7 +76,7 @@ public class DeliveredMessage implements Serializable {
 	 * indicating that all messages with a timestamp before watermark were
 	 * delivered.
 	 */
-	private String watermark;
+	private Calendar watermark;
 
 	/**
 	 * Sequence number.
@@ -107,7 +107,7 @@ public class DeliveredMessage implements Serializable {
 	 *
 	 * @return the {@link #watermark}.
 	 */
-	public String getWatermark() {
+	public Calendar getWatermark() {
 		return watermark;
 	}
 
@@ -117,7 +117,7 @@ public class DeliveredMessage implements Serializable {
 	 * @param watermark
 	 *            the {@link #watermark} to set.
 	 */
-	public void setWatermark(String watermark) {
+	public void setWatermark(Calendar watermark) {
 		this.watermark = watermark;
 	}
 

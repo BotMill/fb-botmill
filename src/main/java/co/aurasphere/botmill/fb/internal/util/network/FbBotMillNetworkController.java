@@ -35,7 +35,6 @@ import java.util.List;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.ContentType;
@@ -49,8 +48,11 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
+import co.aurasphere.botmill.core.internal.util.network.HttpDeleteWithBody;
+import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
+import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
@@ -65,13 +67,13 @@ import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
  * @author Donato Rimenti
  * 
  */
-public class NetworkUtils {
+public class FbBotMillNetworkController {
 
 	/**
 	 * The logger.
 	 */
 	private static final Logger logger = LoggerFactory
-			.getLogger(NetworkUtils.class);
+			.getLogger(FbBotMillNetworkController.class);
 
 	/**
 	 * The registered monitors to the {@link FbBotMillContext}.
@@ -89,11 +91,11 @@ public class NetworkUtils {
 	 */
 	public static FacebookUserProfile getUserProfile(String userId) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();
-		HttpGet get = new HttpGet(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ userId + FbBotMillNetworkConstants.USER_PROFILE_FIELDS
-				+ pageToken);
-		String response = send(get);
-		FacebookUserProfile user = JsonUtils.fromJson(response,
+		BotMillNetworkResponse response = NetworkUtils
+				.get(FbBotMillNetworkConstants.FACEBOOK_BASE_URL + userId
+						+ FbBotMillNetworkConstants.USER_PROFILE_FIELDS
+						+ pageToken);
+		FacebookUserProfile user = FbBotMillJsonUtils.fromJson(response.getResponse(),
 				FacebookUserProfile.class);
 		return user;
 	}
@@ -111,12 +113,9 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpPost post = new HttpPost(
-				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-						+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL
-						+ pageToken);
-		post.setEntity(input);
-		send(post);
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_MESSAGES_URL + pageToken;
+		postInternal(url, input);
 	}
 
 	/**
@@ -143,12 +142,10 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpPost post = new HttpPost(
-				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-						+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
-						+ pageToken);
-		post.setEntity(input);
-		send(post);
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
+				+ pageToken;
+		postInternal(url, input);
 	}
 
 	/**
@@ -163,56 +160,34 @@ public class NetworkUtils {
 	}
 
 	/**
-	 * Sends a request.
+	 * Performs a POST and propagates it to the registered monitors.
 	 * 
-	 * @param request
-	 *            the request to send
-	 * @return response the response.
+	 * @param url
+	 *            the URL where to post.
+	 * @param input
+	 *            the object to send.
+	 * @return the response.
 	 */
-	private static String send(HttpRequestBase request) {
-		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-		logger.debug(request.getRequestLine().toString());
-		HttpResponse httpResponse = null;
-		String response = null;
-		try {
-			httpResponse = httpClient.execute(request);
-			response = logResponse(httpResponse);
-		} catch (Exception e) {
-			logger.error("Error during HTTP connection to Facebook: ", e);
-		} finally {
-			try {
-				httpClient.close();
-			} catch (IOException e) {
-				logger.error("Error while closing HTTP connection: ", e);
-			}
-		}
+	private static BotMillNetworkResponse postInternal(String url,
+			StringEntity input) {
+		BotMillNetworkResponse response = NetworkUtils.post(url, input);
+		propagateResponse(response);
 		return response;
 	}
 
 	/**
-	 * Logs the response before returning it.
+	 * Propagates the response to the registered {@link FbBotMillMonitor}.
 	 *
 	 * @param response
-	 *            the response to log.
-	 * @return the string
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
+	 *            the response to propagate.
 	 */
-	private static String logResponse(HttpResponse response) throws IOException {
-		int statusCode = response.getStatusLine().getStatusCode();
+	private static void propagateResponse(BotMillNetworkResponse response) {
 
-		// Logs the raw JSON for debug purposes.
-		String output = getResponseContent(response);
-		logger.debug("HTTP Status Code: {}", statusCode);
-		logger.trace("Raw response: {}", output);
-
-		// If the status code is > 400 there was an error.
-		if (statusCode >= 400) {
-			logger.error("HTTP connection failed with error code {}.",
-					statusCode);
+		String output = response.getResponse();
+		if (response.isError()) {
 
 			// Parses the error message and logs it.
-			FacebookErrorMessage errorMessage = JsonUtils.fromJson(output,
+			FacebookErrorMessage errorMessage = FbBotMillJsonUtils.fromJson(output,
 					FacebookErrorMessage.class);
 			FacebookError error = errorMessage.getError();
 			logger.error(
@@ -225,7 +200,7 @@ public class NetworkUtils {
 				monitor.onError(errorMessage);
 			}
 		} else {
-			FacebookConfirmationMessage confirmationMessage = JsonUtils
+			FacebookConfirmationMessage confirmationMessage = FbBotMillJsonUtils
 					.fromJson(output, FacebookConfirmationMessage.class);
 			logger.debug(
 					"Confirmation from Facebook. Recipient ID: [{}], Message ID: [{}], Result Message: [{}]",
@@ -238,32 +213,6 @@ public class NetworkUtils {
 				monitor.onConfirmation(confirmationMessage);
 			}
 		}
-		return output;
-	}
-
-	/**
-	 * Utility method that converts an HttpResponse to a String.
-	 *
-	 * @param response
-	 *            the response to convert.
-	 * @return a String with the response content.
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	private static String getResponseContent(HttpResponse response)
-			throws IOException {
-		InputStream inputStream = response.getEntity().getContent();
-		BufferedInputStream bufferedInputStream = new BufferedInputStream(
-				inputStream);
-		InputStreamReader inputStreamReader = new InputStreamReader(
-				bufferedInputStream);
-		BufferedReader br = new BufferedReader(inputStreamReader);
-		StringBuilder builder = new StringBuilder();
-		String output = null;
-		while ((output = br.readLine()) != null) {
-			builder.append(output);
-		}
-		return builder.toString();
 	}
 
 	/**
@@ -279,19 +228,18 @@ public class NetworkUtils {
 			return;
 		}
 
-		HttpDeleteWithBody delete = new HttpDeleteWithBody(
-				FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-						+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
-						+ pageToken);
-		delete.setEntity(input);
-		send(delete);
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_THREAD_SETTINGS_URL
+				+ pageToken;
+		BotMillNetworkResponse response = NetworkUtils.delete(url, input);
+		propagateResponse(response);
 	}
 
 	/**
 	 * DELETEs a JSON string to Facebook.
 	 * 
 	 * @param input
-	 *            the JSON data to send.
+	 *            the data to send.
 	 */
 	public static void delete(Object input) {
 		StringEntity stringEntity = toStringEntity(input);
@@ -314,35 +262,6 @@ public class NetworkUtils {
 	}
 
 	/**
-	 * Utility to send a POST request.
-	 * 
-	 * @param url
-	 *            the url we need to send the post request to.
-	 * @param entity
-	 *            the entity that containts the object we need to pass as part
-	 *            of the post request.
-	 * @return {@link String}
-	 */
-	public static String post(String url, StringEntity entity) {
-		HttpPost post = new HttpPost(url);
-		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
-		post.setEntity(entity);
-		return send(post);
-	}
-
-	/**
-	 * Utility to send a GET request.
-	 * 
-	 * @param url
-	 *            the url we need to send the get request to.
-	 * @return {@link String}
-	 */
-	public static String get(String url) {
-		HttpGet get = new HttpGet(url);
-		return send(get);
-	}
-
-	/**
 	 * Utility method that converts an object to its StringEntity
 	 * representation.
 	 * 
@@ -353,7 +272,7 @@ public class NetworkUtils {
 	private static StringEntity toStringEntity(Object object) {
 		StringEntity input = null;
 		try {
-			String json = JsonUtils.toJson(object);
+			String json = FbBotMillJsonUtils.toJson(object);
 			input = new StringEntity(json, "UTF-8");
 			input.setContentType("application/json");
 			logger.debug("Request: {}", inputStreamToString(input.getContent()));
@@ -446,7 +365,7 @@ public class NetworkUtils {
 			e.printStackTrace();
 		}
 
-		send(post);
+		// postInternal(post);
 	}
 
 	/*
@@ -456,7 +375,7 @@ public class NetworkUtils {
 	 */
 	@Override
 	public String toString() {
-		return "NetworkUtils []";
+		return "FbBotMillNetworkController []";
 	}
 
 }

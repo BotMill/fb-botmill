@@ -26,7 +26,7 @@ package co.aurasphere.botmill.fb.autoreply;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.aurasphere.botmill.fb.exception.FbBotMillIllegalAttachmentException;
+import co.aurasphere.botmill.core.internal.exception.BotMillIllegalAttachmentException;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
@@ -93,7 +93,7 @@ public class AttachmentAutoReply extends AutoReply {
 		default:
 			String message = "Illegal attachment of type [ " + attachmentType.name() + " ] for AttachmentAutoReply";
 			logger.error(message);
-			throw new FbBotMillIllegalAttachmentException(message);
+			throw new BotMillIllegalAttachmentException(message);
 		}
 		return response;
 	}

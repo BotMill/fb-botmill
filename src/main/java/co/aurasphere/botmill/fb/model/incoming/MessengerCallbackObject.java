@@ -21,48 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.internal.util.network;
+package co.aurasphere.botmill.fb.model.incoming;
 
-import org.apache.http.client.methods.HttpPost;
+import com.google.gson.annotations.SerializedName;
 
 /**
- * Utility class used to represent a DELETE request with a body (like a POST
- * does).
+ * Object field for a {@link MessengerCallback}.
  * 
  * @author Donato Rimenti
- * 
  */
-public class HttpDeleteWithBody extends HttpPost {
-
+public enum MessengerCallbackObject {
+	
 	/**
-	 * Instantiates a new http delete with body.
-	 *
-	 * @param url
-	 *            the url which will receive the request.
-	 * @see HttpPost#HttpPost(String)
+	 * The page.
 	 */
-	public HttpDeleteWithBody(String url) {
-		super(url);
-	}
-
-	/**
-	 * {@inheritDoc} Returns "DELETE".
-	 */
-	@Override
-	public String getMethod() {
-		return "DELETE";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.apache.http.client.methods.HttpRequestBase#toString()
-	 */
-	@SuppressWarnings("deprecation")
-	@Override
-	public String toString() {
-		return "HttpDeleteWithBody [headergroup=" + headergroup + ", params="
-				+ params + "]";
-	}
+	@SerializedName("page")
+	PAGE;
 
 }

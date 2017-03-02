@@ -62,19 +62,17 @@ public class Referral implements Serializable {
 	 */
 	private String ref;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The source of this referral. Currently, the only possible value is
 	 * "SHORTLINK".
 	 */
-	private String source;
+	private ReferralSource source;
 
-	// TODO: https://github.com/BotMill/fb-botmill/issues/19
 	/**
 	 * The identifier for the referral. For referrals coming from m.me links, it
 	 * will always be "OPEN_THREAD".
 	 */
-	private String type;
+	private ReferralType type;
 
 	/**
 	 * Gets the {@link #ref}.
@@ -100,7 +98,7 @@ public class Referral implements Serializable {
 	 *
 	 * @return the {@link #source}.
 	 */
-	public String getSource() {
+	public ReferralSource getSource() {
 		return source;
 	}
 
@@ -110,7 +108,7 @@ public class Referral implements Serializable {
 	 * @param source
 	 *            the {@link #source} to set.
 	 */
-	public void setSource(String source) {
+	public void setSource(ReferralSource source) {
 		this.source = source;
 	}
 
@@ -119,7 +117,7 @@ public class Referral implements Serializable {
 	 *
 	 * @return the {@link #type}.
 	 */
-	public String getType() {
+	public ReferralType getType() {
 		return type;
 	}
 
@@ -129,7 +127,7 @@ public class Referral implements Serializable {
 	 * @param type
 	 *            the {@link #type} to set.
 	 */
-	public void setType(String type) {
+	public void setType(ReferralType type) {
 		this.type = type;
 	}
 

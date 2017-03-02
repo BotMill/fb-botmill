@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +37,8 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.base.BotMillServlet;
-import co.aurasphere.botmill.fb.internal.util.json.JsonUtils;
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
@@ -45,8 +47,8 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 /**
  * Main Servlet for FbBotMill framework. This servlet requires an init-param
  * containing the fully qualified name of a class implementing
- * {@link BotDefinition} in which the initial configuration is done. If not
- * such class is found or can't be loaded, a ServletException is thrown during
+ * {@link BotDefinition} in which the initial configuration is done. If not such
+ * class is found or can't be loaded, a ServletException is thrown during
  * initialization.
  * 
  * The FbBotMillServlet supports GET requests only for the Subscribing phase and
@@ -64,6 +66,16 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
 public class FbBotMillServlet extends BotMillServlet {
 
 	/**
+	 * The Constant FB_BOTMILL_PAGE_TOKEN_PROP.
+	 */
+	private static final String FB_BOTMILL_PAGE_TOKEN_PROP = "fb.page.token";
+
+	/**
+	 * The Constant FB_BOTMILL_VALIDATION_TOKEN_PROP.
+	 */
+	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP = "fb.validation.token";
+
+	/**
 	 * The logger.
 	 */
 	private static final Logger logger = LoggerFactory
@@ -73,6 +85,28 @@ public class FbBotMillServlet extends BotMillServlet {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.botmill.core.base.BotMillServlet#init()
+	 */
+	@Override
+	public void init() {
+		super.init();
+
+		Properties config = ConfigurationUtils.getConfiguration();
+		String fbPageToken = config.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP);
+		String fbValidationToken = config
+				.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP);
+
+		if (fbPageToken == null || fbValidationToken == null) {
+			logger.error("FB-BotMill page token or validation token are missing from config file [botmill.properties].");
+		}
+
+		// Everything goes well, initialize the setup.
+		FbBotMillContext.getInstance().setup(fbPageToken, fbValidationToken);
+	}
 
 	/**
 	 * Specifies how to handle a GET request. GET requests are used by Facebook
@@ -154,7 +188,7 @@ public class FbBotMillServlet extends BotMillServlet {
 
 		// Parses the request as a MessengerCallback.
 		try {
-			callback = JsonUtils.fromJson(json, MessengerCallback.class);
+			callback = FbBotMillJsonUtils.fromJson(json, MessengerCallback.class);
 		} catch (Exception e) {
 			logger.error("Error during MessengerCallback parsing: ", e);
 			return;
@@ -178,7 +212,7 @@ public class FbBotMillServlet extends BotMillServlet {
 				}
 			}
 		}
-		//	Always set to ok.
+		// Always set to ok.
 		resp.setStatus(HttpServletResponse.SC_OK);
 	}
 

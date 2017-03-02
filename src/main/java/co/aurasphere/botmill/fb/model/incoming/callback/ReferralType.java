@@ -21,21 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.internal.util.json;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package co.aurasphere.botmill.fb.model.incoming.callback;
 
 /**
- * Annotation used to skip the Gson deserialization of a field.
- * 
- * @author Donato Rimenti
- * 
+ * The Enum ReferralType.
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface SkipDeserialization {
+public enum ReferralType {
+	
+	/**
+	 * The open thread.
+	 */
+	OPEN_THREAD;
 
 }

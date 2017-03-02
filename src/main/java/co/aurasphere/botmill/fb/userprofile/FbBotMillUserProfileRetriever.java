@@ -23,7 +23,7 @@
  */
 package co.aurasphere.botmill.fb.userprofile;
 
-import co.aurasphere.botmill.fb.internal.util.network.NetworkUtils;
+import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 
 /**
@@ -48,7 +48,7 @@ public class FbBotMillUserProfileRetriever {
 	 * @return the user profile.
 	 */
 	public static FacebookUserProfile getUser(String userId) {
-		return NetworkUtils.getUserProfile(userId);
+		return FbBotMillNetworkController.getUserProfile(userId);
 	}
 
 	/*

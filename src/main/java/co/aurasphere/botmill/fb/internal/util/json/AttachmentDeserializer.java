@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.lang.reflect.Type;
 
+import co.aurasphere.botmill.core.internal.util.json.SkipDeserializationAnnotationExclusionStrategy;
 import co.aurasphere.botmill.fb.model.base.Attachment;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.base.Payload;

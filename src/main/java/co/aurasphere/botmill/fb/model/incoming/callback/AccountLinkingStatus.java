@@ -21,37 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.exception;
+package co.aurasphere.botmill.fb.model.incoming.callback;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
- * The Class FbBotMillControllerEventMisMatchException.
+ * Status for {@link AccountLinking}.
  * 
- * @author Alvin P. Reyes
+ * @author Donato Rimenti
  */
-public class FbBotMillMissingConfigurationException extends Exception {
+public enum AccountLinkingStatus {
+	
 	/**
-	 * The serial version UID.
+	 * The linked.
 	 */
-	private static final long serialVersionUID = 1L;
-
+	@SerializedName("linked")
+	LINKED,
+	
 	/**
-	 * Instantiates a new FbBot illegal attachment exception.
-	 *
-	 * @param message
-	 *            the message.
+	 * The unlinked.
 	 */
-	public FbBotMillMissingConfigurationException(String message) {
-		super(message);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Throwable#toString()
-	 */
-	@Override
-	public String toString() {
-		return "FbBotMillControllerEventMisMatchException []";
-	}
+	@SerializedName("unlinked")
+	UNLINKED;
 
 }

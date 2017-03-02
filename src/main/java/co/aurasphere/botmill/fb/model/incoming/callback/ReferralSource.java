@@ -21,35 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.internal.util.properties;
-
-import java.util.Properties;
-
-import co.aurasphere.botmill.fb.exception.FbBotMillMissingConfigurationException;
+package co.aurasphere.botmill.fb.model.incoming.callback;
 
 /**
- * The Class PropertiesUtil.
+ * Source for the {@link Referral} object.
  * 
- * @author Alvin P. Reyes
+ * @author Donato Rimenti
  */
-public class PropertiesUtil {
+public enum ReferralSource {
 
-	/** The properties. */
-	private static Properties properties = new Properties();
-	
 	/**
-	 * Load the property values from the properties file into the class loader. 
-	 *
-	 * @param propertiesPath the properties path. 
-	 * @return the properties
-	 * @throws FbBotMillMissingConfigurationException the fb bot mill missing configuration exception
+	 * The shortlink.
 	 */
-	public static Properties load(String propertiesPath) throws FbBotMillMissingConfigurationException {
-		try {
-			properties.load(PropertiesUtil.class.getClassLoader().getResourceAsStream(propertiesPath));
-		} catch (Exception e) {
-			throw new FbBotMillMissingConfigurationException("Missing configuration file (botmill.properties)");
-		}
-		return properties;
-	}	
+	SHORTLINK;
+
 }

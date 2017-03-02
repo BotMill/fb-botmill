@@ -98,7 +98,6 @@ public class FbBotMillMockMediator {
 	 * @param botDefinitions
 	 *            a list of classes implementing {@link BotDefinition}.
 	 */
-	@SafeVarargs
 	public FbBotMillMockMediator(String facebookMockId,
 			Class<? extends BotDefinition>... botDefinitions) {
 		this.facebookMockId = facebookMockId;

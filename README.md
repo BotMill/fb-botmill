@@ -76,12 +76,45 @@ public class MyBotClass extends FbBot {
 		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
 	}
 	
-	@FbBotMillController(event=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
+	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
 	public void sendMessage() {
 		reply(new MessageAutoReply("Hello World!"));
 	}
 }
 ```
+
+**catch a pattern and respond with a quick reply**
+
+```java
+@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
+public void replyWithQuickReply() {
+	reply(new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			return ReplyFactory.addTextMessageOnly("Text message with quick replies")
+					.addQuickReply("Quick reply 1", "Payload for quick reply 1").build(envelope);
+		}
+	});
+}
+```
+
+**or respond with a button**
+```java
+@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
+public void replyWithButtonTemplate() {
+	reply(new AutoReply() {
+		@Override
+		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+			return ReplyFactory.addButtonTemplate("Test button template")
+					.addPostbackButton("postback button", "postback button payload")
+					.addPhoneNumberButton("phone number button", "+123456789")
+					.addUrlButton("web url button", "https://github.com/BotMill/fb-botmill").build(envelope);
+		}
+	});
+}
+```
+
+Visit our docs for a complete list of EventTypes and Response.
 
 **Key components in building your ChatBot**
 - @Bot - annotating a class with @Bot will mark the class as a Facebook ChatBot behaviour. 

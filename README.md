@@ -14,32 +14,28 @@ The FB-BotMill can be imported as a dependency via Maven.
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
 	  <artifactId>fb-botmill</artifactId>
-	  <version>1.2.1</version>
+	  <version>2.0.0-RC1</version>
 	</dependency>
 
 Gradle
     
-    compile 'co.aurasphere.botmill:fb-botmill:1.2.1'
+    compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC1'
 
 Grovvy
 
     @Grapes( 
-        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='1.2.1') 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC1') 
     )
     
 Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 
 
-Once you've imported the API. You need to register the FbBotMillServlet. To do that, create a Servlet project in your IDE and add this to your web.xml:
+**<h3>Creating your first Facebook ChatBot with Fb-BotMill</h3>**
+Once you've imported the API. You need to register the FbBotMillServlet. To do that, add the following to your web.xml.
 
 ```xml
 <servlet>
 	<servlet-name>myFbBot</servlet-name>
 	<servlet-class>co.aurasphere.botmill.fb.FbBotMillServlet</servlet-class>
-	<init-param>
-		<param-name>bot-definition-class</param-name>
-		<param-value>com.mypackage.MyFbBotDefinitionClass</param-value>
-	</init-param>
-	<load-on-startup>0</load-on-startup>
 </servlet>
 <servlet-mapping>
 	<servlet-name>myFbBot</servlet-name>
@@ -47,81 +43,55 @@ Once you've imported the API. You need to register the FbBotMillServlet. To do t
 </servlet-mapping>
 ```
 
-This will register a servlet named myFbBot to the path /myFbBot. The bot-definition-class parameters is a class that implements the FbBotDefinition interface or extends the AbstractFbBot class.
+Take note of the **url mapping** since this will be used on your webhook configuration in Facebook.  
 
-To complete your first bot, all you have to do is write the definition class. This class will describe your bot behavior. Here's an example:
+**<h4>Creating your Bot Definition.</h4>**
+The Bot Definition is the heart of your Facebook ChatBot. This is where we put all other chatbot event handlers and responses.
+
+**1st: Setup the page token and validation token.**
+Create botmill.properties file in your classpath and add the your tokens.
+
+```properties
+fb.page.token=<PAGE_TOKEN>
+fb.validation.token=<VALIDATION_TOKEN>
+```
+
+Note that you can encrypt the properties file using our built in jaspyt-based encryption. Go to our Wiki here on how to setup your encrypted **botmill.properties** file.
+
+**2nd: Setup the FbBot Class.**
+Our framework makes it easy and straightforward to define a Facebook Bot Behaviour by tagging classes as behaviour objects. 
 
 ```java
-public class MyFbBotDefinitionClass extends AbstractFbBot {
-	public void defineBehavior() {
-		// Setting my tokens from Facebook (page token and validation token for webhook).
-		FbBotMillContext.getInstance().setup("myFacebookPageToken", "myFacebookWebhookValidationToken");
-		// Defining a bot which will reply with "Hello World!" as soon as I write "Hi"
-		addActionFrame(new MessageEvent("Hi"),
-		new MessageAutoReply("Hello World!"));
+@Bot
+public class MyBotClass extends FbBot {
+	@FbBotMillInit
+	public void initialize() {
+		List<Button> buttons = new ArrayList<Button>();
+		buttons.add(ButtonFactory.createPostbackButton("Postback Button", "PostBack Payload"));
+		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.alvinjayreyes.com"));
+
+		// Sets the thread settings.
+		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
+		FbBotMillThreadSettingsConfiguration.setGetStartedButton("Get Started Button Payload");
+		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
+	}
+	
+	@FbBotMillController(event=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
+	public void sendMessage() {
+		reply(new MessageAutoReply("Hello World!"));
 	}
 }
 ```
 
-Neat! The sample above is the simplest way to get things started, for a more comprehensive guide on how to create your facebook chatbot from scratch, you can follow this [guide](https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
+**Key components in building your ChatBot**
+- @Bot - annotating a class with @Bot will mark the class as a Facebook ChatBot behaviour. 
+- @FbBotMillInit - can be use to annotate a method and invoke it prior to any @FbBotMillController annotated methods. 
+- @FbBotMillController - Use to create a method that catches specific user-driven event (such as user entering a message, selecting a quick reply etc. 
+- FbBot.reply() - allows the developers to create a response based on the @FbBotMillController event. For the list of all events and reply, go to our Wiki page [here](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets)
+- FbBot.botMillSession() - allows you to store and access data. __Note that you need to setup a mongodb connection to make this work, mongodb connection configuration can also be set via botmill.properties__. For more information about this, visit our [BotMillSession guide here]https://github.com/BotMill/fb-botmill/wiki/Developing-with-FB-BotMill). 
 
 
-**<h3>What's currently supported</h3>**
-
-FB-BotMill supports this Facebook Messenger Platform components:
-
-- Callbacks
-	- Message Received
-	- Message Delivered
-	- Message Read
-	- Message Echo
-	- Postback
-	- Plugin Opt-in
-	- Referral
-	- Payment
-	- Checkout Update
-	- Account Linking
-- Send API
-	- Templates
-		- Button Template
-		- Generic Template
-		- List Template
-		- Receipt Template
-		- Airline Boarding Pass Template
-		- Airline Checkin Template
-		- Airline Itinerary Template
-		- Airline Flight Update Template
-	- Buttons
-		- URL Button
-		- Postback Button
-		- Call Button
-		- Share Button
-		- Buy Button
-		- Log in
-		- Log out
-	- Quick Replies
-		- Generic Quick Reply Payload
-		- Location Quick Reply
-	- Sender Actions
-	- Content Types
-		- Text Message
-		- Audio Attachment
-		- File Attachment
-		- Image Attachment
-		- Video Attachment
-- Thread Settings
-	- Get Started Button
-	- Greeting Text
-	- Persistent Menu
-	- Domain whitelisting
-- User Profile retrieving
-- Web View and Extensions
-- Payments
-	
-**<h3>Coming next</h3>**
-
-Here's what you can expect coming up in the next updates:
-
-- File Attachments
+<h3>Contribution</h3>
+We'd love to get more people involve in the project. We're looking for enthusiastic maintainers that can put our framework on another level and we'd love to hear your ideas about it.
 
 <sub>Copyright (c) 2016-2017 BotMill.io</sub>

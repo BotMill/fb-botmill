@@ -128,7 +128,6 @@ public class FbBotMillNetworkConstants {
 	 */
 	public static final String USER_PROFILE_FIELDS = "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=";
 
-
 	/*
 	 * (non-Javadoc)
 	 * 

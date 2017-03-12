@@ -86,8 +86,8 @@ public class FbBotMillNetworkController {
 				.get(FbBotMillNetworkConstants.FACEBOOK_BASE_URL + userId
 						+ FbBotMillNetworkConstants.USER_PROFILE_FIELDS
 						+ pageToken);
-		FacebookUserProfile user = FbBotMillJsonUtils.fromJson(response.getResponse(),
-				FacebookUserProfile.class);
+		FacebookUserProfile user = FbBotMillJsonUtils.fromJson(
+				response.getResponse(), FacebookUserProfile.class);
 		return user;
 	}
 
@@ -162,12 +162,18 @@ public class FbBotMillNetworkController {
 		StringEntity stringEntity = toStringEntity(input);
 		postThreadSetting(stringEntity);
 	}
-
+	
+	/**
+	 * POSTs a messenger profile as a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 */
 	public static void postMessengerProfile(Object input) {
 		StringEntity stringEntity = toStringEntity(input);
 		postMessengerProfile(stringEntity);
 	}
-	
+
 	/**
 	 * Performs a POST and propagates it to the registered monitors.
 	 * 
@@ -196,8 +202,8 @@ public class FbBotMillNetworkController {
 		if (response.isError()) {
 
 			// Parses the error message and logs it.
-			FacebookErrorMessage errorMessage = FbBotMillJsonUtils.fromJson(output,
-					FacebookErrorMessage.class);
+			FacebookErrorMessage errorMessage = FbBotMillJsonUtils.fromJson(
+					output, FacebookErrorMessage.class);
 			FacebookError error = errorMessage.getError();
 			logger.error(
 					"Error message from Facebook. Message: [{}], Code: [{}], Type: [{}], FbTraceID: [{}].",
@@ -225,12 +231,12 @@ public class FbBotMillNetworkController {
 	}
 
 	/**
-	 * DELETEs a JSON string to Facebook.
+	 * DELETEs a JSON string as a Facebook's Thread Setting.
 	 * 
 	 * @param input
 	 *            the JSON data to send.
 	 */
-	public static void delete(StringEntity input) {
+	public static void deleteThreadSetting(StringEntity input) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.
 		if (!validatePageToken(pageToken)) {
@@ -245,15 +251,48 @@ public class FbBotMillNetworkController {
 	}
 
 	/**
-	 * DELETEs a JSON string to Facebook.
+	 * DELETEs a JSON string as a Facebook's Thread Setting.
 	 * 
 	 * @param input
 	 *            the data to send.
 	 */
-	public static void delete(Object input) {
+	public static void deleteThreadSetting(Object input) {
 		StringEntity stringEntity = toStringEntity(input);
-		delete(stringEntity);
+		deleteThreadSetting(stringEntity);
 	}
+	
+
+	/**
+	 * DELETEs a JSON string as a Facebook's Messenger Profile.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 */
+	public static void deleteMessengerProfile(StringEntity input) {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		// If the page token is invalid, returns.
+		if (!validatePageToken(pageToken)) {
+			return;
+		}
+
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE
+				+ pageToken;
+		BotMillNetworkResponse response = NetworkUtils.delete(url, input);
+		propagateResponse(response);
+	}
+
+	/**
+	 * DELETEs a JSON string as a Facebook's Messenger Profile.
+	 * 
+	 * @param input
+	 *            the data to send.
+	 */
+	public static void deleteMessengerProfile(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		deleteMessengerProfile(stringEntity);
+	}
+
 
 	/**
 	 * Validates a Facebook Page Token.

@@ -141,7 +141,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void deleteGetStartedButton() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.NEW_THREAD, null);
-		FbBotMillNetworkController.delete(request);
+		FbBotMillNetworkController.deleteThreadSetting(request);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class FbBotMillThreadSettingsConfiguration {
 	public static void deletePersistentMenu() {
 		CallToActionsRequest request = new CallToActionsRequest(
 				ThreadState.EXISTING_THREAD, null);
-		FbBotMillNetworkController.delete(request);
+		FbBotMillNetworkController.deleteThreadSetting(request);
 	}
 
 	/**

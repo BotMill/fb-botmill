@@ -34,7 +34,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfiguration;
 
 /**
- * Request for {@link FbBotMillMessengerProfileConfiguration#setGreetingText(List)}
+ * Request for {@link FbBotMillMessengerProfileConfiguration#setGreetingMessage(List)}
  * method.
  * 
  * @author Donato Rimenti

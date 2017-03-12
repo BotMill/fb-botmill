@@ -36,7 +36,7 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
  * 
  * @author Donato Rimenti
  */
-public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
+public class ThreadSettingsTest extends BaseFbBotMillNetworkTest {
 
 	/*
 	 * (non-Javadoc)
@@ -54,7 +54,15 @@ public class PaymentThreadSettingsTest extends BaseFbBotMillNetworkTest {
 	 */
 	@Override
 	protected void testImplementation() throws Exception {
+		testGetStartedButtonThreadSettings();
 		testPaymentThreadSettings();
+	}
+
+	/**
+	 * Tests the Get Started Button Thread Settings.
+	 */
+	private void testGetStartedButtonThreadSettings() {
+		FbBotMillThreadSettingsConfiguration.setGetStartedButton("TEST_GET_STARTED_BUTTON");
 	}
 
 	/**

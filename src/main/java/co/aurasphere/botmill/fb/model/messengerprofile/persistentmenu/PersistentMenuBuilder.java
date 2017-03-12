@@ -21,47 +21,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.model.outcoming.template.button;
-
-import com.google.gson.annotations.SerializedName;
+package co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu;
 
 /**
- * The Enum for WebViewHeightRatioType.
- *
- * @author Alvin Reyes
- * 
+ * The Class PersistentMenuBuilder.
  */
-public enum ButtonType {
+public class PersistentMenuBuilder {
+	
+	/**
+	 * Instantiates a new persistent menu builder.
+	 */
+	public PersistentMenuBuilder() {
+		
+	//		Builder.addPersistentMenu("")
+	//		.addCallToAction("yej")
+	//			.addPostBackButton((ButtonFactory.createPostbackButton("hello", "hey"))
+	//			.addPostBackButton((ButtonFactory.createPostbackButton("hello", "hey"))
+	//		.endCallToAction()
+	//		.addCallToAction("sdf")
+	//			.addPostBackButton((ButtonFactory.createPostbackButton("hello", "hey"))
+	//			.addPostBackButton((ButtonFactory.createPostbackButton("hello", "hey"))
+	//		.endCallToAction()
+	//.set
+	//.endPersistentMenu()
+	//.build();
+		
+	}
 
-	/** The web url. */
-	@SerializedName("web_url")
-	WEB_URL,
 	
-	/** The postback. */
-	@SerializedName("postback")
-	POSTBACK,
-	
-	/** The phone number. */
-	@SerializedName("phone_number")
-	PHONE_NUMBER,
-	
-	/** The element share. */
-	@SerializedName("element_share")
-	ELEMENT_SHARE,
-
-	/** The account link. */
-	@SerializedName("account_link")
-	ACCOUNT_LINK,
-	
-	/** The account unlink. */
-	@SerializedName("account_unlink")
-	ACCOUNT_UNLINK,
-	
-	/** The payment. */
-	@SerializedName("payment")
-	PAYMENT,
-	
-	@SerializedName("nested")
-	NESTED;
-
 }
+
+
+
+
+
+

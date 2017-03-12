@@ -26,6 +26,8 @@ package co.aurasphere.botmill.fb;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
+import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
 /**
@@ -81,6 +83,9 @@ public class FbBotMillContext {
 	 * @since 1.1.0
 	 */
 	private List<FbBotMillMonitor> registeredMonitors;
+	
+	
+	public MessageEnvelope messageEnvelope;
 
 	/**
 	 * Instantiates a new FbBotMillContext. The validator is enabled by default.

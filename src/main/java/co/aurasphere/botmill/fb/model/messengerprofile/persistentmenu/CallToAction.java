@@ -1,0 +1,146 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2016 BotMill.io
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+
+/**
+ * The Class CallToAction.
+ */
+public class CallToAction implements Serializable {
+	
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
+	/** The title. */
+	private String title;
+	
+	/** The type. */
+	private String type;
+	
+	/** The call to actions. */
+	@SerializedName("call_to_actions")
+	private List<Button> callToActions;
+	
+	/**
+	 * Instantiates a new call to action.
+	 *
+	 * @param title the title
+	 */
+	public CallToAction(String title) {
+		this.title = title;
+		this.type = "nested";
+		this.callToActions = new ArrayList<Button>();
+	}
+	
+	/**
+	 * Instantiates a new call to action.
+	 *
+	 * @param title the title
+	 * @param type the type
+	 */
+	public CallToAction(String title, String type) {
+		this.title = title;
+		this.type = type;
+		this.callToActions = new ArrayList<Button>();
+	}
+	
+	/**
+	 * Gets the title.
+	 *
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+	
+	/**
+	 * Sets the title.
+	 *
+	 * @param title the new title
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/**
+	 * Gets the type.
+	 *
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+	
+	/**
+	 * Sets the type.
+	 *
+	 * @param type the new type
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	/**
+	 * Gets the call to actions.
+	 *
+	 * @return the call to actions
+	 */
+	public List<Button> getCallToActions() {
+		return callToActions;
+	}
+	
+	/**
+	 * Sets the call to actions.
+	 *
+	 * @param callToActions the new call to actions
+	 */
+	public void setCallToActions(List<Button> callToActions) {
+		this.callToActions = callToActions;
+	}
+	
+	/**
+	 * Sets the call to action buttons.
+	 *
+	 * @param callToActions the new call to action buttons
+	 */
+	public void setCallToActionButtons(List<Button> callToActions) {
+		this.callToActions = callToActions;
+	}
+	
+	/**
+	 * Adds the call to action button.
+	 *
+	 * @param postBackButton the post back button
+	 */
+	public void addCallToActionButton(Button postBackButton) {
+		this.callToActions.add(postBackButton);
+	}
+	
+}

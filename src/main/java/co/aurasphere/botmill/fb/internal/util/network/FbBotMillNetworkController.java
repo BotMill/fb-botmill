@@ -23,33 +23,24 @@
  */
 package co.aurasphere.botmill.fb.internal.util.network;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
-
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
-import co.aurasphere.botmill.core.internal.util.network.HttpDeleteWithBody;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
@@ -148,6 +139,19 @@ public class FbBotMillNetworkController {
 		postInternal(url, input);
 	}
 
+	public static void postMessengerProfile(StringEntity input) {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		// If the page token is invalid, returns.
+		if (!validatePageToken(pageToken)) {
+			return;
+		}
+
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE
+				+ pageToken;
+		postInternal(url, input);
+	}
+	
 	/**
 	 * POSTs a thread setting as a JSON string to Facebook.
 	 * 
@@ -159,6 +163,11 @@ public class FbBotMillNetworkController {
 		postThreadSetting(stringEntity);
 	}
 
+	public static void postMessengerProfile(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		postMessengerProfile(stringEntity);
+	}
+	
 	/**
 	 * Performs a POST and propagates it to the registered monitors.
 	 * 

@@ -109,6 +109,15 @@ public class FbBotMillNetworkConstants {
 	 *      > Facebook's Messenger Thread Settings Documentation</a>
 	 */
 	public static final String FACEBOOK_THREAD_SETTINGS_URL = "me/thread_settings?access_token=";
+	
+	/**
+	 * Facebook's REST path for the Messenger Profile API.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-profile"
+	 *      > Facebook's Messenger Profile Documentation</a>
+	 */
+	public static final String FACEBOOK_MESSENGER_PROFILE = "/me/messenger_profile?access_token=";
 
 	/**
 	 * Facebook's GET parameters for the User Profile API.
@@ -118,6 +127,7 @@ public class FbBotMillNetworkConstants {
 	 *      >Facebook's Messenger User Profile API Documentation</a>
 	 */
 	public static final String USER_PROFILE_FIELDS = "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=";
+
 
 	/*
 	 * (non-Javadoc)

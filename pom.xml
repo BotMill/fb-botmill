@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere.botmill</groupId>
 	<artifactId>fb-botmill</artifactId>
-	<version>2.0.0-RC1</version>
+	<version>2.0.0-RC2-SNAPSHOT</version>
 	<name>FB-BotMill</name>
 	<description>Event-driven framework for Facebook Messenger's bots</description>
 	<url>http://www.botmill.io</url>
@@ -113,7 +113,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.0</version>
 				<configuration>
-					<source>1.5</source>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>

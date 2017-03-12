@@ -31,6 +31,10 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * The Class PersistentMenu.
+ * 
+ * The persistent menu object holds all the objects necessary to create
+ * a persistent menu. This includes Call To Action buttons and the ability
+ * to disable the composer input.
  */
 public class PersistentMenu implements Serializable {
 	

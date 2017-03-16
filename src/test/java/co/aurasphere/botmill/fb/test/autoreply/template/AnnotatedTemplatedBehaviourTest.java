@@ -216,7 +216,7 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 	 */
 	@Override
 	protected String[] getMessagesToSend() {
-		return new String[]{"receipt template", "hi","text message1"};
+		return new String[]{"receipt template", "hi"};
 	}
 
 	/* (non-Javadoc)

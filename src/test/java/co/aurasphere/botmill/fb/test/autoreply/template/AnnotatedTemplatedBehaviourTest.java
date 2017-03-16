@@ -96,12 +96,6 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		reply(new MessageAutoReply("simple text message"));
 	}
 	
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message1", caseSensitive = true)
-	public void replyText1() {
-		System.out.println(">>>");
-		System.out.println("no reply");
-		logger.info(">>>");
-	}
 
 	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
 	public void initialGreeting() {

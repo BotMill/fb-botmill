@@ -1,5 +1,8 @@
 package co.aurasphere.botmill.fb.test.messengerprofile;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
@@ -33,5 +36,7 @@ public class FbBotMillMessengerProfileConfigurationTest {
 		persistentMenus.add(p);
 		
 		FbBotMillMessengerProfileConfiguration.setPersistentMenus(persistentMenus);
+		
+		assertNotNull(persistentMenus);
 	}
 }

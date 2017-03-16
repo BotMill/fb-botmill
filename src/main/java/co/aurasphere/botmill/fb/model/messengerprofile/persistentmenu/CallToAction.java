@@ -32,6 +32,9 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 /**
  * The Class CallToAction.
+ * 
+ * This is the persistent menu call to action object. Holds
+ * a list of Call to action menu (based on Postback button).
  */
 public class CallToAction implements Serializable {
 	

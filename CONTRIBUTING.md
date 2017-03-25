@@ -14,7 +14,7 @@ Our source is open to anyone who's interested in making Bot's using the beautifu
 **<h3>Code Contributor</h3>**
 Interested in contributing to our project? We will always be open to your pull requests! Be sure to check our code of conduct first before making any changes. Even it's all open source, we need to make sure that our code is well documented and complies with the standards.
 
-If you want to contribute, drop us an email at alvin.reyes@botmill.io OR donato.rimenti@botmill.io.  
+If you want to contribute, drop us an email at alvin.reyes@botmill.io OR donato.rimenti@botmill.io or you can talk to us directly thru out Gitter Channel [![Gitter](https://badges.gitter.im/BotMill/fb-botmill.svg)](https://gitter.im/BotMill/fb-botmill?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 **Basic Steps if you want to contribute code.**
 - Forked the master branch to your user repo.

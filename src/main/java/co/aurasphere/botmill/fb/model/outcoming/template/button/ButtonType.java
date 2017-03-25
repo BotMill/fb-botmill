@@ -59,6 +59,9 @@ public enum ButtonType {
 	
 	/** The payment. */
 	@SerializedName("payment")
-	PAYMENT;
+	PAYMENT,
+	
+	@SerializedName("nested")
+	NESTED;
 
 }

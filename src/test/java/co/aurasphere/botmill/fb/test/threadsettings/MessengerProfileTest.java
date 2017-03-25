@@ -41,15 +41,6 @@ public class MessengerProfileTest extends BaseFbBotMillNetworkTest {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
-	 */
-	public void defineBehavior() {
-		// Does nothing.
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#testImplementation()
 	 */
 	@Override

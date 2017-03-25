@@ -26,9 +26,7 @@ package co.aurasphere.botmill.fb.test.autoreply.template;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import co.aurasphere.botmill.core.annotation.Bot;
-import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
@@ -42,7 +40,6 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
-
 
 /**
  * The Class TemplateBehavior.
@@ -59,14 +56,46 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 
 		// Sets the thread settings.
 		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
-		FbBotMillThreadSettingsConfiguration.setGetStartedButton("Get Started Button Payload");
+		FbBotMillThreadSettingsConfiguration.setGetStartedButton("get_started");
 		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
+		
 	}
+	
+	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK, postback="get_started")
+	public void getStarted() {
+		reply(new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				botMillSession().buildSession(envelope.getRecipient().getId());
+				return ReplyFactory.addTextMessageOnly("Hi!").build(envelope);
+			}
+		});
+	}
+	
+	//	This method catches all the postback, saves it to a variable and execute the response.
+	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK_PATTERN, postbackPattern=".*.")
+	public void catchAllPostBack() {
+		reply(new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				botMillSession().addKeyValuePair("postback_option_value", envelope.getMessage().getText());
+				return null;
+			}
+		});
+		
+	}
+
+	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi!",caseSensitive=true)
+	public void catchTextAndReply() {
+		reply(new MessageAutoReply("Hey There!"));
+	}
+	
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", caseSensitive = true)
 	public void replyText() {
 		reply(new MessageAutoReply("simple text message"));
 	}
+	
 
 	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
 	public void initialGreeting() {
@@ -89,6 +118,7 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 			}
 		});
 	}
+	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
 	public void replyWithButtonTemplate() {
 		reply(new AutoReply() {

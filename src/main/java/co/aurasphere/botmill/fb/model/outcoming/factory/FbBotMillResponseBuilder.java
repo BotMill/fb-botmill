@@ -46,7 +46,7 @@ public abstract class FbBotMillResponseBuilder extends FbBotMillBean {
 	 * @return the {@link FbBotMillResponse} of this bot.
 	 */
 	abstract FbBotMillResponse build(MessageEnvelope envelope);
-
+	
 	/**
 	 * Returns the recipient of the envelope which is the sender of the previous
 	 * one.

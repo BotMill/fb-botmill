@@ -84,6 +84,8 @@ public abstract class FbBot implements BotDefinition {
 	 * annotated method.
 	 */
 	protected FbBotMillEvent event;
+	
+	protected MessageEnvelope envelope;
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
@@ -315,6 +317,7 @@ public abstract class FbBot implements BotDefinition {
 		for (ActionFrame f : this.actionFrameList) {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
+			this.envelope = new MessageEnvelope();
 			if (f.getReplies() != null && f.getReplies().length > 0) {
 				if (f.processMultipleReply(envelope)
 						&& this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {

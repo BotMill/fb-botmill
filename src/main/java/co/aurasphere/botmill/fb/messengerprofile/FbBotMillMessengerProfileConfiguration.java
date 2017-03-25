@@ -36,6 +36,8 @@ import co.aurasphere.botmill.fb.model.messengerprofile.SetAccountLinkingUrlReque
 import co.aurasphere.botmill.fb.model.messengerprofile.SetGetStartedButtonRequest;
 import co.aurasphere.botmill.fb.model.messengerprofile.SetGreetingTextRequest;
 import co.aurasphere.botmill.fb.model.messengerprofile.SetWhitelistedDomainsRequest;
+import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.PersistentMenu;
+import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.PersistentMenuRequest;
 
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
@@ -55,8 +57,7 @@ public class FbBotMillMessengerProfileConfiguration {
 	/**
 	 * The logger.
 	 */
-	private static final Logger logger = LoggerFactory
-			.getLogger(FbBotMillMessengerProfileConfiguration.class);
+	private static final Logger logger = LoggerFactory.getLogger(FbBotMillMessengerProfileConfiguration.class);
 
 	/**
 	 * Instantiates a new FbBotMillMessengerProfileConfiguration.
@@ -81,8 +82,7 @@ public class FbBotMillMessengerProfileConfiguration {
 			logger.error("FbBotMill validation error: Get Started Button payload can't be null or empty!");
 			return;
 		}
-		SetGetStartedButtonRequest request = new SetGetStartedButtonRequest(
-				payload);
+		SetGetStartedButtonRequest request = new SetGetStartedButtonRequest(payload);
 		FbBotMillNetworkController.postMessengerProfile(request);
 	}
 
@@ -92,8 +92,7 @@ public class FbBotMillMessengerProfileConfiguration {
 	 * @see #setGetStartedButton(String)
 	 */
 	public static void deleteGetStartedButton() {
-		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest(
-				"get_started");
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("get_started");
 		FbBotMillNetworkController.deleteMessengerProfile(request);
 	}
 
@@ -133,8 +132,7 @@ public class FbBotMillMessengerProfileConfiguration {
 	 * @see #setGreetingMessage(String)
 	 */
 	public static void deleteGreetingMessage() {
-		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest(
-				"greeting");
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("greeting");
 		FbBotMillNetworkController.deleteMessengerProfile(request);
 	}
 
@@ -148,8 +146,7 @@ public class FbBotMillMessengerProfileConfiguration {
 	 *      >Facebook's Messenger Platform Domain Whitelisting Documentation</a>
 	 */
 	public static void setWhitelistedDomains(List<String> whitelistedDomains) {
-		SetWhitelistedDomainsRequest request = new SetWhitelistedDomainsRequest(
-				whitelistedDomains);
+		SetWhitelistedDomainsRequest request = new SetWhitelistedDomainsRequest(whitelistedDomains);
 		FbBotMillNetworkController.postMessengerProfile(request);
 	}
 
@@ -161,8 +158,7 @@ public class FbBotMillMessengerProfileConfiguration {
 	 *      >Facebook's Messenger Platform Domain Whitelisting Documentation</a>
 	 */
 	public static void deleteWhitelistedDomains() {
-		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest(
-				"whitelisted_domains");
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("whitelisted_domains");
 		FbBotMillNetworkController.deleteMessengerProfile(request);
 	}
 
@@ -188,8 +184,35 @@ public class FbBotMillMessengerProfileConfiguration {
 	 *      >Facebook's Messenger Platform Account Linking URL Documentation</a>
 	 */
 	public static void deleteAccountLinkingUrl() {
-		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest(
-				"account_linking_url");
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("account_linking_url");
+		FbBotMillNetworkController.deleteMessengerProfile(request);
+	}
+
+	/**
+	 * Sets the persistent menus.
+	 *
+	 * @param persistentMenu
+	 *            the new persistent menus
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu">
+	 *      Facebook's Messenger Platform Persistent Menu Documentation</a>
+	 */
+	public static void setPersistentMenus(List<PersistentMenu> persistentMenu) {
+		PersistentMenuRequest persistentMenuRequest = new PersistentMenuRequest();
+		persistentMenuRequest.addAllPersistentMenu(persistentMenu);
+		FbBotMillNetworkController.postMessengerProfile(persistentMenuRequest);
+	}
+
+	/**
+	 * Removes the Persistent Menus.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-profile/persistent-menu">
+	 *      Facebook's Messenger Platform Persistent Menu Documentation</a>
+	 */
+	public static void deletePersistentMenus() {
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("persistent_menu");
 		FbBotMillNetworkController.deleteMessengerProfile(request);
 	}
 

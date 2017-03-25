@@ -29,7 +29,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -41,7 +40,6 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
@@ -142,6 +140,19 @@ public class FbBotMillNetworkController {
 		postInternal(url, input);
 	}
 
+	public static void postMessengerProfile(StringEntity input) {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		// If the page token is invalid, returns.
+		if (!validatePageToken(pageToken)) {
+			return;
+		}
+
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE
+				+ pageToken;
+		postInternal(url, input);
+	}
+	
 	/**
 	 * POSTs a thread setting as a JSON string to Facebook.
 	 * 
@@ -152,26 +163,7 @@ public class FbBotMillNetworkController {
 		StringEntity stringEntity = toStringEntity(input);
 		postThreadSetting(stringEntity);
 	}
-
-	/**
-	 * POSTs a messenger profile as a JSON string to Facebook.
-	 * 
-	 * @param input
-	 *            the JSON data to send.
-	 */
-	public static void postMessengerProfile(StringEntity input) {
-		String pageToken = FbBotMillContext.getInstance().getPageToken();
-		// If the page token is invalid, returns.
-		if (!validatePageToken(pageToken)) {
-			return;
-		}
-
-		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE_URL
-				+ pageToken;
-		postInternal(url, input);
-	}
-
+	
 	/**
 	 * POSTs a messenger profile as a JSON string to Facebook.
 	 * 
@@ -320,7 +312,7 @@ public class FbBotMillNetworkController {
 		}
 
 		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_PROFILE
 				+ pageToken;
 		BotMillNetworkResponse response = NetworkUtils.delete(url, input);
 		propagateResponse(response);

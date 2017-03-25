@@ -23,9 +23,10 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.payload;
 
-import com.google.gson.annotations.SerializedName;
-
 import co.aurasphere.botmill.fb.model.base.Attachment;
+import co.aurasphere.botmill.fb.model.base.Payload;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * A {@link Payload} used for an {@link Attachment}.

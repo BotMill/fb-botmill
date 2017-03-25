@@ -125,6 +125,6 @@ Visit our docs for a complete list of EventTypes and Response.
 
 
 <h3>Contribution</h3>
-We'd love to get more people involve in the project. We're looking for enthusiastic maintainers that can put our framework on another level and we'd love to hear your ideas about it.
+We'd love to get more people involve in the project. We're looking for enthusiastic maintainers that can put our framework on another level and we'd love to hear your ideas about it. Feel free to Chat with us via Gitter to get started!
 
 <sub>Copyright (c) 2016-2017 BotMill.io</sub>

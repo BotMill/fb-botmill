@@ -128,6 +128,15 @@ public class FbBotMillNetworkConstants {
 	 */
 	public static final String USER_PROFILE_FIELDS = "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=";
 
+	/**
+	 * Facebook's REST path for the Upload API.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/attachment-upload/v2.8"
+	 *      > Facebook's Messenger Upload API Documentation</a>
+	 */
+	public static final String FACEBOOK_UPLOAD_API_URL = "me/message_attachments?access_token=";
+
 	/*
 	 * (non-Javadoc)
 	 * 

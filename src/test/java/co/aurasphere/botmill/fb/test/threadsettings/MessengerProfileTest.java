@@ -38,12 +38,6 @@ import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
  */
 public class MessengerProfileTest extends BaseFbBotMillNetworkTest {
 
-	@Override
-	public void defineBehaviour() {
-		// TODO Auto-generated method stub
-		super.defineBehaviour();
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

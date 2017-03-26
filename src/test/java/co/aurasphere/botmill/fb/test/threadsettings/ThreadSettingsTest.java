@@ -38,12 +38,6 @@ import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfigurat
  */
 public class ThreadSettingsTest extends BaseFbBotMillNetworkTest {
 
-	@Override
-	public void defineBehaviour() {
-		// TODO Auto-generated method stub
-		super.defineBehaviour();
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

@@ -34,6 +34,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.AttachmentMessage;
 import co.aurasphere.botmill.fb.model.outcoming.message.FbBotMillMessageResponse;
 import co.aurasphere.botmill.fb.model.outcoming.message.Message;
+import co.aurasphere.botmill.fb.model.outcoming.payload.AttachmentPayload;
 import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
@@ -60,7 +61,7 @@ public class AttachmentMessageBuilder extends MessageBaseBuilder {
 	 *            the url of the attachment content.
 	 */
 	AttachmentMessageBuilder(AttachmentType type, String url) {
-		UrlPayload payload = new UrlPayload(url);
+		UrlPayload payload = new AttachmentPayload(url);
 		this.attachment = new Attachment(type, payload);
 	}
 

@@ -48,6 +48,7 @@ import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
 import co.aurasphere.botmill.fb.model.incoming.FacebookErrorMessage;
+import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
@@ -175,6 +176,42 @@ public class FbBotMillNetworkController {
 	}
 
 	/**
+	 * POSTs an attachment as a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 * @return the uploaded attachment ID.
+	 */
+	public static UploadAttachmentResponse postUploadAttachment(
+			StringEntity input) {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		// If the page token is invalid, returns.
+		if (!validatePageToken(pageToken)) {
+			return null;
+		}
+
+		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+				+ FbBotMillNetworkConstants.FACEBOOK_UPLOAD_API_URL + pageToken;
+		BotMillNetworkResponse response = postInternal(url, input);
+
+		// Parses the response as a UploadAttachmentResponse and returns it.
+		return FbBotMillJsonUtils.fromJson(response.getResponse(),
+				UploadAttachmentResponse.class);
+	}
+
+	/**
+	 * POSTs an attachment as a JSON string to Facebook.
+	 * 
+	 * @param input
+	 *            the JSON data to send.
+	 * @return the uploaded attachment ID.
+	 */
+	public static UploadAttachmentResponse postUploadAttachment(Object input) {
+		StringEntity stringEntity = toStringEntity(input);
+		return postUploadAttachment(stringEntity);
+	}
+
+	/**
 	 * Performs a POST and propagates it to the registered monitors.
 	 * 
 	 * @param url
@@ -260,7 +297,6 @@ public class FbBotMillNetworkController {
 		StringEntity stringEntity = toStringEntity(input);
 		deleteThreadSetting(stringEntity);
 	}
-	
 
 	/**
 	 * DELETEs a JSON string as a Facebook's Messenger Profile.
@@ -292,7 +328,6 @@ public class FbBotMillNetworkController {
 		StringEntity stringEntity = toStringEntity(input);
 		deleteMessengerProfile(stringEntity);
 	}
-
 
 	/**
 	 * Validates a Facebook Page Token.

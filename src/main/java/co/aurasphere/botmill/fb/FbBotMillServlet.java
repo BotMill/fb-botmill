@@ -176,7 +176,7 @@ public class FbBotMillServlet extends BotMillServlet {
 					List<MessageEnvelope> envelopes = entry.getMessaging();
 					if (envelopes != null) {
 						MessageEnvelope lastEnvelope = envelopes.get(envelopes.size() - 1);
-						IncomingToOutgoingMessageHandler.createHandler().process(lastEnvelope);
+						IncomingToOutgoingMessageHandler.getInstance().process(lastEnvelope);
 //						for (FbBot bot : FbBotMillContext.getInstance()
 //								.getRegisteredBots()) {
 //							bot.processMessage(lastEnvelope);

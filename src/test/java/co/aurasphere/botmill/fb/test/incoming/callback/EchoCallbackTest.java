@@ -37,6 +37,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.ListTemplatePay
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 
+
 /**
  * Test for an {@link EchoMessage} parsing.
  * 
@@ -96,11 +97,9 @@ public class EchoCallbackTest extends BaseFbBotMillCallbackTest {
 	/**
 	 * Test that checks that each element of the List Template is correctly
 	 * parsed.
-	 * 
-	 * @param listTemplateElement
-	 *            the element to check.
-	 * @param i
-	 *            the element index.
+	 *
+	 * @param element the element
+	 * @param position the position
 	 */
 	private void checkListTemplateElements(ListTemplateElement element,
 			int position) {

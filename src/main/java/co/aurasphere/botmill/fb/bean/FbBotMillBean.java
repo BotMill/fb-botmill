@@ -46,6 +46,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
+
 /**
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 

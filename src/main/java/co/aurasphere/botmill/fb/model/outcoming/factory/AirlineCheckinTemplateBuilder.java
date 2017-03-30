@@ -30,6 +30,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.airline.Airline
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 
+
 /**
  * A builder for an Airline Checkin Template.
  *

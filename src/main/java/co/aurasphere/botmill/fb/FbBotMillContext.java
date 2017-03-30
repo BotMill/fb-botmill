@@ -25,16 +25,16 @@ package co.aurasphere.botmill.fb;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
-import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
+
 
 /**
  * Class that contains all the context information used to handle bots and
  * communicate with Facebook. The context is a singleton.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * 
  */
 public class FbBotMillContext {
@@ -85,6 +85,7 @@ public class FbBotMillContext {
 	private List<FbBotMillMonitor> registeredMonitors;
 	
 	
+	/** The message envelope. */
 	public MessageEnvelope messageEnvelope;
 
 	/**

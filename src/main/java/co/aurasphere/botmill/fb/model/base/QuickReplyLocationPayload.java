@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.base;
 
 import co.aurasphere.botmill.fb.model.incoming.callback.LocationCoordinates;
 
+
 /**
  * A {@link Payload} which contains a Location sent by a Quick Reply.
  * 

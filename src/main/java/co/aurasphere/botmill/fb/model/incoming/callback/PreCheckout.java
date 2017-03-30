@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInf
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a pre-checkout callback. <br>
  * <br>
@@ -49,16 +50,15 @@ import com.google.gson.annotations.SerializedName;
  * <br>
  * The event is only called for payments triggered via {@link BuyButton}, and
  * not for those triggered via webview.
- * 
+ *
  * @author Donato Rimenti
- * @since 1.1.0
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference/pre-checkout"
  *      >Facebook's Messenger Platform Pre-Checkout Callback Documentation</a>
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Webhook Setup Documentation</a>
- * 
+ * @since 1.1.0
  */
 public class PreCheckout implements Serializable {
 

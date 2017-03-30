@@ -38,7 +38,7 @@ import co.aurasphere.botmill.fb.support.FbBotMillMockMediator;
  * communication.
  * 
  * @author Donato Rimenti
- * @since 1.1.0
+ * @author Alvin Reyes
  */
 public abstract class BaseFbBotMillNetworkTest extends FbBot {
 

@@ -33,6 +33,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.BoardingPass;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineBoardingPassTemplatePayload.
  */

@@ -26,11 +26,14 @@ package co.aurasphere.botmill.fb.model.incoming;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
  * The base model of the Facebook's Messenger Platform callback. Used to model
  * all the received callbacks.
  *
  * @author Donato Rimenti
+ * @author Alvin Reyes
+ * 
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>

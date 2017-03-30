@@ -38,6 +38,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PostbackButton;
 
+
 /**
  * Base class for testing every FbBotMill callback.
  * 
@@ -93,11 +94,10 @@ public class BaseFbBotMillCallbackTest {
 
 	/**
 	 * Checks that an object is not null and an instance of class T.
-	 * 
-	 * @param object
-	 *            the object to check.
-	 * @param T
-	 *            the expected type of T.
+	 *
+	 * @param <T> the generic type
+	 * @param object            the object to check.
+	 * @param T            the expected type of T.
 	 * @return a casted object of type T.
 	 */
 	@SuppressWarnings("unchecked")
@@ -127,9 +127,9 @@ public class BaseFbBotMillCallbackTest {
 
 	/**
 	 * Checks that a list is not null and has a fixed size.
-	 * 
-	 * @param list the list to check.
+	 *
 	 * @param size the size of the list.
+	 * @param list the list to check.
 	 */
 	@SuppressWarnings("rawtypes")
 	protected void assertListOfSize(int size, List list) {

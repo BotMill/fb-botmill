@@ -31,19 +31,20 @@ import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
 import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
+
 /**
  * Test class for the {@link FbBotMillThreadSettingsConfiguration}.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  */
-public class ThreadSettingsTest extends BaseFbBotMillNetworkTest {
+public class ThreadSettingsTest {
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#testImplementation()
 	 */
-	@Override
 	protected void testImplementation() throws Exception {
 		testGetStartedButtonThreadSettings();
 		testPaymentThreadSettings();
@@ -61,7 +62,7 @@ public class ThreadSettingsTest extends BaseFbBotMillNetworkTest {
 	 */
 	private void testPaymentThreadSettings() {
 		List<String> testers = new ArrayList<String>();
-		testers.add(mockId);
+		//testers.add(mockId);
 		PaymentSettings settings = new PaymentSettings();
 		settings.setPaymentTesters(testers);
 		settings.setPaymentDevModeAction(PaymentDevModeAction.ADD);
@@ -69,14 +70,5 @@ public class ThreadSettingsTest extends BaseFbBotMillNetworkTest {
 		FbBotMillThreadSettingsConfiguration.addPaymentSettings(settings);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
-	}
 
 }

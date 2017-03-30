@@ -29,6 +29,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.Airport;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightSchedule;
 
+
 /**
  * Builder for a {@link FlightInfo} object.
  *

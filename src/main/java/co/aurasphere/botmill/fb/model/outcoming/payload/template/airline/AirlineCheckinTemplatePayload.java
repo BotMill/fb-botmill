@@ -36,6 +36,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineCheckinTemplatePayload.
  */

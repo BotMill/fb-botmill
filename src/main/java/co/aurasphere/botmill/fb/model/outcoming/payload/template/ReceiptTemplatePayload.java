@@ -41,6 +41,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Summary;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class ReceiptTemplatePayload.
  */

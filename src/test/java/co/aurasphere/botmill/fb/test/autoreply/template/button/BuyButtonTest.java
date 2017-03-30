@@ -23,6 +23,8 @@
  */
 package co.aurasphere.botmill.fb.test.autoreply.template.button;
 
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.message.MessageEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -34,13 +36,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInfo;
 import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
 
+
 /**
  * Unit test for a {@link BuyButton}.
  * 
  * @author Donato Rimenti
- * @since 1.1.0
+ * @author Alvin Reyes
  */
-public class BuyButtonTest extends BaseFbBotMillMessageTest {
+public class BuyButtonTest extends FbBot {
 
 	/**
 	 * The message to send in order to test this component.
@@ -53,7 +56,8 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 	 * @see co.aurasphere.botmill.fb.FbBotDefinition#defineBehavior()
 	 */
 	public void defineBehaviour() {
-
+		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
+		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 		addActionFrame(new MessageEvent(MESSAGE_TO_SEND), new AutoReply() {
 
 			@Override
@@ -75,26 +79,6 @@ public class BuyButtonTest extends BaseFbBotMillMessageTest {
 										.build()).endElement().build(envelope);
 			}
 		});
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#getMessagesToSend()
-	 */
-	@Override
-	public String[] getMessagesToSend() {
-		return new String[] { MESSAGE_TO_SEND };
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
 	}
 
 }

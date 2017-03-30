@@ -27,6 +27,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmentInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.ProductInfo;
 
+
 /**
  * Builder for a {@link PassengerSegmentInfo} object.
  * 

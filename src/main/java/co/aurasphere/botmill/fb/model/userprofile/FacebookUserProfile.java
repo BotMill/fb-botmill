@@ -27,6 +27,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for the User Profile API. <br>
  * <br>

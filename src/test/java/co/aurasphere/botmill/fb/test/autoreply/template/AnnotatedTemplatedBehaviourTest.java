@@ -27,9 +27,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import co.aurasphere.botmill.core.annotation.Bot;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
+import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfiguration;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -41,12 +43,16 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
 import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
 
+
 /**
  * The Class TemplateBehavior.
  */
 @Bot
-public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
+public class AnnotatedTemplatedBehaviourTest extends FbBot {
 
+	/**
+	 * Initialize.
+	 */
 	@FbBotMillInit
 	public void initialize() {
 
@@ -55,12 +61,16 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.aurasphere.co"));
 
 		// Sets the thread settings.
-		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
-		FbBotMillThreadSettingsConfiguration.setGetStartedButton("get_started");
-		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
+		FbBotMillMessengerProfileConfiguration.setGetStartedButton("get_started");
+		FbBotMillMessengerProfileConfiguration.setGreetingMessage("hello");
 		
 	}
 	
+	/**
+	 * Gets the started.
+	 *
+	 * @return the started
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK, postback="get_started")
 	public void getStarted() {
 		reply(new AutoReply() {
@@ -72,9 +82,12 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		});
 	}
 	
+	/**
+	 * Catch all post back.
+	 */
 	//	This method catches all the postback, saves it to a variable and execute the response.
 	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK_PATTERN, postbackPattern=".*.")
-	public void catchAllPostBack() {
+	public void catchAllPostBack(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -85,42 +98,64 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		
 	}
 
+	/**
+	 * Catch text and reply.
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi!",caseSensitive=true)
-	public void catchTextAndReply() {
+	public void catchTextAndReply(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("Hey There!"));
 	}
 	
 	
+	/**
+	 * Reply text.
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", caseSensitive = true)
-	public void replyText() {
+	public void replyText(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("simple text message"));
 	}
 	
 
+	/**
+	 * Initial greeting.
+	 */
 	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
-	public void initialGreeting() {
-		reply(new AutoReply() {
+	public void initialGreeting(MessageEnvelope envelope) {
+		
+		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
 			}
-		}, new AutoReply() {
+		});
+		
+		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				String greetingMessage = "Hey There! ";
 				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
 			}
-		}, new AutoReply() {
+		});
+		
+		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-				return ReplyFactory.addTextMessageOnly("Ready for some dosage of Trivia?")
-						.addQuickReply("Random Trivia", "randomtriv").build(envelope);
+				String greetingMessage = "Hey There Again! ";
+				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
 			}
 		});
+		
+		executeReplies();
+		
 	}
 	
+	/**
+	 * Reply with button template.
+	 *
+	 * @param envelope the envelope
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
-	public void replyWithButtonTemplate() {
+	public void replyWithButtonTemplate(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -132,8 +167,14 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		});
 	}
 
+	/**
+	 * Reply with lis template.
+	 *
+	 * @param envelope the envelope
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="list template", caseSensitive = false)
-	public void replyWithLisTemplate() {
+	public void replyWithLisTemplate(MessageEnvelope envelope) {
+		
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -172,8 +213,13 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		});
 	}
 	
+	/**
+	 * Replywith quick replies.
+	 *
+	 * @param envelope the envelope
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="quick replies", caseSensitive = false)
-	public void replywithQuickReplies() {
+	public void replywithQuickReplies(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -197,8 +243,13 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		});
 	}
 	
+	/**
+	 * Reply with receipt template.
+	 *
+	 * @param envelope the envelope
+	 */
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="receipt template", caseSensitive = true)
-	public void replyWithReceiptTemplate() {
+	public void replyWithReceiptTemplate(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -211,20 +262,4 @@ public class AnnotatedTemplatedBehaviourTest extends BaseFbBotMillMessageTest {
 		});
 	}
 	
-	/* (non-Javadoc)
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest#getMessagesToSend()
-	 */
-	@Override
-	protected String[] getMessagesToSend() {
-		return new String[]{"receipt template", "hi"};
-	}
-
-	/* (non-Javadoc)
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
-	}
- 
 }

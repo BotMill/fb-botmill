@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
+
 /**
  * The Logout Button Class/Object.
  *

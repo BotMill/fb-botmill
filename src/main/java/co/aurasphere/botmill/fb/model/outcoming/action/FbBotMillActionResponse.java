@@ -30,10 +30,12 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * A {@link FbBotMillResponse} which replies with a {@link TypingAction}.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * 
  */
 public class FbBotMillActionResponse extends FbBotMillResponse {

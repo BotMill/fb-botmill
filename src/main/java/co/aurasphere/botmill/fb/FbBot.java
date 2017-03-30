@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -34,30 +35,29 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.core.BotMillSession;
-import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchException;
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
-import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
-import co.aurasphere.botmill.fb.event.message.LocationEvent;
-import co.aurasphere.botmill.fb.event.message.MessageEvent;
-import co.aurasphere.botmill.fb.event.message.MessagePatternEvent;
-import co.aurasphere.botmill.fb.event.message.QuickReplyMessageEvent;
-import co.aurasphere.botmill.fb.event.message.QuickReplyMessagePatternEvent;
-import co.aurasphere.botmill.fb.event.postback.PostbackEvent;
-import co.aurasphere.botmill.fb.event.postback.PostbackPatternEvent;
-import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
+
 
 /**
  * Base {@link BotDefinition} implementation.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * 
  */
 public abstract class FbBot implements BotDefinition {
 
+	/** The Constant KIK_BOTMILL_USER_NAME_PROP. */
+	private static final String FB_BOTMILL_PAGE_TOKEN = "fb.page.token";
+	
+	/** The Constant KIK_BOTMILL_API_KEY_PROP. */
+	private static final String FB_BOTMILL_VALIDATION_TOKEN = "fb.validation.token";
+	
 	/**
 	 * The logger.
 	 */
@@ -83,9 +83,27 @@ public abstract class FbBot implements BotDefinition {
 	 * The {@link FbBotMillEvent} object created by this class for each
 	 * annotated method.
 	 */
-	protected FbBotMillEvent event;
+	private FbBotMillEvent event;
 	
-	protected MessageEnvelope envelope;
+	/** The envelope. */
+	private MessageEnvelope envelope;
+	
+	/** The action frame. */
+	private ActionFrame actionFrame;
+	
+	/**
+	 * Sets the event.
+	 *
+	 * @param event the new event
+	 */
+	public void setEvent(FbBotMillEvent event) {this.event = event;}
+	
+	/**
+	 * Sets the envelope.
+	 *
+	 * @param envelope the new envelope
+	 */
+	public void setEnvelope(MessageEnvelope envelope) {this.envelope = envelope;}
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
@@ -95,17 +113,34 @@ public abstract class FbBot implements BotDefinition {
 	 */
 	public FbBot(BotMillPolicy botmillPolicy) {
 		logger.debug("AbstractFbot - Start Initialize");
+		
 		this.botMillPolicy = botmillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
 		// Create the botmill session.
-		botMillSession = BotMillSession.getInstance();
+		this.buildFbBotConfig();
 		this.buildAnnotatedInitBehaviour();
-		this.buildAnnotatedBehaviour();
-
+		
 		// Registers this bot to the context.
 		FbBotMillContext.getInstance().register(this);
 
 		logger.debug("AbstractFbot - End Initialize");
+	}
+	
+	/**
+	 * Builds the kik bot config.
+	 *
+	 * @throws BotMillMissingConfigurationException
+	 *             the bot mill missing configuration exception
+	 */
+	private void buildFbBotConfig()  {
+		
+		// Everything goes well, initialize the setup.
+		FbBotMillContext.getInstance().setup(
+				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_PAGE_TOKEN),
+				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_VALIDATION_TOKEN));
+
+		// Create the botmill session.
+		botMillSession = BotMillSession.getInstance();
 	}
 
 	/**
@@ -180,44 +215,15 @@ public abstract class FbBot implements BotDefinition {
 	}
 
 	/**
-	 * This is the private method that gets called to invoke the annotated
-	 * methods to build the behaviours.
-	 */
-	private void buildAnnotatedBehaviour() {
-		Method[] methods = this.getClass().getMethods();
-
-		for (Method method : methods) {
-			if (method.isAnnotationPresent(FbBotMillController.class)) {
-				try {
-					FbBotMillController botMillController = method
-							.getAnnotation(FbBotMillController.class);
-					event = toEventActionFrame(botMillController);
-					method.invoke(this);
-				} catch (Exception e) {
-					logger.error(e.getMessage());
-				}
-			}
-		}
-	}
-
-	/**
-	 * This method is used to create a reply.
-	 *
-	 * @param reply
-	 *            the reply
-	 */
-	protected void reply(AutoReply reply) {
-		this.addActionFrame(event, reply);
-	}
-
-	/**
 	 * This method is used to create multiple replies.
 	 *
 	 * @param replies
 	 *            the set of replies in a form of a var-args
 	 */
 	protected void reply(AutoReply... replies) {
-		this.addActionFrame(event, replies);
+		for(AutoReply autoReply: replies) {
+			autoReply.reply(this.envelope);
+		}
 	}
 
 	/**
@@ -228,79 +234,47 @@ public abstract class FbBot implements BotDefinition {
 	protected final BotMillSession botMillSession() {
 		return this.botMillSession;
 	}
-
+	
 	/**
-	 * To event action frame.
+	 * This method is used to create a reply.
 	 *
-	 * @param botMillController
-	 *            the bot mill controller
-	 * @return the fb bot mill event
-	 * @throws BotMillEventMismatchException
-	 *             the fb bot mill controller event mis match exception
+	 * @param reply
+	 *            the reply
 	 */
-	private FbBotMillEvent toEventActionFrame(
-			FbBotMillController botMillController)
-			throws BotMillEventMismatchException {
-		boolean caseSensitive = botMillController.caseSensitive();
-
-		switch (botMillController.eventType()) {
-		case MESSAGE:
-			if (!botMillController.text().equals("")) {
-				return new MessageEvent(botMillController.text(), caseSensitive);
-			} else {
-				throw new BotMillEventMismatchException(
-						"text attribute missing");
-			}
-		case MESSAGE_PATTERN:
-			if (!botMillController.pattern().equals("")) {
-				return new MessagePatternEvent(
-						Pattern.compile(botMillController.pattern()));
-			} else {
-				throw new BotMillEventMismatchException(
-						"pattern attribute missing");
-			}
-		case POSTBACK:
-			if (!botMillController.postback().equals("")) {
-				return new PostbackEvent(botMillController.postback());
-			} else {
-				throw new BotMillEventMismatchException(
-						"postback attribute missing");
-			}
-		case POSTBACK_PATTERN:
-			if (!botMillController.postbackPattern().equals("")) {
-				return new PostbackPatternEvent(
-						Pattern.compile(botMillController.postbackPattern()));
-			} else {
-				throw new BotMillEventMismatchException(
-						"postback pattern attribute missing");
-			}
-		case QUICK_REPLY_MESSAGE:
-			if (!botMillController.quickReplyPayload().equals("")) {
-				return new QuickReplyMessageEvent(
-						botMillController.quickReplyPayload());
-			} else {
-				throw new BotMillEventMismatchException(
-						"quickpayload attribute missing");
-			}
-		case QUICK_REPLY_MESSAGE_PATTERN:
-			if (!botMillController.quickReplyPayloadPattern().equals("")) {
-				return new QuickReplyMessagePatternEvent(
-						Pattern.compile(botMillController
-								.quickReplyPayloadPattern()));
-			} else {
-				throw new BotMillEventMismatchException(
-						"quickpayload pattern attribute missing");
-			}
-		case LOCATION:
-			return new LocationEvent();
-		case ANY:
-			return new AnyEvent();
-		default:
-			throw new BotMillEventMismatchException(
-					"Unsupported Event Type: " + botMillController.eventType());
-		}
+	protected void reply(AutoReply reply) {
+		reply.reply(this.envelope);
 	}
-
+	
+	/**
+	 * Adds the reply.
+	 *
+	 * @param reply the reply
+	 */
+	protected void addReply(AutoReply reply) {
+		if(actionFrame == null) {
+			actionFrame = new ActionFrame(this.event);
+		}
+		actionFrame.addReply(reply);
+	}
+	
+	/**
+	 * Execute replies.
+	 */
+	protected void executeReplies() {
+		if(actionFrame.getEvent().verifyEventCondition(this.envelope)) {
+			if (actionFrame.getReplies() != null && actionFrame.getReplies().size() > 0) {
+				if (actionFrame.processMultipleReply(envelope)
+						&& this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
+				}
+			} else {
+				if (actionFrame.process(envelope)
+						&& this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
+				}
+			}
+		}
+		actionFrame = null;
+	}
+	
 	/**
 	 * Checks if there's any registered {@link FbBotMillEvent} for the incoming
 	 * callback. If there's any, then the callback is handled. The chain will be
@@ -314,11 +288,12 @@ public abstract class FbBot implements BotDefinition {
 	 *            the incoming message.
 	 */
 	public void processMessage(MessageEnvelope envelope) {
+		
 		for (ActionFrame f : this.actionFrameList) {
 			// If the policy is FIRST_ONLY stop processing the chain at the
 			// first trigger.
 			this.envelope = new MessageEnvelope();
-			if (f.getReplies() != null && f.getReplies().length > 0) {
+			if (f.getReplies() != null && f.getReplies().size() > 0) {
 				if (f.processMultipleReply(envelope)
 						&& this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
 					break;

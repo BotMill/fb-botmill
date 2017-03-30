@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
 /**
  * The Login Class/Object.
  *

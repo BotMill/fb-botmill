@@ -27,6 +27,7 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
 /**
  * An object that contains a Facebook's user ID.
  * 

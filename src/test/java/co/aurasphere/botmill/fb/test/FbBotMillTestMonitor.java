@@ -35,12 +35,13 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
+
 /**
  * A custom monitor implementation used to check if any error happens during
  * tests.
  * 
  * @author Donato Rimenti
- * @since 1.1.0
+ * @author Alvin Reyes
  */
 public class FbBotMillTestMonitor implements FbBotMillMonitor {
 

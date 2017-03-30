@@ -48,6 +48,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
+
 /**
  * Custom deserializer for an {@link Attachment}. Instantiates the correct
  * payload according to the current object.

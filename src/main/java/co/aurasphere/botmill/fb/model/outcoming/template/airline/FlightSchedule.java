@@ -30,6 +30,7 @@ import javax.validation.constraints.NotNull;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class FlightSchedule.
  */

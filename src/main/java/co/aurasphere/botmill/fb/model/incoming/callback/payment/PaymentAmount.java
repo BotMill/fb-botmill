@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback.payment;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+
 /**
  * Object that represents the total amount of a transaction for a
  * {@link Payment} callback.

@@ -43,6 +43,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PriceInfo;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineItineraryTemplatePayload.
  */
@@ -183,26 +184,56 @@ public class AirlineItineraryTemplatePayload extends
 		this.priceInfo = priceInfo;
 	}
 
+	/**
+	 * Gets the base price.
+	 *
+	 * @return the base price
+	 */
 	public BigDecimal getBasePrice() {
 		return basePrice;
 	}
 
+	/**
+	 * Sets the base price.
+	 *
+	 * @param basePrice the new base price
+	 */
 	public void setBasePrice(BigDecimal basePrice) {
 		this.basePrice = basePrice;
 	}
 
+	/**
+	 * Gets the tax.
+	 *
+	 * @return the tax
+	 */
 	public BigDecimal getTax() {
 		return tax;
 	}
 
+	/**
+	 * Sets the tax.
+	 *
+	 * @param tax the new tax
+	 */
 	public void setTax(BigDecimal tax) {
 		this.tax = tax;
 	}
 
+	/**
+	 * Gets the total price.
+	 *
+	 * @return the total price
+	 */
 	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
 
+	/**
+	 * Sets the total price.
+	 *
+	 * @param totalPrice the new total price
+	 */
 	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}

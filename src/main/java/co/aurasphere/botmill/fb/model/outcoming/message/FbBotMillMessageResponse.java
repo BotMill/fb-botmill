@@ -29,6 +29,7 @@ import javax.validation.constraints.NotNull;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
+
 /**
  * A {@link FbBotMillResponse} which replies with a {@link Message}.
  * 

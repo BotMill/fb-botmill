@@ -28,11 +28,11 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class DefaultAction.
  * 
  * @author Alvin Reyes
- * 
  * 
  */
 public class DefaultAction extends Button {

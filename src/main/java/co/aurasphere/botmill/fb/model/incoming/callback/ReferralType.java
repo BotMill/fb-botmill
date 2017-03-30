@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.incoming.callback;
 
+
 /**
  * The Enum ReferralType.
  */

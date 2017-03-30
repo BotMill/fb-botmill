@@ -27,12 +27,13 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a confirmation message from Facebook. This will be received back
  * whenever the bot sends a message/reply.
  * 
  * @author Donato Rimenti
- * @since 1.1.0
+ * @author Alvin Reyes
  */
 public class FacebookConfirmationMessage implements Serializable {
 

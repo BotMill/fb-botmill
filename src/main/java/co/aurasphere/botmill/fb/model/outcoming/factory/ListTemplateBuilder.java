@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
 
+
 /**
  * A builder for a List Template.
  *

@@ -52,6 +52,7 @@ import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
+
 /**
  * Class that contains methods that allows FbBotMill to communicate through the
  * network.
@@ -140,6 +141,11 @@ public class FbBotMillNetworkController {
 		postInternal(url, input);
 	}
 
+	/**
+	 * Post messenger profile.
+	 *
+	 * @param input the input
+	 */
 	public static void postMessengerProfile(StringEntity input) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();
 		// If the page token is invalid, returns.

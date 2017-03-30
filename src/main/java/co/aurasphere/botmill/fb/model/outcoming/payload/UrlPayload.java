@@ -27,6 +27,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.model.base.Payload;
 
+
 /**
  * A {@link Payload} which contains an URL.
  * 

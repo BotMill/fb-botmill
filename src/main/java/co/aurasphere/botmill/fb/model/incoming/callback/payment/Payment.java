@@ -30,6 +30,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInf
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for the Payment Callback. <br>
  * <br>

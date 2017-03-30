@@ -39,6 +39,7 @@ import co.aurasphere.botmill.fb.model.messengerprofile.SetWhitelistedDomainsRequ
 import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.PersistentMenu;
 import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.PersistentMenuRequest;
 
+
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
  * Messenger Profile (for more informations, see the link below). The methods of

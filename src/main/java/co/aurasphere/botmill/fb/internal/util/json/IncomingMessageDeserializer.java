@@ -34,6 +34,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.EchoMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.IncomingMessage;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 
+
 /**
  * Custom deserializer for an {@link IncomingMessage}. Instantiates the correct
  * message from interface.

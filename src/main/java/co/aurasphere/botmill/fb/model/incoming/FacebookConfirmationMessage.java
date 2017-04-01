@@ -34,6 +34,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author Donato Rimenti
  * @author Alvin Reyes
+ * @since 1.1.0
  */
 public class FacebookConfirmationMessage implements Serializable {
 

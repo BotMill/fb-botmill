@@ -26,12 +26,8 @@ package co.aurasphere.botmill.fb;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.util.regex.Pattern;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.core.BotMillSession;
@@ -52,10 +48,10 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  */
 public abstract class FbBot implements BotDefinition {
 
-	/** The Constant KIK_BOTMILL_USER_NAME_PROP. */
+	/** The Constant FB_BOTMILL_PAGE_TOKEN. */
 	private static final String FB_BOTMILL_PAGE_TOKEN = "fb.page.token";
 	
-	/** The Constant KIK_BOTMILL_API_KEY_PROP. */
+	/** The Constant FB_BOTMILL_VALIDATION_TOKEN. */
 	private static final String FB_BOTMILL_VALIDATION_TOKEN = "fb.validation.token";
 	
 	/**
@@ -96,14 +92,14 @@ public abstract class FbBot implements BotDefinition {
 	 *
 	 * @param event the new event
 	 */
-	public void setEvent(FbBotMillEvent event) {this.event = event;}
+	public synchronized void setEvent(FbBotMillEvent event) {this.event = event;}
 	
 	/**
 	 * Sets the envelope.
 	 *
 	 * @param envelope the new envelope
 	 */
-	public void setEnvelope(MessageEnvelope envelope) {this.envelope = envelope;}
+	public synchronized void setEnvelope(MessageEnvelope envelope) {this.envelope = envelope;}
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
@@ -127,7 +123,7 @@ public abstract class FbBot implements BotDefinition {
 	}
 	
 	/**
-	 * Builds the kik bot config.
+	 * Builds the Fb bot config.
 	 *
 	 * @throws BotMillMissingConfigurationException
 	 *             the bot mill missing configuration exception

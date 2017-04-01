@@ -27,8 +27,6 @@ import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 

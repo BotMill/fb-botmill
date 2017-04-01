@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
  * 
  * @author Donato Rimenti
  * @author Alvin Reyes
+ * @since 1.2.0
  */
 public interface Reply {
 

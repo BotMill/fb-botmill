@@ -45,6 +45,11 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
 /**
  * The Class IncomingToOutgoingMessageHandler.
+ * 
+ * This is the main incoming to outgoing handler that handles the catching
+ * and responses from Facebook. 
+ * 
+ * @author Alvin Reyes
  */
 public class IncomingToOutgoingMessageHandler {
 	
@@ -86,7 +91,6 @@ public class IncomingToOutgoingMessageHandler {
 	 * @param message the message
 	 */
 	private void handleOutgoingMessage(MessageEnvelope message) {
-		
 		for (BotDefinition defClass : ConfigurationUtils.getBotDefinitionInstance()) {
 			if (defClass.getClass().isAnnotationPresent(Bot.class)) {
 				for (Method method : defClass.getClass().getMethods()) {

@@ -34,15 +34,17 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfiguration;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
+import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
-import co.aurasphere.botmill.fb.threadsettings.FbBotMillThreadSettingsConfiguration;
-
+import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInfo;
+import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
+import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 /**
  * The Class TemplateBehavior.
@@ -63,30 +65,31 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 		// Sets the thread settings.
 		FbBotMillMessengerProfileConfiguration.setGetStartedButton("get_started");
 		FbBotMillMessengerProfileConfiguration.setGreetingMessage("hello");
-		
+
 	}
-	
+
 	/**
 	 * Gets the started.
 	 *
 	 * @return the started
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK, postback="get_started")
-	public void getStarted() {
+	@FbBotMillController(eventType = FbBotMillEventType.POSTBACK, postback = "get_started")
+	public void getStarted(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				botMillSession().buildSession(envelope.getRecipient().getId());
 				return ReplyFactory.addTextMessageOnly("Hi!").build(envelope);
 			}
-		});
+		});		
 	}
-	
+
 	/**
 	 * Catch all post back.
 	 */
-	//	This method catches all the postback, saves it to a variable and execute the response.
-	@FbBotMillController(eventType=FbBotMillEventType.POSTBACK_PATTERN, postbackPattern=".*.")
+	// This method catches all the postback, saves it to a variable and execute
+	// the response.
+	@FbBotMillController(eventType = FbBotMillEventType.POSTBACK_PATTERN, postbackPattern = ".*.")
 	public void catchAllPostBack(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
@@ -95,40 +98,66 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 				return null;
 			}
 		});
-		
+
 	}
 
 	/**
 	 * Catch text and reply.
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi!",caseSensitive=true)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "Hi!", caseSensitive = true)
 	public void catchTextAndReply(MessageEnvelope envelope) {
-		reply(new MessageAutoReply("Hey There!"));
+			
+		reply(new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				String greetingMessage = "Hey There! ";
+				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+			}
+		});
+	
 	}
 	
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "Hi with Image!", caseSensitive = true)
+	public void catchTextAndReplyWithImage(MessageEnvelope envelope) {
+		
+//		
+		UploadAttachmentResponse response = FbBotMillUploadApi
+				.uploadAttachment(
+						AttachmentType.IMAGE,
+						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
+		String attachmentId = response.getAttachmentId();
+		
+		reply(new AutoReply() {
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				String greetingMessage = "Hey There! ";
+				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
+			}
+		});
 	
+	}
+
 	/**
 	 * Reply text.
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="text message", caseSensitive = true)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "text message", caseSensitive = true)
 	public void replyText(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("simple text message"));
 	}
-	
 
 	/**
 	 * Initial greeting.
 	 */
 	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
 	public void initialGreeting(MessageEnvelope envelope) {
-		
+
 		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
 				return ReplyFactory.addTypingAction(TypingAction.TYPING_ON).build(envelope);
 			}
 		});
-		
+
 		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -136,7 +165,7 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
 			}
 		});
-		
+
 		addReply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -144,17 +173,18 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
 			}
 		});
-		
+
 		executeReplies();
-		
+
 	}
-	
+
 	/**
 	 * Reply with button template.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="button template", caseSensitive = false)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "button template", caseSensitive = false)
 	public void replyWithButtonTemplate(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
@@ -170,55 +200,53 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 	/**
 	 * Reply with lis template.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="list template", caseSensitive = false)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "list template", caseSensitive = false)
 	public void replyWithLisTemplate(MessageEnvelope envelope) {
-		
+
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-				return ReplyFactory.addListTemplate()
-						.addElement("Classic T-Shirt Collection")
-							.setSubtitle("See all our colors")
-								.addButton(ButtonFactory.createUrlButton("View",
-										"https://peterssendreceiveapp.ngrok.io/collection"))
-								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
-								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/shop_collection"))
-										.endElement()
-						.addElement("Classic White T-Shirt")
-								.setSubtitle("100% Cotton, 200% Comfortable")
-								.addButton(ButtonFactory.createUrlButton("Shop Now",
-										"https://peterssendreceiveapp.ngrok.io/shop?item=100"))
-								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png")
-								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=100")).endElement()
-						.addElement("Classic Blue T-Shirt")
-								.setSubtitle("100% Cotton, 200% Comfortable")
-								.addButton(ButtonFactory.createUrlButton("Shop Now",
-										"https://peterssendreceiveapp.ngrok.io/shop?item=101"))
-								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png")
-								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=101")).endElement()
-						.addElement("Classic Black T-Shirt")
-								.setSubtitle("100% Cotton, 200% Comfortable")
-								.addButton(ButtonFactory.createUrlButton("Shop Now",
-										"https://peterssendreceiveapp.ngrok.io/shop?item=102"))
-								.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png")
-								.setDefaultAction(ButtonFactory.createDefaultActionButton(
-										"https://peterssendreceiveapp.ngrok.io/view?item=102")).endElement()
-						.addButton(ButtonFactory.createPostbackButton("View more", "view")).build(envelope);
+				return ReplyFactory.addListTemplate().addElement("Classic T-Shirt Collection")
+						.setSubtitle("See all our colors")
+						.addButton(ButtonFactory.createUrlButton("View",
+								"https://peterssendreceiveapp.ngrok.io/collection"))
+						.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/collection.png")
+						.setDefaultAction(ButtonFactory
+								.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/shop_collection"))
+						.endElement().addElement("Classic White T-Shirt").setSubtitle("100% Cotton, 200% Comfortable")
+						.addButton(ButtonFactory.createUrlButton("Shop Now",
+								"https://peterssendreceiveapp.ngrok.io/shop?item=100"))
+						.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png")
+						.setDefaultAction(ButtonFactory
+								.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=100"))
+						.endElement().addElement("Classic Blue T-Shirt").setSubtitle("100% Cotton, 200% Comfortable")
+						.addButton(ButtonFactory.createUrlButton("Shop Now",
+								"https://peterssendreceiveapp.ngrok.io/shop?item=101"))
+						.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png")
+						.setDefaultAction(ButtonFactory
+								.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=101"))
+						.endElement().addElement("Classic Black T-Shirt").setSubtitle("100% Cotton, 200% Comfortable")
+						.addButton(ButtonFactory.createUrlButton("Shop Now",
+								"https://peterssendreceiveapp.ngrok.io/shop?item=102"))
+						.setImageUrl("https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png")
+						.setDefaultAction(ButtonFactory
+								.createDefaultActionButton("https://peterssendreceiveapp.ngrok.io/view?item=102"))
+						.endElement().addButton(ButtonFactory.createPostbackButton("View more", "view"))
+						.build(envelope);
 			}
 		});
 	}
-	
+
 	/**
 	 * Replywith quick replies.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="quick replies", caseSensitive = false)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "quick replies", caseSensitive = false)
 	public void replywithQuickReplies(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
@@ -242,13 +270,14 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 			}
 		});
 	}
-	
+
 	/**
 	 * Reply with receipt template.
 	 *
-	 * @param envelope the envelope
+	 * @param envelope
+	 *            the envelope
 	 */
-	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="receipt template", caseSensitive = true)
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "receipt template", caseSensitive = true)
 	public void replyWithReceiptTemplate(MessageEnvelope envelope) {
 		reply(new AutoReply() {
 			@Override
@@ -261,5 +290,21 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 			}
 		});
 	}
-	
+
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "buy button", caseSensitive = true)
+	public void replyWithBuyButton(MessageEnvelope envelope) {
+		reply(new AutoReply() {
+
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.addGenericTemplate().addElement("A simple Button Template with a Buy Button")
+						.addButton(ButtonFactory.createBuyButton("buy_button_payload")
+								.setPaymentSummary("USD", PaymentType.FIXED_AMOUNT, "BotMill.io")
+								.addPriceLabel("A price label", "2").setTestPayment(true)
+								.addRequestedUserInfo(RequestedUserInfo.CONTACT_PHONE).build())
+						.endElement().build(envelope);
+			}
+		});
+	}
+
 }

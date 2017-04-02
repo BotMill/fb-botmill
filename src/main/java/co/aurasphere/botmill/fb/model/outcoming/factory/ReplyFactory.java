@@ -30,6 +30,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
+
 /**
  * Static class that allows the creation of a {@link FbBotMillResponse}.
  * 

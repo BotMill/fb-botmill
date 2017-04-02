@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
+
 /**
  * Base interface for monitoring raw data from BotMill framework and Facebook
  * Messenger Platform. These interface methods will be called as a callback each

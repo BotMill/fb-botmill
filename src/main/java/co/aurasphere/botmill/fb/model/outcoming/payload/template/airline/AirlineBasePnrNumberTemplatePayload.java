@@ -27,6 +27,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineBasePnrNumberTemplatePayload.
  */

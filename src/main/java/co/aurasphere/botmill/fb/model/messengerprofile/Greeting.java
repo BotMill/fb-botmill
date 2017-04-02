@@ -32,6 +32,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
+
 /**
  * Greeting object used by the {@link SetGreetingTextRequest}.
  * 

@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationCons
 import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
+
 /**
  * Payload for a Generic Template.
  * 

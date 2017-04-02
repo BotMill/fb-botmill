@@ -27,6 +27,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Object that represents a payment credentials for a {@link Payment} callback.
  * 

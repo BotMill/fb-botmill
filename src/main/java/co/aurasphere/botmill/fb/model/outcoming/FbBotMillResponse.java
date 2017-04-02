@@ -30,10 +30,12 @@ import javax.validation.constraints.NotNull;
 
 import co.aurasphere.botmill.fb.model.base.User;
 
+
 /**
  * Object that represents a FbBotMill response.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  */
 public abstract class FbBotMillResponse implements Serializable {
 

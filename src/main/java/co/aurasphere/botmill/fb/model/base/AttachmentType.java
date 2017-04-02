@@ -27,6 +27,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Enum for attachment types.
  * 

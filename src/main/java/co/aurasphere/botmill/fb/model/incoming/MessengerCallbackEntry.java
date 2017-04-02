@@ -27,10 +27,13 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
+
 /**
  * Represents a received callback from Facebook's Messenger Platform.
  *
  * @author Donato Rimenti
+ * @author Alvin Reyes
+ * 
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#format"
  *      >Facebook's Messenger Platform Common Format Documentation</a>

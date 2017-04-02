@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineFlightUpdateTemplatePayload.
  */

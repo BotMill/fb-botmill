@@ -35,6 +35,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Payment Summary Class/Object.
  *
@@ -76,6 +77,9 @@ public class PaymentSummary implements Serializable {
 	@SerializedName("requested_user_info")
 	private List<RequestedUserInfo> requestedUserInfo;
 
+	/**
+	 * Instantiates a new payment summary.
+	 */
 	public PaymentSummary() {
 		this.priceList = new ArrayList<PriceLabel>();
 		this.requestedUserInfo = new ArrayList<RequestedUserInfo>();
@@ -176,6 +180,11 @@ public class PaymentSummary implements Serializable {
 		this.priceList = priceList;
 	}
 
+	/**
+	 * Adds the price label.
+	 *
+	 * @param priceLabel the price label
+	 */
 	public void addPriceLabel(PriceLabel priceLabel) {
 		this.priceList.add(priceLabel);
 	}

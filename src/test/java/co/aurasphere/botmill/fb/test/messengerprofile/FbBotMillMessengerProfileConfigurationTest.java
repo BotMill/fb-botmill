@@ -11,8 +11,15 @@ import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.CallToActi
 import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.PersistentMenu;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ButtonFactory;
 
+
+/**
+ * The Class FbBotMillMessengerProfileConfigurationTest.
+ */
 public class FbBotMillMessengerProfileConfigurationTest {
 	
+	/**
+	 * Test persistent menu.
+	 */
 	@Test
 	public void testPersistentMenu() {
 		

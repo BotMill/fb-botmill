@@ -23,15 +23,20 @@
  */
 package co.aurasphere.botmill.fb.actionframe;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
+
 
 /**
  * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to
  * it.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * 
  */
 public class ActionFrame {
@@ -49,7 +54,7 @@ public class ActionFrame {
 	/**
 	 * The replies of this frame to send if the event is triggered.
 	 */
-	private AutoReply[] replies;
+	private List<AutoReply> replies;
 
 	/**
 	 * Gets the reply.
@@ -57,7 +62,16 @@ public class ActionFrame {
 	 * @return the reply
 	 */
 	public AutoReply getReply() {
-		return reply;
+		return this.reply;
+	}
+	
+	/**
+	 * Gets the event.
+	 *
+	 * @return the event
+	 */
+	public FbBotMillEvent getEvent() {
+		return this.event;
 	}
 
 	/**
@@ -65,10 +79,19 @@ public class ActionFrame {
 	 *
 	 * @return the replies
 	 */
-	public AutoReply[] getReplies() {
+	public List<AutoReply> getReplies() {
 		return replies;
 	}
 
+	/**
+	 * Instantiates a new action frame.
+	 *
+	 * @param event the event
+	 */
+	public ActionFrame(FbBotMillEvent event) {
+		this.event = event;
+		this.replies = new ArrayList<AutoReply>();
+	}
 	/**
 	 * Instantiates a new action frame.
 	 *
@@ -92,7 +115,19 @@ public class ActionFrame {
 	 */
 	public ActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		this.event = event;
-		this.replies = replies;
+		for(AutoReply autoReply: replies) {
+			this.replies.add(autoReply);
+		}
+		
+	}
+	
+	/**
+	 * Adds the reply.
+	 *
+	 * @param autoReply the auto reply
+	 */
+	public void addReply(AutoReply autoReply) {
+		this.getReplies().add(autoReply);
 	}
 
 	/**

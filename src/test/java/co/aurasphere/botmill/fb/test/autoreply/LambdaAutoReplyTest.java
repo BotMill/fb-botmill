@@ -23,27 +23,30 @@
  */
 package co.aurasphere.botmill.fb.test.autoreply;
 
+import co.aurasphere.botmill.core.annotation.Bot;
+import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.autoreply.LambdaAutoReply;
 import co.aurasphere.botmill.fb.autoreply.Reply;
 import co.aurasphere.botmill.fb.event.message.MessageEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
+
 
 /**
  * Test for a {@link LambdaAutoReply}.
  * 
  * @author Donato Rimenti
- * @since 1.2.0
+ * @author Alvin Reyes
  */
-public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
-
+@Bot
+public class LambdaAutoReplyTest extends FbBot {
+	
 	/**
 	 * The message to send in order to test this component.
 	 */
 	private static final String MESSAGE_TO_SEND = "test_lambda_auto_reply";
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -51,38 +54,17 @@ public class LambdaAutoReplyTest extends BaseFbBotMillMessageTest {
 	 */
 	@Override
 	public void defineBehaviour() {
+		
 		// This cannot be tested with a real lambda since the project is
 		// compiled in 1.5, but this test is equivalent.
 		addActionFrame(new MessageEvent(MESSAGE_TO_SEND), new LambdaAutoReply(
 				new Reply() {
 					public FbBotMillResponse createResponse(
 							MessageEnvelope envelope) {
-						return ReplyFactory.addTextMessageOnly(
-								getTestOkBotReply(MESSAGE_TO_SEND)).build(
+						return ReplyFactory.addTextMessageOnly(MESSAGE_TO_SEND).build(
 								envelope);
 					}
 				}));
-	}
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest#getMessagesToSend
-	 * ()
-	 */
-	@Override
-	protected String[] getMessagesToSend() {
-		return new String[] { MESSAGE_TO_SEND };
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
 	}
 
 }

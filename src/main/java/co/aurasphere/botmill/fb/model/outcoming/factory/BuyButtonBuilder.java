@@ -27,6 +27,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
 
+
 /**
  * Builder for a {@link BuyButton}.
  * 

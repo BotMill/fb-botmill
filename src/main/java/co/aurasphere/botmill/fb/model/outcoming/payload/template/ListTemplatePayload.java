@@ -39,15 +39,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.list.TopElementStyle;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Payload for a List Template.
- * 
+ *
+ * @author Alvin Reyes
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/list-template"
  *      > Facebook's Messenger Platform List Template Documentation</a>
- * 
- * @author Alvin Reyes
- * 
  */
 public class ListTemplatePayload extends TemplateBasePayload {
 

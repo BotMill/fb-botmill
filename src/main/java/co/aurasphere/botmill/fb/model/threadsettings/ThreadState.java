@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.threadsettings;
 
+
 /**
  * Enum that represents the Facebook Thread state.
  *

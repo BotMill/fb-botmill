@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.model.incoming.callback.Postback;
 import co.aurasphere.botmill.fb.model.incoming.callback.ReceivedMessage;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * Testing facility for FbBotMill framework. Since this object is intended only
  * for testing, it is NOT Thread safe.

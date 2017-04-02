@@ -27,9 +27,8 @@ import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
+
 
 /**
  * Test for the {@link FbBotMillUploadApi} class.
@@ -37,17 +36,7 @@ import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
  * @author Donato Rimenti
  * @since 2.0.0
  */
-public class UploadApiTest extends BaseFbBotMillNetworkTest {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
-	}
+public class UploadApiTest {
 
 	/*
 	 * (non-Javadoc)
@@ -56,7 +45,6 @@ public class UploadApiTest extends BaseFbBotMillNetworkTest {
 	 * co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#testImplementation
 	 * ()
 	 */
-	@Override
 	protected void testImplementation() throws Exception {
 		UploadAttachmentResponse response = FbBotMillUploadApi
 				.uploadAttachment(
@@ -64,7 +52,7 @@ public class UploadApiTest extends BaseFbBotMillNetworkTest {
 						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
 		String attachmentId = response.getAttachmentId();
 		Assert.notNull(attachmentId);
-		logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
+		//logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
 	}
 
 }

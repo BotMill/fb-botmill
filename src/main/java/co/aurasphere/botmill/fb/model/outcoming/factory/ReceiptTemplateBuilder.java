@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Adjustment;
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.ReceiptTemplateElement;
 import co.aurasphere.botmill.fb.model.outcoming.template.receipt.Summary;
 
+
 /**
  * A builder for a Receipt Template.
  *

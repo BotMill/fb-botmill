@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.payload;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Enum that represents the all available payloads.
  * 

@@ -31,19 +31,19 @@ import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfig
 import co.aurasphere.botmill.fb.model.messengerprofile.Greeting;
 import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 
+
 /**
  * Test class for the {@link FbBotMillMessengerProfileConfiguration}.
  * 
  * @author Donato Rimenti
  */
-public class MessengerProfileTest extends BaseFbBotMillNetworkTest {
+public class MessengerProfileTest {
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#testImplementation()
 	 */
-	@Override
 	protected void testImplementation() throws Exception {
 		testGetStartedButtonMessengerProfile();
 		testGreetingTextMessengerProfile();
@@ -92,14 +92,5 @@ public class MessengerProfileTest extends BaseFbBotMillNetworkTest {
 		FbBotMillMessengerProfileConfiguration.deleteAccountLinkingUrl();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
-	}
 
 }

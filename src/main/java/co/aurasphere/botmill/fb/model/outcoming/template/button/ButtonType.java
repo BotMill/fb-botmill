@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.button;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Enum for WebViewHeightRatioType.
  *
@@ -61,6 +62,7 @@ public enum ButtonType {
 	@SerializedName("payment")
 	PAYMENT,
 	
+	/** The nested. */
 	@SerializedName("nested")
 	NESTED;
 

@@ -29,6 +29,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a checkout update callback. <br>
  * <br>

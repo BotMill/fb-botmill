@@ -164,7 +164,7 @@
 		<dependency>
 			<groupId>co.aurasphere.botmill</groupId>
 			<artifactId>botmill-core</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

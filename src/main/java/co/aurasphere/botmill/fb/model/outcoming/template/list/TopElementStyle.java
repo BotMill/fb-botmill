@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.list;
 
+
 /**
  * The TopElementStyle Enum.
  *

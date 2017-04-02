@@ -38,6 +38,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.AttachmentPayload;
 import co.aurasphere.botmill.fb.model.outcoming.payload.UrlPayload;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * Builder for a {@link Message} that contains an {@link Attachment}.
  * 

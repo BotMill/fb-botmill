@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import java.io.Serializable;
 
+
 /**
  * Model for a postback callback. <br>
  * <br>

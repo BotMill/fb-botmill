@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.autoreply;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
+
 /**
  * An {@link AutoReply} whose reply is defined by a Java 8 Lambda function.
  * 

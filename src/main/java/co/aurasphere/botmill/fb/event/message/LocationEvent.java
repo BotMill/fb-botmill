@@ -29,6 +29,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * An {@link FbBotMillEvent} that triggers whenever the users sends a location
  * using a {@link QuickReply} button.

@@ -30,6 +30,7 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
+
 /**
  * The Class CallToAction.
  * 

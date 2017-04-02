@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.incoming.callback;
 
+
 /**
  * Model for a received message callback. <br>
  * <br>

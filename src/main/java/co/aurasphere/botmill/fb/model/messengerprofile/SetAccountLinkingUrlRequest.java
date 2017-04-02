@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfig
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Request for
  * {@link FbBotMillMessengerProfileConfiguration#setAccountLinkingUrl(String)}

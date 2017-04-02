@@ -27,6 +27,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
+
 /**
  * Builder for a {@link GenericTemplateElement}.
  * 

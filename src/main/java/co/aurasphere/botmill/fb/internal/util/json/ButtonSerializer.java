@@ -41,6 +41,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+
 /**
  * Custom serializer/deserializer for an {@link Button}. Instantiates the
  * correct button from interface.

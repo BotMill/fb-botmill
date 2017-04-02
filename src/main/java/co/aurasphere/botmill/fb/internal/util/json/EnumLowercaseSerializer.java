@@ -31,6 +31,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+
 /**
  * Class that serializes an Enum as its lowercase name.
  * 

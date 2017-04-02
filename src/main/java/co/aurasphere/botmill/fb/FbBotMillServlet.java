@@ -43,6 +43,8 @@ import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallback;
 import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
+import co.aurasphere.botmill.fb.model.incoming.handler.IncomingToOutgoingMessageHandler;
+
 
 /**
  * Main Servlet for FbBotMill framework. This servlet requires an init-param
@@ -58,22 +60,14 @@ import co.aurasphere.botmill.fb.model.incoming.MessengerCallbackEntry;
  * documentation with the link below.
  *
  * @author Donato Rimenti
+ * @author Alvin Reyes
+ * 
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/quickstart">
  *      Facebook Subscription info</a>
  * 
  */
 public class FbBotMillServlet extends BotMillServlet {
-
-	/**
-	 * The Constant FB_BOTMILL_PAGE_TOKEN_PROP.
-	 */
-	private static final String FB_BOTMILL_PAGE_TOKEN_PROP = "fb.page.token";
-
-	/**
-	 * The Constant FB_BOTMILL_VALIDATION_TOKEN_PROP.
-	 */
-	private static final String FB_BOTMILL_VALIDATION_TOKEN_PROP = "fb.validation.token";
 
 	/**
 	 * The logger.
@@ -85,28 +79,7 @@ public class FbBotMillServlet extends BotMillServlet {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.core.base.BotMillServlet#init()
-	 */
-	@Override
-	public void init() {
-		super.init();
-
-		Properties config = ConfigurationUtils.getConfiguration();
-		String fbPageToken = config.getProperty(FB_BOTMILL_PAGE_TOKEN_PROP);
-		String fbValidationToken = config
-				.getProperty(FB_BOTMILL_VALIDATION_TOKEN_PROP);
-
-		if (fbPageToken == null || fbValidationToken == null) {
-			logger.error("FB-BotMill page token or validation token are missing from config file [botmill.properties].");
-		}
-
-		// Everything goes well, initialize the setup.
-		FbBotMillContext.getInstance().setup(fbPageToken, fbValidationToken);
-	}
+	
 
 	/**
 	 * Specifies how to handle a GET request. GET requests are used by Facebook
@@ -202,12 +175,12 @@ public class FbBotMillServlet extends BotMillServlet {
 				for (MessengerCallbackEntry entry : callbackEntries) {
 					List<MessageEnvelope> envelopes = entry.getMessaging();
 					if (envelopes != null) {
-						MessageEnvelope lastEnvelope = envelopes.get(envelopes
-								.size() - 1);
-						for (FbBot bot : FbBotMillContext.getInstance()
-								.getRegisteredBots()) {
-							bot.processMessage(lastEnvelope);
-						}
+						MessageEnvelope lastEnvelope = envelopes.get(envelopes.size() - 1);
+						IncomingToOutgoingMessageHandler.getInstance().process(lastEnvelope);
+//						for (FbBot bot : FbBotMillContext.getInstance()
+//								.getRegisteredBots()) {
+//							bot.processMessage(lastEnvelope);
+//						}
 					}
 				}
 			}

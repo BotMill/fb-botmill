@@ -27,6 +27,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BaseStringEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * An {@link FbBotMillEvent} that triggers whenever the users sends a text
  * message that matches an exact String.

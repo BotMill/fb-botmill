@@ -30,6 +30,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.PayloadType;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * A {@link Payload} which contains a Template.
  * 

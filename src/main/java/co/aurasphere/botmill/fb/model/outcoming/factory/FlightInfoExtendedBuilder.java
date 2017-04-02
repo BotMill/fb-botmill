@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightSchedule;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmentInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
+
 /**
  * Builder for a {@link FlightInfoExtended} object.
  * 

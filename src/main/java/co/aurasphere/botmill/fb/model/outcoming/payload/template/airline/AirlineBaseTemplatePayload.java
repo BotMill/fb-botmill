@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.TemplateBasePay
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class AirlineBaseTemplatePayload.
  */

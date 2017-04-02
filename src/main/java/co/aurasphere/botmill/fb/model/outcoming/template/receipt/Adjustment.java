@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.model.outcoming.template.receipt;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+
 /**
  * The Class Adjustment.
  * 

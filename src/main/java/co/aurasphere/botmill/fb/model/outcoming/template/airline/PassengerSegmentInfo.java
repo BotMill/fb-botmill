@@ -35,6 +35,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class PassengerSegmentInfo.
  */

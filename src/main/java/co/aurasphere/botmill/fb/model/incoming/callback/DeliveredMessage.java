@@ -27,6 +27,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
+
 /**
  * Model for a delivered message callback. <br>
  * <br>

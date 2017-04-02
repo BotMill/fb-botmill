@@ -29,6 +29,7 @@ import javax.validation.constraints.NotNull;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Base request for a Thread Setting configuration.
  *

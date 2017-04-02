@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.threadsettings;
 
+
 /**
  * The Enum DomainActionType.
  * 

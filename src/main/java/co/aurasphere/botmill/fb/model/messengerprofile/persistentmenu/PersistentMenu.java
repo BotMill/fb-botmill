@@ -29,6 +29,8 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
+import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+
 
 /**
  * The Class PersistentMenu.
@@ -51,7 +53,7 @@ public class PersistentMenu implements Serializable {
 	
 	/** The call to actions. */
 	@SerializedName("call_to_actions")
-	private List<CallToAction> callToActions;
+	private List<Button> callToActions;
 	
 	/** The type. */
 	private String type;
@@ -80,7 +82,7 @@ public class PersistentMenu implements Serializable {
 	public PersistentMenu(String locale, boolean composerInputDisabled) {
 		this.locale = locale;
 		this.composerInputDisabled = composerInputDisabled;
-		this.callToActions = new ArrayList<CallToAction>();
+		this.callToActions = new ArrayList<Button>();
 	}
 	
 	/**
@@ -89,7 +91,7 @@ public class PersistentMenu implements Serializable {
 	 * @param locale the locale
 	 * @param callToActions the call to actions
 	 */
-	public PersistentMenu(String locale, List<CallToAction> callToActions) {
+	public PersistentMenu(String locale, List<Button> callToActions) {
 		this.locale = locale;
 		this.callToActions = callToActions;
 	}
@@ -101,7 +103,7 @@ public class PersistentMenu implements Serializable {
 	 * @param composerInputDisabled the composer input disabled
 	 * @param callToActions the call to actions
 	 */
-	public PersistentMenu(String locale,boolean composerInputDisabled, List<CallToAction> callToActions) {
+	public PersistentMenu(String locale,boolean composerInputDisabled, List<Button> callToActions) {
 		this.composerInputDisabled = composerInputDisabled;
 		this.locale = locale;
 		this.callToActions = callToActions;
@@ -149,7 +151,7 @@ public class PersistentMenu implements Serializable {
 	 *
 	 * @return the call to actions
 	 */
-	public List<CallToAction> getCallToActions() {
+	public List<Button> getCallToActions() {
 		return callToActions;
 	}
 	
@@ -158,7 +160,7 @@ public class PersistentMenu implements Serializable {
 	 *
 	 * @param callToActions the new call to actions
 	 */
-	public void setCallToActions(List<CallToAction> callToActions) {
+	public void setCallToActions(List<Button> callToActions) {
 		this.callToActions = callToActions;
 	}
 	
@@ -167,7 +169,7 @@ public class PersistentMenu implements Serializable {
 	 *
 	 * @param callToAction the call to action
 	 */
-	public void addCallToAction(CallToAction callToAction) {
+	public void addCallToAction(Button callToAction) {
 		this.callToActions.add(callToAction);
 	}
 	

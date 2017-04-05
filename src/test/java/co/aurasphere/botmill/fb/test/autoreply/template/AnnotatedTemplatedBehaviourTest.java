@@ -83,7 +83,11 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 			}
 		});		
 	}
-
+	
+	@FbBotMillController(eventType = FbBotMillEventType.IMAGE)
+	public void getImage(MessageEnvelope envelope) {
+		reply(new MessageAutoReply("image received"));
+	}
 	/**
 	 * Catch all post back.
 	 */

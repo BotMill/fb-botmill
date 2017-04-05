@@ -36,6 +36,8 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
+import co.aurasphere.botmill.fb.model.base.Attachment;
+import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.base.QuickReplyLocationPayload;
 import co.aurasphere.botmill.fb.model.base.User;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
@@ -51,7 +53,7 @@ import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
  * Base FbBot bean which contains utility methods for handling an envelope.
  * 
  * @author Donato Rimenti
- * 
+ * @author Alvin Reyes
  */
 public class FbBotMillBean {
 
@@ -184,6 +186,82 @@ public class FbBotMillBean {
 		}
 		return null;
 	}
+	
+	/**
+	 * Gets the image message.
+	 *
+	 * @param envelope the envelope
+	 * @return the image message
+	 */
+	protected Attachment getImageMessage(MessageEnvelope envelope) {
+		if (envelope != null
+				&& envelope.getMessage() != null
+				&& envelope.getMessage().getAttachments() != null
+				&& envelope.getMessage().getAttachments().get(0) != null
+				&& envelope.getMessage().getAttachments().get(0).getType() == AttachmentType.IMAGE) {
+			
+		
+			return envelope.getMessage().getAttachments().get(0);
+		}
+		return null;
+	}
+	
+	/**
+	 * Gets the audio message.
+	 *
+	 * @param envelope the envelope
+	 * @return the audio message
+	 */
+	protected Attachment getAudioMessage(MessageEnvelope envelope) {
+		if (envelope != null
+				&& envelope.getMessage() != null
+				&& envelope.getMessage().getAttachments() != null
+				&& envelope.getMessage().getAttachments().get(0) != null
+				&& envelope.getMessage().getAttachments().get(0).getType() == AttachmentType.AUDIO) {
+			
+		
+			return envelope.getMessage().getAttachments().get(0);
+		}
+		return null;
+	}
+	
+	/**
+	 * Gets the video message.
+	 *
+	 * @param envelope the envelope
+	 * @return the video message
+	 */
+	protected Attachment getVideoMessage(MessageEnvelope envelope) {
+		if (envelope != null
+				&& envelope.getMessage() != null
+				&& envelope.getMessage().getAttachments() != null
+				&& envelope.getMessage().getAttachments().get(0) != null
+				&& envelope.getMessage().getAttachments().get(0).getType() == AttachmentType.VIDEO) {
+			
+		
+			return envelope.getMessage().getAttachments().get(0);
+		}
+		return null;
+	}
+	
+	/**
+	 * Gets the file message.
+	 *
+	 * @param envelope the envelope
+	 * @return the file message
+	 */
+	protected Attachment getFileMessage(MessageEnvelope envelope) {
+		if (envelope != null
+				&& envelope.getMessage() != null
+				&& envelope.getMessage().getAttachments() != null
+				&& envelope.getMessage().getAttachments().get(0) != null
+				&& envelope.getMessage().getAttachments().get(0).getType() == AttachmentType.FILE) {
+			
+		
+			return envelope.getMessage().getAttachments().get(0);
+		}
+		return null;
+	}
 
 	/**
 	 * Retrieves the sender from an envelope. It never returns null.
@@ -215,6 +293,18 @@ public class FbBotMillBean {
 			if (message instanceof ReceivedMessage) {
 				if (getLocationMessage(envelope) != null) {
 					return FbBotMillEventType.LOCATION;
+				}
+				if(getImageMessage(envelope) != null) {
+					return FbBotMillEventType.IMAGE;
+				}
+				if(getVideoMessage(envelope) != null) {
+					return FbBotMillEventType.VIDEO;
+				}
+				if(getAudioMessage(envelope) != null) {
+					return FbBotMillEventType.AUDIO;
+				}
+				if(getFileMessage(envelope) != null) {
+					return FbBotMillEventType.FILE;
 				}
 				return FbBotMillEventType.MESSAGE;
 			}

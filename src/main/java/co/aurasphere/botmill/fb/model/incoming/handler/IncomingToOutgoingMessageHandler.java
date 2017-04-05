@@ -32,6 +32,10 @@ import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchExcepti
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
+import co.aurasphere.botmill.fb.event.media.AudioEvent;
+import co.aurasphere.botmill.fb.event.media.FileEvent;
+import co.aurasphere.botmill.fb.event.media.ImageEvent;
+import co.aurasphere.botmill.fb.event.media.VideoEvent;
 import co.aurasphere.botmill.fb.event.message.LocationEvent;
 import co.aurasphere.botmill.fb.event.message.MessageEvent;
 import co.aurasphere.botmill.fb.event.message.MessagePatternEvent;
@@ -171,6 +175,14 @@ public class IncomingToOutgoingMessageHandler {
 			}
 		case LOCATION:
 			return new LocationEvent();
+		case IMAGE:
+			return new ImageEvent();
+		case VIDEO:
+			return new VideoEvent();
+		case AUDIO:
+			return new AudioEvent();
+		case FILE:
+			return new FileEvent();
 		case ANY:
 			return new AnyEvent();
 		default:

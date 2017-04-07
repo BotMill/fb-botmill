@@ -29,6 +29,7 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 
 
 /**
@@ -37,17 +38,14 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
  * This is the persistent menu call to action object. Holds
  * a list of Call to action menu (based on Postback button).
  */
-public class CallToAction implements Serializable {
+public class CallToActionNested extends Button implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
 	/** The title. */
 	private String title;
-	
-	/** The type. */
-	private String type;
-	
+
 	/** The call to actions. */
 	@SerializedName("call_to_actions")
 	private List<Button> callToActions;
@@ -57,9 +55,9 @@ public class CallToAction implements Serializable {
 	 *
 	 * @param title the title
 	 */
-	public CallToAction(String title) {
+	public CallToActionNested(String title) {
 		this.title = title;
-		this.type = "nested";
+		this.type = ButtonType.NESTED;
 		this.callToActions = new ArrayList<Button>();
 	}
 	
@@ -69,9 +67,9 @@ public class CallToAction implements Serializable {
 	 * @param title the title
 	 * @param type the type
 	 */
-	public CallToAction(String title, String type) {
+	public CallToActionNested(String title, ButtonType type) {
 		this.title = title;
-		this.type = type;
+		this.type = ButtonType.NESTED;
 		this.callToActions = new ArrayList<Button>();
 	}
 	
@@ -93,23 +91,16 @@ public class CallToAction implements Serializable {
 		this.title = title;
 	}
 	
-	/**
-	 * Gets the type.
-	 *
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
+	@Override
+	public void setType(ButtonType type) {
+		super.setType(type);
 	}
 	
-	/**
-	 * Sets the type.
-	 *
-	 * @param type the new type
-	 */
-	public void setType(String type) {
-		this.type = type;
+	@Override
+	public ButtonType getType() {
+		return super.getType();
 	}
+	
 	
 	/**
 	 * Gets the call to actions.

@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.lang.reflect.Type;
 
+import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.CallToActionNested;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
@@ -105,6 +106,8 @@ public class ButtonSerializer implements JsonSerializer<Button>,
 			return PostbackButton.class;
 		case WEB_URL:
 			return WebUrlButton.class;
+		case NESTED:
+			return CallToActionNested.class;
 		}
 		// This will never happen.
 		return null;

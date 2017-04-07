@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
 
@@ -111,6 +112,23 @@ public class GenericTemplateElementBuilder {
 	 */
 	public GenericTemplateElementBuilder addUrlButton(String title, String url) {
 		Button button = ButtonFactory.createUrlButton(title, url);
+		this.element.addButton(button);
+		return this;
+	}
+	
+	
+	/**
+	 * Adds a button which redirects to an URL when clicked to the current
+	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
+	 * element.
+	 * 
+	 * @param title
+	 * @param url
+	 * @param ratioType
+	 * @return
+	 */
+	public GenericTemplateElementBuilder addUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
+		Button button = ButtonFactory.createUrlButton(title, url,ratioType);
 		this.element.addButton(button);
 		return this;
 	}

@@ -24,17 +24,31 @@
 package co.aurasphere.botmill.fb.event;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * Enum that represents all the possible callbacks from Facebook's Messenger
  * Platform.
  *
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/webhook-reference#setup"
  *      >Facebook's Messenger Platform Callbacks Documentation</a>
  * 
  */
 public enum FbBotMillEventType {
+	
+	/** The file. */
+	FILE,
+	
+	/** The video. */
+	VIDEO,
+	
+	/** The audio. */
+	AUDIO,
+	
+	/** The image. */
+	IMAGE,
 
 	/**
 	 * Represents message callback.

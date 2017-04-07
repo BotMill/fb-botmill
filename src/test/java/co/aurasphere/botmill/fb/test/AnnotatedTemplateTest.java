@@ -36,6 +36,14 @@ public class AnnotatedTemplateTest {
 		assertNotNull(envelope);
 	}
 	
+	@Test
+	public void testImageBot() {
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1491360469304,\"message\":{\"mid\":\"mid.$cAACFqTvPOHVhbUgZOFbO_0AFXqVh\",\"seq\":854986,\"attachments\":[{\"type\":\"image\",\"payload\":{\"url\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t34.0-12\\/17742285_136721643528794_1945065811_n.gif?_nc_ad=z-m&oh=97198065e4ede9bd09330764a7bfb62f&oe=58E6A075\"}}]}}";
+		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
+		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
+		assertNotNull(envelope);
+	}
+	
 
 	@Test
 	public void testAnnotatedListTemplateBot() {

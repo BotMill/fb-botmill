@@ -54,6 +54,7 @@ import com.google.gson.JsonParseException;
  * payload according to the current object.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  */
 public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 
@@ -85,7 +86,7 @@ public class AttachmentDeserializer implements JsonDeserializer<Attachment> {
 		AttachmentType type = attachment.getType();
 		Class<? extends Payload> payloadClass = null;
 		JsonElement payloadJson = json.getAsJsonObject().get("payload");
-
+		
 		switch (type) {
 		case AUDIO:
 		case FILE:

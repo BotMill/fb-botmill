@@ -28,7 +28,6 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentSummary;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
-
 /**
  * Builder for a {@link GenericTemplateElement}.
  * 
@@ -115,20 +114,23 @@ public class GenericTemplateElementBuilder {
 		this.element.addButton(button);
 		return this;
 	}
-	
-	
+
 	/**
 	 * Adds a button which redirects to an URL when clicked to the current
 	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
 	 * element.
 	 * 
 	 * @param title
+	 *            the button label.
 	 * @param url
+	 *            the URL to whom redirect when clicked.
 	 * @param ratioType
-	 * @return
+	 *            the ratioType.
+	 * @return this builder.
 	 */
-	public GenericTemplateElementBuilder addUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
-		Button button = ButtonFactory.createUrlButton(title, url,ratioType);
+	public GenericTemplateElementBuilder addUrlButton(String title, String url,
+			WebViewHeightRatioType ratioType) {
+		Button button = ButtonFactory.createUrlButton(title, url, ratioType);
 		this.element.addButton(button);
 		return this;
 	}

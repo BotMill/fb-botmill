@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.ButtonTemplateP
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
 
-
 /**
  * A builder for a Button Template.
  *
@@ -77,16 +76,21 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 		this.payload.addButton(button);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a button which redirects to an URL when clicked to the current
 	 * template. There can be at most 3 buttons.
+	 * 
 	 * @param title
+	 *            the button label.
 	 * @param url
+	 *            the URL to whom redirect when clicked.
 	 * @param ratioType
-	 * @return
+	 *            the ratioType.
+	 * @return this builder.
 	 */
-	public ButtonTemplateBuilder addUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
+	public ButtonTemplateBuilder addUrlButton(String title, String url,
+			WebViewHeightRatioType ratioType) {
 		Button button = ButtonFactory.createUrlButton(title, url, ratioType);
 		this.payload.addButton(button);
 		return this;

@@ -25,6 +25,8 @@ package co.aurasphere.botmill.fb.test.upload;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
@@ -41,6 +43,8 @@ import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
  */
 public class UploadApiTest {
 	
+	private final static Logger logger = LoggerFactory.getLogger(UploadApiTest.class);
+	
 	@Before
 	public void setup() {
 		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
@@ -55,7 +59,7 @@ public class UploadApiTest {
 						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
 		String attachmentId = response.getAttachmentId();
 		Assert.notNull(attachmentId);
-		//logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
+		logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
 	}
 
 }

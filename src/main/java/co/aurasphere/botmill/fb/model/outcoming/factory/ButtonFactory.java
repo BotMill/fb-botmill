@@ -35,6 +35,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.WebUrlButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
 
+
 /**
  * Factory class for building {@link Button} objects.
  * 
@@ -83,7 +84,7 @@ public class ButtonFactory {
 	 *            the web view ratio type.
 	 * @return the button
 	 */
-	public static Button createWebViewButton(String title, String url,
+	public static Button createUrlButton(String title, String url,
 			WebViewHeightRatioType ratioType) {
 		return new WebUrlButton(title, url, ratioType);
 	}

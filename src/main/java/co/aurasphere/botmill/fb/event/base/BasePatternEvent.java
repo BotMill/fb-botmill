@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
+
 /**
  * Base class for a {@link FbBotMillEvent} that triggers when a pattern is
  * matched.

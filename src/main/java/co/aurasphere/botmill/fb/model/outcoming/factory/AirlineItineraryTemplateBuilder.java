@@ -37,6 +37,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.PassengerSegmen
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.PriceInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
+
 /**
  * Builder for an Airline Itinerary Template.
  *

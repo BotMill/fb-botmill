@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.UpdateType;
 
+
 /**
  * Builder for an Airline Flight Update Template.
  *

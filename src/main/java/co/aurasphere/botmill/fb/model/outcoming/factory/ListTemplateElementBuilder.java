@@ -27,6 +27,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.DefaultAction;
 import co.aurasphere.botmill.fb.model.outcoming.template.list.ListTemplateElement;
 
+
 /**
  * Builder for a {@link ListTemplateElement}.
  * 

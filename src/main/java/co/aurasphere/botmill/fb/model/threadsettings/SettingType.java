@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.threadsettings;
 
+
 /**
  * Enum for the Thread Setting to modify.
  *
@@ -47,6 +48,7 @@ public enum SettingType {
 	/** The domain whitelisting. */
 	DOMAIN_WHITELISTING,
 	
+	/** The payment. */
 	PAYMENT;
 
 }

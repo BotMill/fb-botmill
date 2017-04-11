@@ -28,10 +28,12 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 
+
 /**
  * An {@link AutoReply} that replies with a {@link TypingAction}.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * 
  */
 public class ActionAutoReply extends AutoReply {

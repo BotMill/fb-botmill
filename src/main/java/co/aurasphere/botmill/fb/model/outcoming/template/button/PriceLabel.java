@@ -27,6 +27,7 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+
 /**
  * The PriceList Class/Object.
  *
@@ -34,9 +35,7 @@ import javax.validation.constraints.NotNull;
  */
 public class PriceLabel implements Serializable {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The label. */
@@ -47,23 +46,49 @@ public class PriceLabel implements Serializable {
 	@NotNull
 	private String amount;
 
+	/**
+	 * Instantiates a new price label.
+	 *
+	 * @param label the label
+	 * @param amount the amount
+	 */
 	public PriceLabel(String label, String amount) {
 		this.label = label;
 		this.amount = amount;
 	}
 
+	/**
+	 * Gets the label.
+	 *
+	 * @return the label
+	 */
 	public String getLabel() {
 		return label;
 	}
 
+	/**
+	 * Sets the label.
+	 *
+	 * @param label the new label
+	 */
 	public void setLabel(String label) {
 		this.label = label;
 	}
 
+	/**
+	 * Gets the amount.
+	 *
+	 * @return the amount
+	 */
 	public String getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Sets the amount.
+	 *
+	 * @param amount the new amount
+	 */
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}

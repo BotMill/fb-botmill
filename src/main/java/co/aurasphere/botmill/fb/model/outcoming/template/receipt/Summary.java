@@ -28,6 +28,7 @@ import java.math.BigDecimal;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class Summary.
  * 

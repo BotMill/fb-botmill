@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.outcoming.factory;
 
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * Factory class for building {@link QuickReply} objects.
  * 

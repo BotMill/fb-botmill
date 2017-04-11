@@ -31,6 +31,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import co.aurasphere.botmill.fb.internal.util.validation.FbBotMillValidationConstants;
 
+
 /**
  * Object used by the {@link SetGetStartedButtonRequest} which contains the payload to be
  * sent back when the Get Started Button is pressed.

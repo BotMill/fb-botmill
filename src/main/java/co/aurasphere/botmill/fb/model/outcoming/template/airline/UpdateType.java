@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.model.outcoming.template.airline;
 
+
 /**
  * Enum that represents the kinds of updates of a flight.
  * 

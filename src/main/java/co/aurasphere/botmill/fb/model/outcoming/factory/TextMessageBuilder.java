@@ -33,6 +33,7 @@ import co.aurasphere.botmill.fb.model.outcoming.message.Message;
 import co.aurasphere.botmill.fb.model.outcoming.message.TextMessage;
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
+
 /**
  * A builder for a message that contains only a plain text message.
  * 
@@ -96,16 +97,13 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 	}
 
 	/**
-	 * 
 	 * Adds a Location {@link QuickReply} to the current object.
-	 * 
+	 *
+	 * @param locationMessage            the location text
+	 * @return this builder.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
 	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
-	 * 
-	 * @param locationMessage
-	 *            the location text
-	 * @return this builder.
 	 */
 	public TextMessageBuilder addQuickLocationReply(String locationMessage) {
 		if (this.quickReplies == null) {

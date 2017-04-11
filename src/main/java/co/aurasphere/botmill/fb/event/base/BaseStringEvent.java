@@ -26,6 +26,7 @@ package co.aurasphere.botmill.fb.event.base;
 import co.aurasphere.botmill.fb.bean.FbBotMillBean;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 
+
 /**
  * Base class for a {@link FbBotMillEvent} that triggers when an exact text is
  * matched, case sensitive or not.

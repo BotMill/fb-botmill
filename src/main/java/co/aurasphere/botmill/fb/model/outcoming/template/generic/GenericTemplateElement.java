@@ -36,8 +36,11 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class GenericTemplateElement.
+ * 
+ * @author Alvin Reyes
  */
 // TODO: test with generic template element without buttons and generic template
 // without elements (if possible)

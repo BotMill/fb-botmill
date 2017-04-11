@@ -33,7 +33,7 @@ import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
  * a message to the bot.
  * 
  * @author Donato Rimenti
- * @since 1.1.0
+ * @author Alvin Reyes
  */
 public abstract class BaseFbBotMillMessageTest extends BaseFbBotMillNetworkTest {
 

@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.incoming.callback;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model for a message echo callback. <br>
  * <br>

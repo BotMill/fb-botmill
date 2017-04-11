@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.model.incoming;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Object field for a {@link MessengerCallback}.
  * 

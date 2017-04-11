@@ -29,6 +29,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.base.BasePatternEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * An {@link FbBotMillEvent} that processes all the incoming callbacks that
  * contains a text message which matches against a defined pattern from

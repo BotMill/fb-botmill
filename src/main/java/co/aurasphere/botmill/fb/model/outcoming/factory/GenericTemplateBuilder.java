@@ -30,14 +30,14 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.template.GenericTemplate
 import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 import co.aurasphere.botmill.fb.model.outcoming.template.generic.GenericTemplateElement;
 
+
 /**
  * A builder for a Generic Template.
  *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/generic-template"
  *      > Facebook's Messenger Platform Generic Template Documentation</a>
- * @author Donato Rimenti
- * 
  */
 public class GenericTemplateBuilder extends TemplateBaseBuilder {
 

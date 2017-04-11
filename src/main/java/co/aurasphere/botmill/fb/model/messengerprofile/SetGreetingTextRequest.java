@@ -33,6 +33,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfiguration;
 
+
 /**
  * Request for {@link FbBotMillMessengerProfileConfiguration#setGreetingMessage(List)}
  * method.
@@ -70,6 +71,11 @@ public class SetGreetingTextRequest implements Serializable {
 		this.greeting = greeting;
 	}
 
+	/**
+	 * Instantiates a new sets the greeting text request.
+	 *
+	 * @param message the message
+	 */
 	public SetGreetingTextRequest(String message) {
 		this();
 		greeting.add(new Greeting(message));

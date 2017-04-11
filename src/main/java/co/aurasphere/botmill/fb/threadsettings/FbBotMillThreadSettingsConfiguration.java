@@ -45,6 +45,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.greeting.SetGreetingTextReq
 import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentDevModeAction;
 import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
 
+
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
  * Thread Settings (for more informations, see the link below). The methods of
@@ -54,6 +55,8 @@ import co.aurasphere.botmill.fb.model.threadsettings.payment.PaymentSettings;
  * call on it.
  *
  * @author Donato Rimenti
+ * @author Alvin Reyes
+ * 
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/thread-settings"
  *      >Facebook's Thread Settings Documentation</a>
@@ -257,14 +260,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * testing {@link BuyButton}, consider using the
 	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
-	 * 
-	 * @param paymentTestersIds
-	 *            the testers app-scoped IDs to add to the testers list.
-	 * @since 1.2.0
+	 *
+	 * @param paymentTestersIds            the testers app-scoped IDs to add to the testers list.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void addPaymentsTesters(List<String> paymentTestersIds) {
 		PaymentSettings request = new PaymentSettings();
@@ -281,14 +283,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * testing {@link BuyButton}, consider using the
 	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
-	 * 
-	 * @param paymentTesterId
-	 *            the tester app-scoped ID to add to the testers list.
-	 * @since 1.2.0
+	 *
+	 * @param paymentTesterId            the tester app-scoped ID to add to the testers list.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void addPaymentsTester(String paymentTesterId) {
 		PaymentSettings request = new PaymentSettings();
@@ -306,14 +307,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * testing {@link BuyButton}, consider using the
 	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
-	 * 
-	 * @param paymentTesterId
-	 *            the tester app-scoped ID to remove from the testers list.
-	 * @since 1.2.0
+	 *
+	 * @param paymentTesterId            the tester app-scoped ID to remove from the testers list.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void removePaymentsTester(String paymentTesterId) {
 		PaymentSettings request = new PaymentSettings();
@@ -331,14 +331,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	 * testing {@link BuyButton}, consider using the
 	 * {@link PaymentSummary#setTestPayment(boolean)} flag which is simpler for
 	 * testing.
-	 * 
-	 * @param paymentTestersIds
-	 *            the testers app-scoped IDs to remove from the testers list.
-	 * @since 1.2.0
+	 *
+	 * @param paymentTestersIds            the testers app-scoped IDs to remove from the testers list.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void removePaymentsTesters(List<String> paymentTestersIds) {
 		PaymentSettings request = new PaymentSettings();
@@ -350,17 +349,16 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * Sets the payment public key. The payment_public_key is used to encrypt
 	 * sensitive payment data sent to you.
-	 * 
-	 * @param publicKey
-	 *            the public key to set.
+	 *
+	 * @param publicKey            the public key to set.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
-	 * @since 1.2.0
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/payments-reference#encryption_key"
 	 *      >Facebook's Messenger Platform Creating Encryption Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void setPaymentsPublicKey(String publicKey) {
 		PaymentSettings request = new PaymentSettings();
@@ -371,14 +369,13 @@ public class FbBotMillThreadSettingsConfiguration {
 	/**
 	 * Sets the payment privacy Url. The payment_privacy_url will appear in
 	 * Facebook's payment dialogs and people will be able to view these terms.
-	 * 
-	 * @param privacyUrl
-	 *            the privacy Url to set.
-	 * @since 1.2.0
+	 *
+	 * @param privacyUrl            the privacy Url to set.
 	 * @see <a href=
 	 *      "https://developers.facebook.com/docs/messenger-platform/thread-settings/payment"
 	 *      >Facebook's Messenger Platform Payments Thread Settings
 	 *      Documentation</a>
+	 * @since 1.2.0
 	 */
 	public static void setPaymentsPrivacyUrl(String privacyUrl) {
 		PaymentSettings request = new PaymentSettings();

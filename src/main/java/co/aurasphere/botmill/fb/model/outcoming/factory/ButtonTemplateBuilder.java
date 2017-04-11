@@ -28,15 +28,16 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.payload.template.ButtonTemplatePayload;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
+import co.aurasphere.botmill.fb.model.outcoming.template.button.WebViewHeightRatioType;
+
 
 /**
  * A builder for a Button Template.
  *
+ * @author Donato Rimenti
  * @see <a href=
  *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template"
  *      > Facebook's Messenger Platform Button Template Documentation</a>
- * @author Donato Rimenti
- * 
  */
 public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 
@@ -73,6 +74,20 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 */
 	public ButtonTemplateBuilder addUrlButton(String title, String url) {
 		Button button = ButtonFactory.createUrlButton(title, url);
+		this.payload.addButton(button);
+		return this;
+	}
+	
+	/**
+	 * Adds a button which redirects to an URL when clicked to the current
+	 * template. There can be at most 3 buttons.
+	 * @param title
+	 * @param url
+	 * @param ratioType
+	 * @return
+	 */
+	public ButtonTemplateBuilder addUrlButton(String title, String url, WebViewHeightRatioType ratioType) {
+		Button button = ButtonFactory.createUrlButton(title, url, ratioType);
 		this.payload.addButton(button);
 		return this;
 	}

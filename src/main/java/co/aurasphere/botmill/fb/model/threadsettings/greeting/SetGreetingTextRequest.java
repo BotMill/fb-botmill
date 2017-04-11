@@ -29,6 +29,7 @@ import javax.validation.constraints.NotNull;
 import co.aurasphere.botmill.fb.model.threadsettings.SettingType;
 import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
 
+
 /**
  * Request used for Thread Settings of Text Greeting.
  *

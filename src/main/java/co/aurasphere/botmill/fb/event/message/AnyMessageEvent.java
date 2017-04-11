@@ -28,6 +28,7 @@ import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
+
 /**
  * A {@link FbBotMillEvent} that triggers whenever the users sends a text
  * message.

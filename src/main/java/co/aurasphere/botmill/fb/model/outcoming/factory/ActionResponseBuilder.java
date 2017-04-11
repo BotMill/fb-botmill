@@ -29,6 +29,7 @@ import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.FbBotMillActionResponse;
 import co.aurasphere.botmill.fb.model.outcoming.action.TypingAction;
 
+
 /**
  * A builder for a response which contains and performs a {@link TypingAction}.
  *

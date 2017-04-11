@@ -30,6 +30,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
 /**
  * The Class PriceInfo.
  */
@@ -42,6 +43,7 @@ public class PriceInfo implements Serializable {
 	@NotBlank
 	private String title;
 
+	/** The amount. */
 	private BigDecimal amount;
 
 	/** The currency. */

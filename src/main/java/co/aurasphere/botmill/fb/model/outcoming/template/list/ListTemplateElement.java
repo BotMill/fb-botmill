@@ -36,6 +36,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class ListTemplateElement.
  * 

@@ -30,6 +30,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.airline.Field;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.FlightInfo;
 import co.aurasphere.botmill.fb.model.outcoming.template.airline.TravelClass;
 
+
 /**
  * Builder for a {@link BoardingPass} object.
  * 

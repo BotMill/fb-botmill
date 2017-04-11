@@ -26,10 +26,12 @@ package co.aurasphere.botmill.fb.autoreply;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
 
+
 /**
  * Interface which represents every reply from the bot.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  * @since 1.2.0
  */
 public interface Reply {

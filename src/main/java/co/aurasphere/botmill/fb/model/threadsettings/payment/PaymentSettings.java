@@ -31,6 +31,7 @@ import co.aurasphere.botmill.fb.model.threadsettings.ThreadSettingsBaseRequest;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Model class for the Payment Thread Settings.
  * 

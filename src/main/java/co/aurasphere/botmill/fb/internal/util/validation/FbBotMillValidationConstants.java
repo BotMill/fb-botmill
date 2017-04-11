@@ -23,6 +23,7 @@
  */
 package co.aurasphere.botmill.fb.internal.util.validation;
 
+
 /**
  * Utility class that contains the constants used for FbBotMill internal
  * validations.
@@ -71,10 +72,13 @@ public class FbBotMillValidationConstants {
 	/** The Constant PERSISTENT_BUTTON_TITLE_MAX_LENGTH. */
 	public static final int PERSISTENT_BUTTON_TITLE_MAX_LENGTH = 30;
 
+	/** The Constant LIST_TEMPLATE_MAX_BUTTONS. */
 	public static final int LIST_TEMPLATE_MAX_BUTTONS = 1;
 
+	/** The Constant LIST_TEMPLATE_MAX_ELEMENTS. */
 	public static final int LIST_TEMPLATE_MAX_ELEMENTS = 4;
 
+	/** The Constant LIST_TEMPLATE_MIN_ELEMENTS. */
 	public static final int LIST_TEMPLATE_MIN_ELEMENTS = 2;
 
 	/**

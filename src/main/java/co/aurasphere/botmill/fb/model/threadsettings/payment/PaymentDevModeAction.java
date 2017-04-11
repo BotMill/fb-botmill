@@ -24,6 +24,14 @@
  */
 package co.aurasphere.botmill.fb.model.threadsettings.payment;
 
+
+/**
+ * The Enum PaymentDevModeAction.
+ */
 public enum PaymentDevModeAction {
-	ADD, REMOVE;
+	
+	/** The add. */
+	ADD, 
+ /** The remove. */
+ REMOVE;
 }

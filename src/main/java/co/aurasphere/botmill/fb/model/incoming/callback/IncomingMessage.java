@@ -32,6 +32,7 @@ import co.aurasphere.botmill.fb.model.outcoming.quickreply.QuickReply;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Base class for an incoming message in a {@link MessageEnvelope}.
  * 

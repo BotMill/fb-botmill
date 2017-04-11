@@ -31,6 +31,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+
 /**
  * Class that handles the serialization of a Calendar using the Facebook date
  * format (YYYY-MM-DDThh:mm).

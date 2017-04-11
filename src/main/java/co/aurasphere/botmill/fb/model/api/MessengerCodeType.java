@@ -21,39 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.test.upload;
+package co.aurasphere.botmill.fb.model.api;
 
-import org.springframework.util.Assert;
-
-import co.aurasphere.botmill.fb.model.base.AttachmentType;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
-import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
-
+import com.google.gson.annotations.SerializedName;
 
 /**
- * Test for the {@link FbBotMillUploadApi} class.
+ * Type for a {@link MessengerCode}.
  * 
  * @author Donato Rimenti
  * @since 2.0.0
  */
-public class UploadApiTest {
+public enum MessengerCodeType {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#testImplementation
-	 * ()
+	/**
+	 * The standard.
 	 */
-	protected void testImplementation() throws Exception {
-		UploadAttachmentResponse response = FbBotMillUploadApi
-				.uploadAttachment(
-						AttachmentType.IMAGE,
-						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
-		String attachmentId = response.getAttachmentId();
-		Assert.notNull(attachmentId);
-		//logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
-	}
+	@SerializedName("standard")
+	STANDARD;
 
 }

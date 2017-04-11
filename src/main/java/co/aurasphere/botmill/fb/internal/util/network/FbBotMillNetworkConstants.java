@@ -137,6 +137,15 @@ public class FbBotMillNetworkConstants {
 	 */
 	public static final String FACEBOOK_UPLOAD_API_URL = "me/message_attachments?access_token=";
 
+	/**
+	 * Facebook's REST path for the Messenger Code API.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-code"
+	 *      > Facebook's Messenger Code API Documentation</a>
+	 */
+	public static final String FACEBOOK_MESSENGER_CODE_API_URL = "me/messenger_codes?access_token=";
+
 	/*
 	 * (non-Javadoc)
 	 * 

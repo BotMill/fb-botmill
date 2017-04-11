@@ -21,7 +21,7 @@ Gradle
     
     compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC1'
 
-Groovy
+Grovvy
 
     @Grapes( 
         @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC1') 

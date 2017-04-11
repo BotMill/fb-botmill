@@ -24,11 +24,14 @@
 package co.aurasphere.botmill.fb.test.upload;
 
 import org.junit.Assert;
+import org.junit.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.api.MessengerCodeApi;
 import co.aurasphere.botmill.fb.model.api.MessengerCode;
 import co.aurasphere.botmill.fb.model.api.MessengerCodeRequest;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 
 /**
  * Test for the {@link MessengerCodeApi} class.
@@ -36,27 +39,17 @@ import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
  * @author Donato Rimenti
  * @since 2.0.0
  */
-public class MessengerCodeApiTest extends BaseFbBotMillNetworkTest {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#skipTest()
-	 */
-	@Override
-	protected boolean skipTest() {
-		return false;
+public class MessengerCodeApiTest {
+	
+	private final static Logger logger = LoggerFactory.getLogger(MessengerCodeApiTest.class);
+	
+	@Before
+	public void setup() {
+		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
+		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#testImplementation
-	 * ()
-	 */
-	@Override
-	protected void testImplementation() throws Exception {
+	public void test() {
 		MessengerCode response = MessengerCodeApi.getMessengerCode();
 		checkResponse(response);
 		

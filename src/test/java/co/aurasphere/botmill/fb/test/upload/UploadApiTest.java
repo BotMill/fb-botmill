@@ -23,11 +23,13 @@
  */
 package co.aurasphere.botmill.fb.test.upload;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.util.Assert;
 
+import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest;
 import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 
@@ -38,15 +40,15 @@ import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
  * @since 2.0.0
  */
 public class UploadApiTest {
+	
+	@Before
+	public void setup() {
+		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
+		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
+	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * co.aurasphere.botmill.fb.test.BaseFbBotMillNetworkTest#testImplementation
-	 * ()
-	 */
-	protected void testImplementation() throws Exception {
+	@Test
+	public void test() {
 		UploadAttachmentResponse response = FbBotMillUploadApi
 				.uploadAttachment(
 						AttachmentType.IMAGE,

@@ -29,10 +29,12 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
+import co.aurasphere.botmill.fb.api.MessengerCodeApi;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Request class for {@link MessegerCodeApi#getMessengerCode}.
+ * Request class for {@link MessengerCodeApi#getMessengerCode}.
  * 
  * @author Donato Rimenti
  * @since 2.0.0

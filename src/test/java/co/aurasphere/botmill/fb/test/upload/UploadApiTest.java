@@ -45,13 +45,13 @@ public class UploadApiTest {
 	
 	private final static Logger logger = LoggerFactory.getLogger(UploadApiTest.class);
 	
-	@Before
+//	@Before
 	public void setup() {
 		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 	}
 
-	@Test
+//	@Test
 	public void test() {
 		UploadAttachmentResponse response = FbBotMillUploadApi
 				.uploadAttachment(

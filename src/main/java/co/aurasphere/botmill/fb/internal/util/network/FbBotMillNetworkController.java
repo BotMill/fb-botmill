@@ -29,7 +29,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -41,12 +40,10 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
-import co.aurasphere.botmill.fb.model.api.MessengerCode;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
@@ -61,6 +58,7 @@ import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
  * network.
  * 
  * @author Donato Rimenti
+ * 
  */
 public class FbBotMillNetworkController {
 
@@ -160,7 +158,7 @@ public class FbBotMillNetworkController {
 				+ pageToken;
 		postInternal(url, input);
 	}
-
+	
 	/**
 	 * POSTs a thread setting as a JSON string to Facebook.
 	 * 
@@ -171,7 +169,7 @@ public class FbBotMillNetworkController {
 		StringEntity stringEntity = toStringEntity(input);
 		postThreadSetting(stringEntity);
 	}
-
+	
 	/**
 	 * POSTs a messenger profile as a JSON string to Facebook.
 	 * 
@@ -217,42 +215,6 @@ public class FbBotMillNetworkController {
 	public static UploadAttachmentResponse postUploadAttachment(Object input) {
 		StringEntity stringEntity = toStringEntity(input);
 		return postUploadAttachment(stringEntity);
-	}
-
-	/**
-	 * POSTs a messenger code as a JSON string to Facebook.
-	 * 
-	 * @param input
-	 *            the JSON data to send.
-	 * @return the requested messenger code.
-	 */
-	public static MessengerCode postMessengerCode(StringEntity input) {
-		String pageToken = FbBotMillContext.getInstance().getPageToken();
-		// If the page token is invalid, returns.
-		if (!validatePageToken(pageToken)) {
-			return null;
-		}
-
-		String url = FbBotMillNetworkConstants.FACEBOOK_BASE_URL
-				+ FbBotMillNetworkConstants.FACEBOOK_MESSENGER_CODE_API_URL
-				+ pageToken;
-		BotMillNetworkResponse response = postInternal(url, input);
-
-		// Parses the response as a MessengerCode and returns it.
-		return FbBotMillJsonUtils.fromJson(response.getResponse(),
-				MessengerCode.class);
-	}
-
-	/**
-	 * POSTs a messenger code as a JSON string to Facebook.
-	 * 
-	 * @param input
-	 *            the JSON data to send.
-	 * @return the uploaded attachment ID.
-	 */
-	public static MessengerCode postMessengerCode(Object input) {
-		StringEntity stringEntity = toStringEntity(input);
-		return postMessengerCode(stringEntity);
 	}
 
 	/**

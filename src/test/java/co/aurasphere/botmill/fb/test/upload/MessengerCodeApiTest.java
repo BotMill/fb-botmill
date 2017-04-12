@@ -23,43 +23,61 @@
  */
 package co.aurasphere.botmill.fb.test.upload;
 
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
-import co.aurasphere.botmill.fb.model.base.AttachmentType;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
-
+import co.aurasphere.botmill.fb.api.MessengerCodeApi;
+import co.aurasphere.botmill.fb.model.api.MessengerCode;
+import co.aurasphere.botmill.fb.model.api.MessengerCodeRequest;
 
 /**
- * Test for the {@link FbBotMillUploadApi} class.
+ * Test for the {@link MessengerCodeApi} class.
  * 
  * @author Donato Rimenti
  * @since 2.0.0
  */
-public class UploadApiTest {
+public class MessengerCodeApiTest {
 	
-	private final static Logger logger = LoggerFactory.getLogger(UploadApiTest.class);
+	private final static Logger logger = LoggerFactory.getLogger(MessengerCodeApiTest.class);
 	
-//	@Before
+	@Before
 	public void setup() {
 		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 	}
 
-//	@Test
 	public void test() {
-		UploadAttachmentResponse response = FbBotMillUploadApi
-				.uploadAttachment(
-						AttachmentType.IMAGE,
-						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
-		String attachmentId = response.getAttachmentId();
-		Assert.notNull(attachmentId);
-		logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
+		MessengerCode response = MessengerCodeApi.getMessengerCode();
+		checkResponse(response);
+		
+		// Tests different cases.
+		response = MessengerCodeApi.getMessengerCode(100);
+		checkResponse(response);
+		
+		response = MessengerCodeApi.getMessengerCode(1000);
+		checkResponse(response);
+		
+		response = MessengerCodeApi.getMessengerCode(new MessengerCodeRequest(2000));
+		checkResponse(response);
+	
 	}
 
+	/**
+	 * Checks if the response is valid.
+	 * 
+	 * @param response
+	 *            the MessengerCode to check.
+	 */
+	private void checkResponse(MessengerCode response) {
+		Assert.assertNotNull(response);
+		String uri = response.getUri();
+		Assert.assertNotNull(uri);
+		Assert.assertNotEquals("", uri);
+		logger.info(
+				"Succesfully got a Messenger code from Facebook (uri: [{}])",
+				uri);
+	}
 }

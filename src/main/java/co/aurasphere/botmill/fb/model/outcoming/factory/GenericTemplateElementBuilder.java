@@ -122,9 +122,12 @@ public class GenericTemplateElementBuilder {
 	 * {@link GenericTemplateElement}. There can be at most 3 buttons per
 	 * element.
 	 * 
-	 * @param title
+	 * @param title 
+	 * 			the title of the url button
 	 * @param url
+	 * 			the actual link of the this url button
 	 * @param ratioType
+	 * 			the size of the web view url.
 	 * @return
 	 */
 	public GenericTemplateElementBuilder addUrlButton(String title, String url, WebViewHeightRatioType ratioType) {

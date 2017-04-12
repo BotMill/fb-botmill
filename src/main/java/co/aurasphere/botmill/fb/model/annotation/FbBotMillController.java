@@ -113,4 +113,9 @@ public @interface FbBotMillController {
 	 * @return the string
 	 */
 	String meta() default ""; // random text to indicate the purpose.
+	
+	String conversation() default "";
+	boolean startConvo() default false;
+	boolean endConvo() default false;
+	
 }

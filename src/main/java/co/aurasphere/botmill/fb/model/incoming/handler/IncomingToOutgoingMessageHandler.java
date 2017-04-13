@@ -24,8 +24,10 @@
 package co.aurasphere.botmill.fb.model.incoming.handler;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+import co.aurasphere.botmill.core.BotBeanState;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchException;
@@ -66,6 +68,8 @@ public class IncomingToOutgoingMessageHandler {
 	/** The Constant CONST_EVENT_SETNAME. */
 	private static final String CONST_EVENT_SETNAME = "setEvent";
 	
+	private ConcurrentHashMap<String, String> convoState = new ConcurrentHashMap<String, String>();
+	
 	/**
 	 * Creates the handler.
 	 *
@@ -97,12 +101,21 @@ public class IncomingToOutgoingMessageHandler {
 	private void handleOutgoingMessage(MessageEnvelope message) {
 		for (BotDefinition defClass : ConfigurationUtils.getBotDefinitionInstance()) {
 			if (defClass.getClass().isAnnotationPresent(Bot.class)) {
+				Bot botClass = defClass.getClass().getAnnotation(Bot.class);
+				if(botClass.state().equals(BotBeanState.PROTOTYPE)) {
+					try {
+						defClass = defClass.getClass().newInstance();
+					} catch (InstantiationException e) {
+						e.printStackTrace(); 
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
 				for (Method method : defClass.getClass().getMethods()) {
 					if (method.isAnnotationPresent(FbBotMillController.class)) {
 						FbBotMillController botMillController = method.getAnnotation(FbBotMillController.class);
 						try {
-							FbBotMillEvent event = toEventActionFrame(botMillController);
-
+							FbBotMillEvent event = toEventActionFrame(botMillController);			
 							if (event.verifyEventCondition(message)) {
 								
 								defClass.getClass().getSuperclass()
@@ -113,11 +126,14 @@ public class IncomingToOutgoingMessageHandler {
 										.getDeclaredMethod(CONST_EVENT_SETNAME, FbBotMillEvent.class)
 										.invoke(defClass, event);
 								
+
 								method.invoke(defClass, message);
-								break;
+								return;
+
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
+							return;
 						}
 					}
 				}

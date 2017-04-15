@@ -21,25 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.model.api;
+package co.aurasphere.botmill.fb.model.api.messengercode;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Range;
-
-import co.aurasphere.botmill.fb.api.MessengerCodeApi;
-
-import com.google.gson.annotations.SerializedName;
-
 /**
- * Request class for {@link MessengerCodeApi#getMessengerCode}.
+ * Base class for a Messenger Code (Messenger's platform QR code).
  * 
  * @author Donato Rimenti
  * @since 2.0.0
  */
-public class MessengerCodeRequest implements Serializable {
+public class MessengerCode implements Serializable {
 
 	/**
 	 * The serial version UID.
@@ -47,75 +39,29 @@ public class MessengerCodeRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Must be "standard".
+	 * The URI that you can download your Messenger Code at. This is not a
+	 * permanent URI; you should download and cache the image as soon as
+	 * possible.
 	 */
-	@NotNull
-	private MessengerCodeType type;
+	private String uri;
 
 	/**
-	 * The size, in pixels, for the image you are requesting. Supported range:
-	 * 100-2000 px, defaults to 1000px.
+	 * Gets the {@link #uri}.
+	 *
+	 * @return the {@link #uri}.
 	 */
-	@Range(min = 100, max = 2000)
-	@SerializedName("image_size")
-	private int imageSize;
-
-	/**
-	 * Instantiates a new MessengerCodeRequest.
-	 */
-	public MessengerCodeRequest() {
-		// Default imageSize.
-		this.imageSize = 1000;
-		this.type = MessengerCodeType.STANDARD;
+	public String getUri() {
+		return uri;
 	}
 
 	/**
-	 * Instantiates a new MessengerCodeRequest.
+	 * Sets the {@link #uri}.
 	 *
-	 * @param imageSize
-	 *            the {@link #imageSize}.
+	 * @param uri
+	 *            the {@link #uri} to set.
 	 */
-	public MessengerCodeRequest(int imageSize) {
-		this();
-		this.imageSize = imageSize;
-	}
-
-	/**
-	 * Gets the {@link #type}.
-	 *
-	 * @return the {@link #type}.
-	 */
-	public MessengerCodeType getType() {
-		return type;
-	}
-
-	/**
-	 * Sets the {@link #type}.
-	 *
-	 * @param type
-	 *            the {@link #type} to set.
-	 */
-	public void setType(MessengerCodeType type) {
-		this.type = type;
-	}
-
-	/**
-	 * Gets the {@link #imageSize}.
-	 *
-	 * @return the {@link #imageSize}.
-	 */
-	public int getImageSize() {
-		return imageSize;
-	}
-
-	/**
-	 * Sets the {@link #imageSize}.
-	 *
-	 * @param imageSize
-	 *            the {@link #imageSize} to set.
-	 */
-	public void setImageSize(int imageSize) {
-		this.imageSize = imageSize;
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
 
 	/*
@@ -127,7 +73,7 @@ public class MessengerCodeRequest implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + imageSize;
+		result = prime * result + ((uri == null) ? 0 : uri.hashCode());
 		return result;
 	}
 
@@ -144,8 +90,11 @@ public class MessengerCodeRequest implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MessengerCodeRequest other = (MessengerCodeRequest) obj;
-		if (imageSize != other.imageSize)
+		MessengerCode other = (MessengerCode) obj;
+		if (uri == null) {
+			if (other.uri != null)
+				return false;
+		} else if (!uri.equals(other.uri))
 			return false;
 		return true;
 	}
@@ -157,7 +106,7 @@ public class MessengerCodeRequest implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "MessengerCodeRequest [imageSize=" + imageSize + "]";
+		return "MessengerCode [uri=" + uri + "]";
 	}
 
 }

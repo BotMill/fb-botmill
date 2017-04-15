@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package co.aurasphere.botmill.fb.model.api;
+package co.aurasphere.botmill.fb.model.api.upload;
 
 import java.io.Serializable;
 

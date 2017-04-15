@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.api.UploadApi;
-import co.aurasphere.botmill.fb.model.api.UploadAttachmentResponse;
+import co.aurasphere.botmill.fb.model.api.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 
 

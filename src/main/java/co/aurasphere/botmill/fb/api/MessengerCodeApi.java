@@ -24,8 +24,8 @@
 package co.aurasphere.botmill.fb.api;
 
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
-import co.aurasphere.botmill.fb.model.api.MessengerCode;
-import co.aurasphere.botmill.fb.model.api.MessengerCodeRequest;
+import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCode;
+import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCodeRequest;
 
 /**
  * Base class for handling Messenger Code API.

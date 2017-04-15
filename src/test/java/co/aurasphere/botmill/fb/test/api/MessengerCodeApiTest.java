@@ -31,8 +31,8 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.api.MessengerCodeApi;
-import co.aurasphere.botmill.fb.model.api.MessengerCode;
-import co.aurasphere.botmill.fb.model.api.MessengerCodeRequest;
+import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCode;
+import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCodeRequest;
 
 /**
  * Test for the {@link MessengerCodeApi} class.

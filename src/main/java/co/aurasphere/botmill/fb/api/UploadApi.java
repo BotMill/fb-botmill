@@ -24,7 +24,7 @@
 package co.aurasphere.botmill.fb.api;
 
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
-import co.aurasphere.botmill.fb.model.api.UploadAttachmentResponse;
+import co.aurasphere.botmill.fb.model.api.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.base.Attachment;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.outcoming.message.AttachmentMessage;

@@ -25,6 +25,7 @@ package co.aurasphere.botmill.fb.test.api;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +50,7 @@ public class MessengerCodeApiTest {
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 	}
 
+	@Test
 	public void test() {
 		MessengerCode response = MessengerCodeApi.getMessengerCode();
 		checkResponse(response);

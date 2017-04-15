@@ -45,7 +45,7 @@ public class ThreadSettingsApiTest {
 	 * Tests the Get Started Button Thread Settings.
 	 */
 	@Test
-	private void testGetStartedButtonThreadSettings() {
+	public void testGetStartedButtonThreadSettings() {
 		ThreadSettingsApi.setGetStartedButton("TEST_GET_STARTED_BUTTON");
 	}
 
@@ -53,7 +53,7 @@ public class ThreadSettingsApiTest {
 	 * Tests the Payment Thread Settings.
 	 */
 	@Test
-	private void testPaymentThreadSettings() {
+	public void testPaymentThreadSettings() {
 		List<String> testers = new ArrayList<String>();
 		//testers.add(mockId);
 		PaymentSettings settings = new PaymentSettings();

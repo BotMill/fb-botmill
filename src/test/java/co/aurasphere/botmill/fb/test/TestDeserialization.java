@@ -23,8 +23,6 @@
  */
 package co.aurasphere.botmill.fb.test;
 
-import java.util.Locale;
-
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.model.base.Payload;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;

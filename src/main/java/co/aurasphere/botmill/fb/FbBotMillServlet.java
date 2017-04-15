@@ -26,7 +26,6 @@ package co.aurasphere.botmill.fb;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +36,6 @@ import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.base.BotMillServlet;
-import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkConstants;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;

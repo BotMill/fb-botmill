@@ -71,7 +71,7 @@ public class ThreadSettingsApi {
 			.getLogger(ThreadSettingsApi.class);
 
 	/**
-	 * Instantiates a new ThreadSettings.
+	 * Instantiates a new ThreadSettingsApi.
 	 */
 	private ThreadSettingsApi() {
 	}

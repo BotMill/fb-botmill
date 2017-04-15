@@ -41,7 +41,7 @@ import co.aurasphere.botmill.fb.model.outcoming.payload.AttachmentPayload;
 public class UploadApi {
 
 	/**
-	 * Instantiates a new FbBotMillUploadApi.
+	 * Instantiates a new UploadApi.
 	 */
 	private UploadApi() {
 	}

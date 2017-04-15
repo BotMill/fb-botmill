@@ -25,7 +25,7 @@ package co.aurasphere.botmill.fb.internal.util.json;
 
 import java.lang.reflect.Type;
 
-import co.aurasphere.botmill.fb.model.messengerprofile.persistentmenu.CallToActionNested;
+import co.aurasphere.botmill.fb.model.api.messengerprofile.persistentmenu.CallToActionNested;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.ButtonType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;

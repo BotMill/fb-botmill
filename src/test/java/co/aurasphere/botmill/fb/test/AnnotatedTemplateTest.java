@@ -7,12 +7,12 @@ import org.junit.Test;
 import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.api.UploadApi;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
+import co.aurasphere.botmill.fb.model.api.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.handler.IncomingToOutgoingMessageHandler;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 /**
  * This is a Test Class to test the Fully Annotated Template

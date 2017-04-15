@@ -26,14 +26,17 @@ package co.aurasphere.botmill.fb.test.autoreply.template;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.fb.FbBot;
+import co.aurasphere.botmill.fb.api.MessengerProfileApi;
+import co.aurasphere.botmill.fb.api.UploadApi;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
-import co.aurasphere.botmill.fb.messengerprofile.FbBotMillMessengerProfileConfiguration;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillController;
 import co.aurasphere.botmill.fb.model.annotation.FbBotMillInit;
+import co.aurasphere.botmill.fb.model.api.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.outcoming.FbBotMillResponse;
@@ -43,8 +46,6 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.Button;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInfo;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 /**
  * The Class TemplateBehavior.
@@ -63,8 +64,8 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.aurasphere.co"));
 
 		// Sets the thread settings.
-		FbBotMillMessengerProfileConfiguration.setGetStartedButton("get_started");
-		FbBotMillMessengerProfileConfiguration.setGreetingMessage("hello");
+		MessengerProfileApi.setGetStartedButton("get_started");
+		MessengerProfileApi.setGreetingMessage("hello");
 
 	}
 
@@ -125,7 +126,7 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 	public void catchTextAndReplyWithImage(MessageEnvelope envelope) {
 		
 //		
-		UploadAttachmentResponse response = FbBotMillUploadApi
+		UploadAttachmentResponse response = UploadApi
 				.uploadAttachment(
 						AttachmentType.IMAGE,
 						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");

@@ -48,7 +48,7 @@ public class MessengerProfileApiTest {
 	/**
 	 * Tests the Get Started Button Messenger Profile.
 	 */
-	@Test
+//	@Test
 	public void testGetStartedButtonMessengerProfile() {
 		MessengerProfileApi.setGetStartedButton("TEST_GET_STARTED_BUTTON");
 		MessengerProfileApi.deleteGetStartedButton();
@@ -57,7 +57,7 @@ public class MessengerProfileApiTest {
 	/**
 	 * Tests the Greeting Text Messenger Profile.
 	 */
-	@Test
+//	@Test
 	public void testGreetingTextMessengerProfile() {
 		MessengerProfileApi.setGreetingMessage("TEST_GREETING_MESSAGE");
 		MessengerProfileApi.deleteGreetingMessage();
@@ -71,7 +71,7 @@ public class MessengerProfileApiTest {
 	/**
 	 * Tests the Account Whitelisting Messenger Profile.
 	 */
-	@Test
+//	@Test
 	public void testAccountWhitelistingMessengerProfile() {
 		List<String> whitelistedDomains = new ArrayList<String>();
 		whitelistedDomains.add("www.google.it");
@@ -84,7 +84,7 @@ public class MessengerProfileApiTest {
 	/**
 	 * Tests the Account Linking URL Messenger Profile.
 	 */
-	@Test
+//	@Test
 	public void testAccountLinkingUrlMessengerProfile() {
 		MessengerProfileApi.setAccountLinkingUrl("www.aurasphere.co");
 		MessengerProfileApi.deleteAccountLinkingUrl();
@@ -93,7 +93,7 @@ public class MessengerProfileApiTest {
 	/**
 	 * Test persistent menu.
 	 */
-	@Test
+//	@Test
 	public void testPersistentMenu() {
 
 		MessengerProfileApi.setGetStartedButton("get_started");

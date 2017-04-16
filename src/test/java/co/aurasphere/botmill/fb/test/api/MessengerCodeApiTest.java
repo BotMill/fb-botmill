@@ -50,7 +50,7 @@ public class MessengerCodeApiTest {
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 	}
 
-	@Test
+//	@Test
 	public void test() {
 		MessengerCode response = MessengerCodeApi.getMessengerCode();
 		checkResponse(response);

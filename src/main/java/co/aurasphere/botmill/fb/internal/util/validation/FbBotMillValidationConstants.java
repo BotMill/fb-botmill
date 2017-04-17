@@ -49,7 +49,7 @@ public class FbBotMillValidationConstants {
 	public static final int QUICK_REPLY_MAX_ELEMENTS = 11;
 
 	/** The Constant MESSAGE_MAX_LENGTH. */
-	public static final int MESSAGE_MAX_LENGTH = 320;
+	public static final int MESSAGE_MAX_LENGTH = 640;
 
 	/** The Constant BUTTONS_MAX_ELEMENTS. */
 	public static final int BUTTONS_MAX_ELEMENTS = 3;

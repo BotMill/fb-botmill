@@ -81,13 +81,13 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 * Adds a button which redirects to an URL when clicked to the current
 	 * template. There can be at most 3 buttons.
 	 * 
-	 * @param title
-	 *            the button label.
+	 * @param title 
+	 * 			the title of the url button
 	 * @param url
-	 *            the URL to whom redirect when clicked.
+	 * 			the actual link of the this url button
 	 * @param ratioType
-	 *            the ratioType.
-	 * @return this builder.
+	 * 			the size of the web view url.
+	 * @return
 	 */
 	public ButtonTemplateBuilder addUrlButton(String title, String url,
 			WebViewHeightRatioType ratioType) {

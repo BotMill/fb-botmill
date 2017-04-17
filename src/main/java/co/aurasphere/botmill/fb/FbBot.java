@@ -26,6 +26,8 @@ package co.aurasphere.botmill.fb;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
@@ -47,6 +49,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * 
  */
 public abstract class FbBot implements BotDefinition {
+	
 
 	/** The Constant FB_BOTMILL_PAGE_TOKEN. */
 	private static final String FB_BOTMILL_PAGE_TOKEN = "fb.page.token";
@@ -93,6 +96,7 @@ public abstract class FbBot implements BotDefinition {
 	 * @param event the new event
 	 */
 	public synchronized void setEvent(FbBotMillEvent event) {this.event = event;}
+	public synchronized FbBotMillEvent getEvent() {return this.event;}
 	
 	/**
 	 * Sets the envelope.
@@ -100,6 +104,7 @@ public abstract class FbBot implements BotDefinition {
 	 * @param envelope the new envelope
 	 */
 	public synchronized void setEnvelope(MessageEnvelope envelope) {this.envelope = envelope;}
+	public synchronized MessageEnvelope getEnvelope() {return this.envelope;}
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
@@ -218,7 +223,7 @@ public abstract class FbBot implements BotDefinition {
 	 */
 	protected void reply(AutoReply... replies) {
 		for(AutoReply autoReply: replies) {
-			autoReply.reply(this.envelope);
+			autoReply.reply(this.getEnvelope());
 		}
 	}
 
@@ -227,7 +232,7 @@ public abstract class FbBot implements BotDefinition {
 	 *
 	 * @return the bot mill session
 	 */
-	protected final BotMillSession botMillSession() {
+	protected final synchronized BotMillSession botMillSession() {
 		return this.botMillSession;
 	}
 	
@@ -238,7 +243,7 @@ public abstract class FbBot implements BotDefinition {
 	 *            the reply
 	 */
 	protected void reply(AutoReply reply) {
-		reply.reply(this.envelope);
+		reply.reply(this.getEnvelope());
 	}
 	
 	/**
@@ -248,7 +253,7 @@ public abstract class FbBot implements BotDefinition {
 	 */
 	protected void addReply(AutoReply reply) {
 		if(actionFrame == null) {
-			actionFrame = new ActionFrame(this.event);
+			actionFrame = new ActionFrame(this.getEvent());
 		}
 		actionFrame.addReply(reply);
 	}
@@ -257,7 +262,7 @@ public abstract class FbBot implements BotDefinition {
 	 * Execute replies.
 	 */
 	protected void executeReplies() {
-		if(actionFrame.getEvent().verifyEventCondition(this.envelope)) {
+		if(actionFrame.getEvent().verifyEventCondition(this.getEnvelope())) {
 			if (actionFrame.getReplies() != null && actionFrame.getReplies().size() > 0) {
 				if (actionFrame.processMultipleReply(envelope)
 						&& this.botMillPolicy.equals(BotMillPolicy.FIRST_ONLY)) {
@@ -270,6 +275,7 @@ public abstract class FbBot implements BotDefinition {
 		}
 		actionFrame = null;
 	}
+
 	
 	/**
 	 * Checks if there's any registered {@link FbBotMillEvent} for the incoming

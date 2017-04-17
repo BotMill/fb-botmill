@@ -25,7 +25,6 @@ package co.aurasphere.botmill.fb.internal.util.network;
 
 import co.aurasphere.botmill.fb.FbBotMillContext;
 
-
 /**
  * Utility class that contains the constants used to handle the network
  * communication with Facebook.
@@ -110,7 +109,7 @@ public class FbBotMillNetworkConstants {
 	 *      > Facebook's Messenger Thread Settings Documentation</a>
 	 */
 	public static final String FACEBOOK_THREAD_SETTINGS_URL = "me/thread_settings?access_token=";
-	
+
 	/**
 	 * Facebook's REST path for the Messenger Profile API.
 	 * 
@@ -146,6 +145,26 @@ public class FbBotMillNetworkConstants {
 	 *      > Facebook's Messenger Code API Documentation</a>
 	 */
 	public static final String FACEBOOK_MESSENGER_CODE_API_URL = "me/messenger_codes?access_token=";
+
+	/**
+	 * Facebook's REST path for Getting Daily Unique Active Thread Counts
+	 * through Messaging Insight API.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/insights/page-messaging"
+	 *      > Facebook's Messaging Insight API Documentation</a>
+	 */
+	public static final String FACEBOOK_MESSAGING_INSIGHT_ACTIVE_THREADS_URL = "me/insights/page_messages_active_threads_unique&access_token=";
+
+	/**
+	 * Facebook's REST path for Getting Daily Unique Conversation Counts through
+	 * Messaging Insight API.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/insights/page-messaging"
+	 *      > Facebook's Messaging Insight API Documentation</a>
+	 */
+	public static final String FACEBOOK_MESSAGING_INSIGHT_CONVERSATION_URL = "me/insights/page_messages_feedback_by_action_unique&access_token=";
 
 	/*
 	 * (non-Javadoc)

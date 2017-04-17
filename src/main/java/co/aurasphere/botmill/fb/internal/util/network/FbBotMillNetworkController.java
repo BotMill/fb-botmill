@@ -46,6 +46,8 @@ import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
+import co.aurasphere.botmill.fb.model.api.messaginginsight.DailyUniqueActiveThreadCounts;
+import co.aurasphere.botmill.fb.model.api.messaginginsight.DailyUniqueConversationCounts;
 import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCode;
 import co.aurasphere.botmill.fb.model.api.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.api.userprofile.FacebookUserProfile;
@@ -54,7 +56,6 @@ import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
 import co.aurasphere.botmill.fb.model.incoming.FacebookErrorMessage;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
-
 
 /**
  * Class that contains methods that allows FbBotMill to communicate through the
@@ -93,6 +94,36 @@ public class FbBotMillNetworkController {
 		FacebookUserProfile user = FbBotMillJsonUtils.fromJson(
 				response.getResponse(), FacebookUserProfile.class);
 		return user;
+	}
+
+	/**
+	 * GETs the daily unique active thread counts.
+	 * 
+	 * @return the daily unique active thread counts.
+	 */
+	public static DailyUniqueActiveThreadCounts getDailyUniqueActiveThreadCounts() {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		BotMillNetworkResponse response = NetworkUtils
+				.get(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_MESSAGING_INSIGHT_ACTIVE_THREADS_URL
+						+ pageToken);
+		return FbBotMillJsonUtils.fromJson(response.getResponse(),
+				DailyUniqueActiveThreadCounts.class);
+	}
+
+	/**
+	 * GETs the daily unique conversation counts.
+	 * 
+	 * @return the daily unique conversation counts.
+	 */
+	public static DailyUniqueConversationCounts getDailyUniqueConversationCounts() {
+		String pageToken = FbBotMillContext.getInstance().getPageToken();
+		BotMillNetworkResponse response = NetworkUtils
+				.get(FbBotMillNetworkConstants.FACEBOOK_BASE_URL
+						+ FbBotMillNetworkConstants.FACEBOOK_MESSAGING_INSIGHT_CONVERSATION_URL
+						+ pageToken);
+		return FbBotMillJsonUtils.fromJson(response.getResponse(),
+				DailyUniqueConversationCounts.class);
 	}
 
 	/**
@@ -146,7 +177,8 @@ public class FbBotMillNetworkController {
 	/**
 	 * Post messenger profile.
 	 *
-	 * @param input the input
+	 * @param input
+	 *            the input
 	 */
 	public static void postMessengerProfile(StringEntity input) {
 		String pageToken = FbBotMillContext.getInstance().getPageToken();

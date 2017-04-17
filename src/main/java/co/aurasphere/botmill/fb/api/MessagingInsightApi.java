@@ -23,6 +23,10 @@
  */
 package co.aurasphere.botmill.fb.api;
 
+import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
+import co.aurasphere.botmill.fb.model.api.messaginginsight.DailyUniqueActiveThreadCounts;
+import co.aurasphere.botmill.fb.model.api.messaginginsight.DailyUniqueConversationCounts;
+
 /**
  * Base class for handling Messaging Insight API.
  * 
@@ -32,6 +36,40 @@ package co.aurasphere.botmill.fb.api;
  *      >Facebook's Messaging Insight API Reference.</a>
  * @since 2.0.0
  */
-public class MessengingInsightApi {
+public class MessagingInsightApi {
+
+	/**
+	 * Instantiates a new MessagingInsightApi.
+	 */
+	private MessagingInsightApi() {
+	}
+
+	/**
+	 * Gets the daily unique active thread counts.
+	 *
+	 * @return the daily unique active thread counts.
+	 */
+	public static DailyUniqueActiveThreadCounts getDailyUniqueActiveThreadCounts() {
+		return FbBotMillNetworkController.getDailyUniqueActiveThreadCounts();
+	}
+
+	/**
+	 * Gets the daily unique conversation counts.
+	 *
+	 * @return the daily unique conversation counts.
+	 */
+	public static DailyUniqueConversationCounts getDailyUniqueConversationCounts() {
+		return FbBotMillNetworkController.getDailyUniqueConversationCounts();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "MessagingInsightApi []";
+	}
 
 }

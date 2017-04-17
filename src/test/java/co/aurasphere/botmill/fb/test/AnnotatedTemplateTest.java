@@ -7,12 +7,10 @@ import org.junit.Test;
 import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.api.UploadApi;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
-import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.handler.IncomingToOutgoingMessageHandler;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.upload.FbBotMillUploadApi;
 
 /**
  * This is a Test Class to test the Fully Annotated Template
@@ -88,7 +86,7 @@ public class AnnotatedTemplateTest {
 	public static void main(String[] args) {
 		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
-		for(int i=0;i<100;i++) {
+		for(int i=0;i<1000;i++) {
 			new Thread(new Runnable() {
 				String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
 				MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);

@@ -46,13 +46,13 @@ import co.aurasphere.botmill.core.internal.util.network.BotMillNetworkResponse;
 import co.aurasphere.botmill.core.internal.util.network.NetworkUtils;
 import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
-import co.aurasphere.botmill.fb.model.api.MessengerCode;
+import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCode;
+import co.aurasphere.botmill.fb.model.api.upload.UploadAttachmentResponse;
+import co.aurasphere.botmill.fb.model.api.userprofile.FacebookUserProfile;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
 import co.aurasphere.botmill.fb.model.incoming.FacebookConfirmationMessage;
 import co.aurasphere.botmill.fb.model.incoming.FacebookError;
 import co.aurasphere.botmill.fb.model.incoming.FacebookErrorMessage;
-import co.aurasphere.botmill.fb.model.upload.UploadAttachmentResponse;
-import co.aurasphere.botmill.fb.model.userprofile.FacebookUserProfile;
 import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
 
 

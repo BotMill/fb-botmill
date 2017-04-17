@@ -30,7 +30,6 @@ import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 
-
 /**
  * Class that represents a {@link FbBotMillEvent} and the {@link AutoReply} to
  * it.
@@ -64,7 +63,7 @@ public class ActionFrame {
 	public AutoReply getReply() {
 		return this.reply;
 	}
-	
+
 	/**
 	 * Gets the event.
 	 *
@@ -86,12 +85,14 @@ public class ActionFrame {
 	/**
 	 * Instantiates a new action frame.
 	 *
-	 * @param event the event
+	 * @param event
+	 *            the event
 	 */
 	public ActionFrame(FbBotMillEvent event) {
 		this.event = event;
 		this.replies = new ArrayList<AutoReply>();
 	}
+
 	/**
 	 * Instantiates a new action frame.
 	 *
@@ -115,16 +116,17 @@ public class ActionFrame {
 	 */
 	public ActionFrame(FbBotMillEvent event, AutoReply... replies) {
 		this.event = event;
-		for(AutoReply autoReply: replies) {
+		for (AutoReply autoReply : replies) {
 			this.replies.add(autoReply);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Adds the reply.
 	 *
-	 * @param autoReply the auto reply
+	 * @param autoReply
+	 *            the auto reply
 	 */
 	public void addReply(AutoReply autoReply) {
 		this.getReplies().add(autoReply);
@@ -160,7 +162,7 @@ public class ActionFrame {
 	 *            the incoming message.
 	 * @return true, if the event has been triggered.
 	 */
-	public synchronized boolean processMultipleReply(MessageEnvelope envelope) {
+	public boolean processMultipleReply(MessageEnvelope envelope) {
 		if (this.event == null) {
 			return false;
 		}
@@ -168,8 +170,10 @@ public class ActionFrame {
 		if (triggered) {
 			beforeReply(envelope);
 			if (this.replies != null) {
-				for (AutoReply reply : replies) {
-					reply.reply(envelope);
+				synchronized (replies) {
+					for (AutoReply reply : replies) {
+						reply.reply(envelope);
+					}
 				}
 			}
 			afterReply(envelope);

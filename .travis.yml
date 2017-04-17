@@ -7,6 +7,10 @@ install: true
 branches:
   only:
   - master
+  - fb-botmill-aurasphere-evo
 
 script:
   - mvn clean install
+  
+after_success:
+  - mvn clean test jacoco:report coveralls:report

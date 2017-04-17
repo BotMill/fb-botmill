@@ -34,7 +34,6 @@ import co.aurasphere.botmill.fb.model.outcoming.factory.ReplyFactory;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.BuyButton;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.PaymentType;
 import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInfo;
-import co.aurasphere.botmill.fb.test.BaseFbBotMillMessageTest;
 
 
 /**

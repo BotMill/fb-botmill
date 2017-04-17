@@ -160,7 +160,7 @@ public class ActionFrame {
 	 *            the incoming message.
 	 * @return true, if the event has been triggered.
 	 */
-	public boolean processMultipleReply(MessageEnvelope envelope) {
+	public synchronized boolean processMultipleReply(MessageEnvelope envelope) {
 		if (this.event == null) {
 			return false;
 		}

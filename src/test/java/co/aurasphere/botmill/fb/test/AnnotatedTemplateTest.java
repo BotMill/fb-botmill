@@ -30,7 +30,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testAnnotatedBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -38,7 +38,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testImageBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1491360469304,\"message\":{\"mid\":\"mid.$cAACFqTvPOHVhbUgZOFbO_0AFXqVh\",\"seq\":854986,\"attachments\":[{\"type\":\"image\",\"payload\":{\"url\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t34.0-12\\/17742285_136721643528794_1945065811_n.gif?_nc_ad=z-m&oh=97198065e4ede9bd09330764a7bfb62f&oe=58E6A075\"}}]}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1491360469304,\"message\":{\"mid\":\"mid.$cAACFqTvPOHVhbUgZOFbO_0AFXqVh\",\"seq\":854986,\"attachments\":[{\"type\":\"image\",\"payload\":{\"url\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t34.0-12\\/17742285_136721643528794_1945065811_n.gif?_nc_ad=z-m&oh=97198065e4ede9bd09330764a7bfb62f&oe=58E6A075\"}}]}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -47,7 +47,7 @@ public class AnnotatedTemplateTest {
 
 	@Test
 	public void testAnnotatedListTemplateBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"list template\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"list template\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -55,7 +55,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testAnnotatedButtonTemplateBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"button template\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"button template\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -63,7 +63,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testAnnotatedQuickReplyTemplateBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"quick replies\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"quick replies\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -71,7 +71,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testAnnotatedReceiptTemplateBot() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"receipt template\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"receipt template\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -79,7 +79,7 @@ public class AnnotatedTemplateTest {
 	
 	@Test
 	public void testBuyButton() {
-		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"buy button\"}}";
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"buy button\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
 		assertNotNull(envelope);
@@ -90,7 +90,7 @@ public class AnnotatedTemplateTest {
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
 		for(int i=0;i<100;i++) {
 			new Thread(new Runnable() {
-				String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1423903854504468\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
+				String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
 				MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
 				@Override
 				public void run() {

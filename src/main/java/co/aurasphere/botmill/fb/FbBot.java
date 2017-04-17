@@ -261,7 +261,7 @@ public abstract class FbBot implements BotDefinition {
 	/**
 	 * Execute replies.
 	 */
-	protected void executeReplies() {
+	protected synchronized void executeReplies() {
 		if(actionFrame.getEvent().verifyEventCondition(this.getEnvelope())) {
 			if (actionFrame.getReplies() != null && actionFrame.getReplies().size() > 0) {
 				if (actionFrame.processMultipleReply(envelope)

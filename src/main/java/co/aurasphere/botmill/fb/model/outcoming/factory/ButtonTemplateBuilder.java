@@ -88,6 +88,7 @@ public class ButtonTemplateBuilder extends TemplateBaseBuilder {
 	 * @param ratioType
 	 * 			the size of the web view url.
 	 * @return
+	 * 		this builder
 	 */
 	public ButtonTemplateBuilder addUrlButton(String title, String url,
 			WebViewHeightRatioType ratioType) {

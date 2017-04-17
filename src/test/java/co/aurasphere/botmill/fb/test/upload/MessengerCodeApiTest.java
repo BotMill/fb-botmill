@@ -25,10 +25,12 @@ package co.aurasphere.botmill.fb.test.upload;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.api.MessengerCodeApi;
 import co.aurasphere.botmill.fb.model.api.MessengerCode;
 import co.aurasphere.botmill.fb.model.api.MessengerCodeRequest;
@@ -45,11 +47,12 @@ public class MessengerCodeApiTest {
 	
 	@Before
 	public void setup() {
-		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
-		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
+		FbBotMillContext.getInstance().setup(ConfigurationUtils.getEncryptedConfiguration().getProperty("fb.page.token"), 
+				ConfigurationUtils.getEncryptedConfiguration().getProperty("fb.validation.token"));
 	}
 
-	public void test() {
+	@Test
+	public void testMessengerCodeApi() {
 		MessengerCode response = MessengerCodeApi.getMessengerCode();
 		checkResponse(response);
 		

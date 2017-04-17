@@ -12,5 +12,4 @@ public class DefaultEncryption {
 		enc.setPassword("password"); // can be sourced out
 		ConfigurationUtils.loadEncryptedConfigurationFile(enc, "botmill.properties");
 	}
-
 }

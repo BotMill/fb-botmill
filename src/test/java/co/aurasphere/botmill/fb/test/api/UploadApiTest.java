@@ -23,11 +23,15 @@
  */
 package co.aurasphere.botmill.fb.test.api;
 
+import org.junit.Assume;
+import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.api.UploadApi;
 import co.aurasphere.botmill.fb.model.api.upload.UploadAttachmentResponse;
 import co.aurasphere.botmill.fb.model.base.AttachmentType;
@@ -43,13 +47,13 @@ public class UploadApiTest {
 	
 	private final static Logger logger = LoggerFactory.getLogger(UploadApiTest.class);
 	
-//	@Before
+	@Before
 	public void setup() {
-		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
-		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
+		Assume.assumeTrue(isConfigurationExist());
+		FbBotMillContext.getInstance().setup(System.getenv("fb.page.token"), System.getenv("fb.validation.token"));
 	}
 
-//	@Test
+	@Test
 	public void test() {
 		UploadAttachmentResponse response = UploadApi
 				.uploadAttachment(
@@ -60,4 +64,11 @@ public class UploadApiTest {
 		logger.info("Succesfully posted attachment with Upload Api (ID: [{}])", attachmentId);
 	}
 
+	private boolean isConfigurationExist() {
+		if(System.getenv("fb.page.token") != null && System.getenv("fb.validation.token") != null) {
+			return true;
+		}
+		return false;
+	}
+	
 }

@@ -24,12 +24,12 @@
 package co.aurasphere.botmill.fb.test.api;
 
 import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.api.MessengerCodeApi;
 import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCode;
 import co.aurasphere.botmill.fb.model.api.messengercode.MessengerCodeRequest;
@@ -46,12 +46,13 @@ public class MessengerCodeApiTest {
 	
 	@Before
 	public void setup() {
-		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
-		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
+		Assume.assumeTrue(isConfigurationExist());
+		FbBotMillContext.getInstance().setup(System.getenv("fb.page.token"), System.getenv("fb.validation.token"));
 	}
 
-//	@Test
-	public void test() {
+	@Test
+	public void testMessengerCodeApi() {
+		
 		MessengerCode response = MessengerCodeApi.getMessengerCode();
 		checkResponse(response);
 		
@@ -65,6 +66,13 @@ public class MessengerCodeApiTest {
 		response = MessengerCodeApi.getMessengerCode(new MessengerCodeRequest(2000));
 		checkResponse(response);
 	
+	}
+	
+	private boolean isConfigurationExist() {
+		if(System.getenv("fb.page.token") != null && System.getenv("fb.validation.token") != null) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

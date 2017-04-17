@@ -2,15 +2,18 @@ package co.aurasphere.botmill.fb.test;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.Assert;
-
+import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
-import co.aurasphere.botmill.fb.api.UploadApi;
+import co.aurasphere.botmill.fb.FbBotMillContext;
 import co.aurasphere.botmill.fb.internal.util.json.FbBotMillJsonUtils;
 import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
 import co.aurasphere.botmill.fb.model.incoming.handler.IncomingToOutgoingMessageHandler;
+import co.aurasphere.botmill.fb.test.autoreply.template.AnnotatedTemplatedBehaviourTest;
 
 /**
  * This is a Test Class to test the Fully Annotated Template
@@ -19,11 +22,15 @@ import co.aurasphere.botmill.fb.model.incoming.handler.IncomingToOutgoingMessage
  */
 public class AnnotatedTemplateTest {
 
-	
 	@Before
 	public void setup() {
-		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
-		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
+		Assume.assumeTrue(isConfigurationExist());
+		FbBotMillContext.getInstance().setup(System.getenv("fb.page.token"), System.getenv("fb.validation.token"));
+		
+		//	Load the Bot manually.
+		List<BotDefinition> botDefs = new ArrayList<BotDefinition>();
+		botDefs.add(new AnnotatedTemplatedBehaviourTest());
+		ConfigurationUtils.setBotDefinitionInstance(botDefs);
 	}
 	
 	@Test
@@ -83,6 +90,14 @@ public class AnnotatedTemplateTest {
 		assertNotNull(envelope);
 	}
 	
+	private boolean isConfigurationExist() {
+		if(System.getenv("fb.page.token") != null && System.getenv("fb.validation.token") != null) {
+			return true;
+		}
+		return false;
+	}
+
+	
 	public static void main(String[] args) {
 		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
 		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
@@ -101,6 +116,7 @@ public class AnnotatedTemplateTest {
 			}).start();
 		}
 	}
+	
 	
 	
 }

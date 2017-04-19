@@ -58,7 +58,42 @@ fb.validation.token=<VALIDATION_TOKEN>
 
 Note that you can encrypt the properties file using our built in jaspyt-based encryption. Go to our Wiki here on how to setup your encrypted **botmill.properties** file.
 
-**2nd: Setup the FbBot Class.**
+**2nd: Setup your Encryption class.**
+We strictly push the use of Jaspyt to encrypt the tokens, for this, we need to make sure you create your own Jaspyt Encryption class. To do this, create the following on your project.
+
+```java
+@BotEncryption
+public class DefaultEncryption {
+	public DefaultEncryption() {
+		StandardPBEStringEncryptor enc = new StandardPBEStringEncryptor();
+		enc.setPassword("password"); // can be sourced out
+		ConfigurationUtils.loadEncryptedConfigurationFile(enc, "botmill.properties");
+	}
+}
+```
+
+The password is up to you and can be sourced anywhere (via https or ftp). The key thing here is that this text is what will Jaspyt use to decrypt your botmill.properties file. 
+
+```java
+...
+enc.setPassword("https://mydomain.com/encryptionpassword/password.txt"); // can be sourced out
+..
+```
+Once you've done this, we need to use the botmill-crypto-util project to create the encrypted version of your page token and validation token. Download the botmill-crypto-util [here] (https://oss.sonatype.org/content/repositories/snapshots/co/aurasphere/botmill/botmill-crypto-util/0.0.1-SNAPSHOT/botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar) and run the following command:
+
+java -jar botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar enc <page_token> <password>
+java -jar botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar enc <validation_token> <password>
+
+This will spit out the encrypted version of your text file. Modify your botmill.properties with these values but make sure to put it inside the ENC(***)
+
+```properties
+fb.page.token=ENC(<ENCRYPTED_PAGE_TOKEN>)
+fb.validation.token=ENC(<ENCRYPTED_VALIDATION_TOKEN>)
+```
+
+Redeploy and you're good to go.
+
+**3rd: Setup the FbBot Class.**
 Our framework makes it easy and straightforward to define a Facebook Bot Behaviour by tagging classes as behaviour objects. 
 
 ```java
@@ -66,14 +101,25 @@ Our framework makes it easy and straightforward to define a Facebook Bot Behavio
 public class MyBotClass extends FbBot {
 	@FbBotMillInit
 	public void initialize() {
-		List<Button> buttons = new ArrayList<Button>();
-		buttons.add(ButtonFactory.createPostbackButton("Postback Button", "PostBack Payload"));
-		buttons.add(ButtonFactory.createUrlButton("URL Button", "http://www.alvinjayreyes.com"));
+		MessengerProfileApi.setGetStartedButton("get_started");
+		MessengerProfileApi.setGreetingMessage("Hello!");
 
-		// Sets the thread settings.
-		FbBotMillThreadSettingsConfiguration.setGreetingMessage("Hi, welcome to FbBotMill!");
-		FbBotMillThreadSettingsConfiguration.setGetStartedButton("Get Started Button Payload");
-		FbBotMillThreadSettingsConfiguration.setPersistentMenu(buttons);
+		List<PersistentMenu> persistentMenus = new ArrayList<PersistentMenu>();
+		PersistentMenu persistentMenu = new PersistentMenu("default", false);
+
+		persistentMenu.addCallToAction(ButtonFactory.createPostbackButton("Menu 1", "menu1"));
+		persistentMenu.addCallToAction(ButtonFactory.createPostbackButton("Menu 2", "menu2"));
+		
+		CallToActionNested theNestedMenu = new CallToActionNested("Menu 3 Nested");
+		theServices.addCallToActionButton(ButtonFactory.createPostbackButton("Nested1", "nested1"));
+		theServices.addCallToActionButton(ButtonFactory.createPostbackButton("Nested2", "nested2"));
+		theServices.addCallToActionButton(ButtonFactory.createPostbackButton("Nested3", "nested3"));
+		persistentMenu.addCallToAction(theNestedMenu);
+		
+		persistentMenus.add(persistentMenu);
+
+		MessengerProfileApi.setPersistentMenus(persistentMenus);
+		
 	}
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
@@ -87,7 +133,7 @@ public class MyBotClass extends FbBot {
 
 ```java
 @FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
-public void replyWithQuickReply() {
+public void replyWithQuickReply(MessageEnvelope envelope) {
 	reply(new AutoReply() {
 		@Override
 		public FbBotMillResponse createResponse(MessageEnvelope envelope) {
@@ -101,7 +147,7 @@ public void replyWithQuickReply() {
 **or respond with a button**
 ```java
 @FbBotMillController(eventType = FbBotMillEventType.MESSAGE_PATTERN, pattern = "(?i:hi)|(?i:hello)|(?i:hey)|(?i:good day)|(?i:home)")
-public void replyWithButtonTemplate() {
+public void replyWithButtonTemplate(MessageEnvelope envelope) {
 	reply(new AutoReply() {
 		@Override
 		public FbBotMillResponse createResponse(MessageEnvelope envelope) {

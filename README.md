@@ -76,8 +76,10 @@ The password is up to you and can be sourced anywhere (via https or ftp). The ke
 
 Once you've done this, we need to use the botmill-crypto-util project to create the encrypted version of your page token and validation token. Download the botmill-crypto-util [here] (https://oss.sonatype.org/content/repositories/snapshots/co/aurasphere/botmill/botmill-crypto-util/0.0.1-SNAPSHOT/botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar) and run the following command:
 
+```bash
 java -jar botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar enc <page_token> <password>
 java -jar botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar enc <validation_token> <password>
+```
 
 This will spit out the encrypted version of your text file. Modify your botmill.properties with these values but make sure to put it inside the ENC(***)
 

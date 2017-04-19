@@ -32,13 +32,14 @@ import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.fb.internal.util.network.FbBotMillNetworkController;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.DeleteMessengerProfileRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.Greeting;
+import co.aurasphere.botmill.fb.model.api.messengerprofile.HomeUrl;
+import co.aurasphere.botmill.fb.model.api.messengerprofile.HomeUrlRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.SetAccountLinkingUrlRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.SetGetStartedButtonRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.SetGreetingTextRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.SetWhitelistedDomainsRequest;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.persistentmenu.PersistentMenu;
 import co.aurasphere.botmill.fb.model.api.messengerprofile.persistentmenu.PersistentMenuRequest;
-
 
 /**
  * Class which handles the configuration of the Facebook Messenger Platform
@@ -215,6 +216,35 @@ public class MessengerProfileApi {
 	public static void deletePersistentMenus() {
 		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("persistent_menu");
 		FbBotMillNetworkController.deleteMessengerProfile(request);
+	}
+
+	/**
+	 * This sets the home url of the Bot
+	 * 
+	 * @param homeUrl
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-profile/home-url/v2.9">
+	 *      Chat Extension Home URL</a>
+	 */
+	public static void setHomeUrl(HomeUrl homeUrl) {
+		HomeUrlRequest homeUrlRequest = new HomeUrlRequest();
+		homeUrlRequest.setHomeUrl(homeUrl);
+		FbBotMillNetworkController.postMessengerProfile(homeUrlRequest);
+
+	}
+
+	/**
+	 * Removes the home url.
+	 * 
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/messenger-profile/home-url/v2.9">
+	 *      Chat Extension Home URL</a>
+	 */
+	public static void deleteHomeUrl() {
+		DeleteMessengerProfileRequest request = new DeleteMessengerProfileRequest("home_url");
+		FbBotMillNetworkController.deleteMessengerProfile(request);
+
 	}
 
 	/*

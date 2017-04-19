@@ -35,6 +35,8 @@ import com.google.gson.annotations.SerializedName;
  * 
  * The Persistent Menu Request is the main object we sent thru our post request which will
  * create the necessary JSON structured data to create the persistent menu of the bots
+ * 
+ * @author Alvin P. Reyes
  *
  */
 public class PersistentMenuRequest implements Serializable {

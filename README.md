@@ -64,21 +64,16 @@ We strictly push the use of Jaspyt to encrypt the tokens, for this, we need to m
 ```java
 @BotEncryption
 public class DefaultEncryption {
-	public DefaultEncryption() {
-		StandardPBEStringEncryptor enc = new StandardPBEStringEncryptor();
-		enc.setPassword("password"); // can be sourced out
-		ConfigurationUtils.loadEncryptedConfigurationFile(enc, "botmill.properties");
-	}
+    public DefaultEncryption() {
+        StandardPBEStringEncryptor enc = new StandardPBEStringEncryptor();
+        enc.setPassword("password"); // can be sourced out
+        ConfigurationUtils.loadEncryptedConfigurationFile(enc, "botmill.properties");
+    }
 }
 ```
 
 The password is up to you and can be sourced anywhere (via https or ftp). The key thing here is that this text is what will Jaspyt use to decrypt your botmill.properties file. 
 
-```java
-...
-enc.setPassword("https://mydomain.com/encryptionpassword/password.txt"); // can be sourced out
-..
-```
 Once you've done this, we need to use the botmill-crypto-util project to create the encrypted version of your page token and validation token. Download the botmill-crypto-util [here] (https://oss.sonatype.org/content/repositories/snapshots/co/aurasphere/botmill/botmill-crypto-util/0.0.1-SNAPSHOT/botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar) and run the following command:
 
 java -jar botmill-crypto-util-0.0.1-20170228.035750-1-jar-with-dependencies.jar enc <page_token> <password>

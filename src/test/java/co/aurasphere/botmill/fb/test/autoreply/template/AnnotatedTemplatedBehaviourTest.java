@@ -27,6 +27,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.aurasphere.botmill.core.BotBeanState;
 import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.fb.FbBot;
 import co.aurasphere.botmill.fb.api.MessengerProfileApi;
@@ -50,7 +51,7 @@ import co.aurasphere.botmill.fb.model.outcoming.template.button.RequestedUserInf
 /**
  * The Class TemplateBehavior.
  */
-@Bot
+@Bot(state=BotBeanState.PROTOTYPE)
 public class AnnotatedTemplatedBehaviourTest extends FbBot {
 
 	/**
@@ -115,7 +116,7 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 		reply(new AutoReply() {
 			@Override
 			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
-				String greetingMessage = "Hey There! ";
+				String greetingMessage = "Hey There! Ahoy ";
 				return ReplyFactory.addTextMessageOnly(greetingMessage).build(envelope);
 			}
 		});

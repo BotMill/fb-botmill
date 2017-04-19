@@ -4,6 +4,8 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
@@ -99,9 +101,16 @@ public class AnnotatedTemplateTest {
 
 	
 	public static void main(String[] args) {
-		ConfigurationUtils.loadEncryptedConfigurationProperties(); // loads the annotated encryption class.
-		ConfigurationUtils.loadBotDefinitions(); // loads the annotated bot.
-		for(int i=0;i<1000;i++) {
+		StandardPBEStringEncryptor enc = new StandardPBEStringEncryptor();
+		enc.setPassword("password"); // can be sourced out
+		ConfigurationUtils.loadEncryptedConfigurationFile(enc, "botmill.properties");
+		
+		List<BotDefinition> botDef = new ArrayList<BotDefinition>();
+		botDef.add(new AnnotatedTemplatedBehaviourTest());
+		
+		ConfigurationUtils.setBotDefinitionInstance(botDef);
+		
+		for(int i=0;i<500;i++) {
 			new Thread(new Runnable() {
 				String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
 				MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);

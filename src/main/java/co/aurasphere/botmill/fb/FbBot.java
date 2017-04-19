@@ -26,8 +26,6 @@ package co.aurasphere.botmill.fb;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
@@ -67,17 +65,14 @@ public abstract class FbBot implements BotDefinition {
 	 * A list of registered {@link FbBotMillEvent} for the current bot.
 	 */
 	private List<ActionFrame> actionFrameList;
-
 	/**
 	 * The policy this bot follows when processing the callback handler list.
 	 */
 	private BotMillPolicy botMillPolicy;
-
 	/**
 	 * The bot mill session.
 	 */
 	private BotMillSession botMillSession;
-
 	/**
 	 * The {@link FbBotMillEvent} object created by this class for each
 	 * annotated method.
@@ -117,11 +112,9 @@ public abstract class FbBot implements BotDefinition {
 		
 		this.botMillPolicy = botmillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
-		// Create the botmill session.
 		this.buildFbBotConfig();
 		this.buildAnnotatedInitBehaviour();
 		
-		// Registers this bot to the context.
 		FbBotMillContext.getInstance().register(this);
 
 		logger.debug("AbstractFbot - End Initialize");
@@ -367,11 +360,11 @@ public abstract class FbBot implements BotDefinition {
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "AbstractFbBot [actionFrameList=" + actionFrameList
-				+ ", botMillPolicy=" + botMillPolicy + ", botMillSession="
-				+ botMillSession + ", event=" + event + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "AbstractFbBot [actionFrameList=" + actionFrameList
+//				+ ", botMillPolicy=" + botMillPolicy + ", botMillSession="
+//				+ botMillSession + ", event=" + event + "]";
+//	}
 
 }

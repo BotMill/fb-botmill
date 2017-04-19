@@ -34,6 +34,8 @@ import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchException;
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
+import co.aurasphere.botmill.fb.FbBotApi;
+import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
@@ -106,11 +108,22 @@ public class IncomingToOutgoingMessageHandler {
 		methodMapCatchAll = new ArrayList<Method>();
 		for (BotDefinition defClass : ConfigurationUtils.getBotDefinitionInstance()) {
 			if (defClass.getClass().isAnnotationPresent(Bot.class)) {
+				Bot botClass = defClass.getClass().getAnnotation(Bot.class);
+				if(botClass.state().equals(BotBeanState.PROTOTYPE)) {
+					try {
+						defClass.getClass().newInstance();
+					} catch (InstantiationException e) {
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+				
 				for (Method method : defClass.getClass().getMethods()) {
 					if (method.isAnnotationPresent(FbBotMillController.class)) {
 						FbBotMillController botMillController = method.getAnnotation(FbBotMillController.class);
+						
 						try {
-							//	if it's a catch all.
 							if(botMillController.text().equals(".*.") || botMillController.eventType().equals(FbBotMillEventType.ANY)) {
 								methodMapCatchAll.add(method);
 							}else {
@@ -124,7 +137,9 @@ public class IncomingToOutgoingMessageHandler {
 									defClass.getClass().getSuperclass()
 											.getDeclaredMethod(CONST_EVENT_SETNAME, FbBotMillEvent.class)
 											.invoke(defClass, event);
-
+									
+									FbBotApi.setFbBot(defClass);
+			
 									method.invoke(defClass, message);
 									return;
 
@@ -154,7 +169,7 @@ public class IncomingToOutgoingMessageHandler {
 										.getDeclaredMethod(CONST_EVENT_SETNAME, FbBotMillEvent.class)
 										.invoke(defClass, event);
 								
-
+								FbBotApi.setFbBot(defClass);
 								catchAllMethod.invoke(defClass, message);
 								return;
 

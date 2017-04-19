@@ -111,7 +111,7 @@ public class IncomingToOutgoingMessageHandler {
 						FbBotMillController botMillController = method.getAnnotation(FbBotMillController.class);
 						try {
 							//	if it's a catch all.
-							if(botMillController.pattern().equals(".*.") || botMillController.eventType().equals(FbBotMillEventType.ANY)) {
+							if(botMillController.text().equals(".*.") || botMillController.eventType().equals(FbBotMillEventType.ANY)) {
 								methodMapCatchAll.add(method);
 							}else {
 								FbBotMillEvent event = toEventActionFrame(botMillController);

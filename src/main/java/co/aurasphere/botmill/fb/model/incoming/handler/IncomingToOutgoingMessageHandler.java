@@ -26,16 +26,13 @@ package co.aurasphere.botmill.fb.model.incoming.handler;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-
 import co.aurasphere.botmill.core.BotBeanState;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.annotation.Bot;
 import co.aurasphere.botmill.core.internal.exception.BotMillEventMismatchException;
 import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.FbBotApi;
-import co.aurasphere.botmill.fb.autoreply.MessageAutoReply;
 import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
@@ -73,7 +70,7 @@ public class IncomingToOutgoingMessageHandler {
 	/** The Constant CONST_EVENT_SETNAME. */
 	private static final String CONST_EVENT_SETNAME = "setEvent";
 
-	private List<Method> methodMapCatchAll = new ArrayList<Method>();
+	private List<FbBotClassMethod> methodMapCatchAll = new ArrayList<FbBotClassMethod>();
 	
 	/**
 	 * Creates the handler.
@@ -105,8 +102,9 @@ public class IncomingToOutgoingMessageHandler {
 	 * @param message the message
 	 */
 	private void handleOutgoingMessage(MessageEnvelope message) {
-		methodMapCatchAll = new ArrayList<Method>();
-		for (BotDefinition defClass : ConfigurationUtils.getBotDefinitionInstance()) {
+		methodMapCatchAll = new ArrayList<FbBotClassMethod>();
+		for (BotDefinition defClass : ConfigurationUtils.getBotDefinitionInstances()) {
+			
 			if (defClass.getClass().isAnnotationPresent(Bot.class)) {
 				Bot botClass = defClass.getClass().getAnnotation(Bot.class);
 				if(botClass.state().equals(BotBeanState.PROTOTYPE)) {
@@ -124,8 +122,11 @@ public class IncomingToOutgoingMessageHandler {
 						FbBotMillController botMillController = method.getAnnotation(FbBotMillController.class);
 						
 						try {
-							if(botMillController.text().equals(".*.") || botMillController.eventType().equals(FbBotMillEventType.ANY)) {
-								methodMapCatchAll.add(method);
+							if(botMillController.pattern().equals(".*.") || botMillController.eventType().equals(FbBotMillEventType.ANY)) {
+								FbBotClassMethod fbCm = new FbBotClassMethod();
+								fbCm.setCls(defClass);
+								fbCm.setMethod(method);
+								methodMapCatchAll.add(fbCm);
 							}else {
 								FbBotMillEvent event = toEventActionFrame(botMillController);
 								if (event.verifyEventCondition(message)) {
@@ -142,7 +143,6 @@ public class IncomingToOutgoingMessageHandler {
 			
 									method.invoke(defClass, message);
 									return;
-
 								}
 							}
 						} catch (Exception e) {
@@ -151,34 +151,35 @@ public class IncomingToOutgoingMessageHandler {
 						}
 					}
 				}
-				
-				//	if none passed then check the catch all methods.
-				for(Method catchAllMethod: methodMapCatchAll) {
-					if (catchAllMethod.isAnnotationPresent(FbBotMillController.class)) {
-						FbBotMillController botMillController = catchAllMethod.getAnnotation(FbBotMillController.class);
-						try {
-							
-							FbBotMillEvent event = toEventActionFrame(botMillController);			
-							if (event.verifyEventCondition(message)) {
-								
-								defClass.getClass().getSuperclass()
-										.getDeclaredMethod(CONST_INCOMING_MSG_SETNAME, MessageEnvelope.class)
-										.invoke(defClass, message); 
-								
-								defClass.getClass().getSuperclass()
-										.getDeclaredMethod(CONST_EVENT_SETNAME, FbBotMillEvent.class)
-										.invoke(defClass, event);
-								
-								FbBotApi.setFbBot(defClass);
-								catchAllMethod.invoke(defClass, message);
-								return;
+			}
+		}
+		
+		//	Run the catch all last. This is to ensure that every possible AI logic within the source was 
+		//	scanned and considered.
+		for(FbBotClassMethod catchAllMethod: methodMapCatchAll) {
+			if (catchAllMethod.getMethod().isAnnotationPresent(FbBotMillController.class)) {
+				FbBotMillController botMillController = catchAllMethod.getMethod().getAnnotation(FbBotMillController.class);
+				try {
+					
+					FbBotMillEvent event = toEventActionFrame(botMillController);			
+					if (event.verifyEventCondition(message)) {
+						
+						catchAllMethod.getCls().getClass().getSuperclass()
+								.getDeclaredMethod(CONST_INCOMING_MSG_SETNAME, MessageEnvelope.class)
+								.invoke(catchAllMethod.getCls(), message); 
+						
+						catchAllMethod.getCls().getClass().getSuperclass()
+								.getDeclaredMethod(CONST_EVENT_SETNAME, FbBotMillEvent.class)
+								.invoke(catchAllMethod.getCls(), event);
+						
+						FbBotApi.setFbBot(catchAllMethod.getCls());
+						catchAllMethod.getMethod().invoke(catchAllMethod.getCls(), message);
+						return;
 
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-							return;
-						}
 					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					return;
 				}
 			}
 		}
@@ -247,5 +248,24 @@ public class IncomingToOutgoingMessageHandler {
 		default:
 			throw new BotMillEventMismatchException("Unsupported Event Type: " + botMillController.eventType());
 		}
+	}
+	
+	class FbBotClassMethod {
+		private BotDefinition cls;
+		private Method method;
+		public BotDefinition getCls() {
+			return cls;
+		}
+		public void setCls(BotDefinition cls) {
+			this.cls = cls;
+		}
+		public Method getMethod() {
+			return method;
+		}
+		public void setMethod(Method method) {
+			this.method = method;
+		}
+		
+		
 	}
 }

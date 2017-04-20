@@ -47,14 +47,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * 
  */
 public abstract class FbBot implements BotDefinition {
-	
 
-	/** The Constant FB_BOTMILL_PAGE_TOKEN. */
-	private static final String FB_BOTMILL_PAGE_TOKEN = "fb.page.token";
-	
-	/** The Constant FB_BOTMILL_VALIDATION_TOKEN. */
-	private static final String FB_BOTMILL_VALIDATION_TOKEN = "fb.validation.token";
-	
 	/**
 	 * The logger.
 	 */
@@ -112,30 +105,17 @@ public abstract class FbBot implements BotDefinition {
 		
 		this.botMillPolicy = botmillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
-		this.buildFbBotConfig();
 		this.buildAnnotatedInitBehaviour();
+		
+		
+		// Create the botmill session.
+		botMillSession = BotMillSession.getInstance();
 		
 		FbBotMillContext.getInstance().register(this);
 
 		logger.debug("AbstractFbot - End Initialize");
 	}
 	
-	/**
-	 * Builds the Fb bot config.
-	 *
-	 * @throws BotMillMissingConfigurationException
-	 *             the bot mill missing configuration exception
-	 */
-	private void buildFbBotConfig()  {
-		
-		// Everything goes well, initialize the setup.
-		FbBotMillContext.getInstance().setup(
-				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_PAGE_TOKEN),
-				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_VALIDATION_TOKEN));
-
-		// Create the botmill session.
-		botMillSession = BotMillSession.getInstance();
-	}
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.

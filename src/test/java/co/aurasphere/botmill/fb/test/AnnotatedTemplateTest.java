@@ -107,10 +107,10 @@ public class AnnotatedTemplateTest {
 		
 		List<BotDefinition> botDef = new ArrayList<BotDefinition>();
 		botDef.add(new AnnotatedTemplatedBehaviourTest());
-		
+		ConfigurationUtils.loadBotConfig();
 		ConfigurationUtils.setBotDefinitionInstance(botDef);
 		
-		for(int i=0;i<500;i++) {
+		for(int i=0;i<10;i++) {
 			new Thread(new Runnable() {
 				String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"Hi!\"}}";
 				MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);

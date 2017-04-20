@@ -62,6 +62,7 @@ import co.aurasphere.botmill.fb.support.FbBotMillMonitor;
  * network.
  * 
  * @author Donato Rimenti
+ * @author Alvin Reyes
  */
 public class FbBotMillNetworkController {
 

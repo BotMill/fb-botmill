@@ -26,8 +26,6 @@ package co.aurasphere.botmill.fb;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
@@ -49,14 +47,7 @@ import co.aurasphere.botmill.fb.model.incoming.MessageEnvelope;
  * 
  */
 public abstract class FbBot implements BotDefinition {
-	
 
-	/** The Constant FB_BOTMILL_PAGE_TOKEN. */
-	private static final String FB_BOTMILL_PAGE_TOKEN = "fb.page.token";
-	
-	/** The Constant FB_BOTMILL_VALIDATION_TOKEN. */
-	private static final String FB_BOTMILL_VALIDATION_TOKEN = "fb.validation.token";
-	
 	/**
 	 * The logger.
 	 */
@@ -67,17 +58,14 @@ public abstract class FbBot implements BotDefinition {
 	 * A list of registered {@link FbBotMillEvent} for the current bot.
 	 */
 	private List<ActionFrame> actionFrameList;
-
 	/**
 	 * The policy this bot follows when processing the callback handler list.
 	 */
 	private BotMillPolicy botMillPolicy;
-
 	/**
 	 * The bot mill session.
 	 */
 	private BotMillSession botMillSession;
-
 	/**
 	 * The {@link FbBotMillEvent} object created by this class for each
 	 * annotated method.
@@ -117,32 +105,17 @@ public abstract class FbBot implements BotDefinition {
 		
 		this.botMillPolicy = botmillPolicy;
 		this.actionFrameList = new ArrayList<ActionFrame>();
-		// Create the botmill session.
-		this.buildFbBotConfig();
 		this.buildAnnotatedInitBehaviour();
 		
-		// Registers this bot to the context.
+		
+		// Create the botmill session.
+		botMillSession = BotMillSession.getInstance();
+		
 		FbBotMillContext.getInstance().register(this);
 
 		logger.debug("AbstractFbot - End Initialize");
 	}
 	
-	/**
-	 * Builds the Fb bot config.
-	 *
-	 * @throws BotMillMissingConfigurationException
-	 *             the bot mill missing configuration exception
-	 */
-	private void buildFbBotConfig()  {
-		
-		// Everything goes well, initialize the setup.
-		FbBotMillContext.getInstance().setup(
-				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_PAGE_TOKEN),
-				ConfigurationUtils.getEncryptedConfiguration().getProperty(FB_BOTMILL_VALIDATION_TOKEN));
-
-		// Create the botmill session.
-		botMillSession = BotMillSession.getInstance();
-	}
 
 	/**
 	 * Base constructor. Instantiates a bot and registers it to the context.
@@ -367,11 +340,11 @@ public abstract class FbBot implements BotDefinition {
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "AbstractFbBot [actionFrameList=" + actionFrameList
-				+ ", botMillPolicy=" + botMillPolicy + ", botMillSession="
-				+ botMillSession + ", event=" + event + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "AbstractFbBot [actionFrameList=" + actionFrameList
+//				+ ", botMillPolicy=" + botMillPolicy + ", botMillSession="
+//				+ botMillSession + ", event=" + event + "]";
+//	}
 
 }

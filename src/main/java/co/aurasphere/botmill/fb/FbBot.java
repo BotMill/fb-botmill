@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
 import co.aurasphere.botmill.core.BotDefinition;
 import co.aurasphere.botmill.core.BotMillPolicy;
 import co.aurasphere.botmill.core.BotMillSession;
-import co.aurasphere.botmill.core.internal.util.ConfigurationUtils;
 import co.aurasphere.botmill.fb.actionframe.ActionFrame;
 import co.aurasphere.botmill.fb.autoreply.AutoReply;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;

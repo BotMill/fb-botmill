@@ -113,5 +113,8 @@ public @interface FbBotMillController {
 	 * @return the string
 	 */
 	String meta() default ""; // random text to indicate the purpose.
+	
+	
+	boolean skipAuthorization() default false;
 
 }

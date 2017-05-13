@@ -39,6 +39,7 @@ import co.aurasphere.botmill.fb.event.AnyEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEvent;
 import co.aurasphere.botmill.fb.event.FbBotMillEventType;
 import co.aurasphere.botmill.fb.event.account.AccountLinkingEvent;
+import co.aurasphere.botmill.fb.event.account.ReferralEvent;
 import co.aurasphere.botmill.fb.event.media.AudioEvent;
 import co.aurasphere.botmill.fb.event.media.FileEvent;
 import co.aurasphere.botmill.fb.event.media.ImageEvent;
@@ -83,6 +84,7 @@ public class IncomingToOutgoingMessageHandler {
 		if (instance == null) {
 			instance = new IncomingToOutgoingMessageHandler();
 		}
+		instance = new IncomingToOutgoingMessageHandler();
 		return instance;
 	}
 
@@ -113,7 +115,7 @@ public class IncomingToOutgoingMessageHandler {
 				Bot botClass = defClass.getClass().getAnnotation(Bot.class);
 				if (botClass.state().equals(BotBeanState.PROTOTYPE)) {
 					try {
-						defClass.getClass().newInstance();
+						defClass = defClass.getClass().newInstance();
 					} catch (InstantiationException e) {
 						e.printStackTrace();
 					} catch (IllegalAccessException e) {
@@ -282,6 +284,8 @@ public class IncomingToOutgoingMessageHandler {
 			} else {
 				throw new BotMillEventMismatchException("quickpayload pattern attribute missing");
 			}
+		case REFERRAL:
+			return new ReferralEvent();
 		case ACCOUNT_LINKING:
 			return new AccountLinkingEvent();
 		case LOCATION:

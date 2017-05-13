@@ -151,7 +151,7 @@ public class FbBotMillServlet extends BotMillServlet {
 			throws ServletException, IOException {
 
 		logger.trace("POST received!");
-		MessengerCallback callback = null;
+		MessengerCallback callback = new MessengerCallback();
 
 		// Extrapolates and logs the JSON for debugging.
 		String json = readerToString(req.getReader());
@@ -175,10 +175,6 @@ public class FbBotMillServlet extends BotMillServlet {
 					if (envelopes != null) {
 						MessageEnvelope lastEnvelope = envelopes.get(envelopes.size() - 1);
 						IncomingToOutgoingMessageHandler.getInstance().process(lastEnvelope);
-//						for (FbBot bot : FbBotMillContext.getInstance()
-//								.getRegisteredBots()) {
-//							bot.processMessage(lastEnvelope);
-//						}
 					}
 				}
 			}

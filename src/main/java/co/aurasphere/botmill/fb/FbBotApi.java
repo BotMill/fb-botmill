@@ -26,7 +26,15 @@ public class FbBotApi {
 	 * @param reply the reply
 	 */
 	public static void reply(AutoReply reply) {
-		((FbBot)botDefinition).reply(reply);
+		if(FbBotApi.botDefinition == null) {
+			botDefinition = new FbBotApiBot();
+		}
+		((FbBot)FbBotApi.botDefinition).reply(reply);
 	}
 
+
+}
+class FbBotApiBot extends FbBot implements BotDefinition {
+	public FbBotApiBot() {
+	}
 }

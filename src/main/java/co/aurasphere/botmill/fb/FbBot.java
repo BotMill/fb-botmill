@@ -108,7 +108,6 @@ public abstract class FbBot implements BotDefinition {
 		
 		
 		// Create the botmill session.
-		botMillSession = BotMillSession.getInstance();
 		
 		FbBotMillContext.getInstance().register(this);
 

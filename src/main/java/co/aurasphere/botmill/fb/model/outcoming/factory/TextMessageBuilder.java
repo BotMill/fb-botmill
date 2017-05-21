@@ -77,6 +77,29 @@ public class TextMessageBuilder extends MessageBaseBuilder {
 		this.quickReplies.add(new QuickReply(title, payload));
 		return this;
 	}
+	
+	/**
+	 * Adds a {@link QuickReply} to the current object.
+	 *
+	 * @param title
+	 *            the quick reply button label. It can't be empty.
+	 * @param payload
+	 *            the payload sent back when the button is pressed. It can't be
+	 *            empty.
+	 * @param imageUrl
+	 *            the image to show on the quick reply.
+	 * @return this builder.
+	 * @see <a href=
+	 *      "https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies"
+	 *      > Facebook's Messenger Platform Quick Replies Documentation</a>
+	 */
+	public TextMessageBuilder addQuickReply(String title, String payload, String imageUrl) {
+		if (this.quickReplies == null) {
+			this.quickReplies = new ArrayList<QuickReply>();
+		}
+		this.quickReplies.add(new QuickReply(title, payload, imageUrl));
+		return this;
+	}
 
 	/**
 	 * Adds a {@link QuickReply} to the current object.

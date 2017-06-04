@@ -14,17 +14,17 @@ The FB-BotMill can be imported as a dependency via Maven.
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
 	  <artifactId>fb-botmill</artifactId>
-	  <version>2.0.0-RC1</version>
+	  <version>2.0.0-RC2</version>
 	</dependency>
 
 Gradle
     
-    compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC1'
+    compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC2'
 
 Groovy
 
     @Grapes( 
-        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC1') 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC2') 
     )
     
 Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 

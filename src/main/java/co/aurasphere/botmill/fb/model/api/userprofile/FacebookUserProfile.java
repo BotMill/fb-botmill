@@ -90,7 +90,7 @@ public class FacebookUserProfile implements Serializable {
 	/**
 	 * Timezone, number relative to GMT.
 	 */
-	private int timezone;
+	private String timezone;
 
 	/**
 	 * Gender.
@@ -184,7 +184,7 @@ public class FacebookUserProfile implements Serializable {
 	 *
 	 * @return the {@link #timezone}.
 	 */
-	public int getTimezone() {
+	public String getTimezone() {
 		return timezone;
 	}
 
@@ -194,7 +194,7 @@ public class FacebookUserProfile implements Serializable {
 	 * @param timezone
 	 *            the {@link #timezone} to set.
 	 */
-	public void setTimezone(int timezone) {
+	public void setTimezone(String timezone) {
 		this.timezone = timezone;
 	}
 
@@ -254,7 +254,7 @@ public class FacebookUserProfile implements Serializable {
 		result = prime * result + ((locale == null) ? 0 : locale.hashCode());
 		result = prime * result
 				+ ((profilePic == null) ? 0 : profilePic.hashCode());
-		result = prime * result + timezone;
+		result = prime * result + timezone.hashCode();
 		return result;
 	}
 

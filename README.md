@@ -14,17 +14,17 @@ The FB-BotMill can be imported as a dependency via Maven.
 	<dependency>
 	  <groupId>co.aurasphere.botmill</groupId>
 	  <artifactId>fb-botmill</artifactId>
-	  <version>2.0.0-RC1</version>
+	  <version>2.0.0-RC2</version>
 	</dependency>
 
 Gradle
     
-    compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC1'
+    compile 'co.aurasphere.botmill:fb-botmill:2.0.0-RC2'
 
 Groovy
 
     @Grapes( 
-        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC1') 
+        @Grab(group='co.aurasphere.botmill', module='fb-botmill', version='2.0.0-RC2') 
     )
     
 Other ways to import, visit Maven central repo [site](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fb-botmill%22) 
@@ -93,20 +93,21 @@ fb.validation.token=ENC(<ENCRYPTED_VALIDATION_TOKEN>)
 
 Redeploy and you're good to go.
 
-**3rd: Setup the FbBot Class.**
-Our framework makes it easy and straightforward to define a Facebook Bot Behaviour by tagging classes as behaviour objects. 
-
+**3rd: Setup your BotConfiguration**
+The BotConfiguration class will take care of the one time processes that needs to happen (persistent menus, facebook api authentication etc). Create a FbBotConfiguration below and put all your initial configuration (one time config) on the constructor. This will also initialize the fb authentication.
+ 
 ```java
-@Bot
-public class MyBotClass extends FbBot {
-	@FbBotMillInit
-	public void initialize() {
+@BotConfiguration
+public class MyBotConfiguration extends FbBotConfiguration {
+
+    public MyBotConfiguration() {
+    
 		MessengerProfileApi.setGetStartedButton("get_started");
 		MessengerProfileApi.setGreetingMessage("Hello!");
-
+		
 		List<PersistentMenu> persistentMenus = new ArrayList<PersistentMenu>();
 		PersistentMenu persistentMenu = new PersistentMenu("default", false);
-
+		
 		persistentMenu.addCallToAction(ButtonFactory.createPostbackButton("Menu 1", "menu1"));
 		persistentMenu.addCallToAction(ButtonFactory.createPostbackButton("Menu 2", "menu2"));
 		
@@ -117,14 +118,51 @@ public class MyBotClass extends FbBot {
 		persistentMenu.addCallToAction(theNestedMenu);
 		
 		persistentMenus.add(persistentMenu);
-
+		
 		MessengerProfileApi.setPersistentMenus(persistentMenus);
 		
-	}
+		HomeUrl homeUrl = new HomeUrl();
+		homeUrl.setInTest(true);
+		homeUrl.setUrl("https://extensionlink.co");
+		homeUrl.setWebviewHeightRatio(WebViewHeightRatioType.TALL);
+		homeUrl.setWebviewShareButton(WebViewShareButton.SHOW);
+		
+		MessengerProfileApi.setHomeUrl(homeUrl);
+		
+    }
+    
+}
+```
+ 
+**4th: Setup the FbBot Class/Classes.**
+Our framework makes it easy and straightforward to define a Facebook Bot Behaviour by tagging classes as behaviour objects. 
+
+
+```java
+@Bot
+public class MyBotClass extends FbBot {
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
 	public void sendMessage() {
 		reply(new MessageAutoReply("Hello World!"));
+	}
+}
+
+@Bot(state = BotBeanState.PROTOTYPE) // creates a new instance per call
+public class MyBotClass1 extends FbBot {
+	
+	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
+	public void sendMessage() {
+		reply(new MessageAutoReply("Hello World on BotClass1"));
+	}
+}
+
+@Bot(state = BotBeanState.SINGLETON) // uses the same reference/instance (this is the default).
+public class MyBotClass2 extends FbBot {
+	
+	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
+	public void sendMessage() {
+		reply(new MessageAutoReply("Hello World on BotClass2"));
 	}
 }
 ```
@@ -164,6 +202,8 @@ Visit our docs for a complete list of EventTypes and Response.
 
 **Key components in building your ChatBot**
 - @Bot - annotating a class with @Bot will mark the class as a Facebook ChatBot behaviour. 
+- @BotEncryption - use to create an isolated java class to handle encryption.
+- @BotConfiguration - use to create an isolated java class to handle one time processes that needs to happen before any bots are created.
 - @FbBotMillInit - can be use to annotate a method and invoke it prior to any @FbBotMillController annotated methods. 
 - @FbBotMillController - Use to create a method that catches specific user-driven event (such as user entering a message, selecting a quick reply etc. 
 - FbBot.reply() - allows the developers to create a response based on the @FbBotMillController event. For the list of all events and reply, go to our Wiki page [here](https://github.com/BotMill/fb-botmill/wiki/Code-Snippets)

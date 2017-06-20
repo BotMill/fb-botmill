@@ -124,8 +124,10 @@ public class IncomingToOutgoingMessageHandler {
 				}
 
 				// Check authorization first.
+				boolean authorizationFound = false;
 				for (Method authorizationMethod : defClass.getClass().getMethods()) {
 					if (authorizationMethod.isAnnotationPresent(BotAuthorization.class)) {
+						authorizationFound = true;
 						Boolean ob = false;
 						try {
 
@@ -152,6 +154,11 @@ public class IncomingToOutgoingMessageHandler {
 						}
 					}
 				}
+				
+				if(!authorizationFound) {
+					isAuthorized = true;
+				}
+
 
 				// if (isAuthorized) {
 				for (Method method : defClass.getClass().getMethods()) {

@@ -69,13 +69,13 @@ public abstract class FbBot implements BotDefinition {
 	 * The {@link FbBotMillEvent} object created by this class for each
 	 * annotated method.
 	 */
-	private FbBotMillEvent event;
+	private volatile FbBotMillEvent event;
 	
 	/** The envelope. */
-	private MessageEnvelope envelope;
+	private volatile MessageEnvelope envelope;
 	
 	/** The action frame. */
-	private ActionFrame actionFrame;
+	private volatile ActionFrame actionFrame;
 	
 	/**
 	 * Sets the event.

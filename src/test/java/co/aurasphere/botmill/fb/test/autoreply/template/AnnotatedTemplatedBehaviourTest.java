@@ -143,6 +143,38 @@ public class AnnotatedTemplatedBehaviourTest extends FbBot {
 	
 	}
 
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "reuse image", caseSensitive = true)
+	public void replyWithImageAttachment(MessageEnvelope envelope) {
+		UploadAttachmentResponse response = UploadApi
+				.uploadAttachment(
+						AttachmentType.IMAGE,
+						"http://vignette2.wikia.nocookie.net/nickelodeon/images/2/27/Spongebob_PNG.png/revision/latest?cb=20120702055752");
+		final String attachmentId = response.getAttachmentId();
+		reply(new AutoReply() {
+			
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.getReusableImageAttachment(attachmentId).build(envelope);
+			}
+		});
+	}
+	
+	@FbBotMillController(eventType = FbBotMillEventType.MESSAGE, text = "reuse video", caseSensitive = true)
+	public void replyWithVideoAttachment(MessageEnvelope envelope) {
+		UploadAttachmentResponse response = UploadApi
+				.uploadAttachment(
+						AttachmentType.VIDEO,
+						"http://www.engr.colostate.edu/me/facil/dynamics/files/drop.avi");
+		final String attachmentId = response.getAttachmentId();
+		reply(new AutoReply() {
+			
+			@Override
+			public FbBotMillResponse createResponse(MessageEnvelope envelope) {
+				return ReplyFactory.getReusableVideoAttachment(attachmentId).build(envelope);
+			}
+		});
+	}
+	
 	/**
 	 * Reply text.
 	 */

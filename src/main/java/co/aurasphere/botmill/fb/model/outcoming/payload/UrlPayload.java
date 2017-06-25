@@ -44,7 +44,6 @@ public class UrlPayload implements Payload {
 	/**
 	 * The URL associated with this payload.
 	 */
-	@NotBlank
 	private String url;
 
 	/**

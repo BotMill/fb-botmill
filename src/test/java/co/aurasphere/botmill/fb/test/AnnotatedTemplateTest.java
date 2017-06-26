@@ -77,6 +77,22 @@ public class AnnotatedTemplateTest {
 	}
 	
 	@Test
+	public void testAnnotatedReusableImage() {
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"reuse image\"}}";
+		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
+		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
+		assertNotNull(envelope);
+	}
+	
+	@Test
+	public void testAnnotatedReusableVideo() {
+		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"reuse video\"}}";
+		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);
+		IncomingToOutgoingMessageHandler.getInstance().process(envelope);
+		assertNotNull(envelope);
+	}
+	
+	@Test
 	public void testAnnotatedReceiptTemplateBot() {
 		String json = "{\"sender\":{\"id\":\"1158621824216736\"},\"recipient\":{\"id\":\"1226565047419159\"},\"timestamp\":1490832021661,\"message\":{\"mid\":\"mid.$cAAUPCFn4ymdhTcignVbHH3rzpKd_\",\"seq\":844819,\"text\":\"receipt template\"}}";
 		MessageEnvelope envelope = FbBotMillJsonUtils.fromJson(json, MessageEnvelope.class);

@@ -90,7 +90,7 @@ public class FbBotMillNetworkConstants {
 	/**
 	 * Facebook's base URL used to POST data.
 	 */
-	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.7/";
+	public static final String FACEBOOK_BASE_URL = "https://graph.facebook.com/v2.9/";
 
 	/**
 	 * Facebook's REST path for the Send API.

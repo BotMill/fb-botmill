@@ -28,7 +28,6 @@ import co.aurasphere.botmill.fb.model.base.Payload;
 
 import com.google.gson.annotations.SerializedName;
 
-
 /**
  * A {@link Payload} used for an {@link Attachment}.
  * 
@@ -41,6 +40,10 @@ public class AttachmentPayload extends UrlPayload {
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/** The attachment id. */
+	@SerializedName("attachment_id")
+	private String attachmentId;
 
 	/**
 	 * Flag that indicates whether this attachment can be reused. Used only with
@@ -49,6 +52,10 @@ public class AttachmentPayload extends UrlPayload {
 	@SerializedName("is_reusable")
 	private boolean isReusable;
 
+	
+	public AttachmentPayload() {
+	}
+	
 	/**
 	 * Instantiates a new AttachmentPayload.
 	 *
@@ -90,6 +97,26 @@ public class AttachmentPayload extends UrlPayload {
 	public void setReusable(boolean isReusable) {
 		this.isReusable = isReusable;
 	}
+	
+	
+
+	/**
+	 * Gets the attachment id.
+	 *
+	 * @return the attachment id
+	 */
+	public String getAttachmentId() {
+		return attachmentId;
+	}
+
+	/**
+	 * Sets the attachment id.
+	 *
+	 * @param attachmentId the new attachment id
+	 */
+	public void setAttachmentId(String attachmentId) {
+		this.attachmentId = attachmentId;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -104,6 +131,8 @@ public class AttachmentPayload extends UrlPayload {
 		result = prime * result + (isReusable ? 1231 : 1237);
 		return result;
 	}
+	
+	
 
 	/*
 	 * (non-Javadoc)

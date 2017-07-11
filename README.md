@@ -143,7 +143,7 @@ Our framework makes it easy and straightforward to define a Facebook Bot Behavio
 public class MyBotClass extends FbBot {
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
-	public void sendMessage() {
+	public void sendMessage(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("Hello World!"));
 	}
 }
@@ -152,7 +152,7 @@ public class MyBotClass extends FbBot {
 public class MyBotClass1 extends FbBot {
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
-	public void sendMessage() {
+	public void sendMessage(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("Hello World on BotClass1"));
 	}
 }
@@ -161,7 +161,7 @@ public class MyBotClass1 extends FbBot {
 public class MyBotClass2 extends FbBot {
 	
 	@FbBotMillController(eventType=FbBotMillEventType.MESSAGE, text="Hi",caseSensitive = true)
-	public void sendMessage() {
+	public void sendMessage(MessageEnvelope envelope) {
 		reply(new MessageAutoReply("Hello World on BotClass2"));
 	}
 }
